@@ -1,0 +1,10 @@
+snippet tmplog
+	with open('/tmp/log.log', 'a+') as f:
+		f.write('%s\n' % ${0})
+snippet logstack
+	with open('/tmp/log.log', 'a+') as f:
+		import inspect
+		stack = inspect.stack()
+		for frame in stack:
+			f.write('%s\n' % str(frame))
+
