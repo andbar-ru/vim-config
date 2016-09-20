@@ -95,6 +95,9 @@ set iminsert=0
 set imsearch=0
 
 set foldenable
+if !has('gui_running')
+    set foldlevelstart=99
+endif
 set foldmethod=indent
 set foldminlines=3
 set foldnestmax=3
