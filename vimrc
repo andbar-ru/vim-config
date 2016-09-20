@@ -12,8 +12,10 @@ Plug 'nathanaelkane/vim-indent-guides'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-abolish'
-Plug 'tpope/vim-fugitive'
-Plug 'airblade/vim-gitgutter'
+if executable('git')
+    Plug 'tpope/vim-fugitive'
+    Plug 'airblade/vim-gitgutter'
+endif
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'andbar-ru/python-syntax'
@@ -29,7 +31,9 @@ Plug 'pangloss/vim-javascript'
 Plug 'danro/rename.vim'
 "Plug 'jiangmiao/auto-pairs'
 Plug 'JarrodCTaylor/vim-reflection'
-Plug 'jlanzarotta/bufexplorer'
+if version > 703  " 7.3
+    Plug 'jlanzarotta/bufexplorer'
+endif
 call plug#end()
 
 let g:highlightTrailingSpace = 1
