@@ -1,5 +1,5 @@
 let g:plug_window='topleft'
-call plug#begin()
+silent! call plug#begin()
 " colorschemes
 Plug 'morhetz/gruvbox'
 Plug 'altercation/vim-colors-solarized'
