@@ -129,9 +129,10 @@ imap <F12> <Esc>:bNext<CR>i
 map <Leader>df dt(ds(
 " Удаление окружающих тегов
 map <Leader>dt dit"_datP
+map <A--> :ToggleDashInIskeyword<CR>
 
 " Commands
-map <A--> :ToggleDashInIskeyword<CR>
+map <Leader>gd :silent !gvimdiff -n % -c "Gvdiff"<CR>
 
 " Plugins
 imap <C-J> <Plug>snipMateNextOrTrigger
@@ -139,4 +140,3 @@ smap <C-J> <Plug>snipMateNextOrTrigger
 
 " fugitive
 map <Leader>gb :Gblame<CR>A
-map <Leader>gd :silent !gvimdiff -n % -c "Gvdiff"<CR>
