@@ -133,6 +133,7 @@ map <A--> :ToggleDashInIskeyword<CR>
 
 " Commands
 map <Leader>gd :silent !gvimdiff -n % -c "Gvdiff"<CR>
+map <A-d> :ClearAndSave<CR>
 
 " Plugins
 imap <C-J> <Plug>snipMateNextOrTrigger
