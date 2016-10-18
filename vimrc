@@ -100,9 +100,7 @@ set iminsert=0
 set imsearch=0
 
 set foldenable
-if !has('gui_running')
-    set foldlevelstart=99
-endif
+set foldlevelstart=99
 set foldmethod=indent
 set foldminlines=3
 set foldnestmax=3
@@ -125,5 +123,3 @@ let g:xmledit_enable_html = 1
 let g:python_highlight_all = 1
 
 let g:gitgutter_signs = 0
-
-
