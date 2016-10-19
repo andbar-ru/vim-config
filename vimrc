@@ -100,7 +100,10 @@ set iminsert=0
 set imsearch=0
 
 set foldenable
-set foldlevelstart=99
+let b:filepath = expand('%:p')
+if !has('gui_running') || ((b:filepath != '') && (winheight(0) > system('wc -l <' . b:filepath)))
+    set foldlevelstart=99
+endif
 set foldmethod=indent
 set foldminlines=3
 set foldnestmax=3
