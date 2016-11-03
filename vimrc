@@ -35,6 +35,7 @@ if version > 703  " 7.3
     Plug 'jlanzarotta/bufexplorer'
 endif
 Plug 'jeetsukumaran/vim-indentwise'
+Plug 'dzeban/vim-log-syntax'
 call plug#end()
 
 let g:highlightTrailingSpace = 1
