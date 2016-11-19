@@ -84,7 +84,6 @@ set smarttab
 set expandtab
 set autoindent
 set copyindent
-set smartindent
 set nostartofline
 set whichwrap+=<,>,[,]
 set listchars=tab:»\ ,trail:·,eol:¶
