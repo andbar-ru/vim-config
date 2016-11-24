@@ -131,6 +131,12 @@ map <Leader>df dt(ds(
 map <Leader>dt dit"_datP
 map <A--> :ToggleDashInIskeyword<CR>
 
+"Поиск выделенного текста в соседних окнах
+vmap <Leader>/h <C-w>h/<C-r>*<CR>
+vmap <Leader>/j <C-w>j/<C-r>*<CR>
+vmap <Leader>/k <C-w>k/<C-r>*<CR>
+vmap <Leader>/l <C-w>l/<C-r>*<CR>
+
 " Commands
 map <Leader>gd :silent !gvimdiff -n % -c "Gvdiff"<CR>
 map <A-d> :ClearAndSave<CR>
