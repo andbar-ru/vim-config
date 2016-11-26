@@ -19,6 +19,7 @@ endif
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'andbar-ru/python-syntax'
+Plug 'andbar-ru/vim-python-pep8-indent'
 Plug 'tmhedberg/matchit'
 Plug 'voithos/vim-python-matchit'
 Plug 'MarcWeber/vim-addon-mw-utils'
@@ -29,8 +30,8 @@ Plug 'sukima/xmledit'
 Plug 'ervandew/supertab'
 Plug 'pangloss/vim-javascript'
 Plug 'danro/rename.vim'
-"Plug 'jiangmiao/auto-pairs'
-Plug 'JarrodCTaylor/vim-reflection'
+Plug 'jiangmiao/auto-pairs'
+"Plug 'JarrodCTaylor/vim-reflection'
 if version > 703  " 7.3
     Plug 'jlanzarotta/bufexplorer'
 endif
@@ -46,7 +47,7 @@ source $HOME/.vim/commands.vim
 source $HOME/.vim/maps.vim
 source $HOME/.vim/autocmds.vim
 
-" Colorscheme
+"" Colorscheme
 if $USER == 'root'
     set background=dark
 else
@@ -123,6 +124,7 @@ let g:SuperTabNoCompleteAfter = ['\s', ':', ')', ']', '}', "'", '"', '^']
 
 let g:xmledit_enable_html = 1
 
+let g:python_pep8_indent_multiline_string=-1
 let g:python_highlight_all = 1
 
 let g:gitgutter_signs = 0
