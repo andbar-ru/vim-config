@@ -5,8 +5,8 @@ endif
 
 augroup filetypes
     autocmd!
-    autocmd FileType python set ts=4 sw=4 nowrap
-    autocmd FileType html set ts=2 sw=2
-    autocmd FileType php set ts=2 sw=2
+    autocmd FileType python setlocal ts=4 sw=4 nowrap
+    autocmd FileType html setlocal ts=2 sw=2 ft=htmldjango indentexpr=
+    autocmd FileType php setlocal ts=2 sw=2
 augroup END
 
