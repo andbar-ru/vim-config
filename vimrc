@@ -30,8 +30,8 @@ Plug 'sukima/xmledit'
 Plug 'ervandew/supertab'
 Plug 'pangloss/vim-javascript'
 Plug 'danro/rename.vim'
-Plug 'jiangmiao/auto-pairs'
-"Plug 'JarrodCTaylor/vim-reflection'
+"Plug 'jiangmiao/auto-pairs'
+Plug 'JarrodCTaylor/vim-reflection'
 if version > 703  " 7.3
     Plug 'jlanzarotta/bufexplorer'
 endif
