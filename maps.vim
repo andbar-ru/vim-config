@@ -137,6 +137,10 @@ vmap <Leader>/j <C-w>j/<C-r>*<CR>
 vmap <Leader>/k <C-w>k/<C-r>*<CR>
 vmap <Leader>/l <C-w>l/<C-r>*<CR>
 
+"Django templates
+imap <A-{> {{<Space>
+imap <A-%> {%%<Left><Space><Space><Left>
+
 " Commands
 map <Leader>gd :silent !gvimdiff -n % -c "Gvdiff"<CR>
 map <A-d> :ClearAndSave<CR>
