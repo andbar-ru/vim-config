@@ -1,6 +1,8 @@
 set guifont=Dejavu\ Sans\ Mono\ 8
 set guioptions-=m
 set guioptions-=T
+"Disable second scrollbar to avoid window resizing when vertical splitting
+set guioptions-=L
 set guicursor+=a:blinkon0
 
 set mousefocus
