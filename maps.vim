@@ -30,6 +30,9 @@ imap <S-F5> <Esc>:buffers<CR>:edit #
 map <F6> :NERDTreeToggle<CR>
 imap <F6> <C-o>:NERDTreeToggle<CR>
 
+map <F7> :TagbarToggle<CR>
+imap <F7> <C-o>:TagbarToggle<CR>
+
 map <F8> :marks abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ<CR>:'
 imap <F8>   <Esc>:marks abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ<CR>:'
 map <S-F8> :syntax sync fromstart<CR>

@@ -18,6 +18,7 @@ if executable('git')
 endif
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
+Plug 'majutsushi/tagbar'
 Plug 'andbar-ru/python-syntax'
 Plug 'andbar-ru/vim-python-pep8-indent'
 Plug 'tmhedberg/matchit'
