@@ -1,5 +1,5 @@
-map <silent> <F2> :w<CR>
-imap <silent> <F2> <C-o>:w<CR>
+map <silent> <F2> :silent w<CR>
+imap <silent> <F2> <C-o>:silent w<CR>
 nmap <S-F2> :wa<Bar>exe "mksession! " . v:this_session<CR>
 
 " Переключение языка и переход к парному буферу
@@ -33,9 +33,10 @@ imap <F6> <C-o>:NERDTreeToggle<CR>
 map <F7> :TagbarToggle<CR>
 imap <F7> <C-o>:TagbarToggle<CR>
 
-map <F8> :marks abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ<CR>:'
-imap <F8>   <Esc>:marks abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ<CR>:'
-map <S-F8> :syntax sync fromstart<CR>
+map <F8> :marks abcdefghijklmnopqrstuvwxyz<CR>:'
+imap <F8>   <Esc>:marks abcdefghijklmnopqrstuvwxyz<CR>:'
+map <S-F8> :marks abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ<CR>:'
+imap <S-F8>   <Esc>:marks abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ<CR>:'
 
 map <F9> :GitGutterSignsToggle<CR>
 map <S-F9> :GitGutterLineHighlightsToggle<CR>
