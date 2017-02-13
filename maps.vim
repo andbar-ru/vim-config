@@ -56,6 +56,12 @@ map <Char-172> <C-w><
 imap <Char-172> <Esc><C-w><
 map <Char-174> <C-w>>
 imap <Char-174> <Esc><C-w>>
+for c in ["1","2","3","4","5","6","7","8"]
+    exe "map <A-" . c . "> " . c . "gt"
+    exe "imap <A-" . c . "> <Esc>" . c . "gt"
+endfor
+map <A-9> :tablast<CR>
+imap <A-9> <Esc>:tablast<CR>
 
 nmap <CR> o<Esc>
 nmap <S-CR> O<Esc>
