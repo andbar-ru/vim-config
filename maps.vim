@@ -1,5 +1,5 @@
-map <silent> <F2> :silent w<CR>
-imap <silent> <F2> <C-o>:silent w<CR>
+map <silent> <F2> :silent update<CR>
+imap <silent> <F2> <C-o>:silent update<CR>
 nmap <S-F2> :wa<Bar>exe "mksession! " . v:this_session<CR>
 
 " Переключение языка и переход к парному буферу

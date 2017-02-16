@@ -6,5 +6,5 @@ command FormatXml :%!xmllint -format -
 command FormatJson :%!python -m json.tool
 
 command ToggleDashInIskeyword if &iskeyword !~ 45 | set iskeyword+=45 | else | set iskeyword-=45 | endif
-command ClearAndSave :execute "normal gg0dG" | :w
+command ClearAndSave :execute "normal gg0dG" | :update
 command SyntaxSync :syntax sync fromstart
