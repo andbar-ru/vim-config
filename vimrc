@@ -92,6 +92,7 @@ set listchars=tab:»\ ,trail:·,eol:¶
 set showbreak=↳\ 
 set updatetime=1000
 set gdefault
+set pastetoggle=<A-p>
 
 if exists('+colorcolumn')
     set colorcolumn=100

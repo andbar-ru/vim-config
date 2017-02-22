@@ -122,7 +122,7 @@ map <A-y> "+y
 vmap gy y`]
 imap <A-w> <Esc>yvb`]a
 imap <S-A-w> <Esc>yvB`]a
-imap <C-v> <C-r>"
+imap <C-v> <A-p><C-o>"*p<A-p><Esc>v']=']a
 
 map <A-t> :tabnew<CR>
 imap <A-t> <Esc>:tabnew<CR>
