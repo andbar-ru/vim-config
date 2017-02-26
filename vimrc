@@ -93,6 +93,7 @@ set showbreak=↳\
 set updatetime=1000
 set gdefault
 set pastetoggle=<A-p>
+set directory=$HOME/.vim/swapfiles//
 
 if exists('+colorcolumn')
     set colorcolumn=100
