@@ -147,6 +147,9 @@ vmap <Leader>/j <C-w>j/<C-r>*<CR>
 vmap <Leader>/k <C-w>k/<C-r>*<CR>
 vmap <Leader>/l <C-w>l/<C-r>*<CR>
 
+" Сколько раз слово под курсором встречается в файле
+nmap <Leader>* *<C-o>:%s///n<CR><C-o>
+
 "Django templates
 imap <A-{> {{<Space>
 imap <A-%> {%%<Left><Space><Space><Left>
