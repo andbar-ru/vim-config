@@ -41,8 +41,8 @@ imap <S-F8>   <Esc>:marks abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ<C
 map <F9> :GitGutterSignsToggle<CR>
 map <S-F9> :GitGutterLineHighlightsToggle<CR>
 
-map <S-F10> :call Menu()<CR>
-imap <S-F10> <C-o>:call Menu()<CR>
+map <S-F10> :ToggleMenu<CR>
+imap <S-F10> <C-o>:ToggleMenu<CR>
 
 
 " Управление окнами, буферами, вкладками
@@ -140,6 +140,9 @@ map <Leader>df dt(ds(
 " Удаление окружающих тегов
 map <Leader>dt dit"_datP
 map <A--> :ToggleDashInIskeyword<CR>
+
+" Включение/выключение правого скроллбара
+map <A-s> :ToggleScrollbar<CR>
 
 "Поиск выделенного текста в соседних окнах
 vmap <Leader>/h <C-w>h/<C-r>*<CR>

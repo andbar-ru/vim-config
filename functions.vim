@@ -1,11 +1,3 @@
-function Menu()
-	if &guioptions =~ "m"
-		exec "set guioptions-=m"
-	else
-		exec "set guioptions+=m"
-	endif
-endfunction
-
 function HiTrail(on)
     if a:on == 1
         highlight! link trailingSpace CursorLine
