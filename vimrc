@@ -38,6 +38,7 @@ if version > 703  " 7.3
 endif
 Plug 'jeetsukumaran/vim-indentwise'
 Plug 'dzeban/vim-log-syntax'
+Plug 'vim-syntastic/syntastic'
 call plug#end()
 
 let g:highlightTrailingSpace = 1
@@ -131,3 +132,13 @@ let g:python_pep8_indent_multiline_string=-1
 let g:python_highlight_all = 1
 
 let g:gitgutter_signs = 0
+
+" Syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
