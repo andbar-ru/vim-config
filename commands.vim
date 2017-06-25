@@ -8,5 +8,6 @@ command FormatJson :%!python -m json.tool
 command ToggleDashInIskeyword if &iskeyword !~ 45 | set iskeyword+=45 | else | set iskeyword-=45 | endif
 command ToggleMenu if &guioptions=~"m" | set guioptions-=m | else | set guioptions+=m | endif
 command ToggleScrollbar if &guioptions=~"r" | set guioptions-=r | else | set guioptions+=r | endif
+command ToggleSyntastic if !exists('g:syntastic_mode_map_bak') | let g:syntastic_mode_map_bak = g:syntastic_mode_map | let g:syntastic_mode_map = {'mode':'passive'} | else | let g:syntastic_mode_map = g:syntastic_mode_map_bak | unlet g:syntastic_mode_map_bak | endif
 command ClearAndSave :execute "normal gg0dG" | :update
 command SyntaxSync :syntax sync fromstart

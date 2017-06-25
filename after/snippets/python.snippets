@@ -2,6 +2,11 @@ snippet tmplog
 	with open('/tmp/log.log', 'a+') as f:
 		f.write('%s\n' % ${0})
 
+snippet tmpflog
+	from pprint import pformat
+	with open('/tmp/log.log', 'a+') as f:
+		f.write('%s\n' % pformat(${0}))
+
 snippet logstack
 	with open('/tmp/log.log', 'a+') as f:
 		import inspect
