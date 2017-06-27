@@ -1,5 +1,5 @@
 let g:plug_window='topleft'
-silent! call plug#begin('~/.vim/plugged')
+silent! call plug#begin()
 " colorschemes
 Plug 'morhetz/gruvbox'
 Plug 'altercation/vim-colors-solarized'
@@ -45,6 +45,7 @@ let g:highlightTrailingSpace = 1
 
 " Includes
 let $VIMRCDIR = expand('<sfile>:p:h')
+source $VIMRUNTIME/defaults.vim  " for windows
 source $VIMRCDIR/functions.vim
 source $VIMRCDIR/commands.vim
 source $VIMRCDIR/maps.vim
