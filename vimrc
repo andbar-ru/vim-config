@@ -44,10 +44,11 @@ call plug#end()
 let g:highlightTrailingSpace = 1
 
 " Includes
-source $HOME/.vim/functions.vim
-source $HOME/.vim/commands.vim
-source $HOME/.vim/maps.vim
-source $HOME/.vim/autocmds.vim
+let $VIMRCDIR = expand('<sfile>:p:h')
+source $VIMRCDIR/functions.vim
+source $VIMRCDIR/commands.vim
+source $VIMRCDIR/maps.vim
+source $VIMRCDIR/autocmds.vim
 
 "" Colorscheme
 if $USER == 'root'
@@ -94,7 +95,7 @@ set showbreak=↳\
 set updatetime=1000
 set gdefault
 set pastetoggle=<A-p>
-set directory=$HOME/.vim/swapfiles//
+set directory=$VIMRCDIR/swapfiles/
 
 if exists('+colorcolumn')
     set colorcolumn=100

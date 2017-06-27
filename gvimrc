@@ -1,4 +1,8 @@
-set guifont=Dejavu\ Sans\ Mono\ 8
+if has('gui_win32')
+    set guifont=Terminus:h8
+else
+    set guifont=Dejavu\ Sans\ Mono\ 8
+endif
 set guioptions-=m
 set guioptions-=T
 "Disable scrollbars
