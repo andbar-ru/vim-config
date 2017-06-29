@@ -41,11 +41,15 @@ Plug 'dzeban/vim-log-syntax'
 Plug 'vim-syntastic/syntastic'
 call plug#end()
 
+if has('win32')
+    source $VIMRUNTIME/defaults.vim
+    let $LANG = 'en'
+endif
+
 let g:highlightTrailingSpace = 1
 
 " Includes
 let $VIMRCDIR = expand('<sfile>:p:h')
-source $VIMRUNTIME/defaults.vim  " for windows
 source $VIMRCDIR/functions.vim
 source $VIMRCDIR/commands.vim
 source $VIMRCDIR/maps.vim

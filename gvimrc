@@ -1,5 +1,5 @@
-if has('gui_win32')
-    set guifont=Terminus:h8
+if has('win32')
+    set guifont=Terminus:h8  " set Consolas:h8 to display cyrillic symbols
 else
     set guifont=Dejavu\ Sans\ Mono\ 8
 endif
