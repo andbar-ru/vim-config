@@ -44,6 +44,7 @@ call plug#end()
 if has('win32')
     source $VIMRUNTIME/defaults.vim
     let $LANG = 'en'
+    set encoding=utf-8  " To enable maps with Alt key
 endif
 
 let g:highlightTrailingSpace = 1
