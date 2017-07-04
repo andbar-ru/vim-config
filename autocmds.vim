@@ -1,4 +1,4 @@
-autocmd VimLeavePre * silent mksession! ~/.vim/sessions/lastSession.vim
+autocmd VimLeavePre * silent mksession! $VIMRCDIR/sessions/lastSession.vim
 if exists('g:highlightTrailingSpace')
     autocmd BufNew,BufRead * call HiTrail(g:highlightTrailingSpace)
 endif
