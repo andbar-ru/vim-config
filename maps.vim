@@ -86,18 +86,18 @@ inoremap <expr> <A-v> '<Esc>`[' . strpart(getregtype(), 0, 1) . '`]'
 " Выполнение команды для каждой выделенной строки
 vnoremap <A-n> :norm<Space>
 " Перемещение строк вверх и вниз (на предмет соответствия отступам см. ==)
-nnoremap <A-j> :m+<CR>
-nnoremap <A-Down> :m+<CR>
-nnoremap <A-k> :m-2<CR>
-nnoremap <A-Up> :m-2<CR>
-inoremap <A-j> <Esc>:m+<CR>gi
-inoremap <A-Down> <Esc>:m+<CR>gi
-inoremap <A-k> <Esc>:m-2<CR>gi
-inoremap <A-Up> <Esc>:m-2<CR>gi
-vnoremap <A-j> :m'>+<CR>gvgv
-vnoremap <A-Down> :m'>+<CR>gvgv
-vnoremap <A-k> :m-2<CR>gvgv
-vnoremap <A-Up> :m-2<CR>gvgv
+nnoremap <A-j> :let prev_fdm=&fdm<bar>set fdm=manual<bar>m+<bar>let &fdm=prev_fdm<CR>
+nnoremap <A-Down> :let prev_fdm=&fdm<bar>set fdm=manual<bar>m+<bar>let &fdm=prev_fdm<CR>
+nnoremap <A-k> :let prev_fdm=&fdm<bar>set fdm=manual<bar>m-2<bar>let &fdm=prev_fdm<CR>
+nnoremap <A-Up> :let prev_fdm=&fdm<bar>set fdm=manual<bar>m-2<bar>let &fdm=prev_fdm<CR>
+inoremap <A-j> <Esc>:let prev_fdm=&fdm<bar>set fdm=manual<bar>m+<bar>let &fdm=prev_fdm<CR>gi
+inoremap <A-Down> <Esc>:let prev_fdm=&fdm<bar>set fdm=manual<bar>m+<bar>let &fdm=prev_fdm<CR>gi
+inoremap <A-k> <Esc>:let prev_fdm=&fdm<bar>set fdm=manual<bar>m-2<bar>let &fdm=prev_fdm<CR>gi
+inoremap <A-Up> <Esc>:let prev_fdm=&fdm<bar>set fdm=manual<bar>m-2<bar>let &fdm=prev_fdm<CR>gi
+vnoremap <A-j> :let prev_fdm=&fdm<bar>set fdm=manual<bar>m'>+<bar>let &fdm=prev_fdm<CR>gvgv
+vnoremap <A-Down> :let prev_fdm=&fdm<bar>set fdm=manual<bar>m'>+<bar>let &fdm=prev_fdm<CR>gvgv
+vnoremap <A-k> :let prev_fdm=&fdm<bar>set fdm=manual<bar>m-2<bar>let &fdm=prev_fdm<CR>gvgv
+vnoremap <A-Up> :let prev_fdm=&fdm<bar>set fdm=manual<bar>m-2<bar>let &fdm=prev_fdm<CR>gvgv
 " Удаление
 inoremap <S-BS> <C-W>
 cnoremap <S-BS> <C-W>
