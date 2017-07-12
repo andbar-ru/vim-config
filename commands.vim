@@ -5,7 +5,7 @@ command HiGroupUnderCursor :echo "hi<" . synIDattr(synID(line("."),col("."),1),"
 
 command FormatXml :%!xmllint -format -
 command FormatJson :%!python -m json.tool
-command RefineChessMoves :s/{[^}]*}//<bar>s/\(\d\.\)\@<= //
+command RefineChessMoves :silent s/ {[^}]*}//<bar>s/\(\d\.\)\@<= //
 
 command ToggleDashInIskeyword if &iskeyword !~ 45 | set iskeyword+=45 | else | set iskeyword-=45 | endif
 command ToggleMenu if &guioptions=~"m" | set guioptions-=m | else | set guioptions+=m | endif
