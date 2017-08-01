@@ -39,6 +39,7 @@ endif
 Plug 'jeetsukumaran/vim-indentwise'
 Plug 'dzeban/vim-log-syntax'
 Plug 'vim-syntastic/syntastic'
+Plug 'PProvost/vim-ps1'
 call plug#end()
 
 if has('win32')
