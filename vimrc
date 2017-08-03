@@ -51,7 +51,7 @@ endif
 let g:highlightTrailingSpace = 1
 
 " Includes
-let $VIMRCDIR = expand('<sfile>:p:h')
+let $VIMRCDIR = fnamemodify(resolve(expand('<sfile>:p')), ':h')
 source $VIMRCDIR/functions.vim
 source $VIMRCDIR/commands.vim
 source $VIMRCDIR/maps.vim
