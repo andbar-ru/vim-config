@@ -1,5 +1,7 @@
 *.swp
 *.swo
 plugged
-sessions
-swapfiles
+sessions/*
+!sessions/.gitkeep
+swapfiles/*
+!swapfiles/.gitkeep
