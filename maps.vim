@@ -86,18 +86,18 @@ inoremap <expr> <A-v> '<Esc>`[' . strpart(getregtype(), 0, 1) . '`]'
 " Выполнение команды для каждой выделенной строки
 vnoremap <A-n> :norm<Space>
 " Перемещение строк вверх и вниз (на предмет соответствия отступам см. ==)
-nnoremap <A-j> :let prev_fdm=&fdm<bar>set fdm=manual<bar>m+<bar>let &fdm=prev_fdm<CR>
-nnoremap <A-Down> :let prev_fdm=&fdm<bar>set fdm=manual<bar>m+<bar>let &fdm=prev_fdm<CR>
-nnoremap <A-k> :let prev_fdm=&fdm<bar>set fdm=manual<bar>m-2<bar>let &fdm=prev_fdm<CR>
-nnoremap <A-Up> :let prev_fdm=&fdm<bar>set fdm=manual<bar>m-2<bar>let &fdm=prev_fdm<CR>
-inoremap <A-j> <Esc>:let prev_fdm=&fdm<bar>set fdm=manual<bar>m+<bar>let &fdm=prev_fdm<CR>gi
-inoremap <A-Down> <Esc>:let prev_fdm=&fdm<bar>set fdm=manual<bar>m+<bar>let &fdm=prev_fdm<CR>gi
-inoremap <A-k> <Esc>:let prev_fdm=&fdm<bar>set fdm=manual<bar>m-2<bar>let &fdm=prev_fdm<CR>gi
-inoremap <A-Up> <Esc>:let prev_fdm=&fdm<bar>set fdm=manual<bar>m-2<bar>let &fdm=prev_fdm<CR>gi
-vnoremap <A-j> :let prev_fdm=&fdm<bar>set fdm=manual<bar>m'>+<bar>let &fdm=prev_fdm<CR>gvgv
-vnoremap <A-Down> :let prev_fdm=&fdm<bar>set fdm=manual<bar>m'>+<bar>let &fdm=prev_fdm<CR>gvgv
-vnoremap <A-k> :let prev_fdm=&fdm<bar>set fdm=manual<bar>m-2<bar>let &fdm=prev_fdm<CR>gvgv
-vnoremap <A-Up> :let prev_fdm=&fdm<bar>set fdm=manual<bar>m-2<bar>let &fdm=prev_fdm<CR>gvgv
+nnoremap <silent> <A-j> :let prev_fdm=&fdm<bar>set fdm=manual<bar>m+<bar>let &fdm=prev_fdm<CR>
+nnoremap <silent> <A-Down> :let prev_fdm=&fdm<bar>set fdm=manual<bar>m+<bar>let &fdm=prev_fdm<CR>
+nnoremap <silent> <A-k> :let prev_fdm=&fdm<bar>set fdm=manual<bar>m-2<bar>let &fdm=prev_fdm<CR>
+nnoremap <silent> <A-Up> :let prev_fdm=&fdm<bar>set fdm=manual<bar>m-2<bar>let &fdm=prev_fdm<CR>
+inoremap <silent> <A-j> <Esc>:let prev_fdm=&fdm<bar>set fdm=manual<bar>m+<bar>let &fdm=prev_fdm<CR>gi
+inoremap <silent> <A-Down> <Esc>:let prev_fdm=&fdm<bar>set fdm=manual<bar>m+<bar>let &fdm=prev_fdm<CR>gi
+inoremap <silent> <A-k> <Esc>:let prev_fdm=&fdm<bar>set fdm=manual<bar>m-2<bar>let &fdm=prev_fdm<CR>gi
+inoremap <silent> <A-Up> <Esc>:let prev_fdm=&fdm<bar>set fdm=manual<bar>m-2<bar>let &fdm=prev_fdm<CR>gi
+vnoremap <silent> <A-j> :let prev_fdm=&fdm<bar>set fdm=manual<bar>m'>+<bar>let &fdm=prev_fdm<CR>gvgv
+vnoremap <silent> <A-Down> :let prev_fdm=&fdm<bar>set fdm=manual<bar>m'>+<bar>let &fdm=prev_fdm<CR>gvgv
+vnoremap <silent> <A-k> :let prev_fdm=&fdm<bar>set fdm=manual<bar>m-2<bar>let &fdm=prev_fdm<CR>gvgv
+vnoremap <silent> <A-Up> :let prev_fdm=&fdm<bar>set fdm=manual<bar>m-2<bar>let &fdm=prev_fdm<CR>gvgv
 " Удаление
 inoremap <S-BS> <C-W>
 cnoremap <S-BS> <C-W>
