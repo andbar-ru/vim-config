@@ -80,6 +80,7 @@ set autowrite
 set mouse=a
 set splitbelow
 set splitright
+set cryptmethod=blowfish2
 
 " Команды копирования и удаления помещают в регистр "*
 set clipboard=unnamed
