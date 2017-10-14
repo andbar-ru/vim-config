@@ -16,7 +16,8 @@ set mousemodel=popup
 " Initial size of gvim window
 let hostname = substitute(system('hostname'), '\n', '', '')
 if hostname == 'asus'
-    set lines=23 columns=80
+    set lines=25 columns=95
+    set gfn=Dejavu\ Sans\ Mono\ 7
 else
     set lines=23 columns=100
 endif

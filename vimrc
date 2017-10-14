@@ -151,4 +151,8 @@ let g:syntastic_mode_map = {
     \ "mode": "passive",
     \ "active_filetypes": ["python"],
     \ "passive_filetypes": [] }
-let g:syntastic_python_python_exec = '/usr/bin/python3'
+if executable('python3.6')
+  let g:syntastic_python_python_exec = 'python3.6'
+else
+  let g:syntastic_python_python_exec = 'python3'
+endif
