@@ -124,6 +124,7 @@ imap <A-0> <C-o>:vertical resize 100<CR>
 map Y y$
 map <A-y> "+y
 vmap gy y`]
+map <S-A-y> :%y+<CR>
 imap <A-w> <Esc>yvb`]a
 imap <S-A-w> <Esc>yvB`]a
 imap <C-v> <A-p><C-o>"*p<A-p><Esc>v']=']a
@@ -157,8 +158,8 @@ vmap <Leader>/l <C-w>l/<C-r>*<CR>
 " Сколько раз слово под курсором встречается в файле
 nmap <Leader>* *<C-o>:%s///n<CR><C-o>
 
-"Django templates
-imap <A-{> {{<Space>
+"Django or Jinja templates
+imap <A-{> {{<Space><Space><Left>
 imap <A-%> {%%<Left><Space><Space><Left>
 
 " Commands
