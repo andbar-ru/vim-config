@@ -16,7 +16,7 @@ if executable('git')
     Plug 'tpope/vim-fugitive'
     Plug 'airblade/vim-gitgutter'
 endif
-Plug 'scrooloose/nerdcommenter'
+Plug 'tomtom/tcomment_vim'
 Plug 'scrooloose/nerdtree'
 Plug 'majutsushi/tagbar'
 Plug 'andbar-ru/python-syntax'
@@ -40,6 +40,7 @@ Plug 'jeetsukumaran/vim-indentwise'
 Plug 'dzeban/vim-log-syntax'
 Plug 'vim-syntastic/syntastic'
 Plug 'PProvost/vim-ps1'
+Plug 'posva/vim-vue'
 call plug#end()
 
 if has('win32')

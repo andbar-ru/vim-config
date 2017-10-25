@@ -7,6 +7,14 @@ snippet tmpflog
 	with open('/tmp/log.log', 'a+') as f:
 		f.write('%s\n' % pformat(${0}))
 
+snippet tmptlog
+	# ################################################ 6 lines
+	import inspect
+	with open('/tmp/log.log', 'a+') as f:
+			stack = inspect.stack()
+			f.write('%s:%s (%s)\n' % (stack[0][1], stack[0][2], stack[0][3]))
+	##################################################
+
 snippet savedir
 	# ################################################ 9 lines
 	from os.path import expanduser

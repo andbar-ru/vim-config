@@ -7,7 +7,7 @@ autocmd BufRead * if line('$') < 100 | exec "normal zR" | endif
 
 augroup filetypes
     autocmd!
-    autocmd FileType python setlocal ts=4 sw=4 cc=120 nowrap
+    autocmd FileType python setlocal ts=4 sw=4 cc=100,120 nowrap
     autocmd FileType html setlocal ft=htmldjango indentexpr=
 augroup END
 
