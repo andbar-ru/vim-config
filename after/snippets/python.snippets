@@ -1,11 +1,15 @@
 snippet tmplog
+	# ################################################ 4 lines
 	with open('/tmp/log.log', 'a+') as f:
 		f.write('%s\n' % ${0})
+	##################################################
 
 snippet tmpflog
+	# ################################################ 5 lines
 	from pprint import pformat
 	with open('/tmp/log.log', 'a+') as f:
 		f.write('%s\n' % pformat(${0}))
+	##################################################
 
 snippet tmptlog
 	# ################################################ 6 lines
@@ -27,12 +31,11 @@ snippet savedir
 	##################################################
 
 snippet logstack
+	# ################################################ 8 lines
 	with open('/tmp/log.log', 'a+') as f:
 		import inspect
 		stack = inspect.stack()
 		for frame in stack:
 			f.write('%s\n' % str(frame))
 		f.write('\n')
-
-snippet ipdb
-	import ipdb; ipdb.set_trace()
+	##################################################
