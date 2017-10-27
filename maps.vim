@@ -146,9 +146,6 @@ map <Leader>df dt(ds(
 map <Leader>dt dit"_datP
 map <A--> :ToggleDashInIskeyword<CR>
 
-" Включение/выключение правого скроллбара
-map <A-s> :ToggleScrollbar<CR>
-
 "Поиск выделенного текста в соседних окнах
 vmap <Leader>/h <C-w>h/<C-r>*<CR>
 vmap <Leader>/j <C-w>j/<C-r>*<CR>
@@ -165,6 +162,13 @@ imap <A-%> {%%<Left><Space><Space><Left>
 " Commands
 map <Leader>gd :silent !gvimdiff -n % -c "Gvdiff"<CR>
 map <A-d> :ClearAndSave<CR>
+
+" Включение/выключение правого скроллбара
+map <A-s> :ToggleScrollbar<CR>
+
+" Установить ширину окна по самой длинной строке
+map <A-l> :SetColumnsAsLongestLine<CR>
+
 
 " Plugins
 imap <C-J> <Plug>snipMateNextOrTrigger
