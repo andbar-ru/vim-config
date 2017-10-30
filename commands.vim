@@ -13,3 +13,4 @@ command ToggleScrollbar if &guioptions=~"r" | set guioptions-=r | else | set gui
 command ToggleSyntastic if !exists('g:syntastic_mode_map_bak') | let g:syntastic_mode_map_bak = g:syntastic_mode_map | let g:syntastic_mode_map = {'mode':'passive'} | else | let g:syntastic_mode_map = g:syntastic_mode_map_bak | unlet g:syntastic_mode_map_bak | endif
 command ClearAndSave :execute "normal gg0dG" | :update
 command SyntaxSync :syntax sync fromstart
+command SetColumnsAsLongestLine :silent let &columns = max(map(getline(1, '$'), 'len(v:val)'))

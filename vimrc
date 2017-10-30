@@ -109,6 +109,7 @@ set directory=$VIMRCDIR/swapfiles/
 if exists('+colorcolumn')
     set colorcolumn=100
 endif
+set synmaxcol=200
 
 set keymap=russian-jcukenwin
 set iminsert=0
