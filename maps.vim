@@ -145,6 +145,8 @@ map <Leader>df dt(ds(
 " Удаление окружающих тегов
 map <Leader>dt dit"_datP
 map <A--> :ToggleDashInIskeyword<CR>
+" Удаление журналирующего блока
+map <Leader>dl ?^\s*# #\{20,\}$<CR>v/^\s*#\{50\}$<CR>Vd
 
 "Поиск выделенного текста в соседних окнах
 vmap <Leader>/h <C-w>h/<C-r>*<CR>

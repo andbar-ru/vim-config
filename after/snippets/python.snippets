@@ -1,26 +1,26 @@
 snippet tmplog
-	# ################################################ 4 lines
-	with open('/tmp/log.log', 'a+') as f:
+	# ################################################
+	with open('/tmp/log.txt', 'a+') as f:
 		f.write('%s\n' % ${0})
 	##################################################
 
 snippet tmpflog
-	# ################################################ 5 lines
+	# ################################################
 	from pprint import pformat
-	with open('/tmp/log.log', 'a+') as f:
+	with open('/tmp/log.txt', 'a+') as f:
 		f.write('%s\n' % pformat(${0}))
 	##################################################
 
 snippet tmptlog
-	# ################################################ 6 lines
+	# ################################################
 	import inspect
-	with open('/tmp/log.log', 'a+') as f:
+	with open('/tmp/log.txt', 'a+') as f:
 			stack = inspect.stack()
 			f.write('%s:%s (%s)\n' % (stack[0][1], stack[0][2], stack[0][3]))
 	##################################################
 
 snippet savedir
-	# ################################################ 9 lines
+	# ################################################
 	from os.path import expanduser
 	obj = ${1}
 	name = '${2}'
@@ -31,8 +31,8 @@ snippet savedir
 	##################################################
 
 snippet logstack
-	# ################################################ 8 lines
-	with open('/tmp/log.log', 'a+') as f:
+	# ################################################
+	with open('/tmp/log.txt', 'a+') as f:
 		import inspect
 		stack = inspect.stack()
 		for frame in stack:
