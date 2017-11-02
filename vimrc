@@ -125,6 +125,13 @@ set sessionoptions=blank,buffers,curdir,folds,tabpages,winsize
 " default + buffer number
 set statusline=%<%n:%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
 
+" Менять форму курсора в консольной версии
+if &term =~ "xterm"
+  let &t_SI = "\<Esc>[6 q"
+  let &t_SR = "\<Esc>[4 q"
+  let &t_EI = "\<Esc>[2 q"
+endif
+
 " Plugin settings
 let NERDTreeWinSize=30
 let NERDTreeChDirMode=2
