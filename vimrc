@@ -82,6 +82,7 @@ set mouse=a
 set splitbelow
 set splitright
 set cryptmethod=blowfish2
+set display=lastline
 
 " Команды копирования и удаления помещают в регистр "*
 set clipboard=unnamed
