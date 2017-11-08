@@ -37,6 +37,7 @@ if version > 703  " 7.3
     Plug 'jlanzarotta/bufexplorer'
 endif
 Plug 'jeetsukumaran/vim-indentwise'
+Plug 'vim-python/python-syntax'
 Plug 'dzeban/vim-log-syntax'
 Plug 'vim-syntastic/syntastic'
 Plug 'PProvost/vim-ps1'
