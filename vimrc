@@ -103,6 +103,7 @@ set nostartofline
 set whichwrap+=<,>,[,]
 set listchars=tab:»\ ,trail:·,eol:¶
 set showbreak=↳\ 
+set breakindent
 set updatetime=1000
 set gdefault
 set pastetoggle=<A-p>
