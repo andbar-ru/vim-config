@@ -26,11 +26,11 @@ Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'tomtom/tlib_vim'
 Plug 'garbas/vim-snipmate'
 Plug 'honza/vim-snippets'
-Plug 'alvan/vim-closetag'
 Plug 'ervandew/supertab'
 Plug 'pangloss/vim-javascript'
 Plug 'gavocanov/vim-js-indent'
 Plug 'danro/rename.vim'
+Plug 'alvan/vim-closetag'
 "Plug 'jiangmiao/auto-pairs'
 Plug 'JarrodCTaylor/vim-reflection'
 if version > 703  " 7.3
@@ -54,6 +54,7 @@ let g:highlightTrailingSpace = 1
 
 " Includes
 let $VIMRCDIR = fnamemodify(resolve(expand('<sfile>:p')), ':h')
+source $VIMRCDIR/plugins_settings.vim
 source $VIMRCDIR/functions.vim
 source $VIMRCDIR/commands.vim
 source $VIMRCDIR/maps.vim
@@ -134,5 +135,3 @@ if &term =~ "xterm"
   let &t_SR = "\<Esc>[4 q"
   let &t_EI = "\<Esc>[2 q"
 endif
-
-source $VIMRCDIR/plugins_settings.vim

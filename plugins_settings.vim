@@ -6,8 +6,6 @@ let NERDTreeIgnore=['\.pyc', '\.swp$']
 let g:SuperTabRetainCompletionDuration = "completion"
 let g:SuperTabNoCompleteAfter = ['\s', ':', ')', ']', '}', "'", '"', '^']
 
-let g:xmledit_enable_html = 1
-
 let g:python_pep8_indent_multiline_string=-1
 let g:python_highlight_all = 1
 
