@@ -66,6 +66,10 @@ for c in ["1","2","3","4","5","6","7","8"]
 endfor
 map <A-9> :tablast<CR>
 imap <A-9> <Esc>:tablast<CR>
+map <C-S-PageUp> :tabm -<CR>
+imap <C-S-PageUp> <C-o>:tabm -<CR>
+map <C-S-PageDown> :tabm +<CR>
+imap <C-S-PageDown> <C-o>:tabm +<CR>
 
 nmap <CR> o<Esc>
 nmap <S-CR> O<Esc>
