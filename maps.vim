@@ -135,6 +135,10 @@ imap <C-v> <A-p><C-o>"*p<A-p><Esc>v']=']a
 
 map <A-t> :tabnew<CR>
 imap <A-t> <Esc>:tabnew<CR>
+map <S-A-t> :tabnew .<CR>
+imap <S-A-t> <Esc>:tabnew .<CR>
+map <A-c> :tabclose<CR>
+imap <A-c> <Esc>:tabclose<CR>
 map <S-F11> :tabprevious<CR>
 map <S-F12> :tabnext<CR>
 imap <S-F11> <Esc>:tabprevious<CR>i
