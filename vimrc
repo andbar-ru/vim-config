@@ -66,7 +66,7 @@ if $USER == 'root'
 else
     set background=light
 endif
-set t_Co=256
+set termguicolors
 colorscheme unicon
 
 let g:indentLine_enabled=0
