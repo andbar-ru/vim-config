@@ -22,10 +22,12 @@ imap <silent> <F4> <C-o>:set nu!<CR>
 map <silent> <S-F4> :set relativenumber!<CR>
 imap <silent> <S-F4> <C-o>:set relativenumber!<CR>
 
-map <F5> :BufExplorer<CR>
-imap <F5> <C-o>:BufExplorer<CR>
-map <S-F5> :buffers<CR>:edit #
-imap <S-F5> <Esc>:buffers<CR>:edit #
+map <F5> :ToggleBufExplorer<CR>
+imap <F5> <C-o>:ToggleBufExplorer<CR>
+map <S-F5> :BufExplorerVerticalSplit<CR>
+imap <S-F5> <C-o>:BufExplorerVerticalSplit<CR>
+map <C-F5> :buffers<CR>:edit #
+imap <C-F5> <Esc>:buffers<CR>:edit #
 
 map <F6> :NERDTreeToggle<CR>
 imap <F6> <C-o>:NERDTreeToggle<CR>
@@ -41,6 +43,8 @@ map <F8> :marks abcdefghijklmnopqrstuvwxyz<CR>:'
 imap <F8>   <Esc>:marks abcdefghijklmnopqrstuvwxyz<CR>:'
 map <S-F8> :marks abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ<CR>:'
 imap <S-F8>   <Esc>:marks abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ<CR>:'
+map <C-F8> :syntax sync fromstart<CR>
+imap <C-F8> <C-o>:syntax sync fromstart<CR>
 
 map <F9> :GitGutterSignsToggle<CR>
 map <S-F9> :GitGutterLineHighlightsToggle<CR>
@@ -137,8 +141,8 @@ map <A-t> :tabnew<CR>
 imap <A-t> <Esc>:tabnew<CR>
 map <S-A-t> :tabnew .<CR>
 imap <S-A-t> <Esc>:tabnew .<CR>
-map <A-c> :tabclose<CR>
-imap <A-c> <Esc>:tabclose<CR>
+map <A-c> :bw<CR>
+imap <A-c> <Esc>:bw<CR>
 map <S-F11> :tabprevious<CR>
 map <S-F12> :tabnext<CR>
 imap <S-F11> <Esc>:tabprevious<CR>i

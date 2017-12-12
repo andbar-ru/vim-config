@@ -33,3 +33,6 @@ endif
 " vim-closetag
 let g:closetag_filenames = '*.html,*.xhtml,*.xml,*.vue'
 
+" bufexplorer
+let g:bufExplorerSplitRight=0
+
