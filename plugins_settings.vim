@@ -36,3 +36,7 @@ let g:closetag_filenames = '*.html,*.xhtml,*.xml,*.vue'
 " bufexplorer
 let g:bufExplorerSplitRight=0
 
+" vim-bookmarks
+let g:bookmark_auto_close = 1
+let g:bookmark_save_per_working_dir = 1
+let g:bookmark_auto_save = 1

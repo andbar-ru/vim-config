@@ -9,4 +9,3 @@ augroup filetypes
     autocmd!
     autocmd FileType python setlocal ts=4 sw=4 cc=100,120
 augroup END
-

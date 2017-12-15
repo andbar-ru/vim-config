@@ -75,7 +75,7 @@ imap <C-S-PageUp> <C-o>:tabm -<CR>
 map <C-S-PageDown> :tabm +<CR>
 imap <C-S-PageDown> <C-o>:tabm +<CR>
 
-nmap <CR> o<Esc>
+nnoremap <expr> <CR> (&ft == 'qf' ? '<CR>' : 'o<Esc>')
 nmap <S-CR> O<Esc>
 imap <S-CR> <END><CR>
 imap <C-S-CR> <C-O>O
@@ -190,3 +190,7 @@ smap <C-J> <Plug>snipMateNextOrTrigger
 
 " fugitive
 map <Leader>gb :Gblame<CR>A
+
+" vim-bookmarks
+map ms :BookmarkSave 
+map ml :BookmarkLoad 

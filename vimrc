@@ -42,6 +42,7 @@ Plug 'dzeban/vim-log-syntax'
 Plug 'vim-syntastic/syntastic'
 Plug 'PProvost/vim-ps1'
 Plug 'posva/vim-vue'
+Plug 'MattesGroeger/vim-bookmarks'
 call plug#end()
 
 if has('win32')
@@ -110,6 +111,7 @@ set updatetime=1000
 set gdefault
 set pastetoggle=<A-p>
 set directory=$VIMRCDIR/swapfiles/
+set switchbuf=usetab,newtab
 
 if exists('+colorcolumn')
     set colorcolumn=100
