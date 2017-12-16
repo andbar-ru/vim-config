@@ -19,6 +19,7 @@ function ToggleHiTrail()
     call HiTrail(g:highlightTrailingSpace)
 endfunction
 
+" Set bookmarks file .git/bookmarks for plugin vim-bookmarks
 function g:BMWorkDirFileLocation()
   let filename = 'bookmarks'
   let location = ''
@@ -32,6 +33,6 @@ function g:BMWorkDirFileLocation()
   if len(location) > 0
     return location . '/' . filename
   else
-    return getcwd() . '/' . filename
+    return "$VIMRCDIR/bookmarks/default"
   endif
 endfunction

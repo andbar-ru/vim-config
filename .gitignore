@@ -3,5 +3,6 @@
 plugged
 sessions/*
 !sessions/.gitkeep
+!bookmarks/.gitkeep
 swapfiles/*
 !swapfiles/.gitkeep

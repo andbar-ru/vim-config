@@ -136,6 +136,8 @@ map <S-A-y> :%y+<CR>
 imap <A-w> <Esc>yvb`]a
 imap <S-A-w> <Esc>yvB`]a
 imap <C-v> <A-p><C-o>"*p<A-p><Esc>v']=']a
+" Вставить скопированное слово вместо выделенного
+vmap p "_x""P
 
 map <A-t> :tabnew<CR>
 imap <A-t> <Esc>:tabnew<CR>
@@ -169,7 +171,7 @@ vmap <Leader>/l <C-w>l/<C-r>*<CR>
 " Сколько раз слово под курсором встречается в файле
 nmap <Leader>* *<C-o>:%s///n<CR><C-o>
 
-"Django or Jinja templates
+"Django, Jinja, Vue templates
 imap <A-{> {{<Space><Space><Left>
 imap <A-%> {%%<Left><Space><Space><Left>
 
@@ -189,8 +191,17 @@ imap <C-J> <Plug>snipMateNextOrTrigger
 smap <C-J> <Plug>snipMateNextOrTrigger
 
 " fugitive
-map <Leader>gb :Gblame<CR>A
+map <Leader>gb <Plug>Gblame
 
 " vim-bookmarks
-map ms :BookmarkSave 
-map ml :BookmarkLoad 
+map <Leader>mm <Plug>BookmarkToggle
+map <Leader>mi <Plug>BookmarkAnnotate
+map <Leader>mn <Plug>BookmarkNext
+map <Leader>mp <Plug>BookmarkPrev
+map <Leader>ma <Plug>BookmarkShowAll
+map <Leader>mc <Plug>BookmarkClear
+map <Leader>mx <Plug>BookmarkClearAll
+map <Leader>ms <Plug>BookmarkSave
+map <Leader>ml <Plug>BookmarkLoad
+map <Leader>mkk <Plug>BookmarkMoveUp
+map <Leader>mjj <Plug>BookmarkMoveDown
