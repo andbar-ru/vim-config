@@ -2,10 +2,6 @@ let g:plug_window='topleft'
 silent! call plug#begin()
 " colorschemes
 Plug 'morhetz/gruvbox'
-Plug 'altercation/vim-colors-solarized'
-Plug 'lifepillar/vim-solarized8'
-Plug 'w0ng/vim-hybrid'
-Plug 'jonathanfilip/vim-lucius'
 Plug 'andbar-ru/vim-unicon'
 
 Plug 'nathanaelkane/vim-indent-guides'
@@ -43,6 +39,9 @@ Plug 'vim-syntastic/syntastic'
 Plug 'PProvost/vim-ps1'
 Plug 'posva/vim-vue'
 Plug 'MattesGroeger/vim-bookmarks'
+Plug 'airblade/vim-rooter'
+Plug 'junegunn/fzf', {'dir': '~/Programs/fzf', 'do': './install --all'}
+Plug 'junegunn/fzf.vim'
 call plug#end()
 
 if has('win32')
@@ -92,7 +91,6 @@ set clipboard=unnamed
 
 set wildmenu
 set wildmode=list:longest
-set autochdir
 set cursorline
 set visualbell
 set tabstop=2

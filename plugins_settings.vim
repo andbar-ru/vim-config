@@ -41,3 +41,24 @@ let g:bookmark_auto_close = 1
 let g:bookmark_save_per_working_dir = 1
 let g:bookmark_auto_save = 1
 let g:bookmark_no_default_key_mappings = 1
+
+" vim-rooter
+let g:rooter_targets = '*'
+let g:rooter_pattern = ['.git/']
+let g:rooter_silent_chdir = 1
+
+" fzf.vim
+" CTRL-A CTRL-Q to select all and build quickfix list
+function! s:build_quickfix_list(lines)
+  call setqflist(map(copy(a:lines), '{"filename": v:val}'))
+  copen
+  cc
+endfunction
+
+let g:fzf_action = {
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-x': 'split',
+  \ 'ctrl-v': 'vsplit',
+  \ 'ctrl-q': function('s:build_quickfix_list') }
+
+let $FZF_DEFAULT_OPTS = '--bind ctrl-a:select-all'
