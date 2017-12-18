@@ -141,8 +141,8 @@ vmap p "_x""P
 
 map <A-t> :tabnew<CR>
 imap <A-t> <Esc>:tabnew<CR>
-map <S-A-t> :tabnew .<CR>
-imap <S-A-t> <Esc>:tabnew .<CR>
+map <S-A-t> :exe "tabnew" . expand('%:p:h/')<CR>
+imap <S-A-t> <Esc>:exe "tabnew" . expand('%:p:h/')<CR>
 map <A-c> :bw<CR>
 imap <A-c> <Esc>:bw<CR>
 map <S-F11> :tabprevious<CR>
