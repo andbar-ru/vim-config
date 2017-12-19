@@ -42,7 +42,6 @@ Plug 'MattesGroeger/vim-bookmarks'
 Plug 'airblade/vim-rooter'
 Plug 'junegunn/fzf', {'dir': '~/Programs/fzf', 'do': './install --all'}
 Plug 'junegunn/fzf.vim'
-Plug 'junegunn/vim-slash'
 call plug#end()
 
 if has('win32')
