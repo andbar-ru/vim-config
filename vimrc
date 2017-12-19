@@ -42,6 +42,7 @@ Plug 'MattesGroeger/vim-bookmarks'
 Plug 'airblade/vim-rooter'
 Plug 'junegunn/fzf', {'dir': '~/Programs/fzf', 'do': './install --all'}
 Plug 'junegunn/fzf.vim'
+Plug 'junegunn/vim-slash'
 call plug#end()
 
 if has('win32')
@@ -114,7 +115,6 @@ set switchbuf=usetab,newtab
 if exists('+colorcolumn')
     set colorcolumn=100
 endif
-set synmaxcol=200
 
 set keymap=russian-jcukenwin
 set iminsert=0

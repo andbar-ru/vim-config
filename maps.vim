@@ -52,7 +52,6 @@ map <S-F9> :GitGutterLineHighlightsToggle<CR>
 map <S-F10> :ToggleMenu<CR>
 imap <S-F10> <C-o>:ToggleMenu<CR>
 
-
 " Управление окнами, буферами, вкладками
 " В перечислении включены только операции, которые имеет смысл выполнять неоднократно 
 " Остальные через <C-W>char
@@ -143,6 +142,8 @@ map <A-t> :tabnew<CR>
 imap <A-t> <Esc>:tabnew<CR>
 map <S-A-t> :exe "tabnew" . expand('%:p:h/')<CR>
 imap <S-A-t> <Esc>:exe "tabnew" . expand('%:p:h/')<CR>
+map <A-e> :exe "e" . expand('%:p:h/')<CR>
+imap <A-e> <Esc>:exe "e" . expand('%:p:h/')<CR>
 map <A-c> :bw<CR>
 imap <A-c> <Esc>:bw<CR>
 map <S-F11> :tabprevious<CR>
@@ -205,3 +206,6 @@ map <Leader>ms <Plug>BookmarkSave
 map <Leader>ml <Plug>BookmarkLoad
 map <Leader>mkk <Plug>BookmarkMoveUp
 map <Leader>mjj <Plug>BookmarkMoveDown
+
+" vim-slash
+noremap <plug>(slash-after) zz
