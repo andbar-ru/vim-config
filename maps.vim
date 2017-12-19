@@ -59,7 +59,6 @@ nnoremap * *zz
 nnoremap # #zz
 nnoremap g* g*zz
 nnoremap g# g#zz
-cnoremap <expr> <CR> getcmdtype() == '/' \|\| getcmdtype() == '?'  ? '<CR>zz' : '<CR>'
 
 " Управление окнами, буферами, вкладками
 " В перечислении включены только операции, которые имеет смысл выполнять неоднократно 
