@@ -52,14 +52,6 @@ map <S-F9> :GitGutterLineHighlightsToggle<CR>
 map <S-F10> :ToggleMenu<CR>
 imap <S-F10> <C-o>:ToggleMenu<CR>
 
-" Центрирование при поиске
-nnoremap n nzz
-nnoremap N Nzz
-nnoremap * *zz
-nnoremap # #zz
-nnoremap g* g*zz
-nnoremap g# g#zz
-
 " Управление окнами, буферами, вкладками
 " В перечислении включены только операции, которые имеет смысл выполнять неоднократно 
 " Остальные через <C-W>char

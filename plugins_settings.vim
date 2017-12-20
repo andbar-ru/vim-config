@@ -1,5 +1,5 @@
 let NERDTreeWinSize=30
-let NERDTreeChDirMode=2
+let NERDTreeChDirMode=1  " do not change curdir
 let NERDTreeQuitOnOpen=1
 let NERDTreeIgnore=['\.pyc', '\.swp$']
 
