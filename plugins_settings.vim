@@ -62,3 +62,20 @@ let g:fzf_action = {
   \ 'ctrl-q': function('s:build_quickfix_list') }
 
 let $FZF_DEFAULT_OPTS = '--bind ctrl-a:select-all'
+
+" denite.nvim
+call denite#custom#var('file_rec', 'command', [$VIMRCDIR . '/bin/denite-file_rec.sh'])
+
+call denite#custom#var('grep', 'command', ['rg'])
+call denite#custom#var('grep', 'default_opts', ['--vimgrep', '--no-heading'])
+call denite#custom#var('grep', 'recursive_opts', [])
+call denite#custom#var('grep', 'pattern_opt', ['--regexp'])
+call denite#custom#var('grep', 'separator', ['--'])
+call denite#custom#var('grep', 'final_opts', [])
+
+call denite#custom#source('file_rec', 'matchers', ['matcher_fuzzy'])
+
+call denite#custom#map('insert', '<Down>', '<denite:move_to_next_line>', 'noremap')
+call denite#custom#map('insert', '<Up>', '<denite:move_to_previous_line>', 'noremap')
+
+call denite#custom#source('file_rec', 'sorters', ['sorter_sublime'])
