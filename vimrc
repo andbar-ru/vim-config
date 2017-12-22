@@ -124,6 +124,7 @@ let b:filepath = expand('%:p')
 set foldmethod=indent
 set foldminlines=3
 set foldnestmax=3
+set foldopen+=jump
 
 set sessionoptions=blank,buffers,curdir,folds,tabpages,winsize
 " default + buffer number

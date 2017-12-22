@@ -157,6 +157,8 @@ imap <F12> <Esc>:bNext<CR>i
 
 " Удаление обрачивания в функцию: func(smth) -> smth
 map <Leader>df dt(ds(
+" Удалить весь вызов функции:
+map <Leader>daf vf(%d
 " Удаление окружающих тегов
 map <Leader>dt dit"_datP
 map <A--> :ToggleDashInIskeyword<CR>
