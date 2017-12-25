@@ -194,7 +194,7 @@ imap <C-J> <Plug>snipMateNextOrTrigger
 smap <C-J> <Plug>snipMateNextOrTrigger
 
 " fugitive
-map <Leader>gb <Plug>Gblame
+map <Leader>gb :Gblame<CR>
 
 " vim-bookmarks
 map <Leader>mm <Plug>BookmarkToggle

@@ -84,7 +84,6 @@ set autowrite
 set mouse=a
 set splitbelow
 set splitright
-set cryptmethod=blowfish2
 set display=lastline
 
 " Команды копирования и удаления помещают в регистр "*
@@ -131,9 +130,10 @@ set sessionoptions=blank,buffers,curdir,folds,tabpages,winsize
 " default + buffer number
 set statusline=%<%n:%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
 
-" Менять форму курсора в консольной версии
-if &term =~ "xterm"
-  let &t_SI = "\<Esc>[6 q"
-  let &t_SR = "\<Esc>[4 q"
-  let &t_EI = "\<Esc>[2 q"
+" nvim or not
+if has('nvim')
+  set inccommand=nosplit
+else
+  set cryptmethod=blowfish2
 endif
+
