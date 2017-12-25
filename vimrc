@@ -60,6 +60,7 @@ source $VIMRCDIR/functions.vim
 source $VIMRCDIR/commands.vim
 source $VIMRCDIR/maps.vim
 source $VIMRCDIR/autocmds.vim
+source $VIMRCDIR/menu.vim
 
 "" Colorscheme
 if $USER == 'root'
@@ -85,6 +86,7 @@ set mouse=a
 set splitbelow
 set splitright
 set display=lastline
+set title
 
 " Команды копирования и удаления помещают в регистр "*
 set clipboard=unnamed
