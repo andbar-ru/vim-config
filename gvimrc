@@ -21,3 +21,5 @@ if hostname == 'asus'
 else
     set lines=23 columns=100
 endif
+
+source $VIMRCDIR/menu.vim

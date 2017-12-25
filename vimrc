@@ -60,7 +60,6 @@ source $VIMRCDIR/functions.vim
 source $VIMRCDIR/commands.vim
 source $VIMRCDIR/maps.vim
 source $VIMRCDIR/autocmds.vim
-source $VIMRCDIR/menu.vim
 
 "" Colorscheme
 if $USER == 'root'
