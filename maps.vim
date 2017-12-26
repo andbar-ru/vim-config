@@ -163,7 +163,7 @@ map <Leader>daf vf(%d
 map <Leader>dt dit"_datP
 map <A--> :ToggleDashInIskeyword<CR>
 " Удаление журналирующего блока
-map <Leader>dl ?^\s*# #\{20,\}$<CR>v/^\s*#\{50\}$<CR>Vd
+map <Leader>dl ?\v^\s*.+ begin #{40,}$<CR>v/\v^\s*.+ end #{40,}$<CR>Vd
 
 "Поиск выделенного текста в соседних окнах
 vmap <Leader>/h <C-w>h/<C-r>*<CR>
