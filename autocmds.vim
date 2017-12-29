@@ -4,6 +4,7 @@ if exists('g:highlightTrailingSpace')
 endif
 
 autocmd BufRead * if line('$') < 100 | exec "normal zR" | endif
+autocmd BufRead log.txt setlocal autoread
 
 augroup filetypes
     autocmd!
