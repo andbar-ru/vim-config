@@ -86,6 +86,7 @@ set splitbelow
 set splitright
 set display=lastline
 set title
+set lazyredraw
 
 " Команды копирования и удаления помещают в регистр "*
 set clipboard=unnamed

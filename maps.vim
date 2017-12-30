@@ -128,15 +128,14 @@ nmap <S-Space> zA
 map <A-0> :vertical resize 100<CR>
 imap <A-0> <C-o>:vertical resize 100<CR>
 
+nnoremap Q @@
 map Y y$
 map <A-y> "+y
 vmap gy y`]
 map <S-A-y> :%y+<CR>
-imap <A-w> <Esc>yvb`]a
-imap <S-A-w> <Esc>yvB`]a
 imap <C-v> <A-p><C-o>"*p<A-p><Esc>v']=']a
-" Вставить скопированное слово вместо выделенного
-vmap p "_x""P
+" Заменить выделенный текст скопированным (из-за set clipboard=unnamed)
+vnoremap p ""p
 
 map <A-t> :tabnew<CR>
 imap <A-t> <Esc>:tabnew<CR>
