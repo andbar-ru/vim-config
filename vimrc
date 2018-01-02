@@ -35,7 +35,6 @@ endif
 Plug 'jeetsukumaran/vim-indentwise'
 Plug 'vim-python/python-syntax'
 Plug 'dzeban/vim-log-syntax'
-Plug 'vim-syntastic/syntastic'
 Plug 'PProvost/vim-ps1'
 Plug 'posva/vim-vue'
 Plug 'MattesGroeger/vim-bookmarks'
@@ -43,6 +42,8 @@ Plug 'airblade/vim-rooter'
 Plug 'junegunn/fzf', {'dir': '~/Programs/fzf', 'do': './install --all'}
 Plug 'junegunn/fzf.vim'
 Plug 'Shougo/denite.nvim'
+Plug 'davidhalter/jedi-vim'
+Plug 'w0rp/ale'
 call plug#end()
 
 if has('win32')

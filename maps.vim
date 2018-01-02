@@ -34,10 +34,6 @@ imap <F6> <C-o>:NERDTreeToggle<CR>
 
 map <F7> :TagbarToggle<CR>
 imap <F7> <C-o>:TagbarToggle<CR>
-map <S-F7> :SyntasticReset<CR>
-imap <S-F7> <C-o>:SyntasticReset<CR>
-map <C-F7> :ToggleSyntastic<CR>
-imap <C-F7> <C-o>:ToggleSyntastic<CR>
 
 map <F8> :marks abcdefghijklmnopqrstuvwxyz<CR>:'
 imap <F8>   <Esc>:marks abcdefghijklmnopqrstuvwxyz<CR>:'

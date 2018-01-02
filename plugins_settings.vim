@@ -11,25 +11,6 @@ let g:python_highlight_all = 1
 
 let g:gitgutter_signs = 0
 
-" Syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_mode_map = {
-    \ "mode": "passive",
-    \ "active_filetypes": ["python"],
-    \ "passive_filetypes": [] }
-if executable('python3.6')
-  let g:syntastic_python_python_exec = 'python3.6'
-else
-  let g:syntastic_python_python_exec = 'python3'
-endif
-
 " vim-closetag
 let g:closetag_filenames = '*.html,*.xhtml,*.xml,*.vue'
 
@@ -79,3 +60,15 @@ call denite#custom#map('insert', '<Down>', '<denite:move_to_next_line>', 'norema
 call denite#custom#map('insert', '<Up>', '<denite:move_to_previous_line>', 'noremap')
 
 call denite#custom#source('file_rec', 'sorters', ['sorter_sublime'])
+
+" jedi-vim
+let g:jedi#use_tabs_not_buffers = 1
+let g:jedi#popup_on_dot = 1
+let g:jedi#completions_enabled = 1
+let g:jedi#goto_command = "<leader>jg"
+let g:jedi#goto_assignments_command = "<leader>ja"
+let g:jedi#goto_definitions_command = "<leader>jd"
+let g:jedi#documentation_command = "K"
+let g:jedi#usages_command = "<leader>ju"
+let g:jedi#completions_command = "<C-Space>"
+let g:jedi#rename_command = "<leader>jr"
