@@ -7,7 +7,7 @@ command FormatXml :%!xmllint -format -
 command FormatJson :%!python -m json.tool
 command RefineChessMoves :silent s/ {[^}]*}//<bar>s/\(\d\.\)\@<= //
 
-command ToggleDashInIskeyword if &iskeyword !~ 45 | set iskeyword+=45 | else | set iskeyword-=45 | endif
+command ToggleDashInIskeyword if &iskeyword !~ 45 | setlocal iskeyword+=45 | else | setlocal iskeyword-=45 | endif
 command ToggleMenu if &guioptions=~"m" | set guioptions-=m | else | set guioptions+=m | endif
 command ToggleScrollbar if &guioptions=~"r" | set guioptions-=r | else | set guioptions+=r | endif
 command ClearAndSave :execute "normal gg0dG" | :update

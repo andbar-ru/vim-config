@@ -26,6 +26,7 @@ let g:bookmark_no_default_key_mappings = 1
 " vim-rooter
 let g:rooter_targets = '*'
 let g:rooter_pattern = ['.git/']
+let g:rooter_change_directory_for_non_project_files = 'current'
 let g:rooter_silent_chdir = 1
 
 " fzf.vim
@@ -63,7 +64,7 @@ call denite#custom#source('file_rec', 'sorters', ['sorter_sublime'])
 
 " jedi-vim
 let g:jedi#use_tabs_not_buffers = 1
-let g:jedi#popup_on_dot = 1
+let g:jedi#popup_on_dot = 0
 let g:jedi#completions_enabled = 1
 let g:jedi#goto_command = "<leader>jg"
 let g:jedi#goto_assignments_command = "<leader>ja"
@@ -72,3 +73,7 @@ let g:jedi#documentation_command = "K"
 let g:jedi#usages_command = "<leader>ju"
 let g:jedi#completions_command = "<C-Space>"
 let g:jedi#rename_command = "<leader>jr"
+
+" ale
+let g:ale_lint_on_text_changed = 'never'
+let g:ale_open_list = 1

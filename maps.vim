@@ -34,6 +34,8 @@ imap <F6> <C-o>:NERDTreeToggle<CR>
 
 map <F7> :TagbarToggle<CR>
 imap <F7> <C-o>:TagbarToggle<CR>
+map <S-F7> :ALEToggleBuffer<CR>
+imap <S-F7> <C-o>:ALEToggleBuffer<CR>
 
 map <F8> :marks abcdefghijklmnopqrstuvwxyz<CR>:'
 imap <F8>   <Esc>:marks abcdefghijklmnopqrstuvwxyz<CR>:'
@@ -47,6 +49,8 @@ map <S-F9> :GitGutterLineHighlightsToggle<CR>
 
 map <S-F10> :ToggleMenu<CR>
 imap <S-F10> <C-o>:ToggleMenu<CR>
+
+map <Esc> :nohlsearch<CR>
 
 " Управление окнами, буферами, вкладками
 " В перечислении включены только операции, которые имеет смысл выполнять неоднократно 
@@ -116,8 +120,8 @@ inoremap <MiddleMouse> <LeftMouse><MiddleMouse>
 
 map <A-w> :set wrap!<CR>
 
-map <A-h> :set hlsearch!<CR>
-imap <A-h> <C-o>:set hlsearch!<CR>
+map <A-h> :let @/ = '\V\<'.escape(expand('<cword>'), '\').'\>' <Bar> set hlsearch<CR>
+imap <A-h> <C-o>:let @/ = '\V\<'.escape(expand('<cword>'), '\').'\>' <Bar> set hlsearch<CR>
 nmap <Space> za
 nmap <S-Space> zA
 
@@ -135,10 +139,10 @@ vnoremap p ""p
 
 map <A-t> :tabnew<CR>
 imap <A-t> <Esc>:tabnew<CR>
-map <S-A-t> :exe "tabnew" . expand('%:p:h/')<CR>
-imap <S-A-t> <Esc>:exe "tabnew" . expand('%:p:h/')<CR>
-map <A-e> :exe "e" . expand('%:p:h/')<CR>
-imap <A-e> <Esc>:exe "e" . expand('%:p:h/')<CR>
+map <S-A-t> :exe "tabnew" . expand('%:p:h') . '/'<CR>
+imap <S-A-t> <Esc>:exe "tabnew" . expand('%:p:h') . '/'<CR>
+map <A-e> :exe "e" . expand('%:p:h') . '/'<CR>
+imap <A-e> <Esc>:exe "e" . expand('%:p:h') . '/'<CR>
 map <A-c> :bw<CR>
 imap <A-c> <Esc>:bw<CR>
 map <S-F11> :tabprevious<CR>
@@ -157,6 +161,7 @@ map <Leader>daf vf(%d
 " Удаление окружающих тегов
 map <Leader>dt dit"_datP
 map <A--> :ToggleDashInIskeyword<CR>
+imap <A--> <C-o>:ToggleDashInIskeyword<CR>
 " Удаление журналирующего блока
 map <Leader>dl ?\v^\s*.+ begin #{40,}$<CR>v/\v^\s*.+ end #{40,}$<CR>Vd
 

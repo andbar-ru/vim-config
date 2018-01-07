@@ -42,7 +42,7 @@ Plug 'airblade/vim-rooter'
 Plug 'junegunn/fzf', {'dir': '~/Programs/fzf', 'do': './install --all'}
 Plug 'junegunn/fzf.vim'
 Plug 'Shougo/denite.nvim'
-Plug 'davidhalter/jedi-vim'
+Plug 'davidhalter/jedi-vim', {'for': 'python'}
 Plug 'w0rp/ale'
 call plug#end()
 
@@ -80,8 +80,9 @@ set showmatch
 set ignorecase
 set smartcase
 set incsearch
-set nohlsearch
+set hlsearch
 set autowrite
+set autochdir
 set mouse=a
 set splitbelow
 set splitright

@@ -9,4 +9,5 @@ autocmd BufRead log.txt setlocal autoread
 augroup filetypes
     autocmd!
     autocmd FileType python setlocal ts=4 sw=4 cc=100,120 completeopt-=preview
+    autocmd FileType vue setlocal iskeyword+=45  " add '-'
 augroup END
