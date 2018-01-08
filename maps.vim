@@ -51,6 +51,7 @@ map <S-F10> :ToggleMenu<CR>
 imap <S-F10> <C-o>:ToggleMenu<CR>
 
 map <Esc> :nohlsearch<CR>
+imap <A-Esc> <C-o>:nohlsearch<CR>
 
 " Управление окнами, буферами, вкладками
 " В перечислении включены только операции, которые имеет смысл выполнять неоднократно 
@@ -163,7 +164,7 @@ map <Leader>dt dit"_datP
 map <A--> :ToggleDashInIskeyword<CR>
 imap <A--> <C-o>:ToggleDashInIskeyword<CR>
 " Удаление журналирующего блока
-map <Leader>dl ?\v^\s*.+ begin #{40,}$<CR>v/\v^\s*.+ end #{40,}$<CR>Vd
+map <Leader>dl ?\v^\s*.+ begin #{40,}$<CR>v/\v^\s*.+ end #{40,}$<CR>Vd<Esc>
 
 "Поиск выделенного текста в соседних окнах
 vmap <Leader>/h <C-w>h/<C-r>*<CR>
@@ -189,10 +190,6 @@ map <A-s> :ToggleScrollbar<CR>
 map <A-l> :SetColumnsAsLongestLine<CR>
 
 
-" Plugins
-imap <C-J> <Plug>snipMateNextOrTrigger
-smap <C-J> <Plug>snipMateNextOrTrigger
-
 " fugitive
 map <Leader>gb :Gblame<CR>
 
@@ -208,3 +205,8 @@ map <Leader>ms <Plug>BookmarkSave
 map <Leader>ml <Plug>BookmarkLoad
 map <Leader>mkk <Plug>BookmarkMoveUp
 map <Leader>mjj <Plug>BookmarkMoveDown
+
+" neosnippet
+imap <C-j> <Plug>(neosnippet_expand_or_jump)
+smap <C-j> <Plug>(neosnippet_expand_or_jump)
+xmap <C-j> <Plug>(neosnippet_expand_target)

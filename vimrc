@@ -18,10 +18,6 @@ Plug 'majutsushi/tagbar'
 Plug 'Vimjas/vim-python-pep8-indent'
 Plug 'tmhedberg/matchit'
 Plug 'voithos/vim-python-matchit'
-Plug 'MarcWeber/vim-addon-mw-utils'
-Plug 'tomtom/tlib_vim'
-Plug 'garbas/vim-snipmate'
-Plug 'honza/vim-snippets'
 Plug 'ervandew/supertab'
 Plug 'pangloss/vim-javascript'
 Plug 'gavocanov/vim-js-indent'
@@ -44,6 +40,9 @@ Plug 'junegunn/fzf.vim'
 Plug 'Shougo/denite.nvim'
 Plug 'davidhalter/jedi-vim', {'for': 'python'}
 Plug 'w0rp/ale'
+Plug 'Shougo/neosnippet'
+Plug 'Shougo/neosnippet-snippets'
+Plug 'Shougo/context_filetype.vim'  " for neosnippet
 call plug#end()
 
 if has('win32')

@@ -65,6 +65,7 @@ call denite#custom#source('file_rec', 'sorters', ['sorter_sublime'])
 " jedi-vim
 let g:jedi#use_tabs_not_buffers = 1
 let g:jedi#popup_on_dot = 0
+let g:jedi#show_call_signatures = "2"
 let g:jedi#completions_enabled = 1
 let g:jedi#goto_command = "<leader>jg"
 let g:jedi#goto_assignments_command = "<leader>ja"
@@ -76,4 +77,11 @@ let g:jedi#rename_command = "<leader>jr"
 
 " ale
 let g:ale_lint_on_text_changed = 'never'
+let g:ale_lint_on_enter = 0
 let g:ale_open_list = 1
+
+" neosnippets
+let g:neosnippet#snippets_directory="$VIMRCDIR/snippets"
+let g:neosnippet#disable_runtime_snippets = {
+\ '_': 1,
+\ }

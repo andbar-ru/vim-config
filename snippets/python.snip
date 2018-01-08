@@ -1,17 +1,23 @@
 snippet tmplog
+alias l
+options head
 	# begin ##########################################
 	with open('/tmp/log.txt', 'a+') as f:
-		f.write('%s\n' % ${0})
+		f.write('%s\n' % ${0:TARGET})
 	# end ############################################
 
 snippet tmpflog
+alias lf
+options head
 	# begin ##########################################
 	from pprint import pformat
 	with open('/tmp/log.txt', 'a+') as f:
-		f.write('%s\n' % pformat(${0}))
+		f.write('%s\n' % pformat(${0:TARGET}))
 	# end ############################################
 
 snippet tmptlog
+alias lt
+options head
 	# begin ##########################################
 	import inspect
 	with open('/tmp/log.txt', 'a+') as f:
@@ -20,6 +26,8 @@ snippet tmptlog
 	# end ############################################
 
 snippet savedir
+alias dir
+options head
 	# begin ##########################################
 	from os.path import expanduser
 	obj = ${1}
@@ -31,6 +39,8 @@ snippet savedir
 	# end ############################################
 
 snippet logstack
+alias ls
+options head
 	# begin ##########################################
 	with open('/tmp/log.txt', 'a+') as f:
 		import inspect
@@ -39,3 +49,10 @@ snippet logstack
 			f.write('%s\n' % str(frame))
 		f.write('\n')
 	# end ############################################
+
+snippet ipdb
+options head
+	# begin ##########################################
+	import ipdb; ipdb.set_trace()
+	# end ############################################
+
