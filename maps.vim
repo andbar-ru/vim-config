@@ -50,9 +50,6 @@ map <S-F9> :GitGutterLineHighlightsToggle<CR>
 map <S-F10> :ToggleMenu<CR>
 imap <S-F10> <C-o>:ToggleMenu<CR>
 
-map <Esc> :nohlsearch<CR>
-imap <A-Esc> <C-o>:nohlsearch<CR>
-
 " Управление окнами, буферами, вкладками
 " В перечислении включены только операции, которые имеет смысл выполнять неоднократно 
 " Остальные через <C-W>char
@@ -121,8 +118,8 @@ inoremap <MiddleMouse> <LeftMouse><MiddleMouse>
 
 map <A-w> :set wrap!<CR>
 
-map <A-h> :let @/ = '\V\<'.escape(expand('<cword>'), '\').'\>' <Bar> set hlsearch<CR>
-imap <A-h> <C-o>:let @/ = '\V\<'.escape(expand('<cword>'), '\').'\>' <Bar> set hlsearch<CR>
+map <expr> <A-h> (&hlsearch ? ":set nohlsearch<CR>" : ":let @/ = '\\V\\<'.escape(expand('<cword>'), '\\').'\\>' <Bar> set hlsearch<CR>")
+imap <expr> <A-h> (&hlsearch ? "<C-o>:set nohlsearch<CR>" : "<C-o>:let @/ = '\\V\\<'.escape(expand('<cword>'), '\\').'\\>' <Bar> set hlsearch<CR>")
 nmap <Space> za
 nmap <S-Space> zA
 
