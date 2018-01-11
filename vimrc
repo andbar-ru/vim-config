@@ -35,10 +35,12 @@ Plug 'PProvost/vim-ps1'
 Plug 'posva/vim-vue'
 Plug 'MattesGroeger/vim-bookmarks'
 Plug 'airblade/vim-rooter'
-Plug 'Shougo/denite.nvim'
-Plug 'Shougo/neosnippet'
-Plug 'Shougo/neosnippet-snippets'
-Plug 'Shougo/context_filetype.vim'  " for neosnippet
+if version >= 800
+  Plug 'Shougo/denite.nvim'
+  Plug 'Shougo/neosnippet'
+  Plug 'Shougo/neosnippet-snippets'
+  Plug 'Shougo/context_filetype.vim'  " for neosnippet
+endif
 if has('unix') && version >= 800
   Plug 'junegunn/fzf', {'dir': '~/Programs/fzf', 'do': './install --all'}
   Plug 'junegunn/fzf.vim'
