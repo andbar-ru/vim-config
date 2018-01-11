@@ -71,10 +71,15 @@ if $USER == 'root'
 else
     set background=light
 endif
-set termguicolors
 colorscheme unicon
 
 let g:indentLine_enabled=0
+
+if version >= 800
+  set termguicolors
+  set breakindent
+  set breakindentopt=shift:4
+endif
 
 set encoding=utf-8
 set history=10000
@@ -110,8 +115,6 @@ set nostartofline
 set whichwrap+=<,>,[,]
 set listchars=tab:»\ ,trail:·,eol:¶
 set showbreak=↳\ 
-set breakindent
-set breakindentopt=shift:4
 set updatetime=1000
 set gdefault
 set pastetoggle=<A-p>
@@ -140,7 +143,7 @@ set statusline=%<%n:%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
 " nvim or not
 if has('nvim')
   set inccommand=nosplit
-else
+elseif version >= 800
   set cryptmethod=blowfish2
 endif
 

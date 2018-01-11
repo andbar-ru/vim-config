@@ -6,9 +6,10 @@ nmap <S-F2> :wa<Bar>exe "mksession! " . v:this_session<CR>
 inoremap <F3> 
 cnoremap <F3> 
 inoremap  <C-o>
-" Indent guides
-map <A-F3> <Leader>ig
-imap <A-F3> <C-o><Leader>ig
+if isdirectory($VIMRCDIR . '/plugged/vim-indent-guides')
+  map <A-F3> <Leader>ig
+  imap <A-F3> <C-o><Leader>ig
+endif
 " Подсветка непечатаемых символов
 map <S-F3> :set list!<CR>
 imap <S-F3> <C-o>:set list!<CR>
@@ -22,20 +23,28 @@ imap <silent> <F4> <C-o>:set nu!<CR>
 map <silent> <S-F4> :set relativenumber!<CR>
 imap <silent> <S-F4> <C-o>:set relativenumber!<CR>
 
-map <F5> :ToggleBufExplorer<CR>
-imap <F5> <C-o>:ToggleBufExplorer<CR>
-map <S-F5> :BufExplorerVerticalSplit<CR>
-imap <S-F5> <C-o>:BufExplorerVerticalSplit<CR>
+if isdirectory($VIMRCDIR . '/plugged/bufexplorer')
+  map <F5> :ToggleBufExplorer<CR>
+  imap <F5> <C-o>:ToggleBufExplorer<CR>
+  map <S-F5> :BufExplorerVerticalSplit<CR>
+  imap <S-F5> <C-o>:BufExplorerVerticalSplit<CR>
+endif
 map <C-F5> :buffers<CR>:edit #
 imap <C-F5> <Esc>:buffers<CR>:edit #
 
-map <F6> :NERDTreeToggle<CR>
-imap <F6> <C-o>:NERDTreeToggle<CR>
+if isdirectory($VIMRCDIR . '/plugged/nerdtree')
+  map <F6> :NERDTreeToggle<CR>
+  imap <F6> <C-o>:NERDTreeToggle<CR>
+endif
 
-map <F7> :TagbarToggle<CR>
-imap <F7> <C-o>:TagbarToggle<CR>
-map <S-F7> :ALEToggleBuffer<CR>
-imap <S-F7> <C-o>:ALEToggleBuffer<CR>
+if isdirectory($VIMRCDIR . '/plugged/tagbar')
+  map <F7> :TagbarToggle<CR>
+  imap <F7> <C-o>:TagbarToggle<CR>
+endif
+if isdirectory($VIMRCDIR . '/plugged/ale')
+  map <S-F7> :ALEToggleBuffer<CR>
+  imap <S-F7> <C-o>:ALEToggleBuffer<CR>
+endif
 
 map <F8> :marks abcdefghijklmnopqrstuvwxyz<CR>:'
 imap <F8>   <Esc>:marks abcdefghijklmnopqrstuvwxyz<CR>:'
@@ -44,8 +53,10 @@ imap <S-F8>   <Esc>:marks abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ<C
 map <C-F8> :syntax sync fromstart<CR>
 imap <C-F8> <C-o>:syntax sync fromstart<CR>
 
-map <F9> :GitGutterSignsToggle<CR>
-map <S-F9> :GitGutterLineHighlightsToggle<CR>
+if isdirectory($VIMRCDIR . '/plugged/vim-gitgutter')
+  map <F9> :GitGutterSignsToggle<CR>
+  map <S-F9> :GitGutterLineHighlightsToggle<CR>
+endif
 
 map <S-F10> :ToggleMenu<CR>
 imap <S-F10> <C-o>:ToggleMenu<CR>
@@ -187,23 +198,26 @@ map <A-s> :ToggleScrollbar<CR>
 map <A-l> :SetColumnsAsLongestLine<CR>
 
 
-" fugitive
-map <Leader>gb :Gblame<CR>
+if isdirectory($VIMRCDIR . '/plugged/vim-fugitive')
+  map <Leader>gb :Gblame<CR>
+endif
 
-" vim-bookmarks
-map <Leader>mm <Plug>BookmarkToggle
-map <Leader>mi <Plug>BookmarkAnnotate
-map <Leader>mn <Plug>BookmarkNext
-map <Leader>mp <Plug>BookmarkPrev
-map <Leader>ma <Plug>BookmarkShowAll
-map <Leader>mc <Plug>BookmarkClear
-map <Leader>mx <Plug>BookmarkClearAll
-map <Leader>ms <Plug>BookmarkSave
-map <Leader>ml <Plug>BookmarkLoad
-map <Leader>mkk <Plug>BookmarkMoveUp
-map <Leader>mjj <Plug>BookmarkMoveDown
+if isdirectory($VIMRCDIR . '/plugged/vim-bookmarks')
+  map <Leader>mm <Plug>BookmarkToggle
+  map <Leader>mi <Plug>BookmarkAnnotate
+  map <Leader>mn <Plug>BookmarkNext
+  map <Leader>mp <Plug>BookmarkPrev
+  map <Leader>ma <Plug>BookmarkShowAll
+  map <Leader>mc <Plug>BookmarkClear
+  map <Leader>mx <Plug>BookmarkClearAll
+  map <Leader>ms <Plug>BookmarkSave
+  map <Leader>ml <Plug>BookmarkLoad
+  map <Leader>mkk <Plug>BookmarkMoveUp
+  map <Leader>mjj <Plug>BookmarkMoveDown
+endif
 
-" neosnippet
-imap <C-j> <Plug>(neosnippet_expand_or_jump)
-smap <C-j> <Plug>(neosnippet_expand_or_jump)
-xmap <C-j> <Plug>(neosnippet_expand_target)
+if isdirectory($VIMRCDIR . '/plugged/neosnippet')
+  imap <C-j> <Plug>(neosnippet_expand_or_jump)
+  smap <C-j> <Plug>(neosnippet_expand_or_jump)
+  xmap <C-j> <Plug>(neosnippet_expand_target)
+endif
