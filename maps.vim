@@ -1,5 +1,5 @@
 map <silent> <F2> :silent update<CR>
-imap <silent> <F2> <C-o>:silent update<CR>
+imap <silent> <F2> <C-o>:silent update
 nmap <S-F2> :wa<Bar>exe "mksession! " . v:this_session<CR>
 
 " Переключение языка и переход к парному буферу
@@ -25,9 +25,9 @@ imap <silent> <S-F4> <C-o>:set relativenumber!<CR>
 
 if isdirectory($VIMRCDIR . '/plugged/bufexplorer')
   map <F5> :ToggleBufExplorer<CR>
-  imap <F5> <C-o>:ToggleBufExplorer<CR>
+  imap <F5> <Esc>:ToggleBufExplorer<CR>
   map <S-F5> :BufExplorerVerticalSplit<CR>
-  imap <S-F5> <C-o>:BufExplorerVerticalSplit<CR>
+  imap <S-F5> <Esc>:BufExplorerVerticalSplit<CR>
 endif
 map <C-F5> :buffers<CR>:edit #
 imap <C-F5> <Esc>:buffers<CR>:edit #
