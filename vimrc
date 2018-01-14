@@ -65,7 +65,9 @@ source $VIMRCDIR/commands.vim
 source $VIMRCDIR/maps.vim
 source $VIMRCDIR/autocmds.vim
 
-"" Colorscheme
+call AddVenvSitePackages()
+
+" Colorscheme
 if $USER == 'root'
     set background=dark
 else

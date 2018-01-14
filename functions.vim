@@ -36,3 +36,18 @@ function g:BMWorkDirFileLocation()
     return "$VIMRCDIR/bookmarks/default"
   endif
 endfunction
+
+function! AddVenvSitePackages()
+  if has('python3')
+python3 << EOF
+import os
+venv_path = os.getenv('VIRTUAL_ENV')
+if venv_path:
+  lib_path = os.path.join(venv_path, 'lib')
+  for item in os.listdir(lib_path):
+    path = os.path.join(lib_path, item, 'site-packages')
+    if os.path.isdir(path):
+      sys.path.insert(0, path)
+EOF
+  endif
+endfunction
