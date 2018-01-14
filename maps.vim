@@ -1,11 +1,11 @@
 map <silent> <F2> :silent update<CR>
-imap <silent> <F2> <C-o>:silent update
+imap <silent> <F2> <Esc>:silent update<CR>
 nmap <S-F2> :wa<Bar>exe "mksession! " . v:this_session<CR>
 
 " Переключение языка и переход к парному буферу
 inoremap <F3> 
 cnoremap <F3> 
-inoremap  <C-o>
+inoremap  <Esc>
 if isdirectory($VIMRCDIR . '/plugged/vim-indent-guides')
   map <A-F3> <Leader>ig
   imap <A-F3> <C-o><Leader>ig
