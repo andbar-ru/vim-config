@@ -88,7 +88,7 @@ set showmatch
 set ignorecase
 set smartcase
 set incsearch
-set hlsearch
+set nohlsearch
 set autowrite
 set autochdir
 set mouse=a

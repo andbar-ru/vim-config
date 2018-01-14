@@ -129,8 +129,10 @@ inoremap <MiddleMouse> <LeftMouse><MiddleMouse>
 
 map <A-w> :set wrap!<CR>
 
-map <expr> <A-h> (&hlsearch ? ":set nohlsearch<CR>" : ":let @/ = '\\V\\<'.escape(expand('<cword>'), '\\').'\\>' <Bar> set hlsearch<CR>")
-imap <expr> <A-h> (&hlsearch ? "<C-o>:set nohlsearch<CR>" : "<C-o>:let @/ = '\\V\\<'.escape(expand('<cword>'), '\\').'\\>' <Bar> set hlsearch<CR>")
+map <silent> <A-h> :set hlsearch!<CR>
+imap <silent> <A-h> <C-o>:set hlsearch!<CR>
+map <silent> <S-A-h> :let @/ = '\V\<' . escape(expand('<cword>'), '\') . '\>' <Bar> set hls<CR>
+imap <silent> <S-A-h> <C-o>:let @/ = '\V\<' . escape(expand('<cword>'), '\') . '\>' <Bar> set hls<CR>
 nmap <Space> za
 nmap <S-Space> zA
 
@@ -172,7 +174,7 @@ map <Leader>dt dit"_datP
 map <A--> :ToggleDashInIskeyword<CR>
 imap <A--> <C-o>:ToggleDashInIskeyword<CR>
 " Удаление журналирующего блока
-map <Leader>dl ?\v^\s*.+ begin #{40,}$<CR>v/\v^\s*.+ end #{40,}$<CR>Vd<Esc>
+map <Leader>dl ?\v^\s*.+ begin #{40,}$<CR>v/\v^\s*.+ end #{40,}$<CR>Vd
 
 "Поиск выделенного текста в соседних окнах
 vmap <Leader>/h <C-w>h/<C-r>*<CR>
