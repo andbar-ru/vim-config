@@ -3,7 +3,7 @@ alias l
 options head
 	# begin ##########################################
 	with open('/tmp/log.txt', 'a+') as f:
-		f.write('%s\n' % ${0:TARGET})
+		f.write('${1}: %s\n' % ${0:TARGET})
 	# end ############################################
 
 snippet tmpflog
@@ -12,7 +12,7 @@ options head
 	# begin ##########################################
 	from pprint import pformat
 	with open('/tmp/log.txt', 'a+') as f:
-		f.write('%s\n' % pformat(${0:TARGET}))
+		f.write('${1}: %s\n' % pformat(${0:TARGET}))
 	# end ############################################
 
 snippet tmptlog
@@ -53,6 +53,6 @@ options head
 snippet ipdb
 options head
 	# begin ##########################################
-	import ipdb; ipdb.set_trace()
+	import ipdb; ipdb.set_trace()  # noqa E703
 	# end ############################################
 

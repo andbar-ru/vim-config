@@ -91,6 +91,8 @@ if isdirectory($VIMRCDIR . '/plugged/jedi-vim')
 endif
 
 if isdirectory($VIMRCDIR . '/plugged/ale')
+  let g:ale_sign_error = 'E'
+  let g:ale_sign_warning = 'W'
   let g:ale_lint_on_text_changed = 'never'
   let g:ale_lint_on_enter = 0
   let g:ale_open_list = 1

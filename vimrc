@@ -141,6 +141,7 @@ set foldopen+=jump
 set sessionoptions=blank,buffers,curdir,folds,tabpages,winsize
 " default + buffer number
 set statusline=%<%n:%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
+set diffopt+=vertical
 
 " nvim or not
 if has('nvim')

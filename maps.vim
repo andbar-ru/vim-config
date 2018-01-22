@@ -199,7 +199,7 @@ map <A-s> :ToggleScrollbar<CR>
 " Установить ширину окна по самой длинной строке
 map <A-l> :SetColumnsAsLongestLine<CR>
 
-
+" Plugins
 if isdirectory($VIMRCDIR . '/plugged/vim-fugitive')
   map <Leader>gb :Gblame<CR>
 endif
@@ -222,4 +222,8 @@ if isdirectory($VIMRCDIR . '/plugged/neosnippet')
   imap <C-j> <Plug>(neosnippet_expand_or_jump)
   smap <C-j> <Plug>(neosnippet_expand_or_jump)
   xmap <C-j> <Plug>(neosnippet_expand_target)
+endif
+
+if isdirectory($VIMRCDIR . '/plugged/tcomment_vim')
+  map <A-/> <Plug>TComment_<c-_><c-_>
 endif
