@@ -102,18 +102,18 @@ inoremap <expr> <A-v> '<Esc>`[' . strpart(getregtype(), 0, 1) . '`]'
 " Выполнение команды для каждой выделенной строки
 vnoremap <A-n> :norm<Space>
 " Перемещение строк вверх и вниз (на предмет соответствия отступам см. ==)
-nnoremap <silent> <A-j> :let prev_fdm=&fdm<bar>set fdm=manual<bar>m+<bar>let &fdm=prev_fdm<CR>
-nnoremap <silent> <A-Down> :let prev_fdm=&fdm<bar>set fdm=manual<bar>m+<bar>let &fdm=prev_fdm<CR>
-nnoremap <silent> <A-k> :let prev_fdm=&fdm<bar>set fdm=manual<bar>m-2<bar>let &fdm=prev_fdm<CR>
-nnoremap <silent> <A-Up> :let prev_fdm=&fdm<bar>set fdm=manual<bar>m-2<bar>let &fdm=prev_fdm<CR>
-inoremap <silent> <A-j> <Esc>:let prev_fdm=&fdm<bar>set fdm=manual<bar>m+<bar>let &fdm=prev_fdm<CR>gi
-inoremap <silent> <A-Down> <Esc>:let prev_fdm=&fdm<bar>set fdm=manual<bar>m+<bar>let &fdm=prev_fdm<CR>gi
-inoremap <silent> <A-k> <Esc>:let prev_fdm=&fdm<bar>set fdm=manual<bar>m-2<bar>let &fdm=prev_fdm<CR>gi
-inoremap <silent> <A-Up> <Esc>:let prev_fdm=&fdm<bar>set fdm=manual<bar>m-2<bar>let &fdm=prev_fdm<CR>gi
-vnoremap <silent> <A-j> :let prev_fdm=&fdm<bar>set fdm=manual<bar>m'>+<bar>let &fdm=prev_fdm<CR>gvgv
-vnoremap <silent> <A-Down> :let prev_fdm=&fdm<bar>set fdm=manual<bar>m'>+<bar>let &fdm=prev_fdm<CR>gvgv
-vnoremap <silent> <A-k> :let prev_fdm=&fdm<bar>set fdm=manual<bar>m-2<bar>let &fdm=prev_fdm<CR>gvgv
-vnoremap <silent> <A-Up> :let prev_fdm=&fdm<bar>set fdm=manual<bar>m-2<bar>let &fdm=prev_fdm<CR>gvgv
+nnoremap <A-j> :call MoveLines('down', 'n')<CR>
+nnoremap <A-Down> :call MoveLines('down', 'n')<CR>
+nnoremap <A-k> :call MoveLines('up', 'n')<CR>
+nnoremap <A-Up> :call MoveLines('up', 'n')<CR>
+inoremap <A-j> <C-o>:call MoveLines('down', 'i')<CR>
+inoremap <A-Down> <C-o>:call MoveLines('down', 'i')<CR>
+inoremap <A-k> <C-o>:call MoveLines('up', 'i')<CR>
+inoremap <A-Up> <C-o>:call MoveLines('up', 'i')<CR>
+vnoremap <A-j> :call MoveLines('down', 'v')<CR>
+vnoremap <A-Down> :call MoveLines('down', 'v')<CR>
+vnoremap <A-k> :call MoveLines('up', 'v')<CR>
+vnoremap <A-Up> :call MoveLines('up', 'v')<CR>
 " Удаление
 inoremap <S-BS> <C-W>
 cnoremap <S-BS> <C-W>

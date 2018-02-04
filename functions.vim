@@ -51,3 +51,31 @@ if venv_path:
 EOF
   endif
 endfunction
+
+function! MoveLines(direction, mode) range
+  let l:prev_fdm = &fdm
+  set fdm=manual
+  let l:start_line = line('.')
+  let l:end_line = line('.')
+  if a:mode == 'v'
+    let l:start_line = line("'<")
+    let l:end_line = line("'>")
+  endif
+  if a:direction == 'up' && l:start_line != 1
+    if a:mode == 'v'
+      '<,'>m '<-2
+    else
+      m-2
+    endif
+  elseif a:direction == 'down' && l:end_line != line('$')
+    if a:mode == 'v'
+      '<,'>m '>+
+    else
+      m+
+    endif
+  endif
+  if a:mode == 'v'
+    exec "normal gv"
+  endif
+  let &fdm = l:prev_fdm
+endfunction

@@ -1,7 +1,7 @@
 let g:plug_window='topleft'
 silent! call plug#begin()
 " colorschemes
-Plug 'morhetz/gruvbox'
+Plug 'mswift42/vim-themes'
 Plug 'andbar-ru/vim-unicon'
 
 Plug 'nathanaelkane/vim-indent-guides'
