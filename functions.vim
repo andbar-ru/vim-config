@@ -53,6 +53,7 @@ EOF
 endfunction
 
 function! MoveLines(direction, mode) range
+  " http://vim.wikia.com/wiki/Moving_lines_up_or_down
   let l:prev_fdm = &fdm
   set fdm=manual
   let l:start_line = line('.')

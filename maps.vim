@@ -199,6 +199,10 @@ map <A-s> :ToggleScrollbar<CR>
 " Установить ширину окна по самой длинной строке
 map <A-l> :SetColumnsAsLongestLine<CR>
 
+" Smart Home
+noremap <expr> <silent> <Home> col('.') == match(getline('.'),'\S')+1 ? '0' : '^'
+imap <silent> <Home> <C-o><Home>
+
 " Plugins
 if isdirectory($VIMRCDIR . '/plugged/vim-fugitive')
   map <Leader>gb :Gblame<CR>
