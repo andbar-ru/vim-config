@@ -150,4 +150,3 @@ if has('nvim')
 elseif version >= 800
   set cryptmethod=blowfish2
 endif
-

@@ -1,3 +1,7 @@
+" Сделать пробел <Leader>ом
+nnoremap <Space> <nop>
+let mapleader = " "
+
 map <silent> <F2> :silent update<CR>
 imap <silent> <F2> <Esc>:silent update<CR>
 nmap <S-F2> :wa<Bar>exe "mksession! " . v:this_session<CR>
@@ -133,8 +137,6 @@ map <silent> <A-h> :set hlsearch!<CR>
 imap <silent> <A-h> <C-o>:set hlsearch!<CR>
 map <silent> <S-A-h> :let @/ = '\V\<' . escape(expand('<cword>'), '\') . '\>' <Bar> set hls<CR>
 imap <silent> <S-A-h> <C-o>:let @/ = '\V\<' . escape(expand('<cword>'), '\') . '\>' <Bar> set hls<CR>
-nmap <Space> za
-nmap <S-Space> zA
 
 map <A-0> :vertical resize 100<CR>
 imap <A-0> <C-o>:vertical resize 100<CR>
@@ -183,7 +185,7 @@ vmap <Leader>/k <C-w>k/<C-r>*<CR>
 vmap <Leader>/l <C-w>l/<C-r>*<CR>
 
 " Сколько раз слово под курсором встречается в файле
-nmap <Leader>* *<C-o>:%s///n<CR><C-o>
+nnoremap <Leader>* *<C-o>:%s///n<CR>
 
 "Django, Jinja, Vue templates
 imap <A-{> {{<Space><Space><Left>
