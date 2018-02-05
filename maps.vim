@@ -1,3 +1,7 @@
+" Сделать пробел <Leader>ом
+nnoremap <Space> <nop>
+let mapleader = " "
+
 map <silent> <F2> :silent update<CR>
 imap <silent> <F2> <Esc>:silent update<CR>
 nmap <S-F2> :wa<Bar>exe "mksession! " . v:this_session<CR>
@@ -102,18 +106,18 @@ inoremap <expr> <A-v> '<Esc>`[' . strpart(getregtype(), 0, 1) . '`]'
 " Выполнение команды для каждой выделенной строки
 vnoremap <A-n> :norm<Space>
 " Перемещение строк вверх и вниз (на предмет соответствия отступам см. ==)
-nnoremap <silent> <A-j> :let prev_fdm=&fdm<bar>set fdm=manual<bar>m+<bar>let &fdm=prev_fdm<CR>
-nnoremap <silent> <A-Down> :let prev_fdm=&fdm<bar>set fdm=manual<bar>m+<bar>let &fdm=prev_fdm<CR>
-nnoremap <silent> <A-k> :let prev_fdm=&fdm<bar>set fdm=manual<bar>m-2<bar>let &fdm=prev_fdm<CR>
-nnoremap <silent> <A-Up> :let prev_fdm=&fdm<bar>set fdm=manual<bar>m-2<bar>let &fdm=prev_fdm<CR>
-inoremap <silent> <A-j> <Esc>:let prev_fdm=&fdm<bar>set fdm=manual<bar>m+<bar>let &fdm=prev_fdm<CR>gi
-inoremap <silent> <A-Down> <Esc>:let prev_fdm=&fdm<bar>set fdm=manual<bar>m+<bar>let &fdm=prev_fdm<CR>gi
-inoremap <silent> <A-k> <Esc>:let prev_fdm=&fdm<bar>set fdm=manual<bar>m-2<bar>let &fdm=prev_fdm<CR>gi
-inoremap <silent> <A-Up> <Esc>:let prev_fdm=&fdm<bar>set fdm=manual<bar>m-2<bar>let &fdm=prev_fdm<CR>gi
-vnoremap <silent> <A-j> :let prev_fdm=&fdm<bar>set fdm=manual<bar>m'>+<bar>let &fdm=prev_fdm<CR>gvgv
-vnoremap <silent> <A-Down> :let prev_fdm=&fdm<bar>set fdm=manual<bar>m'>+<bar>let &fdm=prev_fdm<CR>gvgv
-vnoremap <silent> <A-k> :let prev_fdm=&fdm<bar>set fdm=manual<bar>m-2<bar>let &fdm=prev_fdm<CR>gvgv
-vnoremap <silent> <A-Up> :let prev_fdm=&fdm<bar>set fdm=manual<bar>m-2<bar>let &fdm=prev_fdm<CR>gvgv
+nnoremap <A-j> :call MoveLines('down', 'n')<CR>
+nnoremap <A-Down> :call MoveLines('down', 'n')<CR>
+nnoremap <A-k> :call MoveLines('up', 'n')<CR>
+nnoremap <A-Up> :call MoveLines('up', 'n')<CR>
+inoremap <A-j> <C-o>:call MoveLines('down', 'i')<CR>
+inoremap <A-Down> <C-o>:call MoveLines('down', 'i')<CR>
+inoremap <A-k> <C-o>:call MoveLines('up', 'i')<CR>
+inoremap <A-Up> <C-o>:call MoveLines('up', 'i')<CR>
+vnoremap <A-j> :call MoveLines('down', 'v')<CR>
+vnoremap <A-Down> :call MoveLines('down', 'v')<CR>
+vnoremap <A-k> :call MoveLines('up', 'v')<CR>
+vnoremap <A-Up> :call MoveLines('up', 'v')<CR>
 " Удаление
 inoremap <S-BS> <C-W>
 cnoremap <S-BS> <C-W>
@@ -133,8 +137,6 @@ map <silent> <A-h> :set hlsearch!<CR>
 imap <silent> <A-h> <C-o>:set hlsearch!<CR>
 map <silent> <S-A-h> :let @/ = '\V\<' . escape(expand('<cword>'), '\') . '\>' <Bar> set hls<CR>
 imap <silent> <S-A-h> <C-o>:let @/ = '\V\<' . escape(expand('<cword>'), '\') . '\>' <Bar> set hls<CR>
-nmap <Space> za
-nmap <S-Space> zA
 
 map <A-0> :vertical resize 100<CR>
 imap <A-0> <C-o>:vertical resize 100<CR>
@@ -183,7 +185,7 @@ vmap <Leader>/k <C-w>k/<C-r>*<CR>
 vmap <Leader>/l <C-w>l/<C-r>*<CR>
 
 " Сколько раз слово под курсором встречается в файле
-nmap <Leader>* *<C-o>:%s///n<CR><C-o>
+nnoremap <Leader>* *<C-o>:%s///n<CR>
 
 "Django, Jinja, Vue templates
 imap <A-{> {{<Space><Space><Left>
@@ -200,6 +202,16 @@ map <A-s> :ToggleScrollbar<CR>
 map <A-l> :SetColumnsAsLongestLine<CR>
 
 map <Leader>dg :diffget<CR>
+
+" Smart Home
+noremap <expr> <silent> <Home> col('.') == match(getline('.'),'\S')+1 ? '0' : '^'
+imap <silent> <Home> <C-o><Home>
+
+" Swap words (cursor on delimiter)
+nnoremap gw v?\w<CR>bo/\w<CR>e:s/\%V\(\w\+\)\(\W\+\)\(\w\+\)/\3\2\1/g<CR>``
+nnoremap gW v?\S<CR>Bo/\S<CR>E:s/\%V\(\S\+\)\(\s\+\)\(\S\+\)/\3\2\1/g<CR>``
+vnoremap gw "1d"1db"1de"2P"4p"3p
+vnoremap gW "1d"1dB"1dE"2P"4p"3p
 
 " Plugins
 if isdirectory($VIMRCDIR . '/plugged/vim-fugitive')
