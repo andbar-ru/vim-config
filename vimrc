@@ -121,7 +121,7 @@ set updatetime=1000
 set gdefault
 set pastetoggle=<A-p>
 set directory=$VIMRCDIR/swapfiles/
-set switchbuf=usetab,newtab
+set switchbuf=usetab
 
 if exists('+colorcolumn')
     set colorcolumn=100

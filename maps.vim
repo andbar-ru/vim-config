@@ -33,8 +33,8 @@ if isdirectory($VIMRCDIR . '/plugged/bufexplorer')
   map <S-F5> :BufExplorerVerticalSplit<CR>
   imap <S-F5> <Esc>:BufExplorerVerticalSplit<CR>
 endif
-map <C-F5> :buffers<CR>:edit #
-imap <C-F5> <Esc>:buffers<CR>:edit #
+map <C-F5> :buffers<CR>:b 
+imap <C-F5> <Esc>:buffers<CR>:b 
 
 if isdirectory($VIMRCDIR . '/plugged/nerdtree')
   map <F6> :NERDTreeToggle<CR>
