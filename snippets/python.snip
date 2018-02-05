@@ -2,12 +2,20 @@ snippet tmplog
 alias l
 options head
 	# begin ##########################################
+	from tmplog import tmplog
+	tmplog(${1}=$1${0})
+	# end ############################################
+
+snippet tmplog0
+alias l0
+options head
+	# begin ##########################################
 	with open('/tmp/log.txt', 'a+') as f:
 		f.write('${1}: %s\n' % ${0:TARGET})
 	# end ############################################
 
-snippet tmpflog
-alias lf
+snippet tmpflog0
+alias lf0
 options head
 	# begin ##########################################
 	from pprint import pformat
