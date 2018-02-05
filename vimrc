@@ -140,9 +140,10 @@ set foldopen+=jump
 
 set sessionoptions=blank,buffers,curdir,folds,tabpages,winsize
 " default + buffer number
-set statusline=%<%n:%f\ %h%m%r%w%=%l,%v\ %P
-set rulerformat=%=%l,%v\ %P
+set statusline=%<%n:%f\ %h%m%r%w%=%l,%c%V\ %P
+set rulerformat=%=%l,%c%V\ %P
 set diffopt+=vertical
+set iskeyword+=45  " -
 
 " nvim or not
 if has('nvim')

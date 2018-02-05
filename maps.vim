@@ -199,6 +199,8 @@ map <A-s> :ToggleScrollbar<CR>
 " Установить ширину окна по самой длинной строке
 map <A-l> :SetColumnsAsLongestLine<CR>
 
+map <Leader>dg :diffget<CR>
+
 " Plugins
 if isdirectory($VIMRCDIR . '/plugged/vim-fugitive')
   map <Leader>gb :Gblame<CR>
