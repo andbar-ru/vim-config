@@ -94,8 +94,8 @@ imap <C-S-CR> <C-O>O
 imap <C-CR> <CR><CR><UP><TAB>
 vnoremap <Tab> >gv
 vnoremap <S-Tab> <gv
-vnoremap <Space> :norm I <CR><Esc>gv
-vnoremap <S-Space> :norm ^hx<CR>gv
+vnoremap <A->> :norm I <CR><Esc>gv
+vnoremap <A-<> :norm ^hx<CR>gv
 imap <C-S-Left> <Esc>vb
 imap <C-S-Right> <Esc>lve
 inoremap <silent> <C-Right> <C-o>E
@@ -208,10 +208,10 @@ noremap <expr> <silent> <Home> col('.') == match(getline('.'),'\S')+1 ? '0' : '^
 imap <silent> <Home> <C-o><Home>
 
 " Swap words (cursor on delimiter)
-nnoremap gw v?\w<CR>bo/\w<CR>e:s/\%V\(\w\+\)\(\W\+\)\(\w\+\)/\3\2\1/g<CR>``
-nnoremap gW v?\S<CR>Bo/\S<CR>E:s/\%V\(\S\+\)\(\s\+\)\(\S\+\)/\3\2\1/g<CR>``
-vnoremap gw "1d"1db"1de"2P"4p"3p
-vnoremap gW "1d"1dB"1dE"2P"4p"3p
+nnoremap <Leader>sw v?\w<CR>bo/\w<CR>e:s/\%V\(\w\+\)\(\W\+\)\(\w\+\)/\3\2\1/g<CR>``
+nnoremap <Leader>sW v?\S<CR>Bo/\S<CR>E:s/\%V\(\S\+\)\(\s\+\)\(\S\+\)/\3\2\1/g<CR>``
+vnoremap <Leader>sw "1d"1db"1de"2P"4p"3p
+vnoremap <Leader>sW "1d"1dB"1dE"2P"4p"3p
 
 " Plugins
 if isdirectory($VIMRCDIR . '/plugged/vim-fugitive')
