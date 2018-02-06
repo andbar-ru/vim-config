@@ -7,6 +7,6 @@ augroup vimrc
   autocmd BufRead log.txt setlocal autoread filetype=logtxt
   autocmd BufRead rules setlocal noexpandtab  " debian/rules
   autocmd FileType python setlocal ts=4 sw=4 cc=100,120 completeopt-=preview
-  autocmd BufLeave * let b:winview = winsaveview()
-  autocmd BufEnter * if (exists('b:winview')) | call winrestview(b:winview) | endif
+  autocmd BufLeave * call AutoSaveWinView()
+  autocmd BufEnter * call AutoRestoreWinView()
 endif
