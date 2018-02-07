@@ -35,8 +35,8 @@ Plug 'PProvost/vim-ps1'
 Plug 'posva/vim-vue'
 Plug 'MattesGroeger/vim-bookmarks'
 Plug 'airblade/vim-rooter'
+Plug 'groenewege/vim-less'
 if version >= 800
-  Plug 'Shougo/denite.nvim'
   Plug 'Shougo/neosnippet'
   Plug 'Shougo/neosnippet-snippets'
   Plug 'Shougo/context_filetype.vim'  " for neosnippet
