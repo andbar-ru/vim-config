@@ -58,24 +58,6 @@ if isdirectory($VIMRCDIR . '/plugged/fzf.vim')
   let $FZF_DEFAULT_OPTS = '--bind ctrl-a:select-all'
 endif
 
-if isdirectory($VIMRCDIR . '/plugged/denite.nvim')
-  call denite#custom#var('file_rec', 'command', [$VIMRCDIR . '/bin/denite-file_rec.sh'])
-
-  call denite#custom#var('grep', 'command', ['rg'])
-  call denite#custom#var('grep', 'default_opts', ['--vimgrep', '--no-heading'])
-  call denite#custom#var('grep', 'recursive_opts', [])
-  call denite#custom#var('grep', 'pattern_opt', ['--regexp'])
-  call denite#custom#var('grep', 'separator', ['--'])
-  call denite#custom#var('grep', 'final_opts', [])
-
-  call denite#custom#source('file_rec', 'matchers', ['matcher_fuzzy'])
-
-  call denite#custom#map('insert', '<Down>', '<denite:move_to_next_line>', 'noremap')
-  call denite#custom#map('insert', '<Up>', '<denite:move_to_previous_line>', 'noremap')
-
-  call denite#custom#source('file_rec', 'sorters', ['sorter_sublime'])
-endif
-
 if isdirectory($VIMRCDIR . '/plugged/jedi-vim')
   let g:jedi#popup_on_dot = 0
   let g:jedi#show_call_signatures = "2"
