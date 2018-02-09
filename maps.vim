@@ -2,102 +2,102 @@
 nnoremap <Space> <nop>
 let mapleader = " "
 
-map <silent> <F2> :silent update<CR>
-imap <silent> <F2> <Esc>:silent update<CR>
-nmap <S-F2> :wa<Bar>exe "mksession! " . v:this_session<CR>
+noremap <silent> <F2> :silent update<CR>
+inoremap <silent> <F2> <Esc>:silent update<CR>
+nnoremap <S-F2> :wa<Bar>exe "mksession! " . v:this_session<CR>
 
 " Переключение языка и переход к парному буферу
 inoremap <F3> 
 cnoremap <F3> 
 inoremap  <Esc>
 if isdirectory($VIMRCDIR . '/plugged/vim-indent-guides')
-  map <A-F3> <Leader>ig
-  imap <A-F3> <C-o><Leader>ig
+  noremap <A-F3> <Leader>ig
+  inoremap <A-F3> <C-o><Leader>ig
 endif
 " Подсветка непечатаемых символов
-map <S-F3> :set list!<CR>
-imap <S-F3> <C-o>:set list!<CR>
+noremap <S-F3> :set list!<CR>
+inoremap <S-F3> <C-o>:set list!<CR>
 " Подсветка пробелов в конце строк
-map <C-S-F3> :call ToggleHiTrail()<CR>
-imap <C-S-F3> <C-o>:call ToggleHiTrail()<CR>
+noremap <C-S-F3> :call ToggleHiTrail()<CR>
+inoremap <C-S-F3> <C-o>:call ToggleHiTrail()<CR>
 
 " Нумерация
-map <silent> <F4> :set nu!<CR>
-imap <silent> <F4> <C-o>:set nu!<CR>
-map <silent> <S-F4> :set relativenumber!<CR>
-imap <silent> <S-F4> <C-o>:set relativenumber!<CR>
+noremap <silent> <F4> :set nu!<CR>
+inoremap <silent> <F4> <C-o>:set nu!<CR>
+noremap <silent> <S-F4> :set relativenumber!<CR>
+inoremap <silent> <S-F4> <C-o>:set relativenumber!<CR>
 
 if isdirectory($VIMRCDIR . '/plugged/bufexplorer')
-  map <F5> :ToggleBufExplorer<CR>
-  imap <F5> <Esc>:ToggleBufExplorer<CR>
-  map <S-F5> :BufExplorerVerticalSplit<CR>
-  imap <S-F5> <Esc>:BufExplorerVerticalSplit<CR>
+  noremap <F5> :ToggleBufExplorer<CR>
+  inoremap <F5> <Esc>:ToggleBufExplorer<CR>
+  noremap <S-F5> :BufExplorerVerticalSplit<CR>
+  inoremap <S-F5> <Esc>:BufExplorerVerticalSplit<CR>
 endif
-map <C-F5> :buffers<CR>:b 
-imap <C-F5> <Esc>:buffers<CR>:b 
+noremap <C-F5> :buffers<CR>:b 
+inoremap <C-F5> <Esc>:buffers<CR>:b 
 
 if isdirectory($VIMRCDIR . '/plugged/nerdtree')
-  map <F6> :NERDTreeToggle<CR>
-  imap <F6> <C-o>:NERDTreeToggle<CR>
+  noremap <F6> :NERDTreeToggle<CR>
+  inoremap <F6> <C-o>:NERDTreeToggle<CR>
 endif
 
 if isdirectory($VIMRCDIR . '/plugged/tagbar')
-  map <F7> :TagbarToggle<CR>
-  imap <F7> <C-o>:TagbarToggle<CR>
+  noremap <F7> :TagbarToggle<CR>
+  inoremap <F7> <C-o>:TagbarToggle<CR>
 endif
 if isdirectory($VIMRCDIR . '/plugged/ale')
-  map <S-F7> :ALEToggleBuffer<CR>
-  imap <S-F7> <C-o>:ALEToggleBuffer<CR>
+  noremap <S-F7> :ALEToggleBuffer<CR>
+  inoremap <S-F7> <C-o>:ALEToggleBuffer<CR>
 endif
 
-map <F8> :marks abcdefghijklmnopqrstuvwxyz<CR>:'
-imap <F8>   <Esc>:marks abcdefghijklmnopqrstuvwxyz<CR>:'
-map <S-F8> :marks abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ<CR>:'
-imap <S-F8>   <Esc>:marks abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ<CR>:'
-map <C-F8> :syntax sync fromstart<CR>
-imap <C-F8> <C-o>:syntax sync fromstart<CR>
+noremap <F8> :marks abcdefghijklmnopqrstuvwxyz<CR>:'
+inoremap <F8>   <Esc>:marks abcdefghijklmnopqrstuvwxyz<CR>:'
+noremap <S-F8> :marks abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ<CR>:'
+inoremap <S-F8>   <Esc>:marks abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ<CR>:'
+noremap <C-F8> :syntax sync fromstart<CR>
+inoremap <C-F8> <C-o>:syntax sync fromstart<CR>
 
 if isdirectory($VIMRCDIR . '/plugged/vim-gitgutter')
-  map <F9> :GitGutterSignsToggle<CR>
-  map <S-F9> :GitGutterLineHighlightsToggle<CR>
+  noremap <F9> :GitGutterSignsToggle<CR>
+  noremap <S-F9> :GitGutterLineHighlightsToggle<CR>
 endif
 
-map <S-F10> :ToggleMenu<CR>
-imap <S-F10> <C-o>:ToggleMenu<CR>
+noremap <S-F10> :ToggleMenu<CR>
+inoremap <S-F10> <C-o>:ToggleMenu<CR>
 
 " Управление окнами, буферами, вкладками
 " В перечислении включены только операции, которые имеет смысл выполнять неоднократно 
 " Остальные через <C-W>char
 for c in ["h","j","k","l","s","v","c","p","r","+","-"]
-    exe "map <C-A-" . c . "> <C-w>" . c
-    exe "imap <C-A-" . c . "> <Esc><C-w>" . c
+    exe "noremap <C-A-" . c . "> <C-w>" . c
+    exe "inoremap <C-A-" . c . "> <Esc><C-w>" . c
 endfor
-map <Char-172> <C-w><
-imap <Char-172> <Esc><C-w><
-map <Char-174> <C-w>>
-imap <Char-174> <Esc><C-w>>
+noremap <Char-172> <C-w><
+inoremap <Char-172> <Esc><C-w><
+noremap <Char-174> <C-w>>
+inoremap <Char-174> <Esc><C-w>>
 for c in ["1","2","3","4","5","6","7","8"]
-    exe "map <A-" . c . "> " . c . "gt"
-    exe "imap <A-" . c . "> <Esc>" . c . "gt"
+    exe "noremap <A-" . c . "> " . c . "gt"
+    exe "inoremap <A-" . c . "> <Esc>" . c . "gt"
 endfor
-map <A-9> :tablast<CR>
-imap <A-9> <Esc>:tablast<CR>
-map <C-S-PageUp> :tabm -<CR>
-imap <C-S-PageUp> <C-o>:tabm -<CR>
-map <C-S-PageDown> :tabm +<CR>
-imap <C-S-PageDown> <C-o>:tabm +<CR>
+noremap <A-9> :tablast<CR>
+inoremap <A-9> <Esc>:tablast<CR>
+noremap <C-S-PageUp> :tabm -<CR>
+inoremap <C-S-PageUp> <C-o>:tabm -<CR>
+noremap <C-S-PageDown> :tabm +<CR>
+inoremap <C-S-PageDown> <C-o>:tabm +<CR>
 
 nnoremap <expr> <CR> (&ft == 'qf' ? '<CR>' : 'o<Esc>')
-nmap <S-CR> O<Esc>
-imap <S-CR> <END><CR>
-imap <C-S-CR> <C-O>O
-imap <C-CR> <CR><CR><UP><TAB>
+nnoremap <S-CR> O<Esc>
+inoremap <S-CR> <END><CR>
+inoremap <C-S-CR> <C-O>O
+inoremap <C-CR> <CR><CR><UP><TAB>
 vnoremap <Tab> >gv
 vnoremap <S-Tab> <gv
 vnoremap <A->> :norm I <CR><Esc>gv
 vnoremap <A-<> :norm ^hx<CR>gv
-imap <C-S-Left> <Esc>vb
-imap <C-S-Right> <Esc>lve
+inoremap <C-S-Left> <Esc>vb
+inoremap <C-S-Right> <Esc>lve
 inoremap <silent> <C-Right> <C-o>E
 inoremap <silent> <C-Left> <C-o>B
 " Выделение последнего вставленного текста
@@ -125,87 +125,87 @@ inoremap <S-Del> <C-o>de
 cnoremap <S-Del> <S-Right><C-W>
 inoremap <C-BS> <Esc>dBxs
 inoremap <C-Del> <Esc>ldEs
-imap <C-l> <C-o>dd
-imap <C-S-Del> <C-o>D
-imap <C-z> <C-o>u
+inoremap <C-l> <C-o>dd
+inoremap <C-S-Del> <C-o>D
+inoremap <C-z> <C-o>u
 
 inoremap <MiddleMouse> <LeftMouse><MiddleMouse>
 
-map <A-w> :set wrap!<CR>
+noremap <A-w> :set wrap!<CR>
 
-map <silent> <A-h> :set hlsearch!<CR>
-imap <silent> <A-h> <C-o>:set hlsearch!<CR>
-map <silent> <S-A-h> :let @/ = '\V\<' . escape(expand('<cword>'), '\') . '\>' <Bar> set hls<CR>
-imap <silent> <S-A-h> <C-o>:let @/ = '\V\<' . escape(expand('<cword>'), '\') . '\>' <Bar> set hls<CR>
+noremap <silent> <A-h> :set hlsearch!<CR>
+inoremap <silent> <A-h> <C-o>:set hlsearch!<CR>
+noremap <silent> <S-A-h> :let @/ = '\V\<' . escape(expand('<cword>'), '\') . '\>' <Bar> set hls<CR>
+inoremap <silent> <S-A-h> <C-o>:let @/ = '\V\<' . escape(expand('<cword>'), '\') . '\>' <Bar> set hls<CR>
 
-map <A-0> :vertical resize 100<CR>
-imap <A-0> <C-o>:vertical resize 100<CR>
+noremap <A-0> :vertical resize 100<CR>
+inoremap <A-0> <C-o>:vertical resize 100<CR>
 
 nnoremap Q @@
-map Y y$
-map <A-y> "+y
-vmap gy y`]
-map <S-A-y> :%y+<CR>
-imap <C-v> <A-p><C-o>"*p<A-p><Esc>v']=']a
+noremap Y y$
+noremap <A-y> "+y
+vnoremap gy y`]
+noremap <S-A-y> :%y+<CR>
+inoremap <C-v> <A-p><C-o>"*p<A-p><Esc>v']=']a
 " Заменить выделенный текст скопированным (из-за set clipboard=unnamed)
 vnoremap p ""p
 
-map <A-t> :tabnew<CR>
-imap <A-t> <Esc>:tabnew<CR>
-map <S-A-t> :exe "tabnew" . expand('%:p:h') . '/'<CR>
-imap <S-A-t> <Esc>:exe "tabnew" . expand('%:p:h') . '/'<CR>
-map <A-e> :exe "e" . expand('%:p:h') . '/'<CR>
-imap <A-e> <Esc>:exe "e" . expand('%:p:h') . '/'<CR>
-map <A-c> :bw<CR>
-imap <A-c> <Esc>:bw<CR>
-map <S-F11> :tabprevious<CR>
-map <S-F12> :tabnext<CR>
-imap <S-F11> <Esc>:tabprevious<CR>i
-imap <S-F12> <Esc>:tabnext<CR>i
-map <F11> :bprevious<CR>
-map <F12> :bNext<CR>
-imap <F11> <Esc>:bprevious<CR>i
-imap <F12> <Esc>:bNext<CR>i
+noremap <A-t> :tabnew<CR>
+inoremap <A-t> <Esc>:tabnew<CR>
+noremap <S-A-t> :exe "tabnew" . expand('%:p:h') . '/'<CR>
+inoremap <S-A-t> <Esc>:exe "tabnew" . expand('%:p:h') . '/'<CR>
+noremap <A-e> :exe "e" . expand('%:p:h') . '/'<CR>
+inoremap <A-e> <Esc>:exe "e" . expand('%:p:h') . '/'<CR>
+noremap <A-c> :bw<CR>
+inoremap <A-c> <Esc>:bw<CR>
+noremap <S-F11> :tabprevious<CR>
+noremap <S-F12> :tabnext<CR>
+inoremap <S-F11> <Esc>:tabprevious<CR>i
+inoremap <S-F12> <Esc>:tabnext<CR>i
+noremap <F11> :bprevious<CR>
+noremap <F12> :bNext<CR>
+inoremap <F11> <Esc>:bprevious<CR>i
+inoremap <F12> <Esc>:bNext<CR>i
 
 " Удаление обрачивания в функцию: func(smth) -> smth
-map <Leader>df dt(ds(
+noremap <Leader>df dt(ds(
 " Удалить весь вызов функции:
-map <Leader>daf vf(%d
+noremap <Leader>daf vf(%d
 " Удаление окружающих тегов
-map <Leader>dt dit"_datP
-map <A--> :ToggleDashInIskeyword<CR>
-imap <A--> <C-o>:ToggleDashInIskeyword<CR>
+noremap <Leader>dt dit"_datP
+noremap <A--> :ToggleDashInIskeyword<CR>
+inoremap <A--> <C-o>:ToggleDashInIskeyword<CR>
 " Удаление журналирующего блока
-map <Leader>dl ?\v^\s*.+ begin #{40,}$<CR>v/\v^\s*.+ end #{40,}$<CR>Vd
+noremap <Leader>dl ?\v^\s*.+ begin #{40,}$<CR>v/\v^\s*.+ end #{40,}$<CR>Vd
 
 "Поиск выделенного текста в соседних окнах
-vmap <Leader>/h <C-w>h/<C-r>*<CR>
-vmap <Leader>/j <C-w>j/<C-r>*<CR>
-vmap <Leader>/k <C-w>k/<C-r>*<CR>
-vmap <Leader>/l <C-w>l/<C-r>*<CR>
+vnoremap <Leader>/h <C-w>h/<C-r>*<CR>
+vnoremap <Leader>/j <C-w>j/<C-r>*<CR>
+vnoremap <Leader>/k <C-w>k/<C-r>*<CR>
+vnoremap <Leader>/l <C-w>l/<C-r>*<CR>
 
 " Сколько раз слово под курсором встречается в файле
 nnoremap <Leader>* *<C-o>:%s///n<CR>
 
 "Django, Jinja, Vue templates
-imap <A-{> {{<Space><Space><Left>
-imap <A-%> {%%<Left><Space><Space><Left>
+inoremap <A-{> {{<Space><Space><Left>
+inoremap <A-%> {%%<Left><Space><Space><Left>
 
 " Commands
-map <Leader>gd :silent !gvimdiff -n % -c "Gvdiff"<CR>
-map <A-d> :ClearAndSave<CR>
+noremap <Leader>gd :silent !gvimdiff -n % -c "Gvdiff"<CR>
+noremap <A-d> :ClearAndSave<CR>
 
 " Включение/выключение правого скроллбара
-map <A-s> :ToggleScrollbar<CR>
+noremap <A-s> :ToggleScrollbar<CR>
 
 " Установить ширину окна по самой длинной строке
-map <A-l> :SetColumnsAsLongestLine<CR>
+noremap <A-l> :SetColumnsAsLongestLine<CR>
 
-map <Leader>dg :diffget<CR>
+noremap <Leader>dg :diffget<CR>
 
 " Smart Home
 noremap <expr> <silent> <Home> col('.') == match(getline('.'),'\S')+1 ? '0' : '^'
-imap <silent> <Home> <C-o><Home>
+inoremap <silent> <Home> <C-o><Home>
 
 " Swap words (cursor on delimiter)
 nnoremap <Leader>sw v?\w<CR>bo/\w<CR>e:s/\%V\(\w\+\)\(\W\+\)\(\w\+\)/\3\2\1/g<CR>``
@@ -215,29 +215,29 @@ vnoremap <Leader>sW "1d"1dB"1dE"2P"4p"3p
 
 " Plugins
 if isdirectory($VIMRCDIR . '/plugged/vim-fugitive')
-  map <Leader>gb :Gblame<CR>
+  noremap <Leader>gb :Gblame<CR>
 endif
 
 if isdirectory($VIMRCDIR . '/plugged/vim-bookmarks')
-  map <Leader>mm <Plug>BookmarkToggle
-  map <Leader>mi <Plug>BookmarkAnnotate
-  map <Leader>mn <Plug>BookmarkNext
-  map <Leader>mp <Plug>BookmarkPrev
-  map <Leader>ma <Plug>BookmarkShowAll
-  map <Leader>mc <Plug>BookmarkClear
-  map <Leader>mx <Plug>BookmarkClearAll
-  map <Leader>ms <Plug>BookmarkSave
-  map <Leader>ml <Plug>BookmarkLoad
-  map <Leader>mkk <Plug>BookmarkMoveUp
-  map <Leader>mjj <Plug>BookmarkMoveDown
+  noremap <Leader>mm <Plug>BookmarkToggle
+  noremap <Leader>mi <Plug>BookmarkAnnotate
+  noremap <Leader>mn <Plug>BookmarkNext
+  noremap <Leader>mp <Plug>BookmarkPrev
+  noremap <Leader>ma <Plug>BookmarkShowAll
+  noremap <Leader>mc <Plug>BookmarkClear
+  noremap <Leader>mx <Plug>BookmarkClearAll
+  noremap <Leader>ms <Plug>BookmarkSave
+  noremap <Leader>ml <Plug>BookmarkLoad
+  noremap <Leader>mkk <Plug>BookmarkMoveUp
+  noremap <Leader>mjj <Plug>BookmarkMoveDown
 endif
 
 if isdirectory($VIMRCDIR . '/plugged/neosnippet')
-  imap <C-j> <Plug>(neosnippet_expand_or_jump)
-  smap <C-j> <Plug>(neosnippet_expand_or_jump)
-  xmap <C-j> <Plug>(neosnippet_expand_target)
+  inoremap <C-j> <Plug>(neosnippet_expand_or_jump)
+  snoremap <C-j> <Plug>(neosnippet_expand_or_jump)
+  xnoremap <C-j> <Plug>(neosnippet_expand_target)
 endif
 
 if isdirectory($VIMRCDIR . '/plugged/tcomment_vim')
-  map <A-/> <Plug>TComment_<c-_><c-_>
+  noremap <A-/> <Plug>TComment_<c-_><c-_>
 endif
