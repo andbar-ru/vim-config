@@ -65,6 +65,9 @@ endif
 noremap <S-F10> :ToggleMenu<CR>
 inoremap <S-F10> <C-o>:ToggleMenu<CR>
 
+" Перечитать настройки
+nnoremap <leader>sv :source $MYVIMRC<cr>
+
 " Управление окнами, буферами, вкладками
 " В перечислении включены только операции, которые имеет смысл выполнять неоднократно 
 " Остальные через <C-W>char
