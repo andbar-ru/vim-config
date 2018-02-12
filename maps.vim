@@ -182,10 +182,10 @@ inoremap <A--> <C-o>:ToggleDashInIskeyword<CR>
 noremap <Leader>dl ?\v^\s*.+ begin #{40,}$<CR>v/\v^\s*.+ end #{40,}$<CR>Vd
 
 "Поиск выделенного текста в соседних окнах
-vmap <Leader>/h y<C-w>h/<C-r>"<CR>
-vmap <Leader>/j y<C-w>j/<C-r>"<CR>
-vmap <Leader>/k y<C-w>k/<C-r>"<CR>
-vmap <Leader>/l y<C-w>l/<C-r>"<CR>
+vnoremap <Leader>/h y<C-w>h/<C-r>"<CR>
+vnoremap <Leader>/j y<C-w>j/<C-r>"<CR>
+vnoremap <Leader>/k y<C-w>k/<C-r>"<CR>
+vnoremap <Leader>/l y<C-w>l/<C-r>"<CR>
 
 " Сколько раз слово под курсором встречается в файле
 nnoremap <Leader>* *<C-o>:%s///n<CR>
@@ -222,25 +222,25 @@ if isdirectory($VIMRCDIR . '/plugged/vim-fugitive')
 endif
 
 if isdirectory($VIMRCDIR . '/plugged/vim-bookmarks')
-  noremap <Leader>mm <Plug>BookmarkToggle
-  noremap <Leader>mi <Plug>BookmarkAnnotate
-  noremap <Leader>mn <Plug>BookmarkNext
-  noremap <Leader>mp <Plug>BookmarkPrev
-  noremap <Leader>ma <Plug>BookmarkShowAll
-  noremap <Leader>mc <Plug>BookmarkClear
-  noremap <Leader>mx <Plug>BookmarkClearAll
-  noremap <Leader>ms <Plug>BookmarkSave
-  noremap <Leader>ml <Plug>BookmarkLoad
-  noremap <Leader>mkk <Plug>BookmarkMoveUp
-  noremap <Leader>mjj <Plug>BookmarkMoveDown
+  nmap <Leader>mm <Plug>BookmarkToggle
+  nmap <Leader>mi <Plug>BookmarkAnnotate
+  nmap <Leader>mn <Plug>BookmarkNext
+  nmap <Leader>mp <Plug>BookmarkPrev
+  nmap <Leader>ma <Plug>BookmarkShowAll
+  nmap <Leader>mc <Plug>BookmarkClear
+  nmap <Leader>mx <Plug>BookmarkClearAll
+  nmap <Leader>ms <Plug>BookmarkSave
+  nmap <Leader>ml <Plug>BookmarkLoad
+  nmap <Leader>mkk <Plug>BookmarkMoveUp
+  nmap <Leader>mjj <Plug>BookmarkMoveDown
 endif
 
 if isdirectory($VIMRCDIR . '/plugged/neosnippet')
-  inoremap <C-j> <Plug>(neosnippet_expand_or_jump)
-  snoremap <C-j> <Plug>(neosnippet_expand_or_jump)
-  xnoremap <C-j> <Plug>(neosnippet_expand_target)
+  imap <C-j> <Plug>(neosnippet_expand_or_jump)
+  smap <C-j> <Plug>(neosnippet_expand_or_jump)
+  xmap <C-j> <Plug>(neosnippet_expand_target)
 endif
 
 if isdirectory($VIMRCDIR . '/plugged/tcomment_vim')
-  noremap <A-/> <Plug>TComment_<c-_><c-_>
+  nmap <A-/> <Plug>TComment_<c-_><c-_>
 endif
