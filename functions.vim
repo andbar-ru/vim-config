@@ -1,4 +1,4 @@
-function HiTrail(on)
+function! HiTrail(on)
     if a:on == 1
         highlight! link trailingSpace CursorLine
         match trailingSpace /\\\@<![\u3000[:space:]]\+$/
@@ -7,7 +7,7 @@ function HiTrail(on)
     endif
 endfunction
 
-function ToggleHiTrail()
+function! ToggleHiTrail()
     if !exists('g:highlightTrailingSpace')
         let g:highlightTrailingSpace = 0
     endif
@@ -20,7 +20,7 @@ function ToggleHiTrail()
 endfunction
 
 " Set bookmarks file .git/bookmarks for plugin vim-bookmarks
-function g:BMWorkDirFileLocation()
+function! g:BMWorkDirFileLocation()
   let filename = 'bookmarks'
   let location = ''
   if isdirectory('.git')
