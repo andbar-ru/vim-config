@@ -179,10 +179,10 @@ imap <A--> <C-o>:ToggleDashInIskeyword<CR>
 map <Leader>dl ?\v^\s*.+ begin #{40,}$<CR>v/\v^\s*.+ end #{40,}$<CR>Vd
 
 "Поиск выделенного текста в соседних окнах
-vmap <Leader>/h <C-w>h/<C-r>*<CR>
-vmap <Leader>/j <C-w>j/<C-r>*<CR>
-vmap <Leader>/k <C-w>k/<C-r>*<CR>
-vmap <Leader>/l <C-w>l/<C-r>*<CR>
+vmap <Leader>/h y<C-w>h/<C-r>"<CR>
+vmap <Leader>/j y<C-w>j/<C-r>"<CR>
+vmap <Leader>/k y<C-w>k/<C-r>"<CR>
+vmap <Leader>/l y<C-w>l/<C-r>"<CR>
 
 " Сколько раз слово под курсором встречается в файле
 nnoremap <Leader>* *<C-o>:%s///n<CR>
