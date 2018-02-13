@@ -4,7 +4,7 @@ command! ReloadSyntax :syntax sync fromstart
 command! HiGroupUnderCursor :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"
 
 command! FormatXml :%!xmllint -format -
-command! FormatJson :%!python -m json.tool
+command! FormatJson :%!python3 -c "import sys,json; print(json.dumps(json.loads(sys.stdin.read()), ensure_ascii=False, indent=2, sort_keys=True))"
 command! RefineChessMoves :silent s/ {[^}]*}//<bar>s/\(\d\.\)\@<= //
 
 command! ToggleDashInIskeyword if &iskeyword !~ 45 | setlocal iskeyword+=45 | else | setlocal iskeyword-=45 | endif

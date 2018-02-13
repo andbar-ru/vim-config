@@ -191,8 +191,8 @@ vnoremap <Leader>/l y<C-w>l/<C-r>"<CR>
 nnoremap <Leader>* *<C-o>:%s///n<CR>
 
 "Django, Jinja, Vue templates
-inoremap <A-{> {{<Space><Space><Left>
-inoremap <A-%> {%%<Left><Space><Space><Left>
+inoremap <A-{> {{<space><space>}}<left><left><left>
+inoremap <A-%> {%<space><space>%}<left><left><left>
 
 " Commands
 noremap <Leader>gd :silent !gvimdiff -n % -c "Gvdiff"<CR>
