@@ -181,6 +181,11 @@ inoremap <A--> <C-o>:ToggleDashInIskeyword<CR>
 " Удаление журналирующего блока
 noremap <Leader>dl ?\v^\s*.+ begin #{40,}$<CR>v/\v^\s*.+ end #{40,}$<CR>Vd
 
+"Поиск слова под курсором в соседних окнах
+nnoremap <Leader>/h yiw<C-w>h/<C-r>"<CR>
+nnoremap <Leader>/j yiw<C-w>j/<C-r>"<CR>
+nnoremap <Leader>/k yiw<C-w>k/<C-r>"<CR>
+nnoremap <Leader>/l yiw<C-w>l/<C-r>"<CR>
 "Поиск выделенного текста в соседних окнах
 vnoremap <Leader>/h y<C-w>h/<C-r>"<CR>
 vnoremap <Leader>/j y<C-w>j/<C-r>"<CR>
