@@ -68,6 +68,8 @@ inoremap <S-F10> <C-o>:ToggleMenu<CR>
 " Перечитать настройки
 nnoremap <leader>sv :source $MYVIMRC<cr>
 
+inoremap jk <esc>
+
 " Управление окнами, буферами, вкладками
 " В перечислении включены только операции, которые имеет смысл выполнять неоднократно 
 " Остальные через <C-W>char
@@ -95,6 +97,7 @@ nnoremap <S-CR> O<Esc>
 inoremap <S-CR> <END><CR>
 inoremap <C-S-CR> <C-O>O
 inoremap <C-CR> <CR><CR><UP><TAB>
+inoremap <s-tab> <esc>ddO
 vnoremap <Tab> >gv
 vnoremap <S-Tab> <gv
 vnoremap <A->> :norm I <CR><Esc>gv
@@ -145,11 +148,20 @@ noremap <A-0> :vertical resize 100<CR>
 inoremap <A-0> <C-o>:vertical resize 100<CR>
 
 nnoremap Q @@
-noremap Y y$
-noremap <A-y> "+y
-vnoremap gy y`]
+" После копирования перемещать курсор к концу скопированного объекта
+nnoremap y y`]
+nnoremap yy yy`]
+vnoremap y y`]
+" После копирования не трогать курсор
+nnoremap gy y
+nnoremap gyy yy
+vnoremap gy y
+noremap Y y$`]
+noremap <A-y> "+y`]
 noremap <S-A-y> :%y+<CR>
 inoremap <C-v> <A-p><C-o>"*p<A-p><Esc>v']=']a
+nnoremap p p`]
+nnoremap gp p
 " Заменить выделенный текст скопированным (из-за set clipboard=unnamed)
 vnoremap p ""p
 
@@ -213,7 +225,7 @@ noremap <Leader>dg :diffget<CR>
 
 " Smart Home
 noremap <expr> <silent> <Home> col('.') == match(getline('.'),'\S')+1 ? '0' : '^'
-inoremap <silent> <Home> <C-o><Home>
+imap <silent> <Home> <C-o><Home>
 
 " Swap words (cursor on delimiter)
 nnoremap <Leader>sw v?\w<CR>bo/\w<CR>e:s/\%V\(\w\+\)\(\W\+\)\(\w\+\)/\3\2\1/g<CR>``
