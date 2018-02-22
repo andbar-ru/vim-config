@@ -149,11 +149,9 @@ inoremap <A-0> <C-o>:vertical resize 100<CR>
 
 nnoremap Q @@
 " После копирования перемещать курсор к концу скопированного объекта
-nnoremap y y`]
 nnoremap yy yy`]
 vnoremap y y`]
 " После копирования не трогать курсор
-nnoremap gy y
 nnoremap gyy yy
 vnoremap gy y
 noremap Y y$`]
