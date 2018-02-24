@@ -69,6 +69,7 @@ inoremap <S-F10> <C-o>:ToggleMenu<CR>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 
 inoremap jk <esc>
+inoremap <expr> zz match(getline('.'), '^\s*$')+1 ? '<esc>zzddO' : '<c-o>zz'
 
 " Управление окнами, буферами, вкладками
 " В перечислении включены только операции, которые имеет смысл выполнять неоднократно 
@@ -132,7 +133,7 @@ cnoremap <S-Del> <S-Right><C-W>
 inoremap <C-BS> <Esc>dBxs
 inoremap <C-Del> <Esc>ldEs
 inoremap <C-l> <C-o>dd
-inoremap <C-S-Del> <C-o>D
+inoremap <C-S-Del> <c-\><c-o>D
 inoremap <C-z> <C-o>u
 
 inoremap <MiddleMouse> <LeftMouse><MiddleMouse>
@@ -148,18 +149,12 @@ noremap <A-0> :vertical resize 100<CR>
 inoremap <A-0> <C-o>:vertical resize 100<CR>
 
 nnoremap Q @@
-" После копирования перемещать курсор к концу скопированного объекта
-nnoremap yy yy`]
-vnoremap y y`]
-" После копирования не трогать курсор
-nnoremap gyy yy
-vnoremap gy y
-noremap Y y$`]
-noremap <A-y> "+y`]
+noremap Y y$
+noremap <A-y> "+y
 noremap <S-A-y> :%y+<CR>
+nnoremap _ ggyy``p
+nnoremap g_ ggyy``P
 inoremap <C-v> <A-p><C-o>"*p<A-p><Esc>v']=']a
-nnoremap p p`]
-nnoremap gp p
 " Заменить выделенный текст скопированным (из-за set clipboard=unnamed)
 vnoremap p ""p
 
