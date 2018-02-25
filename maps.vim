@@ -152,6 +152,8 @@ nnoremap Q @@
 noremap Y y$
 noremap <A-y> "+y
 noremap <S-A-y> :%y+<CR>
+vnoremap y y`]
+vnoremap gy y
 nnoremap _ ggyy``p
 nnoremap g_ ggyy``P
 inoremap <C-v> <A-p><C-o>"*p<A-p><Esc>v']=']a

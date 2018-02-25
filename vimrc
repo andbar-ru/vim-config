@@ -36,6 +36,7 @@ Plug 'posva/vim-vue'
 Plug 'MattesGroeger/vim-bookmarks'
 Plug 'airblade/vim-rooter'
 Plug 'groenewege/vim-less'
+Plug 'othree/html5.vim'
 if version >= 800
   Plug 'Shougo/neosnippet'
   Plug 'Shougo/neosnippet-snippets'
