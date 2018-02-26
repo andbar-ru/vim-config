@@ -218,6 +218,9 @@ noremap <A-l> :SetColumnsAsLongestLine<CR>
 
 noremap <Leader>dg :diffget<CR>
 
+nnoremap <up> gk
+nnoremap <down> gj
+
 " Smart Home
 noremap <expr> <silent> <Home> col('.') == match(getline('.'),'\S')+1 ? '0' : '^'
 imap <silent> <Home> <C-o><Home>
