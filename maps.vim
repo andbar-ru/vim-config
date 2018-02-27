@@ -154,8 +154,8 @@ noremap <A-y> "+y
 noremap <S-A-y> :%y+<CR>
 vnoremap y y`]
 vnoremap gy y
-nnoremap _ ggyy``p
-nnoremap g_ ggyy``P
+nnoremap _ ggyy``p==
+nnoremap g_ ggyy``P==
 inoremap <C-v> <A-p><C-o>"*p<A-p><Esc>v']=']a
 " Заменить выделенный текст скопированным (из-за set clipboard=unnamed)
 vnoremap p ""p
@@ -178,7 +178,7 @@ inoremap <F11> <Esc>:bprevious<CR>i
 inoremap <F12> <Esc>:bNext<CR>i
 
 " Удаление обрачивания в функцию: func(smth) -> smth
-noremap <Leader>df dt(ds(
+map <Leader>df dt(ds(
 " Удалить весь вызов функции:
 noremap <Leader>daf vf(%d
 " Удаление окружающих тегов
