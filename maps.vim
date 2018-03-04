@@ -178,7 +178,7 @@ inoremap <F11> <Esc>:bprevious<CR>i
 inoremap <F12> <Esc>:bNext<CR>i
 
 " Удаление обрачивания в функцию: func(smth) -> smth
-noremap <Leader>df dt(ds(
+map <Leader>df dt(ds(
 " Удалить весь вызов функции:
 noremap <Leader>daf vf(%d
 " Удаление окружающих тегов
@@ -218,9 +218,11 @@ noremap <A-l> :SetColumnsAsLongestLine<CR>
 
 noremap <Leader>dg :diffget<CR>
 
+" Навигация
 nnoremap <up> gk
 nnoremap <down> gj
-
+" Добавить позицию в jumplist при навигации с помощью мыши
+nnoremap <LeftMouse> m'<LeftMouse>
 " Smart Home
 noremap <expr> <silent> <Home> col('.') == match(getline('.'),'\S')+1 ? '0' : '^'
 imap <silent> <Home> <C-o><Home>
