@@ -1,4 +1,4 @@
-snippet console-log
+snippet console.log
 alias cl
 options head
 	// begin #########################################
@@ -17,4 +17,11 @@ alias d
 options head
 	// begin #########################################
   debugger
+	// end ###########################################
+
+snippet global-var
+alias w
+options head
+	// begin #########################################
+  window.${1} = $1${0}
 	// end ###########################################
