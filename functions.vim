@@ -102,3 +102,23 @@ function! AutoRestoreWinView()
     unlet w:SavedBufView[buf]
   endif
 endfunction
+
+" Go to the line with minimal indent containing word under cursor
+function! GoToLineWithWordAndMininalIndent()
+  let lines = execute('normal [I')
+  let lines = split(lines, '\n')[1:]
+  let lineNumberWithMinimalIndent = line('.')
+  let minimalIndent = 1000
+
+  for line in lines
+    let parts = split(line)
+    let lineNumber = parts[1]
+    let lineIndent = indent(lineNumber)
+    if lineIndent < minimalIndent
+      let minimalIndent = lineIndent
+      let lineNumberWithMinimalIndent = lineNumber
+    endif
+  endfor
+
+  execute('normal ' . lineNumberWithMinimalIndent . 'G')
+endfunction

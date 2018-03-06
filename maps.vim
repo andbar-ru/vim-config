@@ -226,6 +226,7 @@ nnoremap <LeftMouse> m'<LeftMouse>
 " Smart Home
 noremap <expr> <silent> <Home> col('.') == match(getline('.'),'\S')+1 ? '0' : '^'
 imap <silent> <Home> <C-o><Home>
+nnoremap <silent> [gi :call GoToLineWithWordAndMininalIndent()<CR>
 
 " Swap words (cursor on delimiter)
 nnoremap <Leader>sw v?\w<CR>bo/\w<CR>e:s/\%V\(\w\+\)\(\W\+\)\(\w\+\)/\3\2\1/g<CR>``
