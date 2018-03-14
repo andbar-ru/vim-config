@@ -188,6 +188,7 @@ inoremap <A--> <C-o>:ToggleDashInIskeyword<CR>
 " Удаление журналирующего блока
 noremap <Leader>dl ?\v^\s*.+ begin #{40,}$<CR>v/\v^\s*.+ end #{40,}$<CR>Vd
 
+" Поиск
 "Поиск слова под курсором в соседних окнах
 nnoremap <Leader>/h yiw<C-w>h/<C-r>"<CR>
 nnoremap <Leader>/j yiw<C-w>j/<C-r>"<CR>
@@ -198,9 +199,14 @@ vnoremap <Leader>/h y<C-w>h/<C-r>"<CR>
 vnoremap <Leader>/j y<C-w>j/<C-r>"<CR>
 vnoremap <Leader>/k y<C-w>k/<C-r>"<CR>
 vnoremap <Leader>/l y<C-w>l/<C-r>"<CR>
-
 " Сколько раз слово под курсором встречается в файле
 nnoremap <Leader>* *<C-o>:%s///n<CR>
+" Следующее/предыдущее вхождение выделенного фрагмента (в пределах строки)
+" (http://vim.wikia.com/wiki/Search_for_visually_selected_text)
+vnoremap <expr> <leader>8 'y/\V' . escape(@",'\') . '<cr>'
+vnoremap <expr> <leader>* 'y/\V' . escape(@",'\') . '<cr>'
+vnoremap <expr> <leader>3 'y?\V' . escape(@",'\') . '<cr>'
+vnoremap <expr> <leader># 'y?\V' . escape(@",'\') . '<cr>'
 
 "Django, Jinja, Vue templates
 inoremap <A-{> {{<space><space>}}<left><left><left>
