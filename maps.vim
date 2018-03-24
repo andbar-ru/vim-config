@@ -68,7 +68,6 @@ inoremap <S-F10> <C-o>:ToggleMenu<CR>
 " Перечитать настройки
 nnoremap <leader>sv :source $MYVIMRC<cr>
 
-inoremap jk <esc>
 inoremap <expr> zz match(getline('.'), '^\s*$')+1 ? '<esc>zzddO' : '<c-o>zz'
 
 " Управление окнами, буферами, вкладками
@@ -239,6 +238,9 @@ nnoremap <Leader>sw v?\w<CR>bo/\w<CR>e:s/\%V\(\w\+\)\(\W\+\)\(\w\+\)/\3\2\1/g<CR
 nnoremap <Leader>sW v?\S<CR>Bo/\S<CR>E:s/\%V\(\S\+\)\(\s\+\)\(\S\+\)/\3\2\1/g<CR>``
 vnoremap <Leader>sw "1d"1db"1de"2P"4p"3p
 vnoremap <Leader>sW "1d"1dB"1dE"2P"4p"3p
+
+" Commands
+nnoremap <leader>cfj :FormatJson<cr>
 
 " Plugins
 if isdirectory($VIMRCDIR . '/plugged/vim-fugitive')
