@@ -98,10 +98,12 @@ inoremap <S-CR> <END><CR>
 inoremap <C-S-CR> <C-O>O
 inoremap <C-CR> <CR><CR><UP><TAB>
 inoremap <s-tab> <esc>ddO
-vnoremap <Tab> >gv
-vnoremap <S-Tab> <gv
-vnoremap <A->> :norm I <CR><Esc>gv
-vnoremap <A-<> :norm ^hx<CR>gv
+" Отступы в режиме выделения с сохранением выделения
+vnoremap <tab> >gv
+vnoremap <s-tab> <gv
+vnoremap <a->> :norm I <cr><esc>gv
+vnoremap <a-<> :norm ^hx<cr>gv
+
 inoremap <C-S-Left> <Esc>vb
 inoremap <C-S-Right> <Esc>lve
 inoremap <silent> <C-Right> <C-o>E
