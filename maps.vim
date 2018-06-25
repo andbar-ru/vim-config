@@ -241,6 +241,11 @@ nnoremap <Leader>sW v?\S<CR>Bo/\S<CR>E:s/\%V\(\S\+\)\(\s\+\)\(\S\+\)/\3\2\1/g<CR
 vnoremap <Leader>sw "1d"1db"1de"2P"4p"3p
 vnoremap <Leader>sW "1d"1dB"1dE"2P"4p"3p
 
+cnoremap <A-,> \<\><left><left>
+
+nnoremap <leader>snm :set nomodifiable<cr>
+nnoremap <leader>sm :set modifiable<cr>
+
 " Commands
 nnoremap <leader>cfj :FormatJson<cr>
 
