@@ -7,7 +7,7 @@ augroup vimrc
   autocmd BufRead log.txt setlocal autoread filetype=logtxt
   autocmd BufRead rules setlocal noexpandtab  " debian/rules
   autocmd FileType python setlocal ts=4 sw=4 cc=100,120 completeopt-=preview iskeyword-=45
-  autocmd FileType go setlocal ts=4 sw=4 noet
+  autocmd FileType go setlocal ts=4 sw=4 noet iskeyword-=45
   autocmd BufWritePost *.go silent exec "!go fmt " . expand("%:p") | e!
   autocmd BufLeave * call AutoSaveWinView()
   autocmd BufEnter * call AutoRestoreWinView()
