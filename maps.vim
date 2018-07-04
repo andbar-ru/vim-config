@@ -4,7 +4,8 @@ let mapleader = " "
 
 noremap <silent> <F2> :silent update<CR>
 inoremap <silent> <F2> <Esc>:silent update<CR>
-nnoremap <S-F2> :wa<Bar>exe "mksession! " . v:this_session<CR>
+nnoremap <S-F2> :wa<CR>
+nnoremap <C-S-F2> :wa<Bar>exe "mksession! " . v:this_session<CR>
 
 " Переключение языка и переход к парному буферу
 inoremap <F3> 
