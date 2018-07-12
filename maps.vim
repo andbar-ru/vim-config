@@ -104,6 +104,10 @@ vnoremap <tab> >gv
 vnoremap <s-tab> <gv
 vnoremap <a->> :norm I <cr><esc>gv
 vnoremap <a-<> :norm ^hx<cr>gv
+nmap <a->> V<a->><esc>
+nmap <a-<> V<a-<><esc>
+imap <a->> <esc><a->>la
+imap <a-<> <esc><a-<>i
 
 inoremap <C-S-Left> <Esc>vb
 inoremap <C-S-Right> <Esc>lve
@@ -209,6 +213,8 @@ vnoremap <expr> <leader>8 'y/\V' . escape(@",'\') . '<cr>'
 vnoremap <expr> <leader>* 'y/\V' . escape(@",'\') . '<cr>'
 vnoremap <expr> <leader>3 'y?\V' . escape(@",'\') . '<cr>'
 vnoremap <expr> <leader># 'y?\V' . escape(@",'\') . '<cr>'
+" Последний поиск, но слово целиком
+nnoremap <a-?> /\<<c-r>/\><cr>
 
 "Django, Jinja, Vue templates
 inoremap <A-{> {{<space><space>}}<left><left><left>
