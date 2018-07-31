@@ -34,7 +34,6 @@ Plug 'dzeban/vim-log-syntax'
 Plug 'PProvost/vim-ps1'
 Plug 'posva/vim-vue'
 Plug 'MattesGroeger/vim-bookmarks'
-Plug 'airblade/vim-rooter'
 Plug 'groenewege/vim-less'
 Plug 'othree/html5.vim'
 if executable('tsc')
@@ -49,7 +48,7 @@ if has('unix') && version >= 800
   Plug 'junegunn/fzf', {'dir': '~/Programs/fzf', 'do': './install --all'}
   Plug 'junegunn/fzf.vim'
   Plug 'w0rp/ale'
-  Plug 'davidhalter/jedi-vim', {'for': 'python'}
+  " Plug 'davidhalter/jedi-vim', {'for': 'python'}
 endif
 call plug#end()
 

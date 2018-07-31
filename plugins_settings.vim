@@ -58,18 +58,18 @@ if isdirectory($VIMRCDIR . '/plugged/fzf.vim')
   let $FZF_DEFAULT_OPTS = '--bind ctrl-a:select-all'
 endif
 
-if isdirectory($VIMRCDIR . '/plugged/jedi-vim')
-  let g:jedi#popup_on_dot = 0
-  let g:jedi#show_call_signatures = "2"
-  let g:jedi#completions_enabled = 1
-  let g:jedi#goto_command = "<leader>jg"
-  let g:jedi#goto_assignments_command = "<leader>ja"
-  let g:jedi#goto_definitions_command = "<leader>jd"
-  let g:jedi#documentation_command = "K"
-  let g:jedi#usages_command = "<leader>ju"
-  let g:jedi#completions_command = "<C-Space>"
-  let g:jedi#rename_command = "<leader>jr"
-endif
+" if isdirectory($VIMRCDIR . '/plugged/jedi-vim')
+"   let g:jedi#popup_on_dot = 0
+"   let g:jedi#show_call_signatures = "2"
+"   let g:jedi#completions_enabled = 1
+"   let g:jedi#goto_command = "<leader>jg"
+"   let g:jedi#goto_assignments_command = "<leader>ja"
+"   let g:jedi#goto_definitions_command = "<leader>jd"
+"   let g:jedi#documentation_command = "K"
+"   let g:jedi#usages_command = "<leader>ju"
+"   let g:jedi#completions_command = "<C-Space>"
+"   let g:jedi#rename_command = "<leader>jr"
+" endif
 
 if isdirectory($VIMRCDIR . '/plugged/ale')
   let g:ale_sign_error = 'E'
