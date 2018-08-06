@@ -70,3 +70,11 @@ options head
 	# begin ##########################################
 	import ipdb; ipdb.set_trace()  # noqa E703
 	# end ############################################
+
+snippet log_make_request
+alias lmr
+options head
+	# begin ##########################################
+	from tmplog import tmplog
+	tmplog(method=method, auth=auth, url=url, body=body, headers=headers)
+	# end ############################################
