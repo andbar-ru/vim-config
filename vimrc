@@ -90,8 +90,7 @@ set encoding=utf-8
 set history=10000
 set showcmd
 set showmatch
-set ignorecase
-set smartcase
+set noignorecase
 set incsearch
 set nohlsearch
 set autowrite
