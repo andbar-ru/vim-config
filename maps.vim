@@ -179,9 +179,9 @@ noremap <S-F12> :tabnext<CR>
 inoremap <S-F11> <Esc>:tabprevious<CR>i
 inoremap <S-F12> <Esc>:tabnext<CR>i
 noremap <F11> :bprevious<CR>
-noremap <F12> :bNext<CR>
+noremap <F12> :bnext<CR>
 inoremap <F11> <Esc>:bprevious<CR>i
-inoremap <F12> <Esc>:bNext<CR>i
+inoremap <F12> <Esc>:bnext<CR>i
 
 " Удаление обрачивания в функцию: func(smth) -> smth
 map <Leader>df dt(ds(
