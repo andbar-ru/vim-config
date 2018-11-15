@@ -12,4 +12,5 @@ augroup vimrc
   autocmd BufWritePost *.go silent exec "!go fmt " . expand("%:p")
   autocmd BufLeave * call AutoSaveWinView()
   autocmd BufEnter * call AutoRestoreWinView()
+  autocmd VimResized * if &diff | wincmd = | endif 
 endif
