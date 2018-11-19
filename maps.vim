@@ -1,4 +1,4 @@
-" Сделать пробел <Leader>ом
+" Сделать пробел <leader>ом
 nnoremap <Space> <nop>
 let mapleader = " "
 
@@ -12,8 +12,8 @@ inoremap <F3> 
 cnoremap <F3> 
 inoremap  <Esc>
 if isdirectory($VIMRCDIR . '/plugged/vim-indent-guides')
-  noremap <A-F3> <Leader>ig
-  inoremap <A-F3> <C-o><Leader>ig
+  noremap <A-F3> <leader>ig
+  inoremap <A-F3> <C-o><leader>ig
 endif
 " Подсветка непечатаемых символов
 noremap <S-F3> :set list!<CR>
@@ -184,29 +184,31 @@ inoremap <F11> <Esc>:bprevious<CR>i
 inoremap <F12> <Esc>:bnext<CR>i
 
 " Удаление обрачивания в функцию: func(smth) -> smth
-map <Leader>df dt(ds(
+map <leader>df dt(ds(
 " Удалить весь вызов функции:
-noremap <Leader>daf vf(%d
+noremap <leader>daf vf(%d
 " Удаление окружающих тегов
-noremap <Leader>dt dit"_datP
+noremap <leader>dt dit"_datP
 noremap <A--> :ToggleDashInIskeyword<CR>
 inoremap <A--> <C-o>:ToggleDashInIskeyword<CR>
 " Удаление журналирующего блока
-noremap <Leader>dl ?\v^\s*.+ begin #{40,}$<CR>v/\v^\s*.+ end #{40,}$<CR>Vd
+noremap <leader>dl ?\v^\s*.+ begin #{40,}$<CR>v/\v^\s*.+ end #{40,}$<CR>Vd
+" Удаление оборачивающего блока
+nmap <leader>dw [-jd]-]pkdk
 
 " Поиск
 "Поиск слова под курсором в соседних окнах
-nnoremap <Leader>/h yiw<C-w>h/<C-r>"<CR>
-nnoremap <Leader>/j yiw<C-w>j/<C-r>"<CR>
-nnoremap <Leader>/k yiw<C-w>k/<C-r>"<CR>
-nnoremap <Leader>/l yiw<C-w>l/<C-r>"<CR>
+nnoremap <leader>/h yiw<C-w>h/<C-r>"<CR>
+nnoremap <leader>/j yiw<C-w>j/<C-r>"<CR>
+nnoremap <leader>/k yiw<C-w>k/<C-r>"<CR>
+nnoremap <leader>/l yiw<C-w>l/<C-r>"<CR>
 "Поиск выделенного текста в соседних окнах
-vnoremap <Leader>/h y<C-w>h/<C-r>"<CR>
-vnoremap <Leader>/j y<C-w>j/<C-r>"<CR>
-vnoremap <Leader>/k y<C-w>k/<C-r>"<CR>
-vnoremap <Leader>/l y<C-w>l/<C-r>"<CR>
+vnoremap <leader>/h y<C-w>h/<C-r>"<CR>
+vnoremap <leader>/j y<C-w>j/<C-r>"<CR>
+vnoremap <leader>/k y<C-w>k/<C-r>"<CR>
+vnoremap <leader>/l y<C-w>l/<C-r>"<CR>
 " Сколько раз слово под курсором встречается в файле
-nnoremap <Leader>* *<C-o>:%s///n<CR>
+nnoremap <leader>* *<C-o>:%s///n<CR>
 " Следующее/предыдущее вхождение выделенного фрагмента (в пределах строки)
 " (http://vim.wikia.com/wiki/Search_for_visually_selected_text)
 vnoremap <expr> <leader>8 'y/\V' . escape(@",'\') . '<cr>'
@@ -221,7 +223,7 @@ inoremap <A-{> {{<space><space>}}<left><left><left>
 inoremap <A-%> {%<space><space>%}<left><left><left>
 
 " Commands
-noremap <Leader>gd :silent !gvimdiff -n % -c "Gvdiff"<CR>
+noremap <leader>gd :silent !gvimdiff -n % -c "Gvdiff"<CR>
 noremap <A-d> :ClearAndSave<CR>
 
 " Включение/выключение правого скроллбара
@@ -230,7 +232,7 @@ noremap <A-s> :ToggleScrollbar<CR>
 " Установить ширину окна по самой длинной строке
 noremap <A-l> :SetColumnsAsLongestLine<CR>
 
-noremap <Leader>dg :diffget<CR>
+noremap <leader>dg :diffget<CR>
 
 " Навигация
 nnoremap <up> gk
@@ -243,10 +245,10 @@ imap <silent> <Home> <C-o><Home>
 nnoremap <silent> [gi :call GoToLineWithWordAndMininalIndent()<CR>
 
 " Swap words (cursor on delimiter)
-nnoremap <Leader>sw v?\w<CR>bo/\w<CR>e:s/\%V\(\w\+\)\(\W\+\)\(\w\+\)/\3\2\1/g<CR>``
-nnoremap <Leader>sW v?\S<CR>Bo/\S<CR>E:s/\%V\(\S\+\)\(\s\+\)\(\S\+\)/\3\2\1/g<CR>``
-vnoremap <Leader>sw "1d"1db"1de"2P"4p"3p
-vnoremap <Leader>sW "1d"1dB"1dE"2P"4p"3p
+nnoremap <leader>sw v?\w<CR>bo/\w<CR>e:s/\%V\(\w\+\)\(\W\+\)\(\w\+\)/\3\2\1/g<CR>``
+nnoremap <leader>sW v?\S<CR>Bo/\S<CR>E:s/\%V\(\S\+\)\(\s\+\)\(\S\+\)/\3\2\1/g<CR>``
+vnoremap <leader>sw "1d"1db"1de"2P"4p"3p
+vnoremap <leader>sW "1d"1dB"1dE"2P"4p"3p
 
 cnoremap <A-,> \<\><left><left>
 
@@ -258,21 +260,21 @@ nnoremap <leader>cfj :FormatJson<cr>
 
 " Plugins
 if isdirectory($VIMRCDIR . '/plugged/vim-fugitive')
-  noremap <Leader>gb :Gblame<CR>
+  noremap <leader>gb :Gblame<CR>
 endif
 
 if isdirectory($VIMRCDIR . '/plugged/vim-bookmarks')
-  nmap <Leader>mm <Plug>BookmarkToggle
-  nmap <Leader>mi <Plug>BookmarkAnnotate
-  nmap <Leader>mn <Plug>BookmarkNext
-  nmap <Leader>mp <Plug>BookmarkPrev
-  nmap <Leader>ma <Plug>BookmarkShowAll
-  nmap <Leader>mc <Plug>BookmarkClear
-  nmap <Leader>mx <Plug>BookmarkClearAll
-  nmap <Leader>ms <Plug>BookmarkSave
-  nmap <Leader>ml <Plug>BookmarkLoad
-  nmap <Leader>mkk <Plug>BookmarkMoveUp
-  nmap <Leader>mjj <Plug>BookmarkMoveDown
+  nmap <leader>mm <Plug>BookmarkToggle
+  nmap <leader>mi <Plug>BookmarkAnnotate
+  nmap <leader>mn <Plug>BookmarkNext
+  nmap <leader>mp <Plug>BookmarkPrev
+  nmap <leader>ma <Plug>BookmarkShowAll
+  nmap <leader>mc <Plug>BookmarkClear
+  nmap <leader>mx <Plug>BookmarkClearAll
+  nmap <leader>ms <Plug>BookmarkSave
+  nmap <leader>ml <Plug>BookmarkLoad
+  nmap <leader>mkk <Plug>BookmarkMoveUp
+  nmap <leader>mjj <Plug>BookmarkMoveDown
 endif
 
 if isdirectory($VIMRCDIR . '/plugged/neosnippet')
