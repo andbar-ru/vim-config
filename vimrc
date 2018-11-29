@@ -23,8 +23,7 @@ Plug 'pangloss/vim-javascript'
 Plug 'gavocanov/vim-js-indent'
 Plug 'danro/rename.vim'
 Plug 'alvan/vim-closetag'
-"Plug 'jiangmiao/auto-pairs'
-Plug 'JarrodCTaylor/vim-reflection'
+Plug 'jiangmiao/auto-pairs'
 if version > 703  " 7.3
     Plug 'jlanzarotta/bufexplorer'
 endif

@@ -5,3 +5,4 @@ sessions/*
 !bookmarks/.gitkeep
 swapfiles/*
 !swapfiles/.gitkeep
+testvimrc

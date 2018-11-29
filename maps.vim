@@ -171,7 +171,7 @@ inoremap <A-t> <Esc>:tabnew<CR>
 noremap <S-A-t> :exe "tabnew" . expand('%:p:h') . '/'<CR>
 inoremap <S-A-t> <Esc>:exe "tabnew" . expand('%:p:h') . '/'<CR>
 noremap <A-e> :exe "e" . expand('%:p:h') . '/'<CR>
-inoremap <A-e> <Esc>:exe "e" . expand('%:p:h') . '/'<CR>
+" inoremap <A-e> mapped by auto-pairs
 noremap <A-c> :bw<CR>
 inoremap <A-c> <Esc>:bw<CR>
 noremap <S-F11> :tabprevious<CR>
