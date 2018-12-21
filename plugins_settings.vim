@@ -88,3 +88,7 @@ if isdirectory($VIMRCDIR . '/plugged/neosnippet')
   \ '_': 1,
   \ }
 endif
+
+if isdirectory($VIMRCDIR . '/plugged/auto-pairs')
+  let g:AutoPairsCenterLine = 0
+endif
