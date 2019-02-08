@@ -3,6 +3,7 @@ silent! call plug#begin()
 " colorschemes
 Plug 'mswift42/vim-themes'
 Plug 'andbar-ru/vim-unicon'
+Plug 'morhetz/gruvbox'
 
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'tpope/vim-surround'

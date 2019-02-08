@@ -92,3 +92,11 @@ endif
 if isdirectory($VIMRCDIR . '/plugged/auto-pairs')
   let g:AutoPairsCenterLine = 0
 endif
+
+if isdirectory($VIMRCDIR . '/plugged/gruvbox')
+  let g:gruvbox_contrast_light = 'hard'
+  let g:gruvbox_contrast_dark = 'hard'
+  let g:gruvbox_vert_split = 'bg3'
+  let g:gruvbox_italicize_comments = 0
+  let g:gruvbox_invert_selection = 0
+endif
