@@ -91,6 +91,7 @@ endif
 
 if isdirectory($VIMRCDIR . '/plugged/auto-pairs')
   let g:AutoPairsCenterLine = 0
+  let g:AutoPairsMultilineClose = 0
 endif
 
 if isdirectory($VIMRCDIR . '/plugged/gruvbox')
