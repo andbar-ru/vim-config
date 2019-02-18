@@ -122,3 +122,43 @@ function! GoToLineWithWordAndMininalIndent()
 
   execute('normal ' . lineNumberWithMinimalIndent . 'G')
 endfunction
+
+" Returns translated name of the current syntax item.
+function! SynName(line, col)
+  return synIDattr(synIDtrans(synID(a:line, a:col, 1)), 'name')
+endfunction
+
+" Returns line indent in chars rather than in spaces.
+function! IndentChars(line)
+  return match(getline(a:line), '\S') + 1
+endfunction
+
+" Select entire comment line-wise.
+function! SelectComment()
+  let initLine = line('.')
+  let firstNonBlankCharacterCol = IndentChars('.') + 1
+  if SynName(initLine, firstNonBlankCharacterCol) != 'Comment'
+    return
+  endif
+  let beginLine = initLine
+  let endLine = initLine
+  let curLine = initLine
+  " backward
+  while curLine > 0
+    let curLine -= 1
+    if SynName(curLine, IndentChars(curLine)+1) != 'Comment'
+      let beginLine = curLine + 1
+      break
+    endif
+  endwhile
+  " forward
+  let curLine = initLine
+  while curLine <= line('$')
+    let curLine += 1
+    if SynName(curLine, IndentChars(curLine)+1) != 'Comment'
+      let endLine = curLine - 1
+      break
+    endif
+  endwhile
+  execute('normal ' . beginLine . 'GV' . endLine . 'G')
+endfunction
