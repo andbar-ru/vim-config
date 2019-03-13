@@ -288,3 +288,8 @@ endif
 if isdirectory($VIMRCDIR . '/plugged/tcomment_vim')
   nmap <A-/> <Plug>TComment_<c-_><c-_>
 endif
+
+if isdirectory($VIMRCDIR . '/plugged/auto-pairs')
+  " Дополнение к Fast Wrap <M-e>
+  inoremap <S-A-e> <c-o>x<end><c-r>*
+endif
