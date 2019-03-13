@@ -291,5 +291,5 @@ endif
 
 if isdirectory($VIMRCDIR . '/plugged/auto-pairs')
   " Дополнение к Fast Wrap <M-e>
-  inoremap <S-A-e> <c-o>x<end><c-r>*
+  inoremap <A-$> <c-o>x<end><c-r>*
 endif
