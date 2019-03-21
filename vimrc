@@ -81,7 +81,9 @@ colorscheme unicon
 let g:indentLine_enabled=0
 
 if version >= 800
-  set termguicolors
+  if executable('tput') && system('tput colors') >= 256
+    set termguicolors
+  endif
   set breakindent
   set breakindentopt=shift:4
 endif
