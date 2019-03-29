@@ -186,11 +186,15 @@ inoremap <F11> <Esc>:bprevious<CR>i
 inoremap <F12> <Esc>:bnext<CR>i
 
 " Удаление обрачивания в функцию: func(smth) -> smth
-map <leader>df dt(ds(
+nmap <leader>df dt(ds(
 " Удалить весь вызов функции:
-noremap <leader>daf vf(%d
+nnoremap <leader>daf vf(%d
 " Удаление окружающих тегов
-noremap <leader>dt dit"_datP
+nnoremap <leader>dt dit"_datP
+" Удаление оборачивания в блок {} и всего блока (indent). Применять на первой строке обёртки.
+nnoremap <leader>di jdi}"_dkP=`]
+nnoremap <leader>dai jva}Vd
+
 noremap <A--> :ToggleDashInIskeyword<CR>
 inoremap <A--> <C-o>:ToggleDashInIskeyword<CR>
 " Удаление журналирующего блока
