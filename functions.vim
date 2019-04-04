@@ -179,8 +179,27 @@ function! CopyLine(count, pasteBefore, relativeNumber, relativeDown)
     endif
   endif
   if a:pasteBefore
-    execute 'normal ]P'
+    execute 'normal P=='
   else
-    execute 'normal ]p'
+    execute 'normal p=='
   endif
+endfunction
+
+" Скопировать и заменить строку.
+function! ReplaceLine(count, relativeNumber, relativeDown)
+  if a:count == 0
+    return
+  else
+    if a:relativeNumber
+      if a:relativeDown
+        execute '+' . a:count . 'yank'
+      else
+        execute '-' . a:count . 'yank'
+      endif
+    else
+      execute a:count . 'yank'
+    endif
+  endif
+
+  execute 'normal "_ddP=='
 endfunction
