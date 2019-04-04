@@ -162,3 +162,25 @@ function! SelectComment()
   endwhile
   execute('normal ' . beginLine . 'GV' . endLine . 'G')
 endfunction
+
+" Скопировать и вставить строку.
+function! CopyLine(count, pasteBefore, relativeNumber, relativeDown)
+  if a:count == 0
+    execute '.yank'
+  else
+    if a:relativeNumber
+      if a:relativeDown
+        execute '+' . a:count . 'yank'
+      else
+        execute '-' . a:count . 'yank'
+      endif
+    else
+      execute a:count . 'yank'
+    endif
+  endif
+  if a:pasteBefore
+    execute 'normal ]P'
+  else
+    execute 'normal ]p'
+  endif
+endfunction

@@ -162,8 +162,14 @@ noremap <A-y> "+y
 noremap <S-A-y> :%y+<CR>
 vnoremap y y`]
 vnoremap gy y
-nnoremap _ ggyy``p==
-nnoremap g_ ggyy``P==
+nnoremap <leader>yp :<c-u>call CopyLine(v:count, 0, 0, 0)<cr>
+nnoremap <leader>yP :<c-u>call CopyLine(v:count, 1, 0, 0)<cr>
+nnoremap <leader>Yp :<c-u>call CopyLine(v:count, 0, 1, 0)<cr>
+nnoremap <leader>YP :<c-u>call CopyLine(v:count, 1, 1, 0)<cr>
+nnoremap <leader>ykp :<c-u>call CopyLine(v:count, 0, 1, 0)<cr>
+nnoremap <leader>ykP :<c-u>call CopyLine(v:count, 1, 1, 0)<cr>
+nnoremap <leader>yjp :<c-u>call CopyLine(v:count, 0, 1, 1)<cr>
+nnoremap <leader>yjP :<c-u>call CopyLine(v:count, 1, 1, 1)<cr>
 inoremap <C-v> <A-p><C-o>"*p<A-p><Esc>v']=']a
 " Заменить выделенный текст скопированным (из-за set clipboard=unnamed)
 vnoremap p ""p
@@ -221,7 +227,7 @@ vnoremap <expr> <leader>8 'y/\V' . escape(@",'\') . '<cr>'
 vnoremap <expr> <leader>* 'y/\V' . escape(@",'\') . '<cr>'
 vnoremap <expr> <leader>3 'y?\V' . escape(@",'\') . '<cr>'
 vnoremap <expr> <leader># 'y?\V' . escape(@",'\') . '<cr>'
-" Последний поиск, но слово целиком
+" Повторить последний поиск, но слово целиком
 nnoremap <a-?> /\<<c-r>/\><cr>
 
 "Django, Jinja, Vue templates
