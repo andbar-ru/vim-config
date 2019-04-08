@@ -163,20 +163,10 @@ noremap <S-A-y> :%y+<CR>
 vnoremap y y`]
 vnoremap gy y
 
-" Копирование строки
-nnoremap <leader>yp :<c-u>call CopyLine(v:count, 0, 0, 0)<cr>
-nnoremap <leader>yP :<c-u>call CopyLine(v:count, 1, 0, 0)<cr>
-nnoremap <leader>Yp :<c-u>call CopyLine(v:count, 0, 1, 0)<cr>
-nnoremap <leader>YP :<c-u>call CopyLine(v:count, 1, 1, 0)<cr>
-nnoremap <leader>ykp :<c-u>call CopyLine(v:count, 0, 1, 0)<cr>
-nnoremap <leader>ykP :<c-u>call CopyLine(v:count, 1, 1, 0)<cr>
-nnoremap <leader>yjp :<c-u>call CopyLine(v:count, 0, 1, 1)<cr>
-nnoremap <leader>yjP :<c-u>call CopyLine(v:count, 1, 1, 1)<cr>
-" Замена строки
-nnoremap <leader>dp :<c-u>call ReplaceLine(v:count, 0, 0)<cr>
-nnoremap <leader>Dp :<c-u>call ReplaceLine(v:count, 1, 0)<cr>
-nnoremap <leader>dkp :<c-u>call ReplaceLine(v:count, 1, 0)<cr>
-nnoremap <leader>djp :<c-u>call ReplaceLine(v:count, 1, 1)<cr>
+" Копировать строку и вставить после или вместо текущей.
+nnoremap <silent> _ :<c-u>call CopyLine(v:count, 0, 0)<cr>
+nnoremap <silent> g_ :<c-u>call CopyLine(v:count, 1, 0)<cr>
+nnoremap <silent> \_ :<c-u>call CopyLine(v:count, 1, 1)<cr>
 
 inoremap <C-v> <A-p><C-o>"*p<A-p><Esc>v']=']a
 " Заменить выделенный текст скопированным (из-за set clipboard=unnamed)

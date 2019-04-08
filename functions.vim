@@ -163,12 +163,20 @@ function! SelectComment()
   execute('normal ' . beginLine . 'GV' . endLine . 'G')
 endfunction
 
-" Скопировать и вставить строку.
-function! CopyLine(count, pasteBefore, relativeNumber, relativeDown)
+" Скопировать и вставить строку после или вместо текущей.
+function! CopyLine(count, relative, relativeDown)
   if a:count == 0
-    execute '.yank'
+    if a:relative
+      return
+    endif
+    " Если строка пустая или состоит из пробельных символов.
+    if match(getline('.'), '^\s*$') == 0
+      execute '-1yank'
+    else
+      execute '.yank'
+    endif
   else
-    if a:relativeNumber
+    if a:relative
       if a:relativeDown
         execute '+' . a:count . 'yank'
       else
@@ -178,28 +186,10 @@ function! CopyLine(count, pasteBefore, relativeNumber, relativeDown)
       execute a:count . 'yank'
     endif
   endif
-  if a:pasteBefore
-    execute 'normal P=='
+  " Если строка пустая или состоит из пробельных символов.
+  if match(getline('.'), '^\s*$') == 0
+    execute 'normal "_ddP=='
   else
     execute 'normal p=='
   endif
-endfunction
-
-" Скопировать и заменить строку.
-function! ReplaceLine(count, relativeNumber, relativeDown)
-  if a:count == 0
-    return
-  else
-    if a:relativeNumber
-      if a:relativeDown
-        execute '+' . a:count . 'yank'
-      else
-        execute '-' . a:count . 'yank'
-      endif
-    else
-      execute a:count . 'yank'
-    endif
-  endif
-
-  execute 'normal "_ddP=='
 endfunction
