@@ -36,6 +36,7 @@ Plug 'posva/vim-vue'
 Plug 'MattesGroeger/vim-bookmarks'
 Plug 'groenewege/vim-less'
 Plug 'othree/html5.vim'
+Plug 'simnalamburt/vim-mundo'
 if executable('tsc')
     Plug 'leafgarland/typescript-vim'
 endif
@@ -88,6 +89,7 @@ if version >= 800
   set breakindentopt=shift:4
 endif
 
+set colorcolumn=100
 set encoding=utf-8
 set history=10000
 set showcmd
@@ -103,10 +105,7 @@ set splitright
 set display=lastline
 set title
 set lazyredraw
-
-" Команды копирования и удаления помещают в регистр "*
-set clipboard=unnamed
-
+set clipboard=unnamed " Команды копирования и удаления помещают в регистр "*
 set wildmenu
 set wildmode=list:longest
 set cursorline
@@ -117,34 +116,26 @@ set smarttab
 set expandtab
 set autoindent
 set copyindent
+set nohidden
 set nostartofline
 set whichwrap+=<,>,[,]
 set listchars=tab:»\ ,trail:·,eol:¶
 set showbreak=↳\ 
 set updatetime=1000
 set gdefault
-set pastetoggle=<A-p>
+set pastetoggle=<a-p>
 set directory=$VIMRCDIR/swapfiles/
 set switchbuf=usetab
-
-if exists('+colorcolumn')
-    set colorcolumn=100
-endif
-
 set keymap=russian-jcukenwin
 set iminsert=0
 set imsearch=0
-
 set foldenable
-let b:filepath = expand('%:p')
 set foldmethod=indent
 set foldminlines=3
 set foldnestmax=4
 set foldopen+=jump
-
 set sessionoptions=blank,buffers,curdir,folds,tabpages,winsize
-" default + buffer number
-set statusline=%<%n:%f\ %h%m%r%w%=%l,%c%V\ %P
+set statusline=%<%n:%f\ %h%m%r%w%=%l,%c%V\ %P " default + buffer number
 set rulerformat=%=%l,%c%V\ %P
 set diffopt+=vertical
 set iskeyword+=45  " -

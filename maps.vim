@@ -7,6 +7,9 @@ inoremap <silent> <F2> <Esc>:silent update<CR>
 nnoremap <S-F2> :wa<CR>
 nnoremap <C-S-F2> :wa<Bar>exe "mksession! " . v:this_session<CR>
 
+if isdirectory($VIMRCDIR . '/plugged/vim-mundo')
+  nnoremap <silent> <F3> :MundoToggle<cr>
+endif
 " Переключение языка и переход к парному буферу
 inoremap <F3> 
 cnoremap <F3> 
