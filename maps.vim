@@ -192,15 +192,16 @@ noremap <F12> :bnext<CR>
 inoremap <F11> <Esc>:bprevious<CR>i
 inoremap <F12> <Esc>:bnext<CR>i
 
-" Удаление обрачивания в функцию: func(smth) -> smth
-nmap <leader>df dt(ds(
-" Удалить весь вызов функции:
-nnoremap <leader>daf vf(%d
-" Удаление окружающих тегов
-nnoremap <leader>dt dit"_datP
-" Удаление оборачивания в блок {} и всего блока (indent). Применять на первой строке обёртки.
-nnoremap <leader>di jdi}"_dkP=`]
-nnoremap <leader>dai jva}Vd
+" Удаление относительно обёрток `(),[],{}`. 'c' = cover, так как w (wrapper) занято.
+" functionName(arg1, arg2) => functionName()
+nnoremap <silent> dic :call DeleteInWrapper()<cr>
+nnoremap <silent> cic :call DeleteInWrapper()<cr>i
+" functionName(arg1, arg2) =>
+nnoremap <silent> <expr> dac DeleteAWrapper(0)
+nnoremap <silent> <expr> cac DeleteAWrapper(1)
+" functionName(arg1, arg2) => arg1, arg2. nmap потому что используется vim-surround.
+nmap <silent> doc :call DeleteOutWrapper()<cr>
+nmap <silent> coc :call DeleteOutWrapper()<cr>i
 
 noremap <A--> :ToggleDashInIskeyword<CR>
 inoremap <A--> <C-o>:ToggleDashInIskeyword<CR>

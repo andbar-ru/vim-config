@@ -193,3 +193,34 @@ function! CopyLine(count, relative, relativeDown)
     execute 'normal p=='
   endif
 endfunction
+
+" Удалить содержимое внутри ближайших скобок.
+function! DeleteInWrapper()
+  let lineNo = search('[({[]', 'cW')
+  if lineNo == 0
+    return
+  endif
+  let braceChar = getline('.')[col('.')-1]
+  execute 'normal di' . braceChar
+endfunction
+
+" Удалить до ближайших скобок и скобки вместе с содержимым. Используется с <expr>.
+function! DeleteAWrapper(insert)
+  let lineNo = search('[({[]', 'cW')
+  if lineNo == 0
+    return ''
+  endif
+  let braceChar = getline('.')[col('.')-1]
+  let op = a:insert ? 'c' : 'd'
+  return 'v/' . braceChar . '%' . op
+endfunction
+
+" Удалить до ближайших скобок и скобки, но содержимое оставить. Использует плагин vim-surround.
+function! DeleteOutWrapper()
+  let lineNo = search('[({[]', 'cWs')
+  if lineNo == 0
+    return
+  endif
+  let braceChar = getline('.')[col('.')-1]
+  execute 'normal d``ds' . braceChar
+endfunction
