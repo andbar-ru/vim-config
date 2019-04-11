@@ -15,8 +15,8 @@ inoremap <F3> 
 cnoremap <F3> 
 inoremap  <Esc>
 if isdirectory($VIMRCDIR . '/plugged/vim-indent-guides')
-  noremap <A-F3> <leader>ig
-  inoremap <A-F3> <C-o><leader>ig
+  noremap <A-F3> :IndentGuidesToggle<cr>
+  inoremap <A-F3> <C-o>:IndentGuidesToggle<cr>
 endif
 " Подсветка непечатаемых символов
 noremap <S-F3> :set list!<CR>
@@ -174,6 +174,9 @@ nnoremap <silent> \_ :<c-u>call CopyLine(v:count, 1, 1)<cr>
 inoremap <C-v> <A-p><C-o>"*p<A-p><Esc>v']=']a
 " Заменить выделенный текст скопированным (из-за set clipboard=unnamed)
 vnoremap p ""p
+" Вставить и отформатировать.
+nnoremap <expr> \p IsLineEmpty('.') ? '"_ddP=`]`]' : 'p=`]`]'
+nnoremap <expr> \P IsLineEmpty('.') ? '"_ddP=`]`]' : 'P=`]`]'
 
 noremap <A-t> :tabnew<CR>
 inoremap <A-t> <Esc>:tabnew<CR>
@@ -275,20 +278,6 @@ nnoremap <leader>cfj :FormatJson<cr>
 " Plugins
 if isdirectory($VIMRCDIR . '/plugged/vim-fugitive')
   noremap <leader>gb :Gblame<CR>
-endif
-
-if isdirectory($VIMRCDIR . '/plugged/vim-bookmarks')
-  nmap <leader>mm <Plug>BookmarkToggle
-  nmap <leader>mi <Plug>BookmarkAnnotate
-  nmap <leader>mn <Plug>BookmarkNext
-  nmap <leader>mp <Plug>BookmarkPrev
-  nmap <leader>ma <Plug>BookmarkShowAll
-  nmap <leader>mc <Plug>BookmarkClear
-  nmap <leader>mx <Plug>BookmarkClearAll
-  nmap <leader>ms <Plug>BookmarkSave
-  nmap <leader>ml <Plug>BookmarkLoad
-  nmap <leader>mkk <Plug>BookmarkMoveUp
-  nmap <leader>mjj <Plug>BookmarkMoveDown
 endif
 
 if isdirectory($VIMRCDIR . '/plugged/neosnippet')

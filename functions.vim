@@ -163,6 +163,15 @@ function! SelectComment()
   execute('normal ' . beginLine . 'GV' . endLine . 'G')
 endfunction
 
+" Строка пустая или состоит из пробельных символов?
+function! IsLineEmpty(line)
+  if match(getline(a:line), '^\s*$') == 0
+    return 1
+  else
+    return 0
+  endif
+endfunction
+
 " Скопировать и вставить строку после или вместо текущей.
 function! CopyLine(count, relative, relativeDown)
   if a:count == 0
@@ -170,7 +179,7 @@ function! CopyLine(count, relative, relativeDown)
       return
     endif
     " Если строка пустая или состоит из пробельных символов.
-    if match(getline('.'), '^\s*$') == 0
+    if IsLineEmpty('.')
       execute '-1yank'
     else
       execute '.yank'
@@ -187,7 +196,7 @@ function! CopyLine(count, relative, relativeDown)
     endif
   endif
   " Если строка пустая или состоит из пробельных символов.
-  if match(getline('.'), '^\s*$') == 0
+  if IsLineEmpty('.')
     execute 'normal "_ddP=='
   else
     execute 'normal p=='
