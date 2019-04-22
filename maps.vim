@@ -175,8 +175,8 @@ inoremap <C-v> <A-p><C-o>"*p<A-p><Esc>v']=']a
 " Заменить выделенный текст скопированным (из-за set clipboard=unnamed)
 vnoremap p ""p
 " Вставить и отформатировать.
-nnoremap <expr> \p IsLineEmpty('.') ? '"_ddP=`]`]' : 'p=`]`]'
-nnoremap <expr> \P IsLineEmpty('.') ? '"_ddP=`]`]' : 'P=`]`]'
+nnoremap <expr> =p IsLineEmpty('.') ? '"_ddP=`]`]' : 'p=`]`]'
+nnoremap <expr> =P IsLineEmpty('.') ? '"_ddP=`]`]' : 'P=`]`]'
 
 noremap <A-t> :tabnew<CR>
 inoremap <A-t> <Esc>:tabnew<CR>
@@ -186,14 +186,10 @@ noremap <A-e> :exe "e" . expand('%:p:h') . '/'<CR>
 " inoremap <A-e> mapped by auto-pairs
 noremap <A-c> :bw<CR>
 inoremap <A-c> <Esc>:bw<CR>
-noremap <S-F11> :tabprevious<CR>
-noremap <S-F12> :tabnext<CR>
-inoremap <S-F11> <Esc>:tabprevious<CR>i
-inoremap <S-F12> <Esc>:tabnext<CR>i
-noremap <F11> :bprevious<CR>
-noremap <F12> :bnext<CR>
-inoremap <F11> <Esc>:bprevious<CR>i
-inoremap <F12> <Esc>:bnext<CR>i
+noremap [t :tabprevious<cr>
+noremap ]t :tabnext<cr>
+noremap [b :bprevious<cr>
+noremap ]b :bnext<cr>
 
 " Удаление относительно обёрток `(),[],{}`. 'c' = cover, так как w (wrapper) занято.
 " functionName(arg1, arg2) => functionName()
@@ -210,8 +206,6 @@ noremap <A--> :ToggleDashInIskeyword<CR>
 inoremap <A--> <C-o>:ToggleDashInIskeyword<CR>
 " Удаление журналирующего блока
 noremap <leader>dl ?\v^\s*.+ begin #{40,}$<CR>v/\v^\s*.+ end #{40,}$<CR>Vd
-" Удаление оборачивающего блока
-nmap <leader>dw [-jd]-]pkdk
 
 " Поиск
 "Поиск слова под курсором в соседних окнах
