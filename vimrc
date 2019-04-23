@@ -25,9 +25,7 @@ Plug 'gavocanov/vim-js-indent'
 Plug 'danro/rename.vim'
 Plug 'alvan/vim-closetag'
 Plug 'jiangmiao/auto-pairs'
-if version > 703  " 7.3
-    Plug 'jlanzarotta/bufexplorer'
-endif
+Plug 'jlanzarotta/bufexplorer'
 Plug 'jeetsukumaran/vim-indentwise'
 Plug 'vim-python/python-syntax'
 Plug 'dzeban/vim-log-syntax'
@@ -36,6 +34,7 @@ Plug 'posva/vim-vue'
 Plug 'groenewege/vim-less'
 Plug 'othree/html5.vim'
 Plug 'simnalamburt/vim-mundo'
+Plug 'fatih/vim-go', {'for':'go', 'do':':GoInstallBinaries'}
 if executable('tsc')
     Plug 'leafgarland/typescript-vim'
 endif
@@ -137,7 +136,6 @@ set sessionoptions=blank,buffers,curdir,folds,tabpages,winsize
 set statusline=%<%n:%f\ %h%m%r%w%=%l,%c%V\ %P " default + buffer number
 set rulerformat=%=%l,%c%V\ %P
 set diffopt+=vertical
-set iskeyword+=45  " -
 
 " nvim or not
 if has('nvim')

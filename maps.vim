@@ -177,6 +177,16 @@ vnoremap p ""p
 " Вставить и отформатировать.
 nnoremap <expr> \p IsLineEmpty('.') ? '"_ddP=`]`]' : 'p=`]`]'
 nnoremap <expr> \P IsLineEmpty('.') ? '"_ddP=`]`]' : 'P=`]`]'
+" quickfix
+nnoremap <silent> <expr> [q ':<c-u>' . (v:count ? v:count : '') . 'cprevious<cr>'
+nnoremap <silent> <expr> ]q ':<c-u>' . (v:count ? v:count : '') . 'cnext<cr>'
+nnoremap <silent> <expr> [Q ':<c-u>' . (v:count ? v:count : '') . 'cfirst<cr>'
+nnoremap <silent> <expr> ]Q ':<c-u>' . (v:count ? v:count : '') . 'clast<cr>'
+" location-list
+nnoremap <silent> <expr> [l ':<c-u>' . (v:count ? v:count : '') . 'lprevious<cr>'
+nnoremap <silent> <expr> ]l ':<c-u>' . (v:count ? v:count : '') . 'lnext<cr>'
+nnoremap <silent> <expr> [L ':<c-u>' . (v:count ? v:count : '') . 'lfirst<cr>'
+nnoremap <silent> <expr> ]L ':<c-u>' . (v:count ? v:count : '') . 'llast<cr>'
 
 noremap <A-t> :tabnew<CR>
 inoremap <A-t> <Esc>:tabnew<CR>
