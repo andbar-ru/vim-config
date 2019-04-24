@@ -182,11 +182,15 @@ nnoremap <silent> <expr> [q ':<c-u>' . (v:count ? v:count : '') . 'cprevious<cr>
 nnoremap <silent> <expr> ]q ':<c-u>' . (v:count ? v:count : '') . 'cnext<cr>'
 nnoremap <silent> <expr> [Q ':<c-u>' . (v:count ? v:count : '') . 'cfirst<cr>'
 nnoremap <silent> <expr> ]Q ':<c-u>' . (v:count ? v:count : '') . 'clast<cr>'
+nnoremap <leader>qc :cclose<cr>
+nnoremap <leader>qo :copen<cr>
 " location-list
 nnoremap <silent> <expr> [l ':<c-u>' . (v:count ? v:count : '') . 'lprevious<cr>'
 nnoremap <silent> <expr> ]l ':<c-u>' . (v:count ? v:count : '') . 'lnext<cr>'
 nnoremap <silent> <expr> [L ':<c-u>' . (v:count ? v:count : '') . 'lfirst<cr>'
 nnoremap <silent> <expr> ]L ':<c-u>' . (v:count ? v:count : '') . 'llast<cr>'
+nnoremap <leader>lc :lclose<cr>
+nnoremap <leader>lo :lopen<cr>
 
 noremap <A-t> :tabnew<CR>
 inoremap <A-t> <Esc>:tabnew<CR>
@@ -279,9 +283,14 @@ nnoremap <leader>sm :set modifiable<cr>
 " Commands
 nnoremap <leader>cfj :FormatJson<cr>
 
-" Plugins
-if isdirectory($VIMRCDIR . '/plugged/vim-fugitive')
-  noremap <leader>gb :Gblame<CR>
+if isdirectory($VIMRCDIR . '/plugged/vim-go')
+  augroup go
+    autocmd FileType go nmap <leader>gb :<c-u>call BuildGoFiles()<cr>
+    autocmd FileType go nmap <leader>gr <Plug>(go-run)
+    autocmd FileType go nmap <leader>gt <Plug>(go-test)
+    autocmd FileType go nmap <leader>gtf <Plug>(go-test-func)
+    autocmd FileType go nmap <leader>gc <Plug>(go-coverage-toggle)
+  augroup end
 endif
 
 if isdirectory($VIMRCDIR . '/plugged/neosnippet')

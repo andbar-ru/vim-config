@@ -2,7 +2,8 @@ augroup vimrc
   autocmd!
   autocmd VimLeavePre * silent mksession! $VIMRCDIR/sessions/lastSession.vim
   if exists('g:highlightTrailingSpace')
-      autocmd BufNew,BufRead * call HiTrail(g:highlightTrailingSpace)
+    autocmd BufNew,BufRead * call HiTrail(g:highlightTrailingSpace)
+  endif
   autocmd BufRead * if line('$') < 100 | exec "normal zR" | endif
   autocmd BufRead log.txt setlocal autoread filetype=logtxt
   autocmd BufRead rules setlocal noexpandtab  " debian/rules
@@ -12,4 +13,4 @@ augroup vimrc
   autocmd BufLeave * call AutoSaveWinView()
   autocmd BufEnter * call AutoRestoreWinView()
   autocmd VimResized * if &diff | wincmd = | endif
-endif
+augroup end
