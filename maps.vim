@@ -294,9 +294,10 @@ if isdirectory($VIMRCDIR . '/plugged/vim-go')
 endif
 
 if isdirectory($VIMRCDIR . '/plugged/neosnippet')
-  imap <C-j> <Plug>(neosnippet_expand_or_jump)
-  smap <C-j> <Plug>(neosnippet_expand_or_jump)
-  xmap <C-j> <Plug>(neosnippet_expand_target)
+  imap <c-j> <Plug>(neosnippet_expand_or_jump)
+  smap <c-j> <Plug>(neosnippet_expand_or_jump)
+  xmap <c-j> <Plug>(neosnippet_expand_target)
+  nmap <leader>rs :call neosnippet#variables#set_snippets({})<cr>
 endif
 
 if isdirectory($VIMRCDIR . '/plugged/tcomment_vim')
