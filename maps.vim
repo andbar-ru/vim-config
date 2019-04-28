@@ -49,10 +49,11 @@ if isdirectory($VIMRCDIR . '/plugged/tagbar')
   noremap <F7> :TagbarToggle<CR>
   inoremap <F7> <C-o>:TagbarToggle<CR>
 endif
-if isdirectory($VIMRCDIR . '/plugged/ale')
-  noremap <S-F7> :ALEToggleBuffer<CR>
-  inoremap <S-F7> <C-o>:ALEToggleBuffer<CR>
-endif
+
+" if isdirectory($VIMRCDIR . '/plugged/ale')
+"   noremap <S-F7> :ALEToggleBuffer<CR>
+"   inoremap <S-F7> <C-o>:ALEToggleBuffer<CR>
+" endif
 
 noremap <F8> :marks abcdefghijklmnopqrstuvwxyz<CR>:'
 inoremap <F8>   <Esc>:marks abcdefghijklmnopqrstuvwxyz<CR>:'
@@ -284,12 +285,14 @@ nnoremap <leader>sm :set modifiable<cr>
 nnoremap <leader>cfj :FormatJson<cr>
 
 if isdirectory($VIMRCDIR . '/plugged/vim-go')
-  augroup go
+  augroup goMaps
     autocmd FileType go nmap <leader>gb :<c-u>call BuildGoFiles()<cr>
     autocmd FileType go nmap <leader>gr <Plug>(go-run)
     autocmd FileType go nmap <leader>gt <Plug>(go-test)
     autocmd FileType go nmap <leader>gtf <Plug>(go-test-func)
     autocmd FileType go nmap <leader>gc <Plug>(go-coverage-toggle)
+    autocmd FileType go nmap <leader>gi <Plug>(go-info)
+    autocmd FileType go nmap <a-s-h> :GoSameIdsAutoToggle<cr>
   augroup end
 endif
 
@@ -306,4 +309,11 @@ endif
 if isdirectory($VIMRCDIR . '/plugged/auto-pairs')
   " Дополнение к Fast Wrap <M-e>
   inoremap <A-$> <c-o>x<end><c-r>*
+endif
+
+if isdirectory($VIMRCDIR . '/plugged/splitjoin.vim')
+  let g:splitjoin_split_mapping = ''
+  let g:splitjoin_join_mapping = ''
+  nmap <leader>sjs :SplitjoinSplit<cr>
+  nmap <leader>sjj :SplitjoinJoin<cr>
 endif

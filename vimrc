@@ -16,9 +16,7 @@ endif
 Plug 'tomtom/tcomment_vim'
 Plug 'scrooloose/nerdtree'
 Plug 'majutsushi/tagbar'
-Plug 'Vimjas/vim-python-pep8-indent'
 Plug 'tmhedberg/matchit'
-Plug 'voithos/vim-python-matchit'
 Plug 'ervandew/supertab'
 Plug 'pangloss/vim-javascript'
 Plug 'gavocanov/vim-js-indent'
@@ -27,14 +25,18 @@ Plug 'alvan/vim-closetag'
 Plug 'jiangmiao/auto-pairs'
 Plug 'jlanzarotta/bufexplorer'
 Plug 'jeetsukumaran/vim-indentwise'
-Plug 'vim-python/python-syntax'
 Plug 'dzeban/vim-log-syntax'
 Plug 'PProvost/vim-ps1'
 Plug 'posva/vim-vue'
 Plug 'groenewege/vim-less'
 Plug 'othree/html5.vim'
 Plug 'simnalamburt/vim-mundo'
-Plug 'fatih/vim-go', {'for':'go', 'do':':GoInstallBinaries'}
+Plug 'AndrewRadev/splitjoin.vim'
+Plug 'Vimjas/vim-python-pep8-indent'
+Plug 'vim-python/python-syntax'
+Plug 'voithos/vim-python-matchit'
+" If one add {'for':'go'}, vim-go/syntax/go.vim loads later than builtin syntax/go.vim.
+Plug 'fatih/vim-go', {'do':':GoInstallBinaries'}
 if executable('tsc')
     Plug 'leafgarland/typescript-vim'
 endif
@@ -46,8 +48,7 @@ endif
 if has('unix') && version >= 800
   Plug 'junegunn/fzf', {'dir': '~/Programs/fzf', 'do': './install --all'}
   Plug 'junegunn/fzf.vim'
-  Plug 'w0rp/ale'
-  " Plug 'davidhalter/jedi-vim', {'for': 'python'}
+  " Plug 'w0rp/ale'
 endif
 call plug#end()
 

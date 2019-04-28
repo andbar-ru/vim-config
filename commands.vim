@@ -12,3 +12,12 @@ command! SyntaxSync :syntax sync fromstart
 command! ToggleDashInIskeyword if &iskeyword !~ 45 | setlocal iskeyword+=45 | else | setlocal iskeyword-=45 | endif
 command! ToggleMenu if &guioptions=~"m" | set guioptions-=m | else | set guioptions+=m | endif
 command! ToggleScrollbar if &guioptions=~"r" | set guioptions-=r | else | set guioptions+=r | endif
+
+if isdirectory($VIMRCDIR . '/plugged/vim-go')
+  augroup goCommands
+    autocmd FileType go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
+    autocmd FileType go command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit')
+    autocmd FileType go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
+    autocmd FileType go command! -bang AT call go#alternate#Switch(<bang>0, 'tabe')
+  augroup end
+endif

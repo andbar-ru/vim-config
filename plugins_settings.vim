@@ -27,20 +27,6 @@ if isdirectory($VIMRCDIR . '/plugged/bufexplorer')
   let g:bufExplorerSplitRight=0
 endif
 
-if isdirectory($VIMRCDIR . '/plugged/vim-bookmarks')
-  let g:bookmark_auto_close = 1
-  let g:bookmark_save_per_working_dir = 1
-  let g:bookmark_auto_save = 1
-  let g:bookmark_no_default_key_mappings = 1
-endif
-
-if isdirectory($VIMRCDIR . '/plugged/vim-rooter')
-  let g:rooter_targets = '*'
-  let g:rooter_pattern = ['.git/']
-  let g:rooter_change_directory_for_non_project_files = 'current'
-  let g:rooter_silent_chdir = 1
-endif
-
 if isdirectory($VIMRCDIR . '/plugged/fzf.vim')
   " CTRL-A CTRL-Q to select all and build quickfix list
   function! s:build_quickfix_list(lines)
@@ -58,29 +44,16 @@ if isdirectory($VIMRCDIR . '/plugged/fzf.vim')
   let $FZF_DEFAULT_OPTS = '--bind ctrl-a:select-all'
 endif
 
-" if isdirectory($VIMRCDIR . '/plugged/jedi-vim')
-"   let g:jedi#popup_on_dot = 0
-"   let g:jedi#show_call_signatures = "2"
-"   let g:jedi#completions_enabled = 1
-"   let g:jedi#goto_command = "<leader>jg"
-"   let g:jedi#goto_assignments_command = "<leader>ja"
-"   let g:jedi#goto_definitions_command = "<leader>jd"
-"   let g:jedi#documentation_command = "K"
-"   let g:jedi#usages_command = "<leader>ju"
-"   let g:jedi#completions_command = "<C-Space>"
-"   let g:jedi#rename_command = "<leader>jr"
+" if isdirectory($VIMRCDIR . '/plugged/ale')
+"   let g:ale_sign_error = 'E'
+"   let g:ale_sign_warning = 'W'
+"   let g:ale_lint_on_text_changed = 'never'
+"   let g:ale_lint_on_enter = 0
+"   let g:ale_open_list = 1
+"   let g:ale_linters = {
+"   \   'go': ['gofmt', 'golint']
+"   \}
 " endif
-
-if isdirectory($VIMRCDIR . '/plugged/ale')
-  let g:ale_sign_error = 'E'
-  let g:ale_sign_warning = 'W'
-  let g:ale_lint_on_text_changed = 'never'
-  let g:ale_lint_on_enter = 0
-  let g:ale_open_list = 1
-  let g:ale_linters = {
-  \   'go': ['gofmt', 'golint']
-  \}
-endif
 
 if isdirectory($VIMRCDIR . '/plugged/neosnippet')
   let g:neosnippet#snippets_directory="$VIMRCDIR/snippets"
@@ -100,4 +73,9 @@ if isdirectory($VIMRCDIR . '/plugged/gruvbox')
   let g:gruvbox_vert_split = 'bg3'
   let g:gruvbox_italicize_comments = 0
   let g:gruvbox_invert_selection = 0
+endif
+
+if isdirectory($VIMRCDIR . '/plugged/vim-go')
+  let g:go_fmt_command = "goimports"
+  let g:go_metalinter_autosave = 1
 endif
