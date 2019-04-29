@@ -18,6 +18,8 @@ Plug 'scrooloose/nerdtree'
 Plug 'majutsushi/tagbar'
 Plug 'tmhedberg/matchit'
 Plug 'ervandew/supertab'
+" Indentation in pangloss/vim-javascript malfunctions in *.vue files.
+Plug 'gavocanov/vim-js-indent'
 Plug 'pangloss/vim-javascript'
 Plug 'danro/rename.vim'
 Plug 'alvan/vim-closetag'
