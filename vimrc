@@ -19,7 +19,6 @@ Plug 'majutsushi/tagbar'
 Plug 'tmhedberg/matchit'
 Plug 'ervandew/supertab'
 Plug 'pangloss/vim-javascript'
-Plug 'gavocanov/vim-js-indent'
 Plug 'danro/rename.vim'
 Plug 'alvan/vim-closetag'
 Plug 'jiangmiao/auto-pairs'
@@ -67,6 +66,7 @@ source $VIMRCDIR/functions.vim
 source $VIMRCDIR/commands.vim
 source $VIMRCDIR/maps.vim
 source $VIMRCDIR/autocmds.vim
+source $VIMRCDIR/syntax.vim
 
 call AddVenvSitePackages()
 
