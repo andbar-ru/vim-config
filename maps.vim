@@ -55,12 +55,12 @@ endif
 "   inoremap <S-F7> <C-o>:ALEToggleBuffer<CR>
 " endif
 
-noremap <F8> :marks abcdefghijklmnopqrstuvwxyz<CR>:'
-inoremap <F8>   <Esc>:marks abcdefghijklmnopqrstuvwxyz<CR>:'
-noremap <S-F8> :marks abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ<CR>:'
-inoremap <S-F8>   <Esc>:marks abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ<CR>:'
-noremap <C-F8> :syntax sync fromstart<CR>
-inoremap <C-F8> <C-o>:syntax sync fromstart<CR>
+noremap <F8> :syntax sync fromstart<CR>
+inoremap <F8> <C-o>:syntax sync fromstart<CR>
+noremap <S-F8> :marks abcdefghijklmnopqrstuvwxyz<CR>:'
+inoremap <S-F8>   <Esc>:marks abcdefghijklmnopqrstuvwxyz<CR>:'
+noremap <C-F8> :marks abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ<CR>:'
+inoremap <C-F8>   <Esc>:marks abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ<CR>:'
 
 if isdirectory($VIMRCDIR . '/plugged/vim-gitgutter')
   noremap <F9> :GitGutterSignsToggle<CR>
@@ -296,7 +296,7 @@ if isdirectory($VIMRCDIR . '/plugged/vim-go')
   augroup end
 endif
 
-if isdirectory($VIMRCDIR . '/plugged/neosnippet')
+if isdirectory($VIMRCDIR . '/plugged/neosnippet.vim')
   imap <c-j> <Plug>(neosnippet_expand_or_jump)
   smap <c-j> <Plug>(neosnippet_expand_or_jump)
   xmap <c-j> <Plug>(neosnippet_expand_target)

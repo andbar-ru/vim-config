@@ -55,7 +55,7 @@ endif
 "   \}
 " endif
 
-if isdirectory($VIMRCDIR . '/plugged/neosnippet')
+if isdirectory($VIMRCDIR . '/plugged/neosnippet.vim')
   let g:neosnippet#snippets_directory="$VIMRCDIR/snippets"
   let g:neosnippet#disable_runtime_snippets = {
   \ '_': 1,

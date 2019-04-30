@@ -42,9 +42,8 @@ if executable('tsc')
     Plug 'leafgarland/typescript-vim'
 endif
 if version >= 800
-  Plug 'Shougo/neosnippet'
+  Plug 'Shougo/neosnippet.vim'
   Plug 'Shougo/neosnippet-snippets'
-  Plug 'Shougo/context_filetype.vim'  " for neosnippet
 endif
 if has('unix') && version >= 800
   Plug 'junegunn/fzf', {'dir': '~/Programs/fzf', 'do': './install --all'}
