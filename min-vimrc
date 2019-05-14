@@ -1,0 +1,10 @@
+silent! call plug#begin()
+Plug 'andbar-ru/vim-unicon'
+Plug 'fatih/vim-go', {'do':':GoInstallBinaries'}
+call plug#end()
+
+filetype plugin indent on
+
+set nocompatible
+set background=light
+colorscheme unicon

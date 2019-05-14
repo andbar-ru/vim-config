@@ -1,22 +1,22 @@
 function! HiTrail(on)
-    if a:on == 1
-        highlight! link trailingSpace CursorLine
-        match trailingSpace /\\\@<![\u3000[:space:]]\+$/
-    else
-        match none
-    endif
+  if a:on == 1
+    highlight! link trailingSpace CursorLine
+    match trailingSpace /\\\@<![\u3000[:space:]]\+$/
+  else
+    match none
+  endif
 endfunction
 
 function! ToggleHiTrail()
-    if !exists('g:highlightTrailingSpace')
-        let g:highlightTrailingSpace = 0
-    endif
-    if g:highlightTrailingSpace == 1
-        let g:highlightTrailingSpace = 0
-    else
-        let g:highlightTrailingSpace = 1
-    endif
-    call HiTrail(g:highlightTrailingSpace)
+  if !exists('g:highlightTrailingSpace')
+    let g:highlightTrailingSpace = 0
+  endif
+  if g:highlightTrailingSpace == 1
+    let g:highlightTrailingSpace = 0
+  else
+    let g:highlightTrailingSpace = 1
+  endif
+  call HiTrail(g:highlightTrailingSpace)
 endfunction
 
 " Set bookmarks file .git/bookmarks for plugin vim-bookmarks

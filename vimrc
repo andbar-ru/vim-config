@@ -10,8 +10,8 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-abolish'
 if executable('git')
-    Plug 'tpope/vim-fugitive'
-    Plug 'airblade/vim-gitgutter'
+  Plug 'tpope/vim-fugitive'
+  Plug 'airblade/vim-gitgutter'
 endif
 Plug 'tomtom/tcomment_vim'
 Plug 'scrooloose/nerdtree'
@@ -39,7 +39,7 @@ Plug 'voithos/vim-python-matchit'
 " If one add {'for':'go'}, vim-go/syntax/go.vim loads later than builtin syntax/go.vim.
 Plug 'fatih/vim-go', {'do':':GoInstallBinaries'}
 if executable('tsc')
-    Plug 'leafgarland/typescript-vim'
+  Plug 'leafgarland/typescript-vim'
 endif
 if version >= 800
   Plug 'Shougo/neosnippet.vim'
@@ -53,9 +53,9 @@ endif
 call plug#end()
 
 if has('win32')
-    source $VIMRUNTIME/defaults.vim
-    let $LANG = 'en'
-    set encoding=utf-8  " To enable maps with Alt key
+  source $VIMRUNTIME/defaults.vim
+  let $LANG = 'en'
+  set encoding=utf-8  " To enable maps with Alt key
 endif
 
 let g:highlightTrailingSpace = 1
@@ -73,9 +73,9 @@ call AddVenvSitePackages()
 
 " Colorscheme
 if $USER == 'root'
-    set background=dark
+  set background=dark
 else
-    set background=light
+  set background=light
 endif
 colorscheme unicon
 

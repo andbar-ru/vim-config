@@ -87,8 +87,8 @@ inoremap <Char-172> <Esc><C-w><
 noremap <Char-174> <C-w>>
 inoremap <Char-174> <Esc><C-w>>
 for c in ["1","2","3","4","5","6","7","8"]
-    exe "noremap <A-" . c . "> " . c . "gt"
-    exe "inoremap <A-" . c . "> <Esc>" . c . "gt"
+  exe "noremap <A-" . c . "> " . c . "gt"
+  exe "inoremap <A-" . c . "> <Esc>" . c . "gt"
 endfor
 noremap <A-9> :tablast<CR>
 inoremap <A-9> <Esc>:tablast<CR>
