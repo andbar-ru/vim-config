@@ -24,7 +24,9 @@ Plug 'pangloss/vim-javascript'
 Plug 'danro/rename.vim'
 Plug 'alvan/vim-closetag'
 Plug 'jiangmiao/auto-pairs'
-Plug 'jlanzarotta/bufexplorer'
+if version >= 740
+  Plug 'jlanzarotta/bufexplorer'
+endif
 Plug 'jeetsukumaran/vim-indentwise'
 Plug 'dzeban/vim-log-syntax'
 Plug 'PProvost/vim-ps1'
@@ -36,8 +38,10 @@ Plug 'AndrewRadev/splitjoin.vim'
 Plug 'Vimjas/vim-python-pep8-indent'
 Plug 'vim-python/python-syntax'
 Plug 'voithos/vim-python-matchit'
-" If one add {'for':'go'}, vim-go/syntax/go.vim loads later than builtin syntax/go.vim.
-Plug 'fatih/vim-go', {'do':':GoInstallBinaries'}
+if version >= 800
+  " If one add {'for':'go'}, vim-go/syntax/go.vim loads later than builtin syntax/go.vim.
+  Plug 'fatih/vim-go', {'do':':GoInstallBinaries'}
+endif
 if executable('tsc')
   Plug 'leafgarland/typescript-vim'
 endif
@@ -137,7 +141,7 @@ set foldopen+=jump
 set sessionoptions=blank,buffers,curdir,folds,tabpages,winsize
 set statusline=%<%n:%f\ %h%m%r%w%=%l,%c%V\ %P " default + buffer number
 set rulerformat=%=%l,%c%V\ %P
-set diffopt+=vertical
+set diffopt+=vertical,algorithm:histogram
 
 " nvim or not
 if has('nvim')

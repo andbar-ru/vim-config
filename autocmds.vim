@@ -1,5 +1,7 @@
 augroup vimrc
   autocmd!
+  " debian system vimrc
+  autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
   autocmd VimLeavePre * silent mksession! $VIMRCDIR/sessions/lastSession.vim
   if exists('g:highlightTrailingSpace')
     autocmd BufNew,BufRead * call HiTrail(g:highlightTrailingSpace)
