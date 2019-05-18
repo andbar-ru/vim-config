@@ -56,6 +56,10 @@ if has('unix') && version >= 800
 endif
 call plug#end()
 
+" From debian system vimrc
+syntax on
+filetype plugin indent on
+
 if has('win32')
   source $VIMRUNTIME/defaults.vim
   let $LANG = 'en'
@@ -141,7 +145,7 @@ set foldopen+=jump
 set sessionoptions=blank,buffers,curdir,folds,tabpages,winsize
 set statusline=%<%n:%f\ %h%m%r%w%=%l,%c%V\ %P " default + buffer number
 set rulerformat=%=%l,%c%V\ %P
-set diffopt+=vertical,algorithm:histogram
+set diffopt+=vertical,indent-heuristic,algorithm:histogram
 
 " nvim or not
 if has('nvim')
