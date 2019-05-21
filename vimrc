@@ -19,7 +19,7 @@ Plug 'majutsushi/tagbar'
 Plug 'tmhedberg/matchit'
 Plug 'ervandew/supertab'
 " Indentation in pangloss/vim-javascript malfunctions in *.vue files.
-Plug 'gavocanov/vim-js-indent'
+" Plug 'gavocanov/vim-js-indent'
 Plug 'pangloss/vim-javascript'
 Plug 'danro/rename.vim'
 Plug 'alvan/vim-closetag'
@@ -55,6 +55,10 @@ if has('unix') && version >= 800
   " Plug 'w0rp/ale'
 endif
 call plug#end()
+
+" From debian system vimrc
+syntax on
+filetype plugin indent on
 
 if has('win32')
   source $VIMRUNTIME/defaults.vim
@@ -141,7 +145,7 @@ set foldopen+=jump
 set sessionoptions=blank,buffers,curdir,folds,tabpages,winsize
 set statusline=%<%n:%f\ %h%m%r%w%=%l,%c%V\ %P " default + buffer number
 set rulerformat=%=%l,%c%V\ %P
-set diffopt+=vertical,algorithm:histogram
+set diffopt+=vertical,algorithm:histogram,indent-heuristic
 
 " nvim or not
 if has('nvim')

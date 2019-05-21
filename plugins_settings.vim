@@ -6,6 +6,7 @@ if isdirectory($VIMRCDIR . '/plugged/nerdtree')
 endif
 
 if isdirectory($VIMRCDIR . '/plugged/supertab')
+  let g:SuperTabDefultCompletionType = "<c-p>"
   let g:SuperTabRetainCompletionDuration = "completion"
   let g:SuperTabNoCompleteAfter = ['\s', ':', ')', ']', '}', "'", '"', '^']
 endif
