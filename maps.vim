@@ -1,6 +1,7 @@
 " Сделать пробел <leader>ом
 nnoremap <Space> <nop>
 let mapleader = " "
+imap <s-space> <esc><space>
 
 noremap <silent> <F2> :silent update<CR>
 inoremap <silent> <F2> <Esc>:silent update<CR>
@@ -37,8 +38,6 @@ if isdirectory($VIMRCDIR . '/plugged/bufexplorer')
   noremap <S-F5> :BufExplorerVerticalSplit<CR>
   inoremap <S-F5> <Esc>:BufExplorerVerticalSplit<CR>
 endif
-noremap <C-F5> :buffers<CR>:b 
-inoremap <C-F5> <Esc>:buffers<CR>:b 
 
 if isdirectory($VIMRCDIR . '/plugged/nerdtree')
   noremap <F6> :NERDTreeToggle<CR>
@@ -57,10 +56,6 @@ endif
 
 noremap <F8> :syntax sync fromstart<CR>
 inoremap <F8> <C-o>:syntax sync fromstart<CR>
-noremap <S-F8> :marks abcdefghijklmnopqrstuvwxyz<CR>:'
-inoremap <S-F8>   <Esc>:marks abcdefghijklmnopqrstuvwxyz<CR>:'
-noremap <C-F8> :marks abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ<CR>:'
-inoremap <C-F8>   <Esc>:marks abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ<CR>:'
 
 if isdirectory($VIMRCDIR . '/plugged/vim-gitgutter')
   noremap <F9> :GitGutterSignsToggle<CR>
@@ -281,6 +276,15 @@ cnoremap <A-,> \<\><left><left>
 
 nnoremap <leader>snm :set nomodifiable<cr>
 nnoremap <leader>sm :set modifiable<cr>
+
+" list registers
+noremap <leader>lr :reg 0123456789<cr>:put
+noremap <leader>lR :reg<cr>:put
+" list marks
+noremap <leader>lm :marks abcdefghijklmnopqrstuvwxyz<cr>:'
+noremap <leader>lM :marks<cr>:'
+" list buffers
+noremap <leader>lb :buffers<cr>:b
 
 " Commands
 nnoremap <leader>cfj :FormatJson<cr>
