@@ -98,6 +98,7 @@ noremap <C-S-PageDown> :tabm +<CR>
 inoremap <C-S-PageDown> <C-o>:tabm +<CR>
 
 nnoremap <expr> <CR> (&ft == 'qf' ? '<CR>' : 'o<Esc>')
+inoremap <expr> <cr> pumvisible() ? '<c-y>' : '<cr>'
 nnoremap <S-CR> O<Esc>
 inoremap <S-CR> <END><CR>
 inoremap <C-S-CR> <C-O>O
@@ -115,8 +116,8 @@ imap <a-<> <esc><a-<>i
 
 inoremap <C-S-Left> <Esc>vb
 inoremap <C-S-Right> <Esc>lve
-inoremap <silent> <C-Right> <C-o>E
-inoremap <silent> <C-Left> <C-o>B
+inoremap <silent> <c-right> <c-o>W
+inoremap <silent> <c-left> <c-o>B
 " Выделение последнего вставленного текста
 nnoremap <expr> <A-v> '`[' . strpart(getregtype(), 0, 1) . '`]'
 inoremap <expr> <A-v> '<Esc>`[' . strpart(getregtype(), 0, 1) . '`]'
@@ -144,11 +145,9 @@ inoremap <S-Del> <C-o>de
 cnoremap <S-Del> <S-Right><C-W>
 inoremap <C-BS> <Esc>dBxs
 inoremap <C-Del> <Esc>ldEs
-inoremap <C-l> <C-o>dd
+inoremap <expr> <c-l> pumvisible() ? '<c-l>' : '<c-o>dd'
 inoremap <C-S-Del> <c-\><c-o>D
 inoremap <C-z> <C-o>u
-
-inoremap <MiddleMouse> <LeftMouse><MiddleMouse>
 
 noremap <A-w> :set wrap!<CR>
 
@@ -172,7 +171,9 @@ nnoremap <silent> _ :<c-u>call CopyLine(v:count, 0, 0)<cr>
 nnoremap <silent> g_ :<c-u>call CopyLine(v:count, 1, 0)<cr>
 nnoremap <silent> \_ :<c-u>call CopyLine(v:count, 1, 1)<cr>
 
-inoremap <C-v> <A-p><C-o>"*p<A-p><Esc>v']=']a
+" Insert and fix the indent.
+inoremap <c-v> <c-r><c-p>"
+inoremap <MiddleMouse> <c-r><c-p>*
 " Заменить выделенный текст скопированным (из-за set clipboard=unnamed)
 vnoremap p ""p
 " Вставить и отформатировать.
