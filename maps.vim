@@ -11,10 +11,6 @@ nnoremap <C-S-F2> :wa<Bar>exe "mksession! " . v:this_session<CR>
 if isdirectory($VIMRCDIR . '/plugged/vim-mundo')
   nnoremap <silent> <F3> :MundoToggle<cr>
 endif
-" Переключение языка и переход к парному буферу
-inoremap <F3> 
-cnoremap <F3> 
-inoremap  <Esc>
 if isdirectory($VIMRCDIR . '/plugged/vim-indent-guides')
   noremap <A-F3> :IndentGuidesToggle<cr>
   inoremap <A-F3> <C-o>:IndentGuidesToggle<cr>
@@ -69,6 +65,11 @@ inoremap <S-F10> <C-o>:ToggleMenu<CR>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 
 inoremap <expr> zz match(getline('.'), '^\s*$')+1 ? '<esc>zzddO' : '<c-o>zz'
+
+" Changing keyboard layout and go to alternate file.
+inoremap <c-space> 
+cnoremap <c-space> 
+inoremap  <Esc>
 
 " Управление окнами, буферами, вкладками
 " В перечислении включены только операции, которые имеет смысл выполнять неоднократно 
