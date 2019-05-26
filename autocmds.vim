@@ -6,7 +6,7 @@ augroup vimrc
   if exists('g:highlightTrailingSpace')
     autocmd BufNew,BufRead * call HiTrail(g:highlightTrailingSpace)
   endif
-  autocmd BufRead * normal zv
+  autocmd BufRead * if !&diff | exec 'normal zv' | endif
   autocmd BufRead * if line('$') < 100 | exec "normal zR" | endif
   autocmd BufRead log.txt setlocal autoread filetype=logtxt
   autocmd BufRead rules setlocal noexpandtab  " debian/rules
