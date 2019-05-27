@@ -51,9 +51,6 @@ if has('unix') && version >= 800
   Plug 'junegunn/fzf.vim'
   " Plug 'w0rp/ale'
 endif
-if executable('ctags') && hostname() != 'asus'
-  Plug 'ludovicchabant/vim-gutentags'
-endif
 call plug#end()
 
 packadd! matchit
@@ -145,13 +142,8 @@ set foldminlines=3
 set foldnestmax=4
 set foldopen+=jump
 set sessionoptions=blank,buffers,curdir,folds,tabpages,winsize
-if exists('g:gutentags_enabled')
-  set statusline=%<%n:%f\ %h%m%r%w%=%{gutentags#statusline()}\ %l,%c%V\ %P " + gutentags
-  set rulerformat=%=%{gutentags#statusline()}\ %l,%c%V\ %P
-else
-  set statusline=%<%n:%f\ %h%m%r%w%=%l,%c%V\ %P " default + buffer number
-  set rulerformat=%=%l,%c%V\ %P
-endif
+set statusline=%<%n:%f\ %h%m%r%w%=%l,%c%V\ %P " default + buffer number
+set rulerformat=%=%l,%c%V\ %P
 set diffopt+=vertical,indent-heuristic,algorithm:histogram,iwhite
 
 " nvim or not
