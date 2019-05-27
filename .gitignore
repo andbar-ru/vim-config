@@ -7,3 +7,4 @@ swapfiles/*
 !swapfiles/.gitkeep
 testvimrc
 view/
+tags

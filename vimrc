@@ -16,10 +16,7 @@ endif
 Plug 'tomtom/tcomment_vim'
 Plug 'scrooloose/nerdtree'
 Plug 'majutsushi/tagbar'
-Plug 'tmhedberg/matchit'
 Plug 'ervandew/supertab'
-" Indentation in pangloss/vim-javascript malfunctions in *.vue files.
-" Plug 'gavocanov/vim-js-indent'
 Plug 'pangloss/vim-javascript'
 Plug 'danro/rename.vim'
 Plug 'alvan/vim-closetag'
@@ -54,7 +51,12 @@ if has('unix') && version >= 800
   Plug 'junegunn/fzf.vim'
   " Plug 'w0rp/ale'
 endif
+if executable('ctags') && hostname() != 'asus'
+  Plug 'ludovicchabant/vim-gutentags'
+endif
 call plug#end()
+
+packadd! matchit
 
 " From debian system vimrc
 syntax on
@@ -143,8 +145,13 @@ set foldminlines=3
 set foldnestmax=4
 set foldopen+=jump
 set sessionoptions=blank,buffers,curdir,folds,tabpages,winsize
-set statusline=%<%n:%f\ %h%m%r%w%=%l,%c%V\ %P " default + buffer number
-set rulerformat=%=%l,%c%V\ %P
+if exists('g:gutentags_enabled')
+  set statusline=%<%n:%f\ %h%m%r%w%=%{gutentags#statusline()}\ %l,%c%V\ %P " + gutentags
+  set rulerformat=%=%{gutentags#statusline()}\ %l,%c%V\ %P
+else
+  set statusline=%<%n:%f\ %h%m%r%w%=%l,%c%V\ %P " default + buffer number
+  set rulerformat=%=%l,%c%V\ %P
+endif
 set diffopt+=vertical,indent-heuristic,algorithm:histogram,iwhite
 
 " nvim or not

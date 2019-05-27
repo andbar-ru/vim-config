@@ -5,13 +5,13 @@ command! FormatJson :%!python3 -c "import sys,json; print(json.dumps(json.loads(
 command! FormatXml :%!xmllint -format -
 command! HiGroupUnderCursor :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"
 command! RefineChessMoves :silent s/ {[^}]*}//<bar>s/\(\d\.\)\@<= //
-command! ReloadSyntax :syntax sync fromstart
 command! RemoveTrailingSpaces :%s/\s\+$//
 command! SetColumnsAsLongestLine :silent let &columns = max(map(getline(1, '$'), 'len(v:val)'))
 command! SyntaxSync :syntax sync fromstart
 command! ToggleDashInIskeyword if &iskeyword !~ 45 | setlocal iskeyword+=45 | else | setlocal iskeyword-=45 | endif
 command! ToggleMenu if &guioptions=~"m" | set guioptions-=m | else | set guioptions+=m | endif
 command! ToggleScrollbar if &guioptions=~"r" | set guioptions-=r | else | set guioptions+=r | endif
+command! DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis | wincmd p | diffthis
 
 if isdirectory($VIMRCDIR . '/plugged/vim-go')
   augroup goCommands
