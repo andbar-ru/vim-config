@@ -6,3 +6,4 @@ sessions/*
 swapfiles/*
 !swapfiles/.gitkeep
 testvimrc
+view/
