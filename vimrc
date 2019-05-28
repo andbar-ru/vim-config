@@ -91,6 +91,12 @@ else
   set background=dark
   colorscheme blue
 endif
+" Could not set colorscheme (e.g in tty)
+if !exists('g:colors_name')
+  " Set builtin colorscheme
+  set background=dark
+  colorscheme blue
+endif
 
 let g:indentLine_enabled=0
 
