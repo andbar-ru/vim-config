@@ -84,7 +84,13 @@ if $USER == 'root'
 else
   set background=light
 endif
-colorscheme unicon
+if isdirectory($VIMRCDIR . '/plugged/vim-unicon')
+  colorscheme unicon
+else
+  " Set builtin colorscheme
+  set background=dark
+  colorscheme blue
+endif
 
 let g:indentLine_enabled=0
 
@@ -144,7 +150,11 @@ set foldopen+=jump
 set sessionoptions=blank,buffers,curdir,folds,tabpages,winsize
 set statusline=%<%n:%f\ %h%m%r%w%=%l,%c%V\ %P " default + buffer number
 set rulerformat=%=%l,%c%V\ %P
-set diffopt+=vertical,indent-heuristic,algorithm:histogram,iwhite
+if version >= 801
+  set diffopt+=vertical,indent-heuristic,algorithm:histogram,iwhite
+else
+  set diffopt+=vertical
+endif
 
 " nvim or not
 if has('nvim')

@@ -3,8 +3,8 @@ nnoremap <Space> <nop>
 let mapleader = " "
 imap <s-space> <esc><space>
 
-noremap <silent> <F2> :silent update<CR>
-inoremap <silent> <F2> <Esc>:silent update<CR>
+noremap <F2> :update<CR>
+inoremap <F2> <Esc>:update<CR>
 nnoremap <S-F2> :wa<CR>
 nnoremap <C-S-F2> :wa<Bar>exe "mksession! " . v:this_session<CR>
 
