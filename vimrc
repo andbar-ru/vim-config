@@ -161,6 +161,7 @@ if version >= 801
 else
   set diffopt+=vertical
 endif
+set complete-=t " exclude tags, for tags <c-x><c-]>
 
 " nvim or not
 if has('nvim')
