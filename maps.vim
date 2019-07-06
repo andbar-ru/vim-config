@@ -170,8 +170,6 @@ nnoremap <silent> \_ :<c-u>call CopyLine(v:count, 1, 1)<cr>
 " Insert and fix the indent.
 inoremap <c-v> <c-r><c-p>"
 inoremap <MiddleMouse> <c-r><c-p>*
-" Заменить выделенный текст скопированным (из-за set clipboard=unnamed)
-vnoremap p ""p
 " Вставить и отформатировать.
 nnoremap <expr> =p IsLineEmpty('.') ? '"_ddP=`]`]' : 'p=`]`]'
 nnoremap <expr> =P IsLineEmpty('.') ? '"_ddP=`]`]' : 'P=`]`]'
