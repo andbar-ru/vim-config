@@ -91,7 +91,8 @@ if isdirectory($VIMRCDIR . '/plugged/tagbar')
       \'o:objects:0:1',
       \'p:properties:0:0',
       \'n:names:0:0',
-      \'f:functions:0:1'
+      \'f:functions:0:1',
+      \'e:events:0:0'
     \],
     \'sro': '.',
     \'kind2scope': {
