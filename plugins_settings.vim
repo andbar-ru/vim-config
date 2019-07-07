@@ -81,3 +81,36 @@ if isdirectory($VIMRCDIR . '/plugged/vim-go')
   let g:go_fmt_experimental = 1
   let g:go_metalinter_autosave = 1
 endif
+
+if isdirectory($VIMRCDIR . '/plugged/tagbar')
+  " ctagsargs taken from tagbar.vim and modified to support roles.
+  let g:tagbar_type_vue = {
+    \'ctagstype': 'vue',
+    \'kinds': [
+      \'t:tags:0:1',
+      \'o:objects:0:1',
+      \'p:properties:0:0',
+      \'n:names:0:0',
+      \'f:functions:0:1'
+    \],
+    \'sro': '.',
+    \'kind2scope': {
+      \'o': 'object',
+      \'p': 'property',
+      \'n': 'name',
+      \'f': 'function'
+    \},
+    \'sort': 0,
+    \'ctagsargs': [
+      \'-o',
+      \'-',
+      \'--format=2',
+      \'--excmd=pattern',
+      \'--fields=nksSafr',
+      \'--extras=+r',
+      \'--file-scope=yes',
+      \'--sort=no',
+      \'--append=no'
+    \]
+  \}
+endif
