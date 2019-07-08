@@ -8,6 +8,7 @@ augroup vimrc
   endif
   autocmd BufRead * if !&diff | exec 'normal zv' | endif
   autocmd BufRead * if line('$') < 100 | exec "normal zR" | endif
+  autocmd BufRead * :syntax sync fromstart
   autocmd BufRead log.txt setlocal autoread filetype=logtxt
   autocmd BufRead rules setlocal noexpandtab  " debian/rules
   autocmd FileType python setlocal ts=4 sw=4 cc=100,120 completeopt-=preview

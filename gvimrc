@@ -19,7 +19,7 @@ if hostname == 'asus'
     set lines=25 columns=100
     set gfn=Dejavu\ Sans\ Mono\ 7.5
 else
-    set lines=25 columns=104
+    set lines=23 columns=104
 endif
 
 source $VIMRCDIR/menu.vim
