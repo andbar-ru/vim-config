@@ -1,6 +1,7 @@
 augroup vimrc
   autocmd!
   " debian system vimrc
+  autocmd BufReadPre * if getfsize(expand('%')) > 10000000 | syntax off | endif
   autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
   autocmd VimLeavePre * silent mksession! $VIMRCDIR/sessions/lastSession.vim
   if exists('g:highlightTrailingSpace')
