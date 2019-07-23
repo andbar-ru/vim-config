@@ -5,30 +5,30 @@ if isdirectory($VIMRCDIR . '/plugged/nerdtree')
   let NERDTreeIgnore=['\.pyc', '\.swp$']
 endif
 
-if isdirectory($VIMRCDIR . '/plugged/supertab')
+if isdirectory($PLUGDIR . '/supertab')
   let g:SuperTabDefultCompletionType = "<c-p>"
   let g:SuperTabRetainCompletionDuration = "completion"
   let g:SuperTabNoCompleteAfter = ['\s', ':', ')', ']', '}', "'", '"', '^']
 endif
 
-if isdirectory($VIMRCDIR . '/plugged/vim-python-pep8-indent')
+if isdirectory($PLUGDIR . '/vim-python-pep8-indent')
   let g:python_pep8_indent_multiline_string=-1
   let g:python_highlight_all = 1
 endif
 
-if isdirectory($VIMRCDIR . '/plugged/vim-gitgutter')
+if isdirectory($PLUGDIR . '/vim-gitgutter')
   let g:gitgutter_signs = 0
 endif
 
-if isdirectory($VIMRCDIR . '/plugged/vim-closetag')
+if isdirectory($PLUGDIR . '/vim-closetag')
   let g:closetag_filenames = '*.html,*.xhtml,*.xml,*.vue'
 endif
 
-if isdirectory($VIMRCDIR . '/plugged/bufexplorer')
+if isdirectory($PLUGDIR . '/bufexplorer')
   let g:bufExplorerSplitRight=0
 endif
 
-if isdirectory($VIMRCDIR . '/plugged/fzf.vim')
+if isdirectory($PLUGDIR . '/fzf.vim')
   " CTRL-A CTRL-Q to select all and build quickfix list
   function! s:build_quickfix_list(lines)
     call setqflist(map(copy(a:lines), '{"filename": v:val}'))
@@ -45,7 +45,7 @@ if isdirectory($VIMRCDIR . '/plugged/fzf.vim')
   let $FZF_DEFAULT_OPTS = '--bind ctrl-a:select-all'
 endif
 
-" if isdirectory($VIMRCDIR . '/plugged/ale')
+" if isdirectory($PLUGDIR . '/ale')
 "   let g:ale_sign_error = 'E'
 "   let g:ale_sign_warning = 'W'
 "   let g:ale_lint_on_text_changed = 'never'
@@ -56,19 +56,19 @@ endif
 "   \}
 " endif
 
-if isdirectory($VIMRCDIR . '/plugged/neosnippet.vim')
+if isdirectory($PLUGDIR . '/neosnippet.vim')
   let g:neosnippet#snippets_directory="$VIMRCDIR/snippets"
   let g:neosnippet#disable_runtime_snippets = {
   \ '_': 1,
   \ }
 endif
 
-if isdirectory($VIMRCDIR . '/plugged/auto-pairs')
+if isdirectory($PLUGDIR . '/auto-pairs')
   let g:AutoPairsCenterLine = 0
   let g:AutoPairsMultilineClose = 0
 endif
 
-if isdirectory($VIMRCDIR . '/plugged/gruvbox')
+if isdirectory($PLUGDIR . '/gruvbox')
   let g:gruvbox_contrast_light = 'hard'
   let g:gruvbox_contrast_dark = 'hard'
   let g:gruvbox_vert_split = 'bg3'
@@ -76,13 +76,13 @@ if isdirectory($VIMRCDIR . '/plugged/gruvbox')
   let g:gruvbox_invert_selection = 0
 endif
 
-if isdirectory($VIMRCDIR . '/plugged/vim-go')
+if isdirectory($PLUGDIR . '/vim-go')
   let g:go_fmt_command = "goimports"
   let g:go_fmt_experimental = 1
   let g:go_metalinter_autosave = 1
 endif
 
-if isdirectory($VIMRCDIR . '/plugged/tagbar')
+if isdirectory($PLUGDIR . '/tagbar')
   " ctagsargs taken from tagbar.vim and modified to support roles.
   let g:tagbar_type_vue = {
     \'ctagstype': 'vue',

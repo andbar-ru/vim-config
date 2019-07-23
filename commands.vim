@@ -13,7 +13,7 @@ command! ToggleMenu if &guioptions=~"m" | set guioptions-=m | else | set guiopti
 command! ToggleScrollbar if &guioptions=~"r" | set guioptions-=r | else | set guioptions+=r | endif
 command! DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis | wincmd p | diffthis
 
-if isdirectory($VIMRCDIR . '/plugged/vim-go')
+if isdirectory($PLUGDIR . '/vim-go')
   augroup goCommands
     autocmd FileType go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
     autocmd FileType go command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit')

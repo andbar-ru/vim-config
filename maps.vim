@@ -8,10 +8,10 @@ inoremap <F2> <Esc>:update<CR>
 nnoremap <S-F2> :wa<CR>
 nnoremap <C-S-F2> :wa<Bar>exe "mksession! " . v:this_session<CR>
 
-if isdirectory($VIMRCDIR . '/plugged/vim-mundo')
+if isdirectory($PLUGDIR . '/vim-mundo')
   nnoremap <silent> <F3> :MundoToggle<cr>
 endif
-if isdirectory($VIMRCDIR . '/plugged/vim-indent-guides')
+if isdirectory($PLUGDIR . '/vim-indent-guides')
   noremap <A-F3> :IndentGuidesToggle<cr>
   inoremap <A-F3> <C-o>:IndentGuidesToggle<cr>
 endif
@@ -28,24 +28,24 @@ inoremap <silent> <F4> <C-o>:set nu!<CR>
 noremap <silent> <S-F4> :set relativenumber!<CR>
 inoremap <silent> <S-F4> <C-o>:set relativenumber!<CR>
 
-if isdirectory($VIMRCDIR . '/plugged/bufexplorer')
+if isdirectory($PLUGDIR . '/bufexplorer')
   noremap <F5> :ToggleBufExplorer<CR>
   inoremap <F5> <Esc>:ToggleBufExplorer<CR>
   noremap <S-F5> :BufExplorerVerticalSplit<CR>
   inoremap <S-F5> <Esc>:BufExplorerVerticalSplit<CR>
 endif
 
-if isdirectory($VIMRCDIR . '/plugged/nerdtree')
+if isdirectory($PLUGDIR . '/nerdtree')
   noremap <F6> :NERDTreeToggle<CR>
   inoremap <F6> <C-o>:NERDTreeToggle<CR>
 endif
 
-if isdirectory($VIMRCDIR . '/plugged/tagbar')
+if isdirectory($PLUGDIR . '/tagbar')
   noremap <F7> :TagbarToggle<CR>
   inoremap <F7> <C-o>:TagbarToggle<CR>
 endif
 
-" if isdirectory($VIMRCDIR . '/plugged/ale')
+" if isdirectory($PLUGDIR . '/ale')
 "   noremap <S-F7> :ALEToggleBuffer<CR>
 "   inoremap <S-F7> <C-o>:ALEToggleBuffer<CR>
 " endif
@@ -53,7 +53,7 @@ endif
 noremap <F8> :syntax sync fromstart<CR>
 inoremap <F8> <C-o>:syntax sync fromstart<CR>
 
-if isdirectory($VIMRCDIR . '/plugged/vim-gitgutter')
+if isdirectory($PLUGDIR . '/vim-gitgutter')
   noremap <F9> :GitGutterSignsToggle<CR>
   noremap <S-F9> :GitGutterLineHighlightsToggle<CR>
 endif
@@ -288,7 +288,7 @@ noremap <leader>lb :buffers<cr>:b
 " Commands
 nnoremap <leader>cfj :FormatJson<cr>
 
-if isdirectory($VIMRCDIR . '/plugged/vim-go')
+if isdirectory($PLUGDIR . '/vim-go')
   augroup goMaps
     autocmd FileType go nmap <leader>gb :<c-u>call BuildGoFiles()<cr>
     autocmd FileType go nmap <leader>gr <Plug>(go-run)
@@ -300,23 +300,24 @@ if isdirectory($VIMRCDIR . '/plugged/vim-go')
   augroup end
 endif
 
-if isdirectory($VIMRCDIR . '/plugged/neosnippet.vim')
+if isdirectory($PLUGDIR . '/neosnippet.vim')
   imap <c-j> <Plug>(neosnippet_expand_or_jump)
   smap <c-j> <Plug>(neosnippet_expand_or_jump)
   xmap <c-j> <Plug>(neosnippet_expand_target)
   nmap <leader>rs :call neosnippet#variables#set_snippets({})<cr>
 endif
 
-if isdirectory($VIMRCDIR . '/plugged/tcomment_vim')
+if isdirectory($PLUGDIR . '/tcomment_vim')
   nmap <A-/> <Plug>TComment_<c-_><c-_>
 endif
 
-if isdirectory($VIMRCDIR . '/plugged/auto-pairs')
+if isdirectory($PLUGDIR . '/auto-pairs')
   " Дополнение к Fast Wrap <M-e>
-  inoremap <A-$> <c-o>x<end><c-r>*
+  inoremap <a-$> <c-o>x<end><c-r>*
+  inoremap <a-end> <c-o>x<end><c-r>*
 endif
 
-if isdirectory($VIMRCDIR . '/plugged/splitjoin.vim')
+if isdirectory($PLUGDIR . '/splitjoin.vim')
   let g:splitjoin_split_mapping = ''
   let g:splitjoin_join_mapping = ''
   nmap <leader>sjs :SplitjoinSplit<cr>

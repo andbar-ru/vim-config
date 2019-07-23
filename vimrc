@@ -9,7 +9,8 @@ Plug 'nathanaelkane/vim-indent-guides'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-abolish'
-if executable('git')
+silent! system('git rev-parse --is-inside-work-tree')
+if !v:shell_error
   Plug 'tpope/vim-fugitive'
   Plug 'airblade/vim-gitgutter'
 endif
@@ -68,7 +69,8 @@ endif
 let g:highlightTrailingSpace = 1
 
 " Includes
-let $VIMRCDIR = fnamemodify(resolve(expand('<sfile>:p')), ':h')
+let $VIMRCDIR = expand('<sfile>:p:h')
+let $PLUGDIR = expand('<sfile>:p:h') . '/plugged'
 source $VIMRCDIR/plugins_settings.vim
 source $VIMRCDIR/functions.vim
 source $VIMRCDIR/commands.vim
@@ -84,7 +86,7 @@ if $USER == 'root'
 else
   set background=light
 endif
-if isdirectory($VIMRCDIR . '/plugged/vim-unicon')
+if isdirectory($PLUGDIR . '/vim-unicon')
   colorscheme unicon
 else
   " Set builtin colorscheme
