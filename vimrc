@@ -61,7 +61,7 @@ syntax on
 filetype plugin indent on
 
 if has('win32')
-  source $VIMRUNTIME/defaults.vim
+  runtime defaults.vim
   let $LANG = 'en'
   set encoding=utf-8  " To enable maps with Alt key
 endif
@@ -71,12 +71,12 @@ let g:highlightTrailingSpace = 1
 " Includes
 let $VIMRCDIR = expand('<sfile>:p:h')
 let $PLUGDIR = expand('<sfile>:p:h') . '/plugged'
-source $VIMRCDIR/plugins_settings.vim
-source $VIMRCDIR/functions.vim
-source $VIMRCDIR/commands.vim
-source $VIMRCDIR/maps.vim
-source $VIMRCDIR/autocmds.vim
-source $VIMRCDIR/syntax.vim
+runtime plugins_settings.vim
+runtime functions.vim
+runtime commands.vim
+runtime maps.vim
+runtime autocmds.vim
+runtime syntax.vim
 
 call AddVenvSitePackages()
 

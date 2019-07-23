@@ -22,4 +22,4 @@ else
     set lines=23 columns=104
 endif
 
-source $VIMRCDIR/menu.vim
+runtime menu.vim
