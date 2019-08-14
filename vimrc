@@ -40,9 +40,7 @@ if version >= 800
   " If one add {'for':'go'}, vim-go/syntax/go.vim loads later than builtin syntax/go.vim.
   Plug 'fatih/vim-go', {'do':':GoInstallBinaries'}
 endif
-if executable('tsc')
-  Plug 'leafgarland/typescript-vim'
-endif
+Plug 'leafgarland/typescript-vim'
 if version >= 800
   Plug 'Shougo/neosnippet.vim'
   Plug 'Shougo/neosnippet-snippets'
