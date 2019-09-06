@@ -122,18 +122,16 @@ nnoremap vac :call SelectComment()<cr>
 " Выполнение команды для каждой выделенной строки
 vnoremap <A-n> :norm<Space>
 " Перемещение строк вверх и вниз (на предмет соответствия отступам см. ==)
-nnoremap <A-j> :call MoveLines('down', 'n')<CR>
-nnoremap <A-Down> :call MoveLines('down', 'n')<CR>
-nnoremap <A-k> :call MoveLines('up', 'n')<CR>
-nnoremap <A-Up> :call MoveLines('up', 'n')<CR>
-inoremap <A-j> <C-o>:call MoveLines('down', 'i')<CR>
-inoremap <A-Down> <C-o>:call MoveLines('down', 'i')<CR>
-inoremap <A-k> <C-o>:call MoveLines('up', 'i')<CR>
-inoremap <A-Up> <C-o>:call MoveLines('up', 'i')<CR>
-vnoremap <A-j> :call MoveLines('down', 'v')<CR>
-vnoremap <A-Down> :call MoveLines('down', 'v')<CR>
-vnoremap <A-k> :call MoveLines('up', 'v')<CR>
-vnoremap <A-Up> :call MoveLines('up', 'v')<CR>
+" normal and visual modes
+map <a-j> <Plug>MoveLinesDown
+map <a-down> <Plug>MoveLinesDown
+map <a-k> <Plug>MoveLinesUp
+map <a-up> <Plug>MoveLinesUp
+" insert mode
+imap <a-j> <Plug>MoveLinesDown
+imap <a-down> <Plug>MoveLinesDown
+imap <a-k> <Plug>MoveLinesUp
+imap <a-up> <Plug>MoveLinesUp
 " Удаление
 inoremap <S-BS> <C-W>
 cnoremap <S-BS> <C-W>
@@ -192,7 +190,7 @@ noremap <A-t> :tabnew<CR>
 inoremap <A-t> <Esc>:tabnew<CR>
 noremap <S-A-t> :exe "tabnew" . expand('%:p:h') . '/'<CR>
 inoremap <S-A-t> <Esc>:exe "tabnew" . expand('%:p:h') . '/'<CR>
-noremap <A-e> :exe "e" . expand('%:p:h') . '/'<CR>
+noremap <a-e> :exe "e" . expand('%:p:h') . '/'<cr>/^\.\.<cr>jj
 " inoremap <A-e> mapped by auto-pairs
 noremap <A-c> :bw<CR>
 inoremap <A-c> <Esc>:bw<CR>
