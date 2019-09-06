@@ -8,3 +8,5 @@ hi def link typescriptEndColons NONE
 hi def link typescriptBraces NONE
 hi def link typescriptParens NONE
 hi def link vimParenSep NONE
+hi def link vimVar NONE
+hi def link vimFuncVar NONE
