@@ -286,6 +286,10 @@ noremap <leader>lb :buffers<cr>:b
 " Commands
 nnoremap <leader>cfj :FormatJson<cr>
 
+if isdirectory($PLUGDIR . '/vim-fugitive')
+  nmap <leader>gb :Gblame -w -M<cr>
+endif
+
 if isdirectory($PLUGDIR . '/vim-go')
   augroup goMaps
     autocmd FileType go nmap <leader>gb :<c-u>call BuildGoFiles()<cr>
