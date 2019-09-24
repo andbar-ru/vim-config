@@ -41,6 +41,7 @@ if version >= 800
   Plug 'fatih/vim-go', {'do':':GoInstallBinaries'}
 endif
 Plug 'leafgarland/typescript-vim'
+Plug 'peitalin/vim-jsx-typescript'
 if version >= 800
   Plug 'Shougo/neosnippet.vim'
   Plug 'Shougo/neosnippet-snippets'
