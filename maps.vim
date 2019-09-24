@@ -190,7 +190,7 @@ noremap <A-t> :tabnew<CR>
 inoremap <A-t> <Esc>:tabnew<CR>
 noremap <S-A-t> :exe "tabnew" . expand('%:p:h') . '/'<CR>
 inoremap <S-A-t> <Esc>:exe "tabnew" . expand('%:p:h') . '/'<CR>
-noremap <a-e> :exe "e" . expand('%:p:h') . '/'<cr>/^\.\.<cr>jj
+nmap <a-e> :execute "e" . expand('%:p:h') . '/'<cr>Pj
 " inoremap <A-e> mapped by auto-pairs
 noremap <A-c> :bw<CR>
 inoremap <A-c> <Esc>:bw<CR>
@@ -285,6 +285,10 @@ noremap <leader>lb :buffers<cr>:b
 
 " Commands
 nnoremap <leader>cfj :FormatJson<cr>
+
+if isdirectory($PLUGDIR . '/vim-fugitive')
+  nmap <leader>gb :Gblame -w -M<cr>
+endif
 
 if isdirectory($PLUGDIR . '/vim-go')
   augroup goMaps

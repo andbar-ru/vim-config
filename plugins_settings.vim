@@ -93,6 +93,7 @@ if isdirectory($PLUGDIR . '/tagbar')
       \'n:names:0:0',
       \'f:functions:0:1',
       \'e:events:0:0',
+      \'v:variables:0:0',
       \'c:style_classes:0:0',
       \'i:style_ids:0:0',
       \'s:style_selectors:0:0'
