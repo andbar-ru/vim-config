@@ -48,8 +48,8 @@ endif
 if has('unix') && version >= 800
   Plug 'junegunn/fzf', {'dir': '~/Programs/fzf', 'do': './install --all'}
   Plug 'junegunn/fzf.vim'
-  " Plug 'w0rp/ale'
 endif
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 
 packadd! matchit
@@ -146,6 +146,7 @@ set pastetoggle=<a-p>
 set directory=$VIMRCDIR/swapfiles/
 set switchbuf=usetab
 set keymap=russian-jcukenwin
+set backspace=indent,eol,start
 set iminsert=0
 set imsearch=0
 set foldenable
