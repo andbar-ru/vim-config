@@ -17,7 +17,7 @@ endif
 Plug 'tomtom/tcomment_vim'
 Plug 'scrooloose/nerdtree'
 Plug 'majutsushi/tagbar'
-Plug 'ervandew/supertab'
+" Plug 'ervandew/supertab'
 Plug 'pangloss/vim-javascript'
 Plug 'danro/rename.vim'
 Plug 'alvan/vim-closetag'
@@ -49,7 +49,10 @@ endif
 if has('unix') && version >= 800
   Plug 'junegunn/fzf', {'dir': '~/Programs/fzf', 'do': './install --all'}
   Plug 'junegunn/fzf.vim'
-  " Plug 'w0rp/ale'
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}
+endif
+if has('nvim')
+  Plug 'equalsraf/neovim-gui-shim'
 endif
 call plug#end()
 
@@ -149,6 +152,7 @@ set switchbuf=usetab
 set keymap=russian-jcukenwin
 set iminsert=0
 set imsearch=0
+set backspace=indent,eol,start
 set foldenable
 set foldmethod=indent
 set foldminlines=3

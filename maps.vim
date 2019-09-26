@@ -325,3 +325,16 @@ if isdirectory($PLUGDIR . '/splitjoin.vim')
   nmap <leader>sjs :SplitjoinSplit<cr>
   nmap <leader>sjj :SplitjoinJoin<cr>
 endif
+
+if isdirectory($PLUGDIR . '/coc.nvim')
+  inoremap <silent> <expr> <tab>
+        \ pumvisible() ? '<c-n>' :
+        \ <sid>check_back_space() ? '<tab>' :
+        \ coc#refresh()
+  inoremap <expr> <s-tab> pumvisible() ? '<c-p>' : '<c-h>'
+
+  function! s:check_back_space() abort
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1] =~# '\s'
+  endfunction
+endif
