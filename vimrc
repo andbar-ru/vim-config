@@ -56,17 +56,14 @@ if has('nvim')
 endif
 call plug#end()
 
-packadd! matchit
-
-" From debian system vimrc
-syntax on
-filetype plugin indent on
+runtime defaults.vim
 
 if has('win32')
-  runtime defaults.vim
   let $LANG = 'en'
   set encoding=utf-8  " To enable maps with Alt key
 endif
+
+packadd! matchit
 
 let g:highlightTrailingSpace = 1
 
@@ -115,21 +112,19 @@ endif
 set colorcolumn=100
 set encoding=utf-8
 set history=10000
-set showcmd
 set showmatch
 set noignorecase
-set incsearch
 set nohlsearch
+set nobackup
+set nowritebackup
 set autowrite
 set autochdir
-set mouse=a
 set splitbelow
 set splitright
 set display=lastline
 set title
 set lazyredraw
 set clipboard=unnamed " Команды копирования и удаления помещают в регистр "*
-set wildmenu
 set wildmode=list:longest
 set cursorline
 set visualbell
@@ -139,7 +134,7 @@ set smarttab
 set expandtab
 set autoindent
 set copyindent
-set nohidden
+set hidden
 set nostartofline
 set whichwrap+=<,>,[,]
 set listchars=tab:»\ ,trail:·,eol:¶
@@ -150,7 +145,6 @@ set pastetoggle=<a-p>
 set directory=$VIMRCDIR/swapfiles/
 set switchbuf=usetab
 set keymap=russian-jcukenwin
-set backspace=indent,eol,start
 set iminsert=0
 set imsearch=0
 set backspace=indent,eol,start
@@ -168,6 +162,7 @@ else
   set diffopt+=vertical
 endif
 set complete-=t " exclude tags, for tags <c-x><c-]>
+set scrolloff=0
 
 " nvim or not
 if has('nvim')
