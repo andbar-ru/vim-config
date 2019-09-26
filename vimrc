@@ -150,6 +150,7 @@ set pastetoggle=<a-p>
 set directory=$VIMRCDIR/swapfiles/
 set switchbuf=usetab
 set keymap=russian-jcukenwin
+set backspace=indent,eol,start
 set iminsert=0
 set imsearch=0
 set backspace=indent,eol,start
