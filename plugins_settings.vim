@@ -119,3 +119,8 @@ if isdirectory($PLUGDIR . '/tagbar')
     \]
   \}
 endif
+
+if isdirectory($PLUGDIR . '/coc.nvim')
+  " Add status line support, fir integration with other plugin, checkout `:h coc-status`
+  set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+endif

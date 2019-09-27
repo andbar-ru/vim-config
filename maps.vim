@@ -242,7 +242,6 @@ inoremap <A-{> {{<space><space>}}<left><left><left>
 inoremap <A-%> {%<space><space>%}<left><left><left>
 
 " Commands
-noremap <leader>gd :silent !gvimdiff -n % -c "Gvdiff"<CR>
 noremap <A-d> :ClearAndSave<CR>
 
 " Включение/выключение правого скроллбара
@@ -327,14 +326,60 @@ if isdirectory($PLUGDIR . '/splitjoin.vim')
 endif
 
 if isdirectory($PLUGDIR . '/coc.nvim')
+  function! s:check_back_space() abort
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1] =~# '\s'
+  endfunction
+
+  function! s:show_documentation()
+    if (index(['vim', 'help'], &filetype) >= 0)
+      execute 'h ' . expand('<cword>')
+    else
+      call CocAction('doHover')
+    endif
+  endfunction
+
   inoremap <silent> <expr> <tab>
         \ pumvisible() ? '<c-n>' :
         \ <sid>check_back_space() ? '<tab>' :
         \ coc#refresh()
   inoremap <expr> <s-tab> pumvisible() ? '<c-p>' : '<c-h>'
 
-  function! s:check_back_space() abort
-    let col = col('.') - 1
-    return !col || getline('.')[col - 1] =~# '\s'
-  endfunction
+  augroup cocMaps
+    autocmd Filetype javascript,json,typescript,vue nmap <silent> [g <plug>(coc-diagnostic-prev)
+    autocmd Filetype javascript,json,typescript,vue nmap <silent> ]g <plug>(coc-diagnostic-next)
+    autocmd Filetype javascript,json,typescript,vue nmap <silent> <leader>gd <plug>(coc-definition)
+    autocmd Filetype javascript,json,typescript,vue nmap <silent> <leader>gy <plug>(coc-type-definition)
+    autocmd Filetype javascript,json,typescript,vue nmap <silent> <leader>gi <plug>(coc-implementation)
+    autocmd Filetype javascript,json,typescript,vue nmap <silent> <leader>gr <plug>(coc-references)
+    autocmd Filetype javascript,json,typescript,vue nnoremap <silent> K :call <sid>show_documentation()<cr>
+    autocmd Filetype javascript,json,typescript,vue nmap <leader>rn <plug>(coc-rename)
+    " Format selected region
+    autocmd Filetype javascript,json,typescript,vue xmap <leader>f <plug>(coc-format-selected)
+    autocmd Filetype javascript,json,typescript,vue nmap <leader>f <plug>(coc-format-selected)
+    " Remap for do codeAction of selected region, ex: `<leaderaap` for current paragraph
+    autocmd Filetype javascript,json,typescript,vue xmap <leader>a <plug>(coc-action-selected)
+    autocmd Filetype javascript,json,typescript,vue nmap <leader>a <plug>(coc-action-selected)
+    " do codeAction of current line
+    autocmd Filetype javascript,json,typescript,vue nmap <leader>ac <plug>(coc-codeaction)
+    " Fix autofix problem of current line
+    autocmd Filetype javascript,json,typescript,vue nmap <leader>qf <plug>(coc-fix-current)
+    " Mappings for function text object, requires document symbols feature of languageserver.
+    autocmd Filetype javascript,json,typescript,vue xmap if <plug>(coc-funcobj-i)
+    autocmd Filetype javascript,json,typescript,vue xmap af <plug>(coc-funcobj-a)
+    autocmd Filetype javascript,json,typescript,vue omap if <plug>(coc-funcobj-i)
+    autocmd Filetype javascript,json,typescript,vue omap af <plug>(coc-funcobj-a)
+    " Use <c-d> for select selections ranges, needs server support, like: coc-tsserver, coc-python
+    autocmd Filetype javascript,json,typescript,vue nmap <silent> <c-d> <plug>(coc-range-select)
+    autocmd Filetype javascript,json,typescript,vue xmap <silent> <c-d> <plug>(coc-range-select)
+
+    autocmd Filetype javascript,json,typescript,vue nmap <silent> <leader>cld :<c-u>CocList diagnostics<cr>
+    autocmd Filetype javascript,json,typescript,vue nmap <silent> <leader>cle :<c-u>CocList extensions<cr>
+    autocmd Filetype javascript,json,typescript,vue nmap <silent> <leader>clc :<c-u>CocList commands<cr>
+    autocmd Filetype javascript,json,typescript,vue nmap <silent> <leader>clo :<c-u>CocList outline<cr>
+    autocmd Filetype javascript,json,typescript,vue nmap <silent> <leader>cls :<c-u>CocList -I symbols<cr>
+    autocmd Filetype javascript,json,typescript,vue nmap <silent> <leader>cn :<c-u>CocNext<cr>
+    autocmd Filetype javascript,json,typescript,vue nmap <silent> <leader>cp :<c-u>CocPrev<cr>
+    autocmd Filetype javascript,json,typescript,vue nmap <silent> <leader>clr :<c-u>CocListResume<cr>
+  augroup end
 endif

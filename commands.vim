@@ -11,7 +11,7 @@ command! SyntaxSync :syntax sync fromstart
 command! ToggleDashInIskeyword if &iskeyword !~ 45 | setlocal iskeyword+=45 | else | setlocal iskeyword-=45 | endif
 command! ToggleMenu if &guioptions=~"m" | set guioptions-=m | else | set guioptions+=m | endif
 command! ToggleScrollbar if &guioptions=~"r" | set guioptions-=r | else | set guioptions+=r | endif
-command! DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis | wincmd p | diffthis
+command! DiffOrig :silent !gvim -d -n % -c "Gvdiff"
 
 if isdirectory($PLUGDIR . '/vim-go')
   augroup goCommands
@@ -19,5 +19,16 @@ if isdirectory($PLUGDIR . '/vim-go')
     autocmd FileType go command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit')
     autocmd FileType go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
     autocmd FileType go command! -bang AT call go#alternate#Switch(<bang>0, 'tabe')
+  augroup end
+endif
+
+if isdirectory($PLUGDIR . '/coc.nvim')
+  augroup cocCommands
+    " Use `:Format` to format current buffer
+    command! -nargs=0 Format :call CocAction('format')
+    " Use `:Fold` to fold current buffer
+    command! -nargs=? Fold :call CocAction('fold', <f-args>)
+    " Use `:OR` for organize import of current buffer
+    command! -nargs=0 OR :call CocAction('runCommand', 'editor.action.organizeImport')
   augroup end
 endif
