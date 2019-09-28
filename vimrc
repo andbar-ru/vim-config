@@ -139,7 +139,7 @@ set nostartofline
 set whichwrap+=<,>,[,]
 set listchars=tab:»\ ,trail:·,eol:¶
 set showbreak=↳\ 
-set updatetime=1000
+set updatetime=300
 set gdefault
 set pastetoggle=<a-p>
 set directory=$VIMRCDIR/swapfiles/

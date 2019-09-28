@@ -21,14 +21,3 @@ if isdirectory($PLUGDIR . '/vim-go')
     autocmd FileType go command! -bang AT call go#alternate#Switch(<bang>0, 'tabe')
   augroup end
 endif
-
-if isdirectory($PLUGDIR . '/coc.nvim')
-  augroup cocCommands
-    " Use `:Format` to format current buffer
-    command! -nargs=0 Format :call CocAction('format')
-    " Use `:Fold` to fold current buffer
-    command! -nargs=? Fold :call CocAction('fold', <f-args>)
-    " Use `:OR` for organize import of current buffer
-    command! -nargs=0 OR :call CocAction('runCommand', 'editor.action.organizeImport')
-  augroup end
-endif

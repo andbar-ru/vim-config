@@ -1,0 +1,5 @@
+{
+  "suggest.autoTrigger": "trigger",
+  "eslint.run": "onSave",
+  "eslint.filetypes": ["javascript", "typescript", "vue"] 
+}

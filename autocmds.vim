@@ -19,15 +19,3 @@ augroup vimrc
   autocmd BufEnter * call AutoRestoreWinView()
   autocmd VimResized * if &diff | wincmd = | endif
 augroup end
-
-if isdirectory($PLUGDIR . '/coc.nvim')
-  augroup coc
-    autocmd!
-    " Highlight symbol under cursor on CursorHold
-    autocmd CursorHold * silent call CocActionAsync('highlight')
-    " Setup formatter
-    autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
-    " Update signature help on jump placeholder
-    autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
-  augroup end
-endif
