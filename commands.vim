@@ -21,3 +21,13 @@ if isdirectory($PLUGDIR . '/vim-go')
     autocmd FileType go command! -bang AT call go#alternate#Switch(<bang>0, 'tabe')
   augroup end
 endif
+
+if isdirectory($PLUGDIR . '/fzf.vim')
+  command! -bang -nargs=* Rg
+        \ call fzf#vim#grep(
+        \   'rg --column --line-number --no-heading --smart-case ' . shellescape(<q-args>) . ' ' . system('git rev-parse --show-toplevel'), 1,
+        \   <bang>0 ? fzf#vim#with_preview('up:60%')
+        \           : fzf#vim#with_preview('right:50%:hidden', '?'),
+        \   <bang>0
+        \ )
+endif
