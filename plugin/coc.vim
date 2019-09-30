@@ -18,6 +18,12 @@ endfunction
 " Add status line support, fir integration with other plugin, checkout `:h coc-status`
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
+" Colors
+highlight default link CocFloating DiffChange
+highlight default CocErrorHighlight ctermfg=red guifg=#ad2b52 gui=reverse
+highlight default CocWarningHighlight ctermfg=yellow guifg=#944a25 gui=reverse
+highlight default link CocWarningSign Type
+
 " mappings
 inoremap <silent> <expr> <tab>
       \ pumvisible() ? '<c-n>' :

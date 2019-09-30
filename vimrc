@@ -148,7 +148,7 @@ set keymap=russian-jcukenwin
 set iminsert=0
 set imsearch=0
 set backspace=indent,eol,start
-set foldenable
+set nofoldenable
 set foldmethod=indent
 set foldminlines=3
 set foldnestmax=4
