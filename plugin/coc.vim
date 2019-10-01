@@ -16,13 +16,16 @@ function! s:show_documentation()
 endfunction
 
 " Add status line support, fir integration with other plugin, checkout `:h coc-status`
-set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+" set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 " Colors
 highlight default link CocFloating DiffChange
 highlight default CocErrorHighlight ctermfg=red guifg=#ad2b52 gui=reverse
 highlight default CocWarningHighlight ctermfg=yellow guifg=#944a25 gui=reverse
+highlight default CocErrorSign ctermfg=red guifg=#ad2b52
 highlight default link CocWarningSign Type
+highlight default link CocInfoSign String
+highlight default link CocHintSign PreProc
 
 " mappings
 inoremap <silent> <expr> <tab>

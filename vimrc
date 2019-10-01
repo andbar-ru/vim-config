@@ -40,8 +40,6 @@ if version >= 800
   " If one add {'for':'go'}, vim-go/syntax/go.vim loads later than builtin syntax/go.vim.
   Plug 'fatih/vim-go', {'do':':GoInstallBinaries'}
 endif
-Plug 'leafgarland/typescript-vim'
-Plug 'peitalin/vim-jsx-typescript'
 if version >= 800
   Plug 'Shougo/neosnippet.vim'
   Plug 'Shougo/neosnippet-snippets'
@@ -54,6 +52,7 @@ endif
 if has('nvim')
   Plug 'equalsraf/neovim-gui-shim'
 endif
+Plug 'leafgarland/typescript-vim'
 call plug#end()
 
 runtime defaults.vim

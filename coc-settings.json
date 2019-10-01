@@ -1,5 +1,9 @@
 {
   "diagnostic.refreshAfterSave": true,
+  "diagnostic.errorSign": "E",
+  "diagnostic.warningSign": "W",
+  "diagnostic.infoSign": "I",
+  "diagnostic.hintSign": "H",
   "suggest.autoTrigger": "trigger",
   "eslint.run": "onSave",
   "eslint.filetypes": ["javascript", "typescript", "vue"]

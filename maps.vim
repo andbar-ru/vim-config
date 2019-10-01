@@ -284,6 +284,7 @@ noremap <leader>lb :buffers<cr>:b
 
 " Commands
 nnoremap <leader>cfj :FormatJson<cr>
+nnoremap <leader>cgs :GetSyntaxGroupUnderCursor<cr>
 
 if isdirectory($PLUGDIR . '/vim-fugitive')
   nmap <leader>gb :Gblame -w -M<cr>
