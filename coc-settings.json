@@ -1,5 +1,6 @@
 {
+  "diagnostic.refreshAfterSave": true,
   "suggest.autoTrigger": "trigger",
   "eslint.run": "onSave",
-  "eslint.filetypes": ["javascript", "typescript", "vue"] 
+  "eslint.filetypes": ["javascript", "typescript", "vue"]
 }

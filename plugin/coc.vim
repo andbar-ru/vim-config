@@ -51,10 +51,10 @@ augroup cocMaps
   " Fix autofix problem of current line
   autocmd Filetype javascript,json,typescript,vue nmap <leader>qf <plug>(coc-fix-current)
   " Mappings for function text object, requires document symbols feature of languageserver.
-  autocmd Filetype javascript,json,typescript,vue xmap if <plug>(coc-funcobj-i)
-  autocmd Filetype javascript,json,typescript,vue xmap af <plug>(coc-funcobj-a)
-  autocmd Filetype javascript,json,typescript,vue omap if <plug>(coc-funcobj-i)
-  autocmd Filetype javascript,json,typescript,vue omap af <plug>(coc-funcobj-a)
+  autocmd Filetype javascript,json,typescript,vue xmap <leader>if <plug>(coc-funcobj-i)
+  autocmd Filetype javascript,json,typescript,vue xmap <leader>af <plug>(coc-funcobj-a)
+  autocmd Filetype javascript,json,typescript,vue omap <leader>if <plug>(coc-funcobj-i)
+  autocmd Filetype javascript,json,typescript,vue omap <leader>af <plug>(coc-funcobj-a)
   " Use <c-d> for select selections ranges, needs server support, like: coc-tsserver, coc-python
   autocmd Filetype javascript,json,typescript,vue nmap <silent> <c-d> <plug>(coc-range-select)
   autocmd Filetype javascript,json,typescript,vue xmap <silent> <c-d> <plug>(coc-range-select)
