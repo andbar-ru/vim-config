@@ -99,7 +99,6 @@ nnoremap <S-CR> O<Esc>
 inoremap <S-CR> <END><CR>
 inoremap <C-S-CR> <C-O>O
 inoremap <C-CR> <CR><CR><UP><TAB>
-inoremap <s-tab> <esc>ddO
 " Отступы в режиме выделения с сохранением выделения
 vnoremap <tab> >gv
 vnoremap <s-tab> <gv

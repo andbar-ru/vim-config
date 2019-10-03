@@ -65,6 +65,7 @@ endif
 packadd! matchit
 
 let g:highlightTrailingSpace = 1
+" let g:did_coc_loaded = 1
 
 " Includes
 let $VIMRCDIR = expand('<sfile>:p:h')

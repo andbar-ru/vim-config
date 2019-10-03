@@ -25,3 +25,15 @@ options head
 	// begin #########################################
   window.${1} = $1${0}
 	// end ###########################################
+
+snippet func-doc
+alias /*
+options head
+  /** $0 */
+
+snippet func-extended-doc
+alias /**
+options head
+  /**
+   * ${0}
+   */
