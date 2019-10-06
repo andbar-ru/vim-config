@@ -109,6 +109,7 @@ if version >= 800
   set breakindentopt=shift:4
 endif
 
+set mouse=a
 set colorcolumn=100
 set encoding=utf-8
 set history=10000

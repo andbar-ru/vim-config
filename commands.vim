@@ -11,7 +11,7 @@ command! SyntaxSync :syntax sync fromstart
 command! ToggleDashInIskeyword if &iskeyword !~ 45 | setlocal iskeyword+=45 | else | setlocal iskeyword-=45 | endif
 command! ToggleMenu if &guioptions=~"m" | set guioptions-=m | else | set guioptions+=m | endif
 command! ToggleScrollbar if &guioptions=~"r" | set guioptions-=r | else | set guioptions+=r | endif
-command! DiffOrig :silent !gvim -d -n % -c "Gvdiff"
+command! DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis | wincmd p | diffthis
 
 if isdirectory($PLUGDIR . '/vim-go')
   augroup goCommands
