@@ -164,6 +164,7 @@ else
 endif
 set complete-=t " exclude tags, for tags <c-x><c-]>
 set scrolloff=0
+set noautoread
 
 " nvim or not
 if has('nvim')

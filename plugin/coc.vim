@@ -20,8 +20,8 @@ endfunction
 
 " Colors
 highlight default link CocFloating DiffChange
-highlight default CocErrorHighlight ctermfg=red guifg=#ad2b52 gui=reverse
-highlight default CocWarningHighlight ctermfg=yellow guifg=#944a25 gui=reverse
+highlight default link CocErrorHighlight SpellBad
+highlight default link CocWarningHighlight SpellLocal
 highlight default CocErrorSign ctermfg=red guifg=#ad2b52
 highlight default link CocWarningSign Type
 highlight default link CocInfoSign String

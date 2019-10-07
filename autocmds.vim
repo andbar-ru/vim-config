@@ -18,4 +18,5 @@ augroup vimrc
   autocmd BufLeave * call AutoSaveWinView()
   autocmd BufEnter * call AutoRestoreWinView()
   autocmd VimResized * if &diff | wincmd = | endif
+  autocmd FocusGained * :checktime
 augroup end
