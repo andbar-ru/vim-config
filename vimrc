@@ -65,7 +65,6 @@ endif
 packadd! matchit
 
 let g:highlightTrailingSpace = 1
-" let g:did_coc_loaded = 1
 
 " Includes
 let $VIMRCDIR = expand('<sfile>:p:h')
@@ -158,7 +157,7 @@ set sessionoptions=blank,buffers,curdir,folds,tabpages,winsize
 set statusline=%<%n:%f\ %h%m%r%w%=%l,%c%V\ %P " default + buffer number
 set rulerformat=%=%l,%c%V\ %P
 if version >= 801
-  set diffopt+=vertical,indent-heuristic,algorithm:histogram,iwhite
+  set diffopt+=vertical,indent-heuristic,algorithm:patience,iwhiteall
 else
   set diffopt+=vertical
 endif

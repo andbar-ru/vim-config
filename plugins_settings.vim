@@ -125,3 +125,9 @@ endif
 if isdirectory($PLUGDIR . '/vim-vue')
   let g:vue_pre_processors = ['typescript']
 endif
+
+if isdirectory($PLUGDIR . '/coc.nvim')
+  if (!has('nvim'))
+    let g:did_coc_loaded = 1
+  endif
+endif
