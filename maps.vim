@@ -3,8 +3,8 @@ nnoremap <Space> <nop>
 let mapleader = " "
 imap <s-space> <esc><space>
 
-noremap <F2> :update<CR>
-inoremap <F2> <Esc>:update<CR>
+noremap <F2> :w<CR>
+inoremap <F2> <Esc>:w<CR>
 nnoremap <S-F2> :wa<CR>
 nnoremap <C-S-F2> :wa<Bar>exe "mksession! " . v:this_session<CR>
 
@@ -281,10 +281,22 @@ noremap <leader>lM :marks<cr>:'
 " list buffers
 noremap <leader>lb :buffers<cr>:b
 
+" Copy file absolute path to clipboard.
+nnoremap <leader>y% :let @+=expand('%:p')<cr>
+" Implement clipboard=autoselect in nvim.
+if has('nvim')
+  vmap <LeftRelease> "*ygv
+endif
+
+"=================================================
 " Commands
+"=================================================
 nnoremap <leader>cfj :FormatJson<cr>
 nnoremap <leader>cgs :GetSyntaxGroupUnderCursor<cr>
 
+"=================================================
+" Plugin specific
+"=================================================
 if isdirectory($PLUGDIR . '/vim-fugitive')
   nmap <leader>gb :Gblame -w -M<cr>
 endif

@@ -1,7 +1,7 @@
 if isdirectory($VIMRCDIR . '/plugged/nerdtree')
   let NERDTreeWinSize=30
   let NERDTreeChDirMode=1  " do not change curdir
-  let NERDTreeQuitOnOpen=1
+  let NERDTreeQuitOnOpen=3
   let NERDTreeIgnore=['\.pyc', '\.swp$']
 endif
 

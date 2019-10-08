@@ -30,9 +30,9 @@ highlight default link CocHintSign PreProc
 " mappings
 inoremap <silent> <expr> <tab>
       \ pumvisible() ? '<c-n>' :
-      \ <sid>check_back_space() ? '<tab>' :
+      \ <sid>check_back_space() ? (col('.') == 1 ? '<esc>ddO' : '<tab>') :
       \ coc#refresh()
-inoremap <expr> <s-tab> pumvisible() ? '<c-p>' : '<esc>ddO'
+inoremap <expr> <s-tab> pumvisible() ? '<c-p>' : '<s-tab>'
 
 augroup cocMaps
   autocmd Filetype javascript,json,typescript,vue nmap <silent> [g <plug>(coc-diagnostic-prev)
