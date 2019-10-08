@@ -94,7 +94,7 @@ noremap <C-S-PageDown> :tabm +<CR>
 inoremap <C-S-PageDown> <C-o>:tabm +<CR>
 
 nnoremap <expr> <CR> (&ft == 'qf' ? '<CR>' : 'o<Esc>')
-inoremap <expr> <cr> pumvisible() ? '<c-y>' : '<cr>'
+imap <expr> <cr> pumvisible() ? '<c-y>' : '<cr><Plug>AutoPairsReturn'
 nnoremap <S-CR> O<Esc>
 inoremap <S-CR> <END><CR>
 inoremap <C-S-CR> <C-O>O

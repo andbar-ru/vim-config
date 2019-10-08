@@ -67,6 +67,7 @@ endif
 if isdirectory($PLUGDIR . '/auto-pairs')
   let g:AutoPairsCenterLine = 0
   let g:AutoPairsMultilineClose = 0
+  let g:AutoPairsMapCR = 0
 endif
 
 if isdirectory($PLUGDIR . '/gruvbox')
