@@ -127,7 +127,10 @@ if isdirectory($PLUGDIR . '/vim-vue')
 endif
 
 if isdirectory($PLUGDIR . '/coc.nvim')
-  if (!has('nvim'))
+  if &diff
     let g:did_coc_loaded = 1
   endif
+"   if (!has('nvim'))
+"     let g:did_coc_loaded = 1
+"   endif
 endif

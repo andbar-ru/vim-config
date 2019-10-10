@@ -158,6 +158,8 @@ noremap <A-y> "+y
 noremap <S-A-y> :%y+<CR>
 vnoremap y y`]
 vnoremap gy y
+" Duplicate multiple lines. gPP (not 2P) to be able select pasted.
+nnoremap yp ddgPP']
 
 " Копировать строку и вставить после или вместо текущей.
 nnoremap <silent> _ :<c-u>call CopyLine(v:count, 0, 0)<cr>
@@ -193,8 +195,8 @@ nmap <a-e> :execute "e" . expand('%:p:h') . '/'<cr>Pj
 " inoremap <A-e> mapped by auto-pairs
 noremap <A-c> :bw<CR>
 inoremap <A-c> <Esc>:bw<CR>
-noremap [t :tabprevious<cr>
-noremap ]t :tabnext<cr>
+noremap [t :tprevious<cr>
+noremap ]t :tnext<cr>
 noremap [b :bprevious<cr>
 noremap ]b :bnext<cr>
 
