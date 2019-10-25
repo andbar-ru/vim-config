@@ -12,4 +12,5 @@
   "suggest.noselect": false,
   "eslint.run": "onSave",
   "eslint.filetypes": ["javascript", "typescript", "vue"],
+  "vetur.useWorkspaceDependencies": true
 }
