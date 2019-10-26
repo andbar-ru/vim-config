@@ -42,23 +42,27 @@ augroup cocMaps
   autocmd Filetype javascript,json,typescript,vue nmap <silent> gD <plug>(coc-definition)
   autocmd Filetype javascript,json,typescript,vue nmap <silent> <leader>gt <plug>(coc-type-definition)
   autocmd Filetype javascript,json,typescript,vue nmap <silent> <leader>gi <plug>(coc-implementation)
-  autocmd Filetype javascript,json,typescript,vue nmap <silent> <leader>cr <plug>(coc-references)
+  autocmd Filetype javascript,json,typescript,vue nmap <silent> <leader>gr <plug>(coc-references)
   autocmd Filetype javascript,json,typescript,vue nnoremap <silent> K :call <sid>show_documentation()<cr>
-  autocmd Filetype javascript,json,typescript,vue nmap <leader>rn <plug>(coc-rename)
+  autocmd Filetype javascript,json,typescript,vue nmap <leader>cr <plug>(coc-rename)
   " Format selected region (coc-prettier required)
-  autocmd Filetype javascript,json,typescript,vue vmap <leader>f <plug>(coc-format-selected)
-  autocmd Filetype javascript,json,typescript,vue nmap <leader>f <plug>(coc-format-selected)
+  autocmd Filetype javascript,json,typescript,vue vmap <leader>cf <plug>(coc-format-selected)
+  autocmd Filetype javascript,json,typescript,vue nmap <leader>cf <plug>(coc-format-selected)
   " Remap for do codeAction of selected region, ex: `<leaderaap` for current paragraph
-  autocmd Filetype javascript,json,typescript,vue vmap <leader>a <plug>(coc-action-selected)
-  autocmd Filetype javascript,json,typescript,vue nmap <leader>a <plug>(coc-action-selected)
+  autocmd Filetype javascript,json,typescript,vue vmap <leader>ca <plug>(coc-codeaction-selected)
+  autocmd Filetype javascript,json,typescript,vue nmap <leader>ca <plug>(coc-codeaction-selected)
   " do codeAction of current line
-  autocmd Filetype javascript,json,typescript,vue nmap <leader>ac <plug>(coc-codeaction)
+  autocmd Filetype javascript,json,typescript,vue nmap <leader>cca <plug>(coc-codeaction)
   " Fix autofix problem of current line
-  autocmd Filetype javascript,json,typescript,vue nmap <leader>qf <plug>(coc-fix-current)
+  autocmd Filetype javascript,json,typescript,vue nmap <leader>cqf <plug>(coc-fix-current)
   autocmd Filetype javascript,json,typescript,vue nmap <leader>cfh <plug>(coc-float-hide)
   autocmd Filetype javascript,json,typescript,vue nmap <leader>crf <plug>(coc-refactor)
   " Mappings for function text object, requires document symbols feature of languageserver.
-  autocmd Filetype javascript,json,typescript,vue nmap <leader>if <plug>(coc-funcobj-i)
+  " Mapping to <plug>(coc-funcobj-i) for some reason doesn't work.
+  autocmd Filetype javascript,json,typescript,vue onoremap if :<c-u>call coc#rpc#request('selectFunction', [v:true, ''])<cr>
+  autocmd Filetype javascript,json,typescript,vue vnoremap if :<c-u>call coc#rpc#request('selectFunction', [v:true, visualmode()])<cr>
+  autocmd Filetype javascript,json,typescript,vue onoremap af :<c-u>call coc#rpc#request('selectFunction', [v:false, ''])<cr>
+  autocmd Filetype javascript,json,typescript,vue vnoremap af :<c-u>call coc#rpc#request('selectFunction', [v:false, visualmode()])<cr>
   autocmd Filetype javascript,json,typescript,vue nmap <leader>af <plug>(coc-funcobj-a)
   " Use <c-d> for select selections ranges, needs server support, like: coc-tsserver, coc-python
   autocmd Filetype javascript,json,typescript,vue nmap <silent> <c-d> <plug>(coc-range-select)
