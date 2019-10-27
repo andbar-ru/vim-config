@@ -39,11 +39,22 @@ augroup cocMaps
   autocmd Filetype javascript,json,typescript,vue nmap <silent> ]g <plug>(coc-diagnostic-next)
   autocmd Filetype javascript,json,typescript,vue nmap <silent> [ge <plug>(coc-diagnostic-prev-error)
   autocmd Filetype javascript,json,typescript,vue nmap <silent> ]ge <plug>(coc-diagnostic-next-error)
-  autocmd Filetype javascript,json,typescript,vue nmap <silent> gD <plug>(coc-definition)
+  autocmd Filetype javascript,json,typescript,vue nmap <silent> <leader>gd <plug>(coc-definition)
+  autocmd Filetype javascript,json,typescript,vue nmap <silent> <leader>gds :<c-u>call CocAction('jumpDefinition', 'split')<cr>
+  autocmd Filetype javascript,json,typescript,vue nmap <silent> <leader>gdv :<c-u>call CocAction('jumpDefinition', 'vsplit')<cr>
+  autocmd Filetype javascript,json,typescript,vue nmap <silent> <leader>gdt :<c-u>call CocAction('jumpDefinition', 'tabe')<cr>
   autocmd Filetype javascript,json,typescript,vue nmap <silent> <leader>gt <plug>(coc-type-definition)
+  autocmd Filetype javascript,json,typescript,vue nmap <silent> <leader>gts :<c-u>call CocAction('jumpTypeDefinition', 'split')<cr>
+  autocmd Filetype javascript,json,typescript,vue nmap <silent> <leader>gtv :<c-u>call CocAction('jumpTypeDefinition', 'vsplit')<cr>
+  autocmd Filetype javascript,json,typescript,vue nmap <silent> <leader>gtt :<c-u>call CocAction('jumpTypeDefinition', 'tabe')<cr>
   autocmd Filetype javascript,json,typescript,vue nmap <silent> <leader>gi <plug>(coc-implementation)
+  autocmd Filetype javascript,json,typescript,vue nmap <silent> <leader>gis :<c-u>call CocAction('jumpImplementation', 'split')<cr>
+  autocmd Filetype javascript,json,typescript,vue nmap <silent> <leader>giv :<c-u>call CocAction('jumpImplementation', 'vsplit')<cr>
+  autocmd Filetype javascript,json,typescript,vue nmap <silent> <leader>git :<c-u>call CocAction('jumpImplementation', 'tabe')<cr>
   autocmd Filetype javascript,json,typescript,vue nmap <silent> <leader>gr <plug>(coc-references)
   autocmd Filetype javascript,json,typescript,vue nnoremap <silent> K :call <sid>show_documentation()<cr>
+  autocmd Filetype javascript,json,typescript,vue nmap <leader>pf :<c-u>echo CocAction('getCurrentFunctionSymbol')<cr>
+  autocmd Filetype javascript,json,typescript,vue nmap <leader>ss :<c-u>call CocAction('workspaceSymbols')<cr>
   autocmd Filetype javascript,json,typescript,vue nmap <leader>cr <plug>(coc-rename)
   " Format selected region (coc-prettier required)
   autocmd Filetype javascript,json,typescript,vue vmap <leader>cf <plug>(coc-format-selected)

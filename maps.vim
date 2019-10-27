@@ -200,6 +200,11 @@ noremap ]t :tnext<cr>
 noremap [b :bprevious<cr>
 noremap ]b :bnext<cr>
 
+" Detach buffer to another viewport
+nnoremap <leader>os <c-o>:split #<cr>
+nnoremap <leader>ov <c-o>:vsplit #<cr>
+nnoremap <leader>ot <c-o>:tabe #<cr>
+
 " Удаление относительно обёрток `(),[],{}`. 'c' = cover, так как w (wrapper) занято.
 " functionName(arg1, arg2) => functionName()
 nnoremap <silent> dic :call DeleteInWrapper()<cr>

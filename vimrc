@@ -153,7 +153,7 @@ set foldmethod=indent
 set foldminlines=3
 set foldnestmax=4
 set foldopen+=jump
-set sessionoptions=blank,buffers,curdir,folds,tabpages,winsize
+set sessionoptions=blank,buffers,curdir,folds,tabpages,winsize,globals
 set statusline=%<%n:%f\ %h%m%r%w%=%l,%c%V\ %P " default + buffer number
 set rulerformat=%=%l,%c%V\ %P
 if version >= 801
