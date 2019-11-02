@@ -92,6 +92,7 @@ augroup cocMaps
   " Highlight symbol under cursor on CursorHold
   " autocmd CursorHold * silent call CocActionAsync('highlight')
   nmap <silent> <leader>ch :<c-u>call CocActionAsync('highlight')<cr>
+  imap <silent> <a-h> <c-o>:<c-u>call CocAction('showSignatureHelp')<cr>
 augroup end
 
 augroup cocCommands
@@ -166,3 +167,4 @@ vnoremenu 1.130 PopUp.Coc.SelectInsideFunction :<c-u>call coc#rpc#request('selec
 " <Plug>(coc-funcobj-a)
 anoremenu 1.130 PopUp.Coc.SelectFunction :<c-u>call coc#rpc#request('selectFunction', [v:false, ''])<cr>
 vnoremenu 1.130 PopUp.Coc.SelectFunction :<c-u>call coc#rpc#request('selectFunction', [v:false, visualmode()])<cr>
+anoremenu 1.130 PopUp.Coc.ShowSignatureHelp :<c-u>call CocAction('showSignatureHelp')<cr>

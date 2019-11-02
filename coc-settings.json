@@ -8,6 +8,7 @@
   "diagnostic.infoSign": "I",
   "diagnostic.hintSign": "H",
   "diagnostic.virtualText": false,
+  "signature.hideOnTextChange": true,
   "suggest.autoTrigger": "none",
   "suggest.noselect": false,
   "eslint.run": "onSave",

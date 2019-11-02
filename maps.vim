@@ -145,9 +145,7 @@ inoremap <C-z> <C-o>u
 noremap <A-w> :set wrap!<CR>
 
 noremap <silent> <A-h> :set hlsearch!<CR>
-inoremap <silent> <A-h> <C-o>:set hlsearch!<CR>
 noremap <silent> <S-A-h> :let @/ = '\V\<' . escape(expand('<cword>'), '\') . '\>' <Bar> set hls<CR>
-inoremap <silent> <S-A-h> <C-o>:let @/ = '\V\<' . escape(expand('<cword>'), '\') . '\>' <Bar> set hls<CR>
 
 noremap <A-0> :vertical resize 100<CR>
 inoremap <A-0> <C-o>:vertical resize 100<CR>
