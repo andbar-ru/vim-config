@@ -35,60 +35,59 @@ inoremap <silent> <expr> <tab>
 inoremap <expr> <s-tab> pumvisible() ? '<c-p>' : '<s-tab>'
 
 augroup cocMaps
-  autocmd Filetype javascript,json,typescript,vue nmap <silent> [g <plug>(coc-diagnostic-prev)
-  autocmd Filetype javascript,json,typescript,vue nmap <silent> ]g <plug>(coc-diagnostic-next)
-  autocmd Filetype javascript,json,typescript,vue nmap <silent> [ge <plug>(coc-diagnostic-prev-error)
-  autocmd Filetype javascript,json,typescript,vue nmap <silent> ]ge <plug>(coc-diagnostic-next-error)
-  autocmd Filetype javascript,json,typescript,vue nmap <silent> <leader>gd <plug>(coc-definition)
-  autocmd Filetype javascript,json,typescript,vue nmap <silent> <leader>gds :<c-u>call CocAction('jumpDefinition', 'split')<cr>
-  autocmd Filetype javascript,json,typescript,vue nmap <silent> <leader>gdv :<c-u>call CocAction('jumpDefinition', 'vsplit')<cr>
-  autocmd Filetype javascript,json,typescript,vue nmap <silent> <leader>gdt :<c-u>call CocAction('jumpDefinition', 'tabe')<cr>
-  autocmd Filetype javascript,json,typescript,vue nmap <silent> <leader>gt <plug>(coc-type-definition)
-  autocmd Filetype javascript,json,typescript,vue nmap <silent> <leader>gts :<c-u>call CocAction('jumpTypeDefinition', 'split')<cr>
-  autocmd Filetype javascript,json,typescript,vue nmap <silent> <leader>gtv :<c-u>call CocAction('jumpTypeDefinition', 'vsplit')<cr>
-  autocmd Filetype javascript,json,typescript,vue nmap <silent> <leader>gtt :<c-u>call CocAction('jumpTypeDefinition', 'tabe')<cr>
-  autocmd Filetype javascript,json,typescript,vue nmap <silent> <leader>gi <plug>(coc-implementation)
-  autocmd Filetype javascript,json,typescript,vue nmap <silent> <leader>gis :<c-u>call CocAction('jumpImplementation', 'split')<cr>
-  autocmd Filetype javascript,json,typescript,vue nmap <silent> <leader>giv :<c-u>call CocAction('jumpImplementation', 'vsplit')<cr>
-  autocmd Filetype javascript,json,typescript,vue nmap <silent> <leader>git :<c-u>call CocAction('jumpImplementation', 'tabe')<cr>
-  autocmd Filetype javascript,json,typescript,vue nmap <silent> <leader>gr <plug>(coc-references)
-  autocmd Filetype javascript,json,typescript,vue nnoremap <silent> K :call <sid>show_documentation()<cr>
-  autocmd Filetype javascript,json,typescript,vue nmap <leader>pf :<c-u>echo CocAction('getCurrentFunctionSymbol')<cr>
-  autocmd Filetype javascript,json,typescript,vue nmap <leader>ss :<c-u>call CocAction('workspaceSymbols')<cr>
-  autocmd Filetype javascript,json,typescript,vue nmap <leader>cr <plug>(coc-rename)
-  " Format selected region (coc-prettier required)
-  autocmd Filetype javascript,json,typescript,vue vmap <leader>cf <plug>(coc-format-selected)
-  autocmd Filetype javascript,json,typescript,vue nmap <leader>cf <plug>(coc-format-selected)
-  " Remap for do codeAction of selected region, ex: `<leaderaap` for current paragraph
-  autocmd Filetype javascript,json,typescript,vue vmap <leader>ca <plug>(coc-codeaction-selected)
-  autocmd Filetype javascript,json,typescript,vue nmap <leader>ca <plug>(coc-codeaction-selected)
-  " do codeAction of current line
-  autocmd Filetype javascript,json,typescript,vue nmap <leader>cca <plug>(coc-codeaction)
-  " Fix autofix problem of current line
-  autocmd Filetype javascript,json,typescript,vue nmap <leader>cqf <plug>(coc-fix-current)
-  autocmd Filetype javascript,json,typescript,vue nmap <leader>cfh <plug>(coc-float-hide)
-  autocmd Filetype javascript,json,typescript,vue nmap <leader>crf <plug>(coc-refactor)
-  " Mappings for function text object, requires document symbols feature of languageserver.
-  " Mapping to <plug>(coc-funcobj-i) for some reason doesn't work.
-  autocmd Filetype javascript,json,typescript,vue onoremap if :<c-u>call coc#rpc#request('selectFunction', [v:true, ''])<cr>
-  autocmd Filetype javascript,json,typescript,vue vnoremap if :<c-u>call coc#rpc#request('selectFunction', [v:true, visualmode()])<cr>
-  autocmd Filetype javascript,json,typescript,vue onoremap af :<c-u>call coc#rpc#request('selectFunction', [v:false, ''])<cr>
-  autocmd Filetype javascript,json,typescript,vue vnoremap af :<c-u>call coc#rpc#request('selectFunction', [v:false, visualmode()])<cr>
-  autocmd Filetype javascript,json,typescript,vue nmap <leader>af <plug>(coc-funcobj-a)
-  " Use <c-d> for select selections ranges, needs server support, like: coc-tsserver, coc-python
-  autocmd Filetype javascript,json,typescript,vue nmap <silent> <c-d> <plug>(coc-range-select)
-  autocmd Filetype javascript,json,typescript,vue xmap <silent> <c-d> <plug>(coc-range-select)
-
-  autocmd Filetype javascript,json,typescript,vue nmap <silent> <leader>cld :<c-u>CocList diagnostics<cr>
-  autocmd Filetype javascript,json,typescript,vue nmap <silent> <leader>cle :<c-u>CocList extensions<cr>
-  autocmd Filetype javascript,json,typescript,vue nmap <silent> <leader>clc :<c-u>CocList commands<cr>
-  autocmd Filetype javascript,json,typescript,vue nmap <silent> <leader>clo :<c-u>CocList outline<cr>
-  autocmd Filetype javascript,json,typescript,vue nmap <silent> <leader>cls :<c-u>CocList -I symbols<cr>
-  autocmd Filetype javascript,json,typescript,vue nmap <silent> <leader>cn :<c-u>CocNext<cr>
-  autocmd Filetype javascript,json,typescript,vue nmap <silent> <leader>cp :<c-u>CocPrev<cr>
-  autocmd Filetype javascript,json,typescript,vue nmap <silent> <leader>clr :<c-u>CocListResume<cr>
-  " Often coc-vetur doesn't update diagnostic info with no kick
-  autocmd Filetype javascript,json,typescript,vue nmap <silent> <leader>rv :<c-u>call CocAction('reloadExtension', 'coc-vetur')<cr>
+  autocmd Filetype javascript,json,typescript,vue,python nmap <silent> [g <plug>(coc-diagnostic-prev)
+  autocmd Filetype javascript,json,typescript,vue,python nmap <silent> ]g <plug>(coc-diagnostic-next)
+  autocmd Filetype javascript,json,typescript,vue,python nmap <silent> [ge <plug>(coc-diagnostic-prev-error)
+  autocmd Filetype javascript,json,typescript,vue,python nmap <silent> ]ge <plug>(coc-diagnostic-next-error)
+  autocmd Filetype javascript,json,typescript,vue,python nmap <silent> <leader>gd <plug>(coc-definition)
+  autocmd Filetype javascript,json,typescript,vue,python nmap <silent> <leader>gds :<c-u>call CocAction('jumpDefinition', 'split')<cr>
+  autocmd Filetype javascript,json,typescript,vue,python nmap <silent> <leader>gdv :<c-u>call CocAction('jumpDefinition', 'vsplit')<cr>
+  autocmd Filetype javascript,json,typescript,vue,python nmap <silent> <leader>gdt :<c-u>call CocAction('jumpDefinition', 'tabe')<cr>
+  autocmd Filetype javascript,json,typescript,vue,python nmap <silent> <leader>gt <plug>(coc-type-definition)
+  autocmd Filetype javascript,json,typescript,vue,python nmap <silent> <leader>gts :<c-u>call CocAction('jumpTypeDefinition', 'split')<cr>
+  autocmd Filetype javascript,json,typescript,vue,python nmap <silent> <leader>gtv :<c-u>call CocAction('jumpTypeDefinition', 'vsplit')<cr>
+  autocmd Filetype javascript,json,typescript,vue,python nmap <silent> <leader>gtt :<c-u>call CocAction('jumpTypeDefinition', 'tabe')<cr>
+  autocmd Filetype javascript,json,typescript,vue,python nmap <silent> <leader>gi <plug>(coc-implementation)
+  autocmd Filetype javascript,json,typescript,vue,python nmap <silent> <leader>gis :<c-u>call CocAction('jumpImplementation', 'split')<cr>
+  autocmd Filetype javascript,json,typescript,vue,python nmap <silent> <leader>giv :<c-u>call CocAction('jumpImplementation', 'vsplit')<cr>
+  autocmd Filetype javascript,json,typescript,vue,python nmap <silent> <leader>git :<c-u>call CocAction('jumpImplementation', 'tabe')<cr>
+  autocmd Filetype javascript,json,typescript,vue,python nmap <silent> <leader>gr <plug>(coc-references)
+  autocmd Filetype javascript,json,typescript,vue,python nnoremap <silent> K :call <sid>show_documentation()<cr>
+  autocmd Filetype javascript,json,typescript,vue,python nmap <leader>pf :<c-u>echo CocAction('getCurrentFunctionSymbol')<cr>
+  autocmd Filetype javascript,json,typescript,vue,python nmap <leader>ss :<c-u>call CocAction('workspaceSymbols')<cr>
+  autocmd Filetype javascript,json,typescript,vue,python nmap <leader>cr <plug>(coc-rename)
+  " Format selected region (coc-prettier required,python)
+  autocmd Filetype javascript,json,typescript,vue,python vmap <leader>cf <plug>(coc-format-selected)
+  autocmd Filetype javascript,json,typescript,vue,python nmap <leader>cf <plug>(coc-format-selected)
+  " Remap for do codeAction of selected region, e,pythonx: `<leaderaap` for current paragraph
+  autocmd Filetype javascript,json,typescript,vue,python vmap <leader>ca <plug>(coc-codeaction-selected)
+  autocmd Filetype javascript,json,typescript,vue,python nmap <leader>ca <plug>(coc-codeaction-selected)
+  " do codeAction of current line                ,python
+  autocmd Filetype javascript,json,typescript,vue,python nmap <leader>cca <plug>(coc-codeaction)
+  " Fix autofix problem of current line          ,python
+  autocmd Filetype javascript,json,typescript,vue,python nmap <leader>cqf <plug>(coc-fix-current)
+  autocmd Filetype javascript,json,typescript,vue,python nmap <leader>cfh <plug>(coc-float-hide)
+  autocmd Filetype javascript,json,typescript,vue,python nmap <leader>crf <plug>(coc-refactor)
+  " Mappings for function text object, requires d,pythonocument symbols feature of languageserver.
+  " Mapping to <plug>(coc-funcobj-i) for some rea,pythonson doesn't work.
+  autocmd Filetype javascript,json,typescript,vue,python onoremap if :<c-u>call coc#rpc#request('selectFunction', [v:true, ''])<cr>
+  autocmd Filetype javascript,json,typescript,vue,python vnoremap if :<c-u>call coc#rpc#request('selectFunction', [v:true, visualmode()])<cr>
+  autocmd Filetype javascript,json,typescript,vue,python onoremap af :<c-u>call coc#rpc#request('selectFunction', [v:false, ''])<cr>
+  autocmd Filetype javascript,json,typescript,vue,python vnoremap af :<c-u>call coc#rpc#request('selectFunction', [v:false, visualmode()])<cr>
+  autocmd Filetype javascript,json,typescript,vue,python nmap <leader>af <plug>(coc-funcobj-a)
+  " Use <c-d> for select selections ranges, needs,python server support, like: coc-tsserver, coc-python
+  autocmd Filetype javascript,json,typescript,vue,python nmap <silent> <c-d> <plug>(coc-range-select)
+  autocmd Filetype javascript,json,typescript,vue,python xmap <silent> <c-d> <plug>(coc-range-select)
+  autocmd Filetype javascript,json,typescript,vue,python nmap <silent> <leader>cld :<c-u>CocList diagnostics<cr>
+  autocmd Filetype javascript,json,typescript,vue,python nmap <silent> <leader>cle :<c-u>CocList extensions<cr>
+  autocmd Filetype javascript,json,typescript,vue,python nmap <silent> <leader>clc :<c-u>CocList commands<cr>
+  autocmd Filetype javascript,json,typescript,vue,python nmap <silent> <leader>clo :<c-u>CocList outline<cr>
+  autocmd Filetype javascript,json,typescript,vue,python nmap <silent> <leader>cls :<c-u>CocList -I symbols<cr>
+  autocmd Filetype javascript,json,typescript,vue,python nmap <silent> <leader>cn :<c-u>CocNext<cr>
+  autocmd Filetype javascript,json,typescript,vue,python nmap <silent> <leader>cp :<c-u>CocPrev<cr>
+  autocmd Filetype javascript,json,typescript,vue,python nmap <silent> <leader>clr :<c-u>CocListResume<cr>
+  " Often coc-vetur doesn't update diagnostic inf,pythono with no kick
+  autocmd Filetype javascript,json,typescript,vue,python nmap <silent> <leader>rv :<c-u>call CocAction('reloadExtension', 'coc-vetur')<cr>
   " Highlight symbol under cursor on CursorHold
   " autocmd CursorHold * silent call CocActionAsync('highlight')
   nmap <silent> <leader>ch :<c-u>call CocActionAsync('highlight')<cr>

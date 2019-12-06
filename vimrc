@@ -33,9 +33,9 @@ Plug 'groenewege/vim-less'
 Plug 'othree/html5.vim'
 Plug 'simnalamburt/vim-mundo'
 Plug 'AndrewRadev/splitjoin.vim'
-Plug 'Vimjas/vim-python-pep8-indent'
+" Plug 'Vimjas/vim-python-pep8-indent'
 Plug 'vim-python/python-syntax'
-Plug 'voithos/vim-python-matchit'
+" Plug 'voithos/vim-python-matchit'
 if version >= 800
   " If one add {'for':'go'}, vim-go/syntax/go.vim loads later than builtin syntax/go.vim.
   Plug 'fatih/vim-go', {'do':':GoInstallBinaries'}
@@ -44,7 +44,7 @@ if version >= 800
   Plug 'Shougo/neosnippet.vim'
   Plug 'Shougo/neosnippet-snippets'
 endif
-if has('unix') && version >= 800
+if has('unix') && version >= 800 && $USER != 'root'
   Plug 'junegunn/fzf', {'dir': '~/Programs/fzf', 'do': './install --all'}
   Plug 'junegunn/fzf.vim'
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
