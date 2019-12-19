@@ -33,9 +33,9 @@ Plug 'groenewege/vim-less'
 Plug 'othree/html5.vim'
 Plug 'simnalamburt/vim-mundo'
 Plug 'AndrewRadev/splitjoin.vim'
-" Plug 'Vimjas/vim-python-pep8-indent'
+Plug 'Vimjas/vim-python-pep8-indent'
 Plug 'vim-python/python-syntax'
-" Plug 'voithos/vim-python-matchit'
+Plug 'voithos/vim-python-matchit'
 if version >= 800
   " If one add {'for':'go'}, vim-go/syntax/go.vim loads later than builtin syntax/go.vim.
   Plug 'fatih/vim-go', {'do':':GoInstallBinaries'}

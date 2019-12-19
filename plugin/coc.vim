@@ -30,7 +30,7 @@ highlight default link CocHintSign PreProc
 " mappings
 inoremap <silent> <expr> <tab>
       \ pumvisible() ? '<c-n>' :
-      \ <sid>check_back_space() ? (col('.') == 1 ? '<esc>ddO' : '<tab>') :
+      \ <sid>check_back_space() ? (col('.') == 1 ? '<esc>ddko' : '<tab>') :
       \ coc#refresh()
 inoremap <expr> <s-tab> pumvisible() ? '<c-p>' : '<s-tab>'
 
