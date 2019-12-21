@@ -1,6 +1,6 @@
 silent! call plug#begin()
 Plug 'andbar-ru/vim-unicon'
-Plug 'fatih/vim-go', {'do':':GoInstallBinaries'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 
 filetype plugin indent on
