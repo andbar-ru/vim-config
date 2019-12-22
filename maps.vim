@@ -150,6 +150,8 @@ noremap <silent> <S-A-h> :let @/ = '\V\<' . escape(expand('<cword>'), '\') . '\>
 noremap <A-0> :vertical resize 100<CR>
 inoremap <A-0> <C-o>:vertical resize 100<CR>
 
+" Reset mapping defined in system defaults.vim.
+unmap Q
 nnoremap Q @@
 noremap Y y$
 noremap <A-y> "+y
