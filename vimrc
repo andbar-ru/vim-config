@@ -17,7 +17,6 @@ endif
 Plug 'tomtom/tcomment_vim'
 Plug 'scrooloose/nerdtree'
 Plug 'majutsushi/tagbar'
-" Plug 'ervandew/supertab'
 Plug 'pangloss/vim-javascript'
 Plug 'danro/rename.vim'
 Plug 'alvan/vim-closetag'
@@ -27,7 +26,6 @@ if version >= 740
 endif
 Plug 'jeetsukumaran/vim-indentwise'
 Plug 'dzeban/vim-log-syntax'
-Plug 'PProvost/vim-ps1'
 Plug 'posva/vim-vue'
 Plug 'groenewege/vim-less'
 Plug 'othree/html5.vim'
@@ -65,6 +63,7 @@ endif
 packadd! matchit
 
 let g:highlightTrailingSpace = 1
+let g:did_coc_loaded = 1
 
 " Includes
 let $VIMRCDIR = expand('<sfile>:p:h')
@@ -75,8 +74,6 @@ runtime commands.vim
 runtime maps.vim
 runtime autocmds.vim
 runtime syntax.vim
-
-call AddVenvSitePackages()
 
 " Colorscheme
 if $USER == 'root'

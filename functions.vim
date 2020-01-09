@@ -214,3 +214,35 @@ function! BuildGoFiles()
     call go#cmd#Build(0)
   endif
 endfunction
+
+" Indents if cursor is at the beginning of line. Else do completion.
+function! SuperTab()
+  let col = col('.')
+  " Cursor is on the first column.
+  if col == 1
+    " Indentwise tab
+    if IsLineEmpty('.')
+      " If previous calling didn't take effect, just type <tab>.
+      if exists('g:prevSuperTabCurPos') && g:prevSuperTabCurPos == getcurpos()
+        return "\<tab>"
+      endif
+      let g:prevSuperTabCurPos = getcurpos()
+
+      if line('.') == line('$')
+        return "\<esc>ddo"
+      else
+        return "\<esc>ddO"
+      endif
+    else
+      return "\<tab>"
+    endif
+  endif
+
+  let char = getline('.')[col - 2]
+  " There is an indentifier before the cursor, so complete the identifier.
+  if char =~ '\k'
+    return "\<c-p>"
+  else
+    return "\<tab>"
+  endif
+endfunction

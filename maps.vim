@@ -295,6 +295,8 @@ if has('nvim')
   vmap <LeftRelease> "*ygv
 endif
 
+inoremap <expr> <tab> SuperTab()
+
 "=================================================
 " Commands
 "=================================================
