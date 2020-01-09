@@ -14,8 +14,7 @@ set mousefocus
 set mousemodel=popup
 
 " Initial size of gvim window
-let hostname = substitute(system('hostname'), '\n', '', '')
-if hostname == 'asus'
+if g:hostname == 'asus'
     set lines=25 columns=100
 else
     set lines=23 columns=104
