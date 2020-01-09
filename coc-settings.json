@@ -2,7 +2,7 @@
   "coc.preferences.colorSupport": false,
   "coc.preferences.currentFunctionSymbolAutoUpdate": false,
   "codeLens.enable": true,
-  "diagnostic.refreshAfterSave": false,
+  "diagnostic.refreshAfterSave": true,
   "diagnostic.errorSign": "E",
   "diagnostic.warningSign": "W",
   "diagnostic.infoSign": "I",
