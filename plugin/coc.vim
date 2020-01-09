@@ -28,11 +28,11 @@ highlight default link CocInfoSign String
 highlight default link CocHintSign PreProc
 
 " mappings
-inoremap <silent> <expr> <tab>
+imap <silent> <expr> <tab>
       \ pumvisible() ? '<c-n>' :
-      \ <sid>check_back_space() ? (col('.') == 1 ? '<esc>ddko' : '<tab>') :
+      \ <sid>check_back_space() ? '<tab>' :
       \ coc#refresh()
-inoremap <expr> <s-tab> pumvisible() ? '<c-p>' : '<s-tab>'
+imap <expr> <s-tab> pumvisible() ? '<c-p>' : '<s-tab>'
 
 augroup cocMaps
   autocmd Filetype javascript,json,typescript,vue,python nmap <silent> [g <plug>(coc-diagnostic-prev)
