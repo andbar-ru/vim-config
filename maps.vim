@@ -98,7 +98,7 @@ imap <expr> <cr> pumvisible() ? '<c-y>' : '<cr><Plug>AutoPairsReturn'
 nnoremap <S-CR> O<Esc>
 inoremap <S-CR> <END><CR>
 inoremap <C-S-CR> <C-O>O
-inoremap <C-CR> <CR><CR><UP><TAB>
+inoremap <c-cr> <cr><esc>yypks<tab>
 " Отступы в режиме выделения с сохранением выделения
 vnoremap <tab> >gv
 vnoremap <s-tab> <gv
