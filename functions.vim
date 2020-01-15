@@ -174,35 +174,35 @@ function! CopyLine(count, relative, relativeDown)
   endif
 endfunction
 
-" Удалить содержимое внутри ближайших скобок.
-function! DeleteInWrapper()
+" Delete/change/yank inside closest braces.
+function! DCYInWrapper(action)
   let lineNo = search('[({[]', 'cW')
   if lineNo == 0
     return
   endif
   let braceChar = getline('.')[col('.')-1]
-  execute 'normal di' . braceChar
+  execute 'normal ' . a:action . 'i' . braceChar
 endfunction
 
-" Удалить до ближайших скобок и скобки вместе с содержимым. Используется с <expr>.
-function! DeleteAWrapper(insert)
+" Delete/change/yank till closest brace and braces with content. Use with <expr>.
+function! DCYAWrapper(action)
   let lineNo = search('[({[]', 'cW')
   if lineNo == 0
     return ''
   endif
   let braceChar = getline('.')[col('.')-1]
-  let op = a:insert ? 'c' : 'd'
-  return 'v/' . braceChar . '%' . op
+  return 'v/' . braceChar . '%' . a:action
 endfunction
 
-" Удалить до ближайших скобок и скобки, но содержимое оставить. Использует плагин vim-surround.
-function! DeleteOutWrapper()
+" Delete/change/yank till closest brace and braces but without content. Uses vim-surround.
+function! DCYOutWrapper(action)
   let lineNo = search('[({[]', 'cWs')
   if lineNo == 0
     return
   endif
   let braceChar = getline('.')[col('.')-1]
-  execute 'normal d``ds' . braceChar
+  execute 'normal ' . a:action . '``'
+  execute 'normal ds' . braceChar
 endfunction
 
 " Run :GoBuild or :GoTestCompile based on the go file.

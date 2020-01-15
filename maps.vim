@@ -205,16 +205,19 @@ nnoremap <leader>os <c-o>:split #<cr>
 nnoremap <leader>ov <c-o>:vsplit #<cr>
 nnoremap <leader>ot <c-o>:tabe #<cr>
 
-" Удаление относительно обёрток `(),[],{}`. 'c' = cover, так как w (wrapper) занято.
+" Delete/change/yank relative to wrapper `(),[],{}`. 'c' = cover, since w (wrapper) is busy.
 " functionName(arg1, arg2) => functionName()
-nnoremap <silent> dic :call DeleteInWrapper()<cr>
-nnoremap <silent> cic :call DeleteInWrapper()<cr>i
+nnoremap <silent> dic :call DCYInWrapper('d')<cr>
+nnoremap <silent> cic :call DCYInWrapper('d')<cr>i
+nnoremap <silent> yic :call DCYInWrapper('y')<cr>
 " functionName(arg1, arg2) =>
-nnoremap <silent> <expr> dac DeleteAWrapper(0)
-nnoremap <silent> <expr> cac DeleteAWrapper(1)
-" functionName(arg1, arg2) => arg1, arg2. nmap потому что используется vim-surround.
-nmap <silent> doc :call DeleteOutWrapper()<cr>
-nmap <silent> coc :call DeleteOutWrapper()<cr>i
+nnoremap <silent> <expr> dac DCYAWrapper('d')
+nnoremap <silent> <expr> cac DCYAWrapper('c')
+nnoremap <silent> <expr> yac DCYAWrapper('y')
+" functionName(arg1, arg2) => arg1, arg2. nmap because of using vim-surround.
+nmap <silent> doc :call DCYOutWrapper('d')<cr>
+nmap <silent> coc :call DCYOutWrapper('d')<cr>i
+nmap <silent> yoc :call DCYOutWrapper('y')<cr>
 
 noremap <A--> :ToggleDashInIskeyword<CR>
 inoremap <A--> <C-o>:ToggleDashInIskeyword<CR>
