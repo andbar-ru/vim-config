@@ -14,7 +14,7 @@
   "python.linting.flake8Args": ["--max-line-length=120"],
   "python.linting.flake8Path": "/usr/bin/flake8",
   "python.linting.enabled": true,
-  "python.jediEnabled": false,
+  "python.jediEnabled": true,
   "signature.hideOnTextChange": true,
   "suggest.autoTrigger": "none",
   "suggest.noselect": false,
