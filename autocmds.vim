@@ -16,7 +16,7 @@ augroup vimrc
   autocmd FileType python setlocal ts=4 sw=4 cc=100,120 completeopt-=preview
   autocmd FileType go setlocal ts=4 sw=4 noet
   autocmd FileType java setlocal ts=4 sw=4 et
-  autocmd FileType javascript,vue,json setlocal ts=2 sw=2
+  autocmd FileType javascript,vue,json,html setlocal ts=2 sw=2
   autocmd FileType json setlocal foldminlines=0 foldnestmax=99
   autocmd BufLeave * call AutoSaveWinView()
   autocmd BufEnter * call AutoRestoreWinView()
