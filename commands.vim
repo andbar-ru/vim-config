@@ -1,5 +1,5 @@
 command! ClearAllRegs for i in range(34, 122) | silent! call setreg(nr2char(i), []) | endfor
-command! ClearAndSave :execute "normal gg0dG" | :update
+command! ClearAndSave :execute "normal gg0dG" | :silent! update
 command! ConvertUnicodeEscapeSequences :%s/\v\\u[0-9a-f]{4}/\=eval('"'.submatch(0).'"')
 command! FormatJson :execute "%!python3 -c 'import sys,json; print(json.dumps(json.loads(sys.stdin.read()), ensure_ascii=False, indent=2, sort_keys=True))'" | normal zR
 command! FormatXml :%!xmllint -format -

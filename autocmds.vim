@@ -8,7 +8,6 @@ augroup vimrc
     autocmd BufNew,BufRead * call HiTrail(g:highlightTrailingSpace)
   endif
   autocmd BufRead * if !&diff | exec 'normal zv' | endif
-  autocmd BufRead * if line('$') < 100 | exec "normal zR" | endif
   autocmd BufRead * :syntax sync fromstart
   autocmd BufRead log.txt setlocal autoread filetype=logtxt
   autocmd BufRead *.log.txt setlocal autoread filetype=logtxt
@@ -16,7 +15,7 @@ augroup vimrc
   autocmd FileType python setlocal ts=4 sw=4 cc=100,120 completeopt-=preview
   autocmd FileType go setlocal ts=4 sw=4 noet
   autocmd FileType java setlocal ts=4 sw=4 et
-  autocmd FileType javascript,vue,json,html setlocal ts=2 sw=2
+  autocmd FileType javascript,vue,json,html,vim setlocal ts=2 sw=2
   autocmd FileType json setlocal foldminlines=0 foldnestmax=99
   autocmd BufLeave * call AutoSaveWinView()
   autocmd BufEnter * call AutoRestoreWinView()

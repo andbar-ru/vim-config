@@ -311,7 +311,7 @@ nnoremap <leader>cgs :GetSyntaxGroupUnderCursor<cr>
 "=================================================
 if isdirectory($PLUGDIR . '/vim-fugitive')
   nmap <leader>gb :Gblame -w -M<cr>
-  nmap <leader>gw :Gwrite<cr>
+  nmap <leader>gw :Gwrite <bar> if &diff <bar> quitall <bar> endif<cr>
 endif
 
 if isdirectory($PLUGDIR . '/vim-go')

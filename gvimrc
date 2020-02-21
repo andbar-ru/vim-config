@@ -1,7 +1,7 @@
 if has('win32')
     set guifont=Consolas:h8
 else
-    set guifont=Dejavu\ Sans\ Mono\ 7
+    set guifont=Dejavu\ Sans\ Mono\ 7.5
 endif
 set guioptions-=m
 set guioptions-=T
@@ -17,6 +17,7 @@ set mousemodel=popup
 if g:hostname == 'asus'
     set lines=23 columns=100
     set linespace=-1
+    set guifont=Dejavu\ Sans\ Mono\ 7
 else
     set lines=23 columns=104
 endif
