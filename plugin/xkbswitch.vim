@@ -9,7 +9,7 @@ let s:main_lang = 'us'
 function! s:XkbswitchInsertLeave()
   let curr_xkb_lang = system('xkb-switch -p')
   if curr_xkb_lang != s:main_lang
-    silent execute '!xkb-switch -s ' . s:main_lang
+    call system('xkb-switch -s ' . s:main_lang)
   endif
   let b:last_xkb_lang = curr_xkb_lang
 endfunction
@@ -17,7 +17,7 @@ endfunction
 function! s:XkbswitchInsertEnter()
   let curr_xkb_lang = system('xkb-switch -p')
   if exists('b:last_xkb_lang') && b:last_xkb_lang != curr_xkb_lang
-    silent execute '!xkb-switch -s ' . b:last_xkb_lang
+    call system('xkb-switch -s ' . b:last_xkb_lang)
   endif
 endfunction
 
