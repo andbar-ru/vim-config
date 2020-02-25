@@ -82,6 +82,8 @@ if isdirectory($PLUGDIR . '/vim-go')
   let g:go_fmt_command = "goimports"
   let g:go_fmt_experimental = 1
   let g:go_metalinter_autosave = 1
+  " disable golint
+  " let g:go_metalinter_autosave_enabled = ['vet', 'errcheck']
 endif
 
 if isdirectory($PLUGDIR . '/tagbar')
