@@ -178,6 +178,7 @@ nnoremap <silent> <expr> ]q ':<c-u>' . (v:count ? v:count : '') . 'cnext<cr>'
 nnoremap <silent> <expr> [Q ':<c-u>' . (v:count ? v:count : '') . 'cfirst<cr>'
 nnoremap <silent> <expr> ]Q ':<c-u>' . (v:count ? v:count : '') . 'clast<cr>'
 nnoremap <leader>qc :cclose<cr>
+nnoremap <leader>qca :CloseListWindows<cr>
 nnoremap <leader>qo :copen<cr>
 " location-list
 nnoremap <silent> <expr> [l ':<c-u>' . (v:count ? v:count : '') . 'lprevious<cr>'
@@ -185,6 +186,7 @@ nnoremap <silent> <expr> ]l ':<c-u>' . (v:count ? v:count : '') . 'lnext<cr>'
 nnoremap <silent> <expr> [L ':<c-u>' . (v:count ? v:count : '') . 'lfirst<cr>'
 nnoremap <silent> <expr> ]L ':<c-u>' . (v:count ? v:count : '') . 'llast<cr>'
 nnoremap <leader>lc :lclose<cr>
+nnoremap <leader>lca :CloseListWindows<cr>
 nnoremap <leader>lo :lopen<cr>
 
 noremap <A-t> :tabnew<CR>
