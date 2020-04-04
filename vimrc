@@ -128,8 +128,8 @@ set clipboard=unnamed " Команды копирования и удалени�
 set wildmode=list:longest
 set cursorline
 set visualbell
-set tabstop=4
-set shiftwidth=4
+set tabstop=2
+set shiftwidth=2
 set smarttab
 set expandtab
 set autoindent
