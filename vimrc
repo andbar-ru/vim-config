@@ -64,7 +64,7 @@ packadd! matchit
 
 let g:hostname = substitute(system('hostname'), '\n', '', '')
 let g:highlightTrailingSpace = 1
-if g:hostname == 'asus'
+if g:hostname == 'asus' || stridx(expand('%:p'), $HOME . '/Projects') == -1
   let g:did_coc_loaded = 1
 endif
 

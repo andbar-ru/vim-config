@@ -86,7 +86,7 @@ augroup cocMaps
   autocmd Filetype javascript,json,typescript,vue,python nmap <silent> <leader>cn :<c-u>CocNext<cr>
   autocmd Filetype javascript,json,typescript,vue,python nmap <silent> <leader>cp :<c-u>CocPrev<cr>
   autocmd Filetype javascript,json,typescript,vue,python nmap <silent> <leader>clr :<c-u>CocListResume<cr>
-  " Often coc-vetur doesn't update diagnostic inf,pythono with no kick
+  " Often coc-vetur doesn't update diagnostic with no kick
   autocmd Filetype javascript,json,typescript,vue,python nmap <silent> <leader>rv :<c-u>call CocAction('reloadExtension', 'coc-vetur')<cr>
   " Highlight symbol under cursor on CursorHold
   " autocmd CursorHold * silent call CocActionAsync('highlight')
