@@ -16,6 +16,7 @@ augroup vimrc
   autocmd FileType go setlocal ts=4 sw=4 noet
   autocmd FileType java setlocal ts=4 sw=4 et
   autocmd FileType json setlocal foldminlines=0 foldnestmax=99
+  autocmd FileType neosnippet setlocal noexpandtab
   autocmd BufLeave * call AutoSaveWinView()
   autocmd BufEnter * call AutoRestoreWinView()
   autocmd VimResized * if &diff | wincmd = | endif

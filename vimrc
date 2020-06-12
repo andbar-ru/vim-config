@@ -9,10 +9,12 @@ Plug 'nathanaelkane/vim-indent-guides'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-abolish'
-silent! system('git rev-parse --is-inside-work-tree')
-if !v:shell_error
-  Plug 'tpope/vim-fugitive'
-  Plug 'airblade/vim-gitgutter'
+if executable('git')
+  silent! system('git rev-parse --is-inside-work-tree')
+  if !v:shell_error
+    Plug 'tpope/vim-fugitive'
+    Plug 'airblade/vim-gitgutter'
+  endif
 endif
 Plug 'tomtom/tcomment_vim'
 Plug 'scrooloose/nerdtree'
@@ -28,7 +30,7 @@ Plug 'jeetsukumaran/vim-indentwise'
 Plug 'dzeban/vim-log-syntax'
 Plug 'posva/vim-vue'
 Plug 'groenewege/vim-less'
-Plug 'othree/html5.vim'
+" Plug 'othree/html5.vim'
 Plug 'simnalamburt/vim-mundo'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'Vimjas/vim-python-pep8-indent'
@@ -43,14 +45,17 @@ if version >= 800
   Plug 'Shougo/neosnippet-snippets'
 endif
 if has('unix') && version >= 800 && $USER != 'root'
-  Plug 'junegunn/fzf', {'dir': '~/Programs/fzf', 'do': './install --all'}
+  Plug 'junegunn/fzf', { 'dir': '~/Programs/fzf', 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
+  " Useful optional dependencies: watchman
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
 endif
 if has('nvim')
   Plug 'equalsraf/neovim-gui-shim'
 endif
+" Built in typescript syntax rules does not always work properly.
 Plug 'leafgarland/typescript-vim'
+Plug 'jparise/vim-graphql'
 call plug#end()
 
 runtime defaults.vim
@@ -164,6 +169,7 @@ endif
 set complete-=t " exclude tags, for tags <c-x><c-]>
 set scrolloff=0
 set noautoread
+set linespace=-1
 
 " nvim or not
 if has('nvim')

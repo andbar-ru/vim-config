@@ -1,0 +1,41 @@
+snippet main
+alias m
+options head
+	func main() {
+		${0}
+	}
+
+snippet print
+alias p
+	fmt.Print(${0})
+
+snippet printf
+alias pf
+	fmt.Printf("${1}", ${0})
+
+snippet printfvar
+alias pfv
+	fmt.Printf("${1}: %#v\n", $1${0})
+
+snippet println
+alias pl
+	fmt.Println(${0})
+
+snippet iferr
+alias e
+options head
+	if err != nil {
+		${0}
+	}
+
+snippet logfatal
+alias lf
+	log.Fatal(${0})
+
+snippet logfatalf
+alias lff
+	log.Fatalf("${1}", ${0})
+
+snippet wr
+options word
+	w http.ResponseWriter, r *http.Request

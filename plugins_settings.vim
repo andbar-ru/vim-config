@@ -22,6 +22,9 @@ endif
 
 if isdirectory($PLUGDIR . '/vim-closetag')
   let g:closetag_filenames = '*.html,*.xhtml,*.xml,*.vue'
+  let g:closetag_regions = {
+    \ 'vue': 'htmlTagN',
+    \ }
 endif
 
 if isdirectory($PLUGDIR . '/bufexplorer')
@@ -89,6 +92,8 @@ if isdirectory($PLUGDIR . '/vim-go')
   endif
   let g:go_metalinter_enabled = ['govet', 'errcheck', 'golint', 'staticcheck']
   let g:go_metalinter_autosave_enabled = ['govet', 'errcheck', 'golint', 'staticcheck']
+  " Disable snippets in vim-go.
+  let g:go_snippet_engine = ""
 endif
 
 if isdirectory($PLUGDIR . '/tagbar')
@@ -134,6 +139,9 @@ if isdirectory($PLUGDIR . '/vim-vue')
 endif
 
 if isdirectory($PLUGDIR . '/coc.nvim')
+  " coc.nvim need vim >= 8.1.1719 to support features like popup and text property.
+  let g:coc_disable_startup_warning = 1
+
   if &diff
     let g:did_coc_loaded = 1
   endif

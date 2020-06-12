@@ -131,15 +131,18 @@ imap <a-j> <Plug>MoveLinesDown
 imap <a-down> <Plug>MoveLinesDown
 imap <a-k> <Plug>MoveLinesUp
 imap <a-up> <Plug>MoveLinesUp
-" Удаление
-inoremap <S-BS> <C-W>
-cnoremap <S-BS> <C-W>
-inoremap <S-Del> <C-o>de
-cnoremap <S-Del> <S-Right><C-W>
-inoremap <C-BS> <Esc>dBxs
-inoremap <C-Del> <Esc>ldEs
+" Delete actions
+inoremap <s-bs> <c-w>
+cnoremap <s-bs> <c-w>
+inoremap <s-del> <c-o>de
+cnoremap <s-del> <s-right><c-w>
+inoremap <c-bs> <esc>dBxs
+inoremap <c-del> <esc>ldEs
 inoremap <expr> <c-l> pumvisible() ? '<c-l>' : '<c-o>dd'
-inoremap <C-S-Del> <c-\><c-o>D
+inoremap <c-s-del> <c-\><c-o>D
+nnoremap <del> "_d
+
+" Undo
 inoremap <C-z> <C-o>u
 
 noremap <A-w> :set wrap!<CR>
@@ -154,8 +157,8 @@ inoremap <A-0> <C-o>:vertical resize 100<CR>
 unmap Q
 nnoremap Q @@
 noremap Y y$
-noremap <A-y> "+y
-noremap <S-A-y> :%y+<CR>
+noremap <a-y> "+y
+noremap <s-a-y> :%y+<cr>
 vnoremap y y`]
 vnoremap gy y
 " Duplicate multiple lines. gPP (not 2P) to be able select pasted.
@@ -166,7 +169,9 @@ nnoremap <silent> _ :<c-u>call CopyLine(v:count, 0, 0)<cr>
 nnoremap <silent> g_ :<c-u>call CopyLine(v:count, 1, 0)<cr>
 nnoremap <silent> \_ :<c-u>call CopyLine(v:count, 1, 1)<cr>
 
-" Insert and fix the indent.
+nnoremap <a-p> :set paste!<cr>
+inoremap <a-p> <c-o>:set paste!<cr>
+" Paste and fix the indent.
 inoremap <c-v> <c-r><c-p>"
 inoremap <MiddleMouse> <c-r><c-p>*
 " Вставить и отформатировать.
@@ -300,6 +305,8 @@ if has('nvim')
 endif
 
 inoremap <expr> <tab> SuperTab()
+" For coc.nvim mode
+inoremap <expr> <c-tab> SuperTab()
 
 "=================================================
 " Commands
@@ -343,6 +350,8 @@ if isdirectory($PLUGDIR . '/auto-pairs')
   " Дополнение к Fast Wrap <M-e>
   inoremap <a-$> <c-o>x<end><c-r>*
   inoremap <a-end> <c-o>x<end><c-r>*
+  " Default <a-p> is for 'set paste!'
+  let g:AutoPairsShortcutToggle = '<a-s-p>'
 endif
 
 if isdirectory($PLUGDIR . '/splitjoin.vim')

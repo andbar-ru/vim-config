@@ -239,7 +239,7 @@ function! SuperTab()
   endif
 
   let char = getline('.')[col - 2]
-  " There is an indentifier before the cursor, so complete the identifier.
+  " There is an identifier before the cursor, so complete the identifier.
   if char =~ '\k'
     return "\<c-p>"
   else
