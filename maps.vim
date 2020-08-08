@@ -106,8 +106,8 @@ vnoremap <a->> :norm I <cr><esc>gv
 vnoremap <a-<> :norm ^hx<cr>gv
 nmap <a->> V<a->><esc>
 nmap <a-<> V<a-<><esc>
-imap <a->> <esc><a->>la
-imap <a-<> <esc><a-<>i
+imap <a-c-t> <esc><a->>la
+imap <a-c-d> <esc><a-<>i
 
 inoremap <C-S-Left> <Esc>vb
 inoremap <C-S-Right> <Esc>lve
@@ -140,12 +140,15 @@ inoremap <c-bs> <esc>dBxs
 inoremap <c-del> <esc>ldEs
 inoremap <expr> <c-l> pumvisible() ? '<c-l>' : '<c-o>dd'
 inoremap <c-s-del> <c-\><c-o>D
+" Delete the closing tag because I sometimes forget to close opening tag with <a->>
+" when I don't want vim-closetag to add closing tag automatically.
+inoremap <a-<> <c-o>da>
 nnoremap <del> "_d
 
 " Undo
 inoremap <C-z> <C-o>u
 
-noremap <A-w> :set wrap!<CR>
+noremap <A-w> :setlocal wrap!<CR>
 
 noremap <silent> <A-h> :set hlsearch!<CR>
 noremap <silent> <S-A-h> :let @/ = '\V\<' . escape(expand('<cword>'), '\') . '\>' <Bar> set hls<CR>
@@ -227,8 +230,8 @@ nmap <silent> yoc :call DCYOutWrapper('y')<cr>
 
 noremap <A--> :ToggleDashInIskeyword<CR>
 inoremap <A--> <C-o>:ToggleDashInIskeyword<CR>
-" Удаление журналирующего блока
-noremap <leader>dl ?\v^\s*.+ begin #{40,}$<CR>v/\v^\s*.+ end #{40,}$<CR>Vd
+" Удаление блока # begin #... # end #... (delete snippet)
+noremap <leader>ds ?\v^\s*.+ begin #{40,}$<cr>v/\v^\s*.+ end #{40,}$<cr>Vd
 
 " Поиск
 "Поиск слова под курсором в соседних окнах

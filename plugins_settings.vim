@@ -22,9 +22,10 @@ endif
 
 if isdirectory($PLUGDIR . '/vim-closetag')
   let g:closetag_filenames = '*.html,*.xhtml,*.xml,*.vue'
-  let g:closetag_regions = {
-    \ 'vue': 'htmlTagN',
-    \ }
+  let g:closetag_close_shortcut = '<a->>'
+  " let g:closetag_regions = {
+  "   \ 'vue': 'htmlTagN',
+  "   \ }
 endif
 
 if isdirectory($PLUGDIR . '/bufexplorer')
@@ -139,6 +140,15 @@ if isdirectory($PLUGDIR . '/vim-vue')
 endif
 
 if isdirectory($PLUGDIR . '/coc.nvim')
+  " Desactivate coc by default, activate only for certain conditions.
+  let g:did_coc_loaded = 1
+  if stridx(expand('%:p'), $HOME . '/Projects') == 0 ||
+   \ expand('%:t') == 'coc-settings.json' ||
+   \ stridx(expand('%:p'), $HOME . '/Coding/typescript') == 0
+    let $NODE_ENV='development'
+    unlet g:did_coc_loaded
+  endif
+
   " coc.nvim need vim >= 8.1.1719 to support features like popup and text property.
   let g:coc_disable_startup_warning = 1
 
