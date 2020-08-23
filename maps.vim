@@ -1,7 +1,6 @@
 " Сделать пробел <leader>ом
 nnoremap <Space> <nop>
 let mapleader = " "
-imap <s-space> <esc><space>
 
 noremap <F2> :w<CR>
 inoremap <F2> <Esc>:w<CR>
