@@ -310,6 +310,16 @@ inoremap <expr> <tab> SuperTab()
 " For coc.nvim mode
 inoremap <expr> <c-tab> SuperTab()
 
+" Go to next merge conflict marker
+let mergeConflictMarkerPattern = '\v^(\<{7}|\={7}|\>{7})'
+nnoremap <silent> ], :<c-u>execute "keeppatterns /" . mergeConflictMarkerPattern<cr>0
+nnoremap <silent> [, :<c-u>execute "keeppatterns ?" . mergeConflictMarkerPattern<cr>0
+onoremap <silent> ], :<c-u>execute "keeppatterns /" . mergeConflictMarkerPattern<cr>dd
+onoremap <silent> [, :<c-u>execute "keeppatterns ?" . mergeConflictMarkerPattern<cr>dd
+" Could not apply keeppatterns here.
+vnoremap <silent> ], /\v^(\<{7}\|\={7}\|\>{7})<cr>
+vnoremap <silent> [, ?\v^(\<{7}\|\={7}\|\>{7})<cr>
+
 "=================================================
 " Commands
 "=================================================
