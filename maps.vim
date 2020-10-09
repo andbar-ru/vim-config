@@ -331,7 +331,7 @@ nnoremap <leader>ags :GetSyntaxGroupUnderCursor<cr>
 " Plugin specific
 "=================================================
 if isdirectory($PLUGDIR . '/vim-fugitive')
-  nmap <leader>gb :Gblame -w -M<cr>
+  nmap <leader>gb :Gblame -w -M -C<cr>
   nmap <leader>gw :Gwrite <bar> if &diff <bar> quitall <bar> endif<cr>
 endif
 
