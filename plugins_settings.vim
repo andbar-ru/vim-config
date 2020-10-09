@@ -21,7 +21,8 @@ if isdirectory($PLUGDIR . '/vim-gitgutter')
 endif
 
 if isdirectory($PLUGDIR . '/vim-closetag')
-  let g:closetag_filenames = '*.html,*.xhtml,*.xml,*.vue'
+  let g:closetag_filenames = '*.html,*.xhtml,*.xml,*.vue,*.tmpl'
+  let g:closetag_filetypes = 'html'
   let g:closetag_close_shortcut = '<a->>'
   " let g:closetag_regions = {
   "   \ 'vue': 'htmlTagN',
