@@ -29,21 +29,7 @@ if isdirectory($PLUGDIR . '/fzf.vim')
   " : fzf#vim#with_preview('right:50%:hidden', '?'),
   command! -bang -nargs=* Rg
         \ call fzf#vim#grep(
-        \   'rg --column --line-number --no-heading --smart-case ' . shellescape(<q-args>) . ' ' . system('git rev-parse --show-toplevel'), 1,
-        \   <bang>0 ? fzf#vim#with_preview('up:60%')
-        \           : fzf#vim#with_preview('right:50%', '?'),
-        \   <bang>0
-        \ )
-  command! -bang -nargs=* Rgf
-        \ call fzf#vim#grep(
-        \   'rg -F --column --line-number --no-heading --smart-case ' . shellescape(<q-args>) . ' ' . system('git rev-parse --show-toplevel'), 1,
-        \   <bang>0 ? fzf#vim#with_preview('up:60%')
-        \           : fzf#vim#with_preview('right:50%', '?'),
-        \   <bang>0
-        \ )
-  command! -bang -nargs=* Rgfw
-        \ call fzf#vim#grep(
-        \   'rg -Fw --column --line-number --no-heading --smart-case ' . shellescape(<q-args>) . ' ' . system('git rev-parse --show-toplevel'), 1,
+        \   'rg --column --line-number --no-heading --smart-case ' . <q-args> . ' ' . system('git rev-parse --show-toplevel'), 1,
         \   <bang>0 ? fzf#vim#with_preview('up:60%')
         \           : fzf#vim#with_preview('right:50%', '?'),
         \   <bang>0
