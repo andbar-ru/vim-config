@@ -34,63 +34,72 @@ imap <silent> <expr> <tab>
       \ coc#refresh()
 imap <expr> <s-tab> pumvisible() ? '<c-p>' : '<s-tab>'
 
+let s:cocFiletypes = "javascript,json,typescript,vue,python,go"
 augroup cocMaps
-  autocmd Filetype javascript,json,typescript,vue,python nmap <silent> [g <plug>(coc-diagnostic-prev)
-  autocmd Filetype javascript,json,typescript,vue,python nmap <silent> ]g <plug>(coc-diagnostic-next)
-  autocmd Filetype javascript,json,typescript,vue,python nmap <silent> [ge <plug>(coc-diagnostic-prev-error)
-  autocmd Filetype javascript,json,typescript,vue,python nmap <silent> ]ge <plug>(coc-diagnostic-next-error)
-  autocmd Filetype javascript,json,typescript,vue,python nmap <silent> <leader>gd <plug>(coc-definition)
-  autocmd Filetype javascript,json,typescript,vue,python nmap <silent> <leader>gds :<c-u>call CocAction('jumpDefinition', 'split')<cr>
-  autocmd Filetype javascript,json,typescript,vue,python nmap <silent> <leader>gdv :<c-u>call CocAction('jumpDefinition', 'vsplit')<cr>
-  autocmd Filetype javascript,json,typescript,vue,python nmap <silent> <leader>gdt :<c-u>call CocAction('jumpDefinition', 'tabe')<cr>
-  autocmd Filetype javascript,json,typescript,vue,python nmap <silent> <leader>gt <plug>(coc-type-definition)
-  autocmd Filetype javascript,json,typescript,vue,python nmap <silent> <leader>gts :<c-u>call CocAction('jumpTypeDefinition', 'split')<cr>
-  autocmd Filetype javascript,json,typescript,vue,python nmap <silent> <leader>gtv :<c-u>call CocAction('jumpTypeDefinition', 'vsplit')<cr>
-  autocmd Filetype javascript,json,typescript,vue,python nmap <silent> <leader>gtt :<c-u>call CocAction('jumpTypeDefinition', 'tabe')<cr>
-  autocmd Filetype javascript,json,typescript,vue,python nmap <silent> <leader>gi <plug>(coc-implementation)
-  autocmd Filetype javascript,json,typescript,vue,python nmap <silent> <leader>gis :<c-u>call CocAction('jumpImplementation', 'split')<cr>
-  autocmd Filetype javascript,json,typescript,vue,python nmap <silent> <leader>giv :<c-u>call CocAction('jumpImplementation', 'vsplit')<cr>
-  autocmd Filetype javascript,json,typescript,vue,python nmap <silent> <leader>git :<c-u>call CocAction('jumpImplementation', 'tabe')<cr>
-  autocmd Filetype javascript,json,typescript,vue,python nmap <silent> <leader>gr <plug>(coc-references)
-  autocmd Filetype javascript,json,typescript,vue,python nnoremap <silent> K :call <sid>show_documentation()<cr>
-  autocmd Filetype javascript,json,typescript,vue,python nmap <leader>pf :<c-u>echo CocAction('getCurrentFunctionSymbol')<cr>
-  autocmd Filetype javascript,json,typescript,vue,python nmap <leader>ss :<c-u>call CocAction('workspaceSymbols')<cr>
-  autocmd Filetype javascript,json,typescript,vue,python nmap <leader>cr <plug>(coc-rename)
-  " Format selected region (coc-prettier required,python)
-  autocmd Filetype javascript,json,typescript,vue,python vmap <leader>cf <plug>(coc-format-selected)
-  autocmd Filetype javascript,json,typescript,vue,python nmap <leader>cf <plug>(coc-format-selected)
-  " Remap for do codeAction of selected region, e,pythonx: `<leaderaap` for current paragraph
-  autocmd Filetype javascript,json,typescript,vue,python vmap <leader>ca <plug>(coc-codeaction-selected)
-  autocmd Filetype javascript,json,typescript,vue,python nmap <leader>ca <plug>(coc-codeaction-selected)
-  " do codeAction of current line                ,python
-  autocmd Filetype javascript,json,typescript,vue,python nmap <leader>cca <plug>(coc-codeaction)
-  " Fix autofix problem of current line          ,python
-  autocmd Filetype javascript,json,typescript,vue,python nmap <leader>cqf <plug>(coc-fix-current)
-  autocmd Filetype javascript,json,typescript,vue,python nmap <leader>cfh <plug>(coc-float-hide)
-  autocmd Filetype javascript,json,typescript,vue,python nmap <leader>crf <plug>(coc-refactor)
-  " Mappings for function text object, requires d,pythonocument symbols feature of languageserver.
-  " Mapping to <plug>(coc-funcobj-i) for some rea,pythonson doesn't work.
-  autocmd Filetype javascript,json,typescript,vue,python onoremap if :<c-u>call coc#rpc#request('selectFunction', [v:true, ''])<cr>
-  autocmd Filetype javascript,json,typescript,vue,python vnoremap if :<c-u>call coc#rpc#request('selectFunction', [v:true, visualmode()])<cr>
-  autocmd Filetype javascript,json,typescript,vue,python onoremap af :<c-u>call coc#rpc#request('selectFunction', [v:false, ''])<cr>
-  autocmd Filetype javascript,json,typescript,vue,python vnoremap af :<c-u>call coc#rpc#request('selectFunction', [v:false, visualmode()])<cr>
-  autocmd Filetype javascript,json,typescript,vue,python nmap <leader>af <plug>(coc-funcobj-a)
-  " Use <c-d> for select selections ranges, needs,python server support, like: coc-tsserver, coc-python
-  autocmd Filetype javascript,json,typescript,vue,python nmap <silent> <c-d> <plug>(coc-range-select)
-  autocmd Filetype javascript,json,typescript,vue,python xmap <silent> <c-d> <plug>(coc-range-select)
-  autocmd Filetype javascript,json,typescript,vue,python nmap <silent> <leader>cld :<c-u>CocList diagnostics<cr>
-  autocmd Filetype javascript,json,typescript,vue,python nmap <silent> <leader>cle :<c-u>CocList extensions<cr>
-  autocmd Filetype javascript,json,typescript,vue,python nmap <silent> <leader>clc :<c-u>CocList commands<cr>
-  autocmd Filetype javascript,json,typescript,vue,python nmap <silent> <leader>clo :<c-u>CocList outline<cr>
-  autocmd Filetype javascript,json,typescript,vue,python nmap <silent> <leader>cls :<c-u>CocList -I symbols<cr>
-  autocmd Filetype javascript,json,typescript,vue,python nmap <silent> <leader>cn :<c-u>CocNext<cr>
-  autocmd Filetype javascript,json,typescript,vue,python nmap <silent> <leader>cp :<c-u>CocPrev<cr>
-  autocmd Filetype javascript,json,typescript,vue,python nmap <silent> <leader>clr :<c-u>CocListResume<cr>
+  execute "autocmd Filetype " . s:cocFiletypes . " nmap <silent> [g <plug>(coc-diagnostic-prev)"
+  execute "autocmd Filetype " . s:cocFiletypes . " nmap <silent> ]g <plug>(coc-diagnostic-next)"
+  " execute 'autocmd Filetype ' . s:cocFiletypes . ' nmap <silent> [ge <plug>(coc-diagnostic-prev-error)'
+  " execute 'autocmd Filetype ' . s:cocFiletypes . ' nmap <silent> ]ge <plug>(coc-diagnostic-next-error)'
+  "
+  execute "autocmd Filetype " . s:cocFiletypes . " nmap <silent> <leader>gd <plug>(coc-definition)"
+  execute "autocmd Filetype " . s:cocFiletypes . " nmap <silent> <leader>gds :<c-u>call CocAction('jumpDefinition', 'split')<cr>"
+  execute "autocmd Filetype " . s:cocFiletypes . " nmap <silent> <leader>gdv :<c-u>call CocAction('jumpDefinition', 'vsplit')<cr>"
+  execute "autocmd Filetype " . s:cocFiletypes . " nmap <silent> <leader>gdt :<c-u>call CocAction('jumpDefinition', 'tabe')<cr>"
+
+  execute "autocmd Filetype " . s:cocFiletypes . " nmap <silent> <leader>gt <plug>(coc-type-definition)"
+  execute "autocmd Filetype " . s:cocFiletypes . " nmap <silent> <leader>gts :<c-u>call CocAction('jumpTypeDefinition', 'split')<cr>"
+  execute "autocmd Filetype " . s:cocFiletypes . " nmap <silent> <leader>gtv :<c-u>call CocAction('jumpTypeDefinition', 'vsplit')<cr>"
+  execute "autocmd Filetype " . s:cocFiletypes . " nmap <silent> <leader>gtt :<c-u>call CocAction('jumpTypeDefinition', 'tabe')<cr>"
+
+  execute "autocmd Filetype " . s:cocFiletypes . " nmap <silent> <leader>gi <plug>(coc-implementation)"
+  execute "autocmd Filetype " . s:cocFiletypes . " nmap <silent> <leader>gis :<c-u>call CocAction('jumpImplementation', 'split')<cr>"
+  execute "autocmd Filetype " . s:cocFiletypes . " nmap <silent> <leader>giv :<c-u>call CocAction('jumpImplementation', 'vsplit')<cr>"
+  execute "autocmd Filetype " . s:cocFiletypes . " nmap <silent> <leader>git :<c-u>call CocAction('jumpImplementation', 'tabe')<cr>"
+
+  execute "autocmd Filetype " . s:cocFiletypes . " nmap <silent> <leader>gr <plug>(coc-references)"
+  execute "autocmd Filetype " . s:cocFiletypes . " nmap <silent> <leader>grs :<c-u>call CocAction('jumpReferences', 'split')<cr>"
+  execute "autocmd Filetype " . s:cocFiletypes . " nmap <silent> <leader>grv :<c-u>call CocAction('jumpReferences', 'vsplit')<cr>"
+  execute "autocmd Filetype " . s:cocFiletypes . " nmap <silent> <leader>grt :<c-u>call CocAction('jumpReferences', 'tabe')<cr>"
+
+  execute "autocmd Filetype " . s:cocFiletypes . " nnoremap <silent> K :call <sid>show_documentation()<cr>"
+  execute "autocmd Filetype " . s:cocFiletypes . " nnoremap <silent> <leader>csh :<c-u>call CocActionAsync('showSignatureHelp')<cr>"
+  execute "autocmd Filetype " . s:cocFiletypes . " nmap <leader>pf :<c-u>echo CocAction('getCurrentFunctionSymbol')<cr>"
+  execute "autocmd Filetype " . s:cocFiletypes . " nmap <leader>ss :<c-u>call CocAction('workspaceSymbols')<cr>"
+  execute "autocmd Filetype " . s:cocFiletypes . " nmap <leader>cr <plug>(coc-rename)"
+  " Format selected region (coc-prettier required)
+  execute "autocmd Filetype " . s:cocFiletypes . " vmap <leader>cf <plug>(coc-format-selected)"
+  execute "autocmd Filetype " . s:cocFiletypes . " nmap <leader>cf <plug>(coc-format-selected)"
+  " Remap for do codeAction of selected region, ex: `<leader>ap` for current paragraph
+  execute "autocmd Filetype " . s:cocFiletypes . " vmap <leader>ca <plug>(coc-codeaction-selected)"
+  execute "autocmd Filetype " . s:cocFiletypes . " nmap <leader>ca <plug>(coc-codeaction-selected)"
+  " do codeAction of current line
+  execute "autocmd Filetype " . s:cocFiletypes . " nmap <leader>cca <plug>(coc-codeaction)"
+  " Fix autofix problem of current line
+  execute "autocmd Filetype " . s:cocFiletypes . " nmap <leader>cqf <plug>(coc-fix-current)"
+  execute "autocmd Filetype " . s:cocFiletypes . " nmap <leader>cfh <plug>(coc-float-hide)"
+  execute "autocmd Filetype " . s:cocFiletypes . " nmap <leader>crf <plug>(coc-refactor)"
+  " Mappings for function text object, requires document symbols feature of languageserver.
+  " Mapping to <plug>(coc-funcobj-i) for some reason doesn't work.
+  execute "autocmd Filetype " . s:cocFiletypes . " onoremap if :<c-u>call coc#rpc#request('selectFunction', [v:true, ''])<cr>"
+  execute "autocmd Filetype " . s:cocFiletypes . " vnoremap if :<c-u>call coc#rpc#request('selectFunction', [v:true, visualmode()])<cr>"
+  execute "autocmd Filetype " . s:cocFiletypes . " onoremap af :<c-u>call coc#rpc#request('selectFunction', [v:false, ''])<cr>"
+  execute "autocmd Filetype " . s:cocFiletypes . " vnoremap af :<c-u>call coc#rpc#request('selectFunction', [v:false, visualmode()])<cr>"
+  execute "autocmd Filetype " . s:cocFiletypes . " nmap <leader>af <plug>(coc-funcobj-a)"
+  " Use <c-d> for select selections ranges, needs server support, like: coc-tsserver, coc-python
+  execute "autocmd Filetype " . s:cocFiletypes . " nmap <silent> <c-d> <plug>(coc-range-select)"
+  execute "autocmd Filetype " . s:cocFiletypes . " xmap <silent> <c-d> <plug>(coc-range-select)"
+  execute "autocmd Filetype " . s:cocFiletypes . " nmap <silent> <leader>cld :<c-u>CocList diagnostics<cr>"
+  execute "autocmd Filetype " . s:cocFiletypes . " nmap <silent> <leader>cle :<c-u>CocList extensions<cr>"
+  execute "autocmd Filetype " . s:cocFiletypes . " nmap <silent> <leader>clc :<c-u>CocList commands<cr>"
+  execute "autocmd Filetype " . s:cocFiletypes . " nmap <silent> <leader>clo :<c-u>CocList outline<cr>"
+  execute "autocmd Filetype " . s:cocFiletypes . " nmap <silent> <leader>cls :<c-u>CocList -I symbols<cr>"
+  execute "autocmd Filetype " . s:cocFiletypes . " nmap <silent> <leader>cn :<c-u>CocNext<cr>"
+  execute "autocmd Filetype " . s:cocFiletypes . " nmap <silent> <leader>cp :<c-u>CocPrev<cr>"
+  execute "autocmd Filetype " . s:cocFiletypes . " nmap <silent> <leader>clr :<c-u>CocListResume<cr>"
 
   " Highlight symbol under cursor on CursorHold
   " autocmd CursorHold * silent call CocActionAsync('highlight')
   nmap <silent> <leader>ch :<c-u>call CocActionAsync('highlight')<cr>
-  imap <silent> <a-h> <c-o>:<c-u>call CocAction('showSignatureHelp')<cr>
 
   """"""""""""""""""""""""""""""""""""""""""""""""""
   " Coc extensions
@@ -119,25 +128,51 @@ augroup end
 an 1.125 PopUp.-SEP5- <Nop>
 
 " <Plug>(coc-diagnostic-info)
-anoremenu 1.130 PopUp.Coc.DiagnosticInfo :<c-u>call CocActionAsync('diagnosticInfo')<cr>
-" <Plug>(coc-diagnostic-next)
-anoremenu 1.130 PopUp.Coc.DiagnosticNext :<c-u>call CocActionAsync('diagnosticNext')<cr>
+anoremenu 1.130 PopUp.Coc.Diagnostic.List<tab><leader>cld :<c-u>call CocActionAsync('diagnosticList')<cr>
 " <Plug>(coc-diagnostic-prev)
-anoremenu 1.130 PopUp.Coc.DiagnosticPrev :<c-u>call CocActionAsync('diagnosticPrevious')<cr>
-" <Plug>(coc-diagnostic-next-error)
-anoremenu 1.130 PopUp.Coc.DiagnosticNextError :<c-u>call CocActionAsync('diagnosticNext', 'error')<cr>
+anoremenu 1.130 PopUp.Coc.Diagnostic.Prev<tab>[g :<c-u>call CocActionAsync('diagnosticPrevious')<cr>
+" <Plug>(coc-diagnostic-next)
+anoremenu 1.130 PopUp.Coc.Diagnostic.Next<tab>]g :<c-u>call CocActionAsync('diagnosticNext')<cr>
 " <Plug>(coc-diagnostic-prev-error)
-anoremenu 1.130 PopUp.Coc.DiagnosticPrevError :<c-u>call CocActionAsync('diagnosticPrevious', 'error')<cr>
+anoremenu 1.130 PopUp.Coc.Diagnostic.Prev\ Error :<c-u>call CocActionAsync('diagnosticPrevious', 'error')<cr>
+" <Plug>(coc-diagnostic-next-error)
+anoremenu 1.130 PopUp.Coc.Diagnostic.Next\ Error :<c-u>call CocActionAsync('diagnosticNext', 'error')<cr>
+anoremenu 1.130 PopUp.Coc.Diagnostic.Info :<c-u>call CocActionAsync('diagnosticInfo')<cr>
+anoremenu 1.130 PopUp.Coc.Diagnostic.Toggle :<c-u>call CocActionAsync('diagnosticToggle')<cr>
+
 " <Plug>(coc-definition)
-anoremenu 1.130 PopUp.Coc.Definition :<c-u>call CocAction('jumpDefinition')<cr>
+anoremenu 1.130 PopUp.Coc.Definition.Current\ Buffer<tab><leader>gd :<c-u>call CocAction('jumpDefinition')<cr>
+anoremenu 1.130 PopUp.Coc.Definition.Split<tab><leader>gds :<c-u>call CocAction('jumpDefinition', 'split')<cr>
+anoremenu 1.130 PopUp.Coc.Definition.Vertical\ Split<tab><leader>gdv :<c-u>call CocAction('jumpDefinition', 'vsplit')<cr>
+anoremenu 1.130 PopUp.Coc.Definition.New\ Tab<tab><leader>gdt :<c-u>call CocAction('jumpDefinition', 'tabe')<cr>
+
 " <Plug>(coc-declaration)
-anoremenu 1.130 PopUp.Coc.Declaration :<c-u>call CocAction('jumpDeclaration')<cr>
+anoremenu 1.130 PopUp.Coc.Declaration.Current\ Buffer :<c-u>call CocAction('jumpDeclaration')<cr>
+anoremenu 1.130 PopUp.Coc.Declaration.Split :<c-u>call CocAction('jumpDeclaration', 'split')<cr>
+anoremenu 1.130 PopUp.Coc.Declaration.Vertical\ Split :<c-u>call CocAction('jumpDeclaration', 'vsplit')<cr>
+anoremenu 1.130 PopUp.Coc.Declaration.New\ Tab :<c-u>call CocAction('jumpDeclaration', 'tabe')<cr>
+
 " <Plug>(coc-implementation)
-anoremenu 1.130 PopUp.Coc.Implementation :<c-u>call CocAction('jumpImplementation')<cr>
+anoremenu 1.130 PopUp.Coc.Implementation.Current\ Buffer<tab><leader>gi :<c-u>call CocAction('jumpImplementation')<cr>
+anoremenu 1.130 PopUp.Coc.Implementation.Split<tab><leader>gis :<c-u>call CocAction('jumpImplementation', 'split')<cr>
+anoremenu 1.130 PopUp.Coc.Implementation.Vertical\ Split<tab><leader>giv :<c-u>call CocAction('jumpImplementation', 'vsplit')<cr>
+anoremenu 1.130 PopUp.Coc.Implementation.New\ Tab<tab><leader>git :<c-u>call CocAction('jumpImplementation', 'tabe')<cr>
+
 " <Plug>(coc-type-definition)
-anoremenu 1.130 PopUp.Coc.TypeDefinition :<c-u>call CocAction('jumpTypeDefinition')<cr>
+anoremenu 1.130 PopUp.Coc.TypeDefinition.Current\ Buffer<tab><leader>gt :<c-u>call CocAction('jumpTypeDefinition')<cr>
+anoremenu 1.130 PopUp.Coc.TypeDefinition.Split<tab><leader>gts :<c-u>call CocAction('jumpTypeDefinition', 'split')<cr>
+anoremenu 1.130 PopUp.Coc.TypeDefinition.Vertical\ Split<tab><leader>gtv :<c-u>call CocAction('jumpTypeDefinition', 'vsplit')<cr>
+anoremenu 1.130 PopUp.Coc.TypeDefinition.New\ Tab<tab><leader>gtt :<c-u>call CocAction('jumpTypeDefinition', 'tabe')<cr>
+
 " <Plug>(coc-references)
-anoremenu 1.130 PopUp.Coc.References :<c-u>call CocAction('jumpReferences')<cr>
+anoremenu 1.130 PopUp.Coc.References.Current\ Buffer<tab><leader>gr :<c-u>call CocAction('jumpReferences')<cr>
+anoremenu 1.130 PopUp.Coc.References.Split<tab><leader>grs :<c-u>call CocAction('jumpReferences', 'split')<cr>
+anoremenu 1.130 PopUp.Coc.References.Vertical\ Split<tab><leader>grv :<c-u>call CocAction('jumpReferences', 'vsplit')<cr>
+anoremenu 1.130 PopUp.Coc.References.New\ Tab<tab><leader>grt :<c-u>call CocAction('jumpReferences', 'tabe')<cr>
+
+anoremenu 1.130 PopUp.Coc.Hover<tab>K :<c-u>call CocAction('doHover')<cr>
+anoremenu 1.130 PopUp.Coc.ShowSignatureHelp<tab><leader>csh :<c-u>call CocActionAsync('showSignatureHelp')<cr>
+
 " <Plug>(coc-format-selected)
 vnoremenu 1.130 PopUp.Coc.FormatSelected :<c-u>call CocActionAsync('formatSelected', visualmode())<cr>
 " <Plug>(coc-format)
@@ -171,4 +206,3 @@ vnoremenu 1.130 PopUp.Coc.SelectInsideFunction :<c-u>call coc#rpc#request('selec
 " <Plug>(coc-funcobj-a)
 anoremenu 1.130 PopUp.Coc.SelectFunction :<c-u>call coc#rpc#request('selectFunction', [v:false, ''])<cr>
 vnoremenu 1.130 PopUp.Coc.SelectFunction :<c-u>call coc#rpc#request('selectFunction', [v:false, visualmode()])<cr>
-anoremenu 1.130 PopUp.Coc.ShowSignatureHelp :<c-u>call CocAction('showSignatureHelp')<cr>

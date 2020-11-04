@@ -83,19 +83,23 @@ if isdirectory($PLUGDIR . '/gruvbox')
   let g:gruvbox_invert_selection = 0
 endif
 
-if isdirectory($PLUGDIR . '/vim-go')
-  let g:go_fmt_command = "goimports"
-  let g:go_fmt_experimental = 1
+" if isdirectory($PLUGDIR . '/vim-go')
+"   let g:go_fmt_command = "goimports"
+"   let g:go_fmt_experimental = 1
+"   let g:go_highlight_operators = 1
+"   " Enable metalinter_autosave only in 'Projects' folder.
+"   let g:go_metalinter_autosave = 0
+"   if match(expand('%'), $HOME . '/Projects') == 0
+"     let g:go_metalinter_autosave = 1
+"   endif
+"   let g:go_metalinter_enabled = ['govet', 'errcheck', 'golint', 'staticcheck']
+"   let g:go_metalinter_autosave_enabled = ['govet', 'errcheck', 'golint', 'staticcheck']
+"   " Disable snippets in vim-go.
+"   let g:go_snippet_engine = ""
+" endif
+
+if isdirectory($PLUGDIR . '/vim-polyglot')
   let g:go_highlight_operators = 1
-  " Enable metalinter_autosave only in 'Projects' folder.
-  let g:go_metalinter_autosave = 0
-  if match(expand('%'), $HOME . '/Projects') == 0
-    let g:go_metalinter_autosave = 1
-  endif
-  let g:go_metalinter_enabled = ['govet', 'errcheck', 'golint', 'staticcheck']
-  let g:go_metalinter_autosave_enabled = ['govet', 'errcheck', 'golint', 'staticcheck']
-  " Disable snippets in vim-go.
-  let g:go_snippet_engine = ""
 endif
 
 if isdirectory($PLUGDIR . '/tagbar')

@@ -14,6 +14,9 @@ hi def link typescriptPaymentShippingOptionProp NONE
 hi def link typescriptArrowFuncArg NONE
 hi def link typescriptCall NONE
 hi def link typescriptParamImpl NONE
+hi def link typescriptTypeReference NONE
+hi def link typescriptResponseProp NONE
+hi def link typescriptDOMFormProp NONE
 hi def link typescriptUnaryOp Operator
 hi def link typescriptTernaryOp Operator
 hi def link typescriptBinaryOp Operator

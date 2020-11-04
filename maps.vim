@@ -320,6 +320,10 @@ onoremap <silent> [, :<c-u>execute "keeppatterns ?" . mergeConflictMarkerPattern
 vnoremap <silent> ], /\v^(\<{7}\|\={7}\|\>{7})<cr>
 vnoremap <silent> [, ?\v^(\<{7}\|\={7}\|\>{7})<cr>
 
+" Ripgrep word under cursor or selected fragment
+nnoremap <expr> <leader>rg ":Rg -Fw '" . expand('<cword>') . "'<cr>"
+vnoremap <leader>rg :<c-u>Rg -F '<c-r>*'<cr>
+
 "=================================================
 " Commands
 "=================================================
@@ -335,17 +339,17 @@ if isdirectory($PLUGDIR . '/vim-fugitive')
   nmap <leader>gw :Gwrite <bar> if &diff <bar> quitall <bar> endif<cr>
 endif
 
-if isdirectory($PLUGDIR . '/vim-go')
-  augroup goMaps
-    autocmd FileType go nmap <leader>gb :<c-u>call BuildGoFiles()<cr>
-    autocmd FileType go nmap <leader>gr <Plug>(go-run)
-    autocmd FileType go nmap <leader>gt <Plug>(go-test)
-    autocmd FileType go nmap <leader>gtf <Plug>(go-test-func)
-    autocmd FileType go nmap <leader>gc <Plug>(go-coverage-toggle)
-    autocmd FileType go nmap <leader>gi <Plug>(go-info)
-    autocmd FileType go nmap <a-s-h> :GoSameIdsAutoToggle<cr>
-  augroup end
-endif
+" if isdirectory($PLUGDIR . '/vim-go')
+"   augroup goMaps
+"     autocmd FileType go nmap <leader>gb :<c-u>call BuildGoFiles()<cr>
+"     autocmd FileType go nmap <leader>gr <Plug>(go-run)
+"     autocmd FileType go nmap <leader>gt <Plug>(go-test)
+"     autocmd FileType go nmap <leader>gtf <Plug>(go-test-func)
+"     autocmd FileType go nmap <leader>gc <Plug>(go-coverage-toggle)
+"     autocmd FileType go nmap <leader>gi <Plug>(go-info)
+"     autocmd FileType go nmap <a-s-h> :GoSameIdsAutoToggle<cr>
+"   augroup end
+" endif
 
 if isdirectory($PLUGDIR . '/neosnippet.vim')
   imap <c-j> <Plug>(neosnippet_expand_or_jump)
