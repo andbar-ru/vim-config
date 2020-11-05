@@ -115,8 +115,8 @@ inoremap <silent> <c-left> <c-o>B
 " Выделение последнего вставленного текста
 nnoremap <expr> <A-v> '`[' . strpart(getregtype(), 0, 1) . '`]'
 inoremap <expr> <A-v> '<Esc>`[' . strpart(getregtype(), 0, 1) . '`]'
-" Select entire comment
-nnoremap vac :call SelectComment()<cr>
+" Select entire comment (vac is occupied by "select a class")
+nnoremap vam :call SelectComment()<cr>
 " Выполнение команды для каждой выделенной строки
 vnoremap <A-n> :norm<Space>
 " Перемещение строк вверх и вниз (на предмет соответствия отступам см. ==)

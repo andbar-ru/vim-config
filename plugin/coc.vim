@@ -81,12 +81,14 @@ augroup cocMaps
   " execute 'autocmd Filetype ' . s:cocFiletypes . ' nmap <leader>chf <plug>(coc-float-hide)'
   execute "autocmd Filetype " . s:cocFiletypes . " nmap <leader>crf <plug>(coc-refactor)"
   " Mappings for function text object, requires document symbols feature of languageserver.
-  " Mapping to <plug>(coc-funcobj-i) for some reason doesn't work.
-  execute "autocmd Filetype " . s:cocFiletypes . " onoremap if :<c-u>call coc#rpc#request('selectFunction', [v:true, ''])<cr>"
-  execute "autocmd Filetype " . s:cocFiletypes . " vnoremap if :<c-u>call coc#rpc#request('selectFunction', [v:true, visualmode()])<cr>"
-  execute "autocmd Filetype " . s:cocFiletypes . " onoremap af :<c-u>call coc#rpc#request('selectFunction', [v:false, ''])<cr>"
-  execute "autocmd Filetype " . s:cocFiletypes . " vnoremap af :<c-u>call coc#rpc#request('selectFunction', [v:false, visualmode()])<cr>"
-  execute "autocmd Filetype " . s:cocFiletypes . " nmap <leader>af <plug>(coc-funcobj-a)"
+  execute "autocmd Filetype " . s:cocFiletypes . " xmap if <plug>(coc-funcobj-i)"
+  execute "autocmd Filetype " . s:cocFiletypes . " omap if <plug>(coc-funcobj-i)"
+  execute "autocmd Filetype " . s:cocFiletypes . " xmap af <plug>(coc-funcobj-a)"
+  execute "autocmd Filetype " . s:cocFiletypes . " omap af <plug>(coc-funcobj-a)"
+  execute "autocmd Filetype " . s:cocFiletypes . " xmap ic <plug>(coc-classobj-i)"
+  execute "autocmd Filetype " . s:cocFiletypes . " omap ic <plug>(coc-classobj-i)"
+  execute "autocmd Filetype " . s:cocFiletypes . " xmap ac <plug>(coc-classobj-a)"
+  execute "autocmd Filetype " . s:cocFiletypes . " omap ac <plug>(coc-classobj-a)"
   " Use <c-d> for select selections ranges, needs server support, like: coc-tsserver, coc-python
   execute "autocmd Filetype " . s:cocFiletypes . " nmap <silent> <c-s> :<c-u>call CocAction('rangeSelect', '', v:true)<cr>"
   execute "autocmd Filetype " . s:cocFiletypes . " xmap <silent> <c-s> :<c-u>call CocAction('rangeSelect', visualmode(), v:true)<cr>"
