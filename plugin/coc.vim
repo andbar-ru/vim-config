@@ -36,6 +36,7 @@ imap <expr> <s-tab> pumvisible() ? '<c-p>' : '<s-tab>'
 
 let s:cocFiletypes = "javascript,json,typescript,vue,python,go"
 augroup cocMaps
+  execute "autocmd Filetype " . s:cocFiletypes . " nmap <silent> <leader>cld :<c-u>CocList diagnostics<cr>"
   execute "autocmd Filetype " . s:cocFiletypes . " nmap <silent> [g <plug>(coc-diagnostic-prev)"
   execute "autocmd Filetype " . s:cocFiletypes . " nmap <silent> ]g <plug>(coc-diagnostic-next)"
   " execute 'autocmd Filetype ' . s:cocFiletypes . ' nmap <silent> [ge <plug>(coc-diagnostic-prev-error)'
@@ -64,11 +65,12 @@ augroup cocMaps
   execute "autocmd Filetype " . s:cocFiletypes . " nnoremap <silent> K :call <sid>show_documentation()<cr>"
   execute "autocmd Filetype " . s:cocFiletypes . " nnoremap <silent> <leader>csh :<c-u>call CocActionAsync('showSignatureHelp')<cr>"
   execute "autocmd Filetype " . s:cocFiletypes . " nmap <leader>pf :<c-u>echo CocAction('getCurrentFunctionSymbol')<cr>"
-  execute "autocmd Filetype " . s:cocFiletypes . " nmap <leader>ss :<c-u>call CocAction('workspaceSymbols')<cr>"
   execute "autocmd Filetype " . s:cocFiletypes . " nmap <leader>cr <plug>(coc-rename)"
+  " Format entire document (coc-prettier required)
+  execute "autocmd Filetype " . s:cocFiletypes . " nmap <leader>cff <plug>(coc-format)"
   " Format selected region (coc-prettier required)
-  execute "autocmd Filetype " . s:cocFiletypes . " vmap <leader>cf <plug>(coc-format-selected)"
   execute "autocmd Filetype " . s:cocFiletypes . " nmap <leader>cf <plug>(coc-format-selected)"
+  execute "autocmd Filetype " . s:cocFiletypes . " vmap <leader>cf <plug>(coc-format-selected)"
   " Remap for do codeAction of selected region, ex: `<leader>ap` for current paragraph
   execute "autocmd Filetype " . s:cocFiletypes . " vmap <leader>ca <plug>(coc-codeaction-selected)"
   execute "autocmd Filetype " . s:cocFiletypes . " nmap <leader>ca <plug>(coc-codeaction-selected)"
@@ -76,7 +78,7 @@ augroup cocMaps
   execute "autocmd Filetype " . s:cocFiletypes . " nmap <leader>cca <plug>(coc-codeaction)"
   " Fix autofix problem of current line
   execute "autocmd Filetype " . s:cocFiletypes . " nmap <leader>cqf <plug>(coc-fix-current)"
-  execute "autocmd Filetype " . s:cocFiletypes . " nmap <leader>cfh <plug>(coc-float-hide)"
+  " execute 'autocmd Filetype ' . s:cocFiletypes . ' nmap <leader>chf <plug>(coc-float-hide)'
   execute "autocmd Filetype " . s:cocFiletypes . " nmap <leader>crf <plug>(coc-refactor)"
   " Mappings for function text object, requires document symbols feature of languageserver.
   " Mapping to <plug>(coc-funcobj-i) for some reason doesn't work.
@@ -86,9 +88,10 @@ augroup cocMaps
   execute "autocmd Filetype " . s:cocFiletypes . " vnoremap af :<c-u>call coc#rpc#request('selectFunction', [v:false, visualmode()])<cr>"
   execute "autocmd Filetype " . s:cocFiletypes . " nmap <leader>af <plug>(coc-funcobj-a)"
   " Use <c-d> for select selections ranges, needs server support, like: coc-tsserver, coc-python
-  execute "autocmd Filetype " . s:cocFiletypes . " nmap <silent> <c-d> <plug>(coc-range-select)"
-  execute "autocmd Filetype " . s:cocFiletypes . " xmap <silent> <c-d> <plug>(coc-range-select)"
-  execute "autocmd Filetype " . s:cocFiletypes . " nmap <silent> <leader>cld :<c-u>CocList diagnostics<cr>"
+  execute "autocmd Filetype " . s:cocFiletypes . " nmap <silent> <c-s> :<c-u>call CocAction('rangeSelect', '', v:true)<cr>"
+  execute "autocmd Filetype " . s:cocFiletypes . " xmap <silent> <c-s> :<c-u>call CocAction('rangeSelect', visualmode(), v:true)<cr>"
+  execute "autocmd Filetype " . s:cocFiletypes . " xmap <silent> <c-a-s> :<c-u>call CocAction('rangeSelect', visualmode(), v:false)<cr>"
+  
   execute "autocmd Filetype " . s:cocFiletypes . " nmap <silent> <leader>cle :<c-u>CocList extensions<cr>"
   execute "autocmd Filetype " . s:cocFiletypes . " nmap <silent> <leader>clc :<c-u>CocList commands<cr>"
   execute "autocmd Filetype " . s:cocFiletypes . " nmap <silent> <leader>clo :<c-u>CocList outline<cr>"
@@ -171,38 +174,50 @@ anoremenu 1.130 PopUp.Coc.References.Vertical\ Split<tab><leader>grv :<c-u>call 
 anoremenu 1.130 PopUp.Coc.References.New\ Tab<tab><leader>grt :<c-u>call CocAction('jumpReferences', 'tabe')<cr>
 
 anoremenu 1.130 PopUp.Coc.Hover<tab>K :<c-u>call CocAction('doHover')<cr>
-anoremenu 1.130 PopUp.Coc.ShowSignatureHelp<tab><leader>csh :<c-u>call CocActionAsync('showSignatureHelp')<cr>
-
-" <Plug>(coc-format-selected)
-vnoremenu 1.130 PopUp.Coc.FormatSelected :<c-u>call CocActionAsync('formatSelected', visualmode())<cr>
-" <Plug>(coc-format)
-anoremenu 1.130 PopUp.Coc.FormatDocument :<c-u>call CocActionAsync('format')<cr>
+anoremenu 1.130 PopUp.Coc.Show\ Signature\ Help<tab><leader>csh :<c-u>call CocActionAsync('showSignatureHelp')<cr>
+anoremenu 1.130 PopUp.Coc.Get\ Current\ Function\ Symbol<tab><leader>pf :<c-u>echo CocAction('getCurrentFunctionSymbol')<cr>
+anoremenu 1.130 PopUp.Coc.Document\ Symbols :<c-u>echo CocAction('documentSymbols')<cr>
 " <Plug>(coc-rename)
-anoremenu 1.130 PopUp.Coc.Rename :<c-u>call CocActionAsync('rename')<cr>
+anoremenu 1.130 PopUp.Coc.Rename<tab><leader>cr :<c-u>call CocActionAsync('rename')<cr>
+
+" <Plug>(coc-format)
+anoremenu 1.130 PopUp.Coc.Format\ Document<tab><leader>cff :<c-u>call CocActionAsync('format')<cr>
+" <Plug>(coc-format-selected)
+vnoremenu 1.130 PopUp.Coc.Format\ Selected<tab><leader>cf :<c-u>call CocActionAsync('formatSelected', visualmode())<cr>
 " <Plug>(coc-codeaction)
-anoremenu 1.130 PopUp.Coc.CodeAction :<c-u>call CocActionAsync('codeAction', '')<cr>
+anoremenu 1.130 PopUp.Coc.CodeAction<tab><leader>ca :<c-u>call CocActionAsync('codeAction', '')<cr>
 " <Plug>(coc-codeaction-selected)
-vnoremenu 1.130 PopUp.Coc.CodeActionSelected :<c-u>call CocActionAsync('codeAction', visualmode())<cr>
+vnoremenu 1.130 PopUp.Coc.CodeActionSelected<tab><leader>ca :<c-u>call CocActionAsync('codeAction', visualmode())<cr>
 " <Plug>(coc-openlink)
-anoremenu 1.130 PopUp.Coc.OpenLink :<c-u>call CocActionAsync('openLink')<cr>
+anoremenu 1.130 PopUp.Coc.Open\ Link :<c-u>call CocActionAsync('openLink')<cr>
 " <Plug>(coc-codelens-action)
-anoremenu 1.130 PopUp.Coc.CodelensAction :<c-u>call CocActionAsync('codeLensAction')<cr>
+anoremenu 1.130 PopUp.Coc.Codelens\ Action :<c-u>call CocActionAsync('codeLensAction')<cr>
 " <Plug>(coc-fix-current)
-anoremenu 1.130 PopUp.Coc.FixCurrent :<c-u>call CocActionAsync('doQuickfix')<cr>
+anoremenu 1.130 PopUp.Coc.Fix\ Current<tab><leader>cqf :<c-u>call CocActionAsync('doQuickfix')<cr>
 " <Plug>(coc-float-hide)
-anoremenu 1.130 PopUp.Coc.FloatHide :<c-u>call coc#util#float_hide()<cr>
+anoremenu 1.130 PopUp.Coc.Hide\ Float<tab><leader>chf :<c-u>call coc#util#float_hide()<cr>
+anoremenu 1.130 PopUp.Coc.Highlight<tab><leader>ch :<c-u>call CocActionAsync('highlight')<cr>
 " <Plug>(coc-float-jump)
-anoremenu 1.130 PopUp.Coc.FloatJump :<c-u>call coc#util#float_jump()<cr>
+anoremenu 1.130 PopUp.Coc.Float\ Jump :<c-u>call coc#float#jump()<cr>
 " <Plug>(coc-refactor)
-anoremenu 1.130 PopUp.Coc.Refactor :<c-u>call CocActionAsync('refactor')<cr>
+anoremenu 1.130 PopUp.Coc.Refactor<tab><leader>crf :<c-u>call CocActionAsync('refactor')<cr>
 " <Plug>(coc-range-select)
-anoremenu 1.130 PopUp.Coc.RangeSelect :<c-u>call CocAction('rangeSelect', '', v:true)<cr>
-vnoremenu 1.130 PopUp.Coc.RangeSelect :<c-u>call CocAction('rangeSelect', visualmode(), v:true)<cr>
+anoremenu 1.130 PopUp.Coc.Range\ Select<tab><c-s> :<c-u>call CocAction('rangeSelect', '', v:true)<cr>
+vnoremenu 1.130 PopUp.Coc.Range\ Select<tab><c-s> :<c-u>call CocAction('rangeSelect', visualmode(), v:true)<cr>
 " <Plug>(coc-range-select-backward)
-vnoremenu 1.130 PopUp.Coc.RangeSelectBackward :<c-u>call CocAction('rangeSelect', visualmode(), v:false)<cr>
+vnoremenu 1.130 PopUp.Coc.Range\ Select\ Backward<tab><c-a-s> :<c-u>call CocAction('rangeSelect', visualmode(), v:false)<cr>
 " <Plug>(coc-funcobj-i)
-anoremenu 1.130 PopUp.Coc.SelectInsideFunction :<c-u>call coc#rpc#request('selectFunction', [v:true, ''])<cr>
-vnoremenu 1.130 PopUp.Coc.SelectInsideFunction :<c-u>call coc#rpc#request('selectFunction', [v:true, visualmode()])<cr>
+anoremenu 1.130 PopUp.Coc.Select\ Inside\ Function<tab>vif :<c-u>call coc#rpc#request('selectFunction', [v:true, ''])<cr>
+vnoremenu 1.130 PopUp.Coc.Select\ Inside\ Function<tab>if :<c-u>call coc#rpc#request('selectFunction', [v:true, visualmode()])<cr>
 " <Plug>(coc-funcobj-a)
-anoremenu 1.130 PopUp.Coc.SelectFunction :<c-u>call coc#rpc#request('selectFunction', [v:false, ''])<cr>
-vnoremenu 1.130 PopUp.Coc.SelectFunction :<c-u>call coc#rpc#request('selectFunction', [v:false, visualmode()])<cr>
+anoremenu 1.130 PopUp.Coc.Select\ Function<tab>vaf :<c-u>call coc#rpc#request('selectFunction', [v:false, ''])<cr>
+vnoremenu 1.130 PopUp.Coc.Select\ Function<tab>af :<c-u>call coc#rpc#request('selectFunction', [v:false, visualmode()])<cr>
+
+anoremenu 1.130 PopUp.Coc.List.Extensions<tab><leader>cle :<c-u>CocList extensions<cr>
+anoremenu 1.130 PopUp.Coc.List.Commands<tab><leader>clc :<c-u>CocList commands<cr>
+anoremenu 1.130 PopUp.Coc.List.Outline<tab><leader>clo :<c-u>CocList outline<cr>
+anoremenu 1.130 PopUp.Coc.List.Symbols<tab><leader>cls :<c-u>CocList -I symbols<cr>
+anoremenu 1.130 PopUp.Coc.List.Resume<tab><leader>clr :<c-u>CocListResume<cr>
+
+anoremenu 1.130 PopUp.Coc.Next<tab><leader>cn :<c-u>CocNext<cr>
+anoremenu 1.130 PopUp.Coc.Prev<tab><leader>cp :<c-u>CocPrev<cr>
