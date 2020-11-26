@@ -249,25 +249,34 @@ endfunction
 
 " Delete current snippet
 function! DeleteSnippet()
-  let lineNo = search('^\v\s*.+ begin #{40,}$', 'bwc')
-  if lineNo == 0
-    return
+  let lineNoBegin = search('^\v\s*.+ begin #{40,}$', 'bwc')
+  if lineNoBegin == 0
+    return 0
   endif
-  normal! V
-  let lineNo = search('^\v\s*.+ end #{40,}$', 'W')
-  if lineNo == 0
-    return
+  let lineNoEnd = search('^\v\s*.+ end #{40,}$', 'W')
+  if lineNoEnd == 0
+    return 0
   endif
-  normal! d
+  let code = deletebufline('%', lineNoBegin, lineNoEnd)
+  if code == 1
+    return 0
+  endif
+  return lineNoEnd - lineNoBegin + 1
 endfunction
 
 " Delete all blocks # begin #... # end #... in file.
 function! DeleteAllSnippets()
+  let linesDeletedSum = 0
   while 1
     let lineNo = search('^\v\s*.+ begin #{40,}$', 'wc')
     if lineNo == 0
       break
     endif
-    call DeleteSnippet()
+    let linesDeleted = DeleteSnippet()
+    if linesDeleted == 0
+      break
+    endif
+    let linesDeletedSum += linesDeleted
   endwhile
+  echo linesDeletedSum . ' fewer lines'
 endfunction

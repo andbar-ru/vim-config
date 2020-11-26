@@ -14,6 +14,7 @@ command! ToggleMenu if &guioptions=~"m" | set guioptions-=m | else | set guiopti
 command! ToggleScrollbar if &guioptions=~"r" | set guioptions-=r | else | set guioptions+=r | endif
 command! DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis | wincmd p | diffthis
 command! CloseListWindows windo if &buftype == 'quickfix' | lclose | cclose | endif
+command! DeleteAllSnippets :call DeleteAllSnippets()
 
 " if isdirectory($PLUGDIR . '/vim-go')
 "   augroup goCommands

@@ -229,8 +229,9 @@ nmap <silent> yoc :call DCYOutWrapper('y')<cr>
 
 noremap <A--> :ToggleDashInIskeyword<CR>
 inoremap <A--> <C-o>:ToggleDashInIskeyword<CR>
-" Delete block # begin #... # end #...
+" Delete block(s) # begin #... # end #...
 noremap <leader>ds :call DeleteSnippet()<cr>
+noremap <leader>das :call DeleteAllSnippets()<cr>
 
 " Search
 " Search word under cursor in adjacent windows.

@@ -13,7 +13,7 @@ if executable('git')
   silent! system('git rev-parse --is-inside-work-tree')
   if !v:shell_error
     Plug 'tpope/vim-fugitive'
-    Plug 'airblade/vim-gitgutter'
+    " Plug 'airblade/vim-gitgutter'
   endif
 endif
 Plug 'tomtom/tcomment_vim'
