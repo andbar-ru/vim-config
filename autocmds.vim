@@ -12,9 +12,11 @@ augroup vimrc
   autocmd BufRead log.txt setlocal autoread filetype=logtxt
   autocmd BufRead *.log.txt setlocal autoread filetype=logtxt
   autocmd BufRead rules setlocal noexpandtab  " debian/rules
+  autocmd BufRead .xbindkeysrc setlocal ft=conf
   autocmd FileType python setlocal ts=4 sw=4 cc=100,120 completeopt-=preview
   autocmd FileType go setlocal ts=4 sw=4 noet
   autocmd FileType java setlocal ts=4 sw=4 et
+  autocmd FileType vue setlocal iskeyword+=45
   autocmd FileType json setlocal foldminlines=0 foldnestmax=99
   autocmd FileType neosnippet setlocal noexpandtab
   autocmd BufLeave * call AutoSaveWinView()

@@ -44,16 +44,17 @@ endif
 if has('nvim')
   Plug 'equalsraf/neovim-gui-shim'
 endif
-" Built in typescript syntax rules does not always work properly.
-Plug 'sheerun/vim-polyglot'
-" Plug 'pangloss/vim-javascript'
-" Plug 'dzeban/vim-log-syntax'
-" Plug 'posva/vim-vue'
-" Plug 'groenewege/vim-less'
-" Plug 'Vimjas/vim-python-pep8-indent'
-" Plug 'vim-python/python-syntax'
-" Plug 'leafgarland/typescript-vim'
-" Plug 'jparise/vim-graphql'
+
+" vim-polyglot causes error 'Error detected while processing function <SNR>18_BMRemove: E731: using Dictionary as a String'
+" Plug 'sheerun/vim-polyglot'
+Plug 'leafgarland/typescript-vim'
+Plug 'pangloss/vim-javascript'
+Plug 'dzeban/vim-log-syntax'
+Plug 'posva/vim-vue'
+Plug 'groenewege/vim-less'
+Plug 'Vimjas/vim-python-pep8-indent'
+Plug 'vim-python/python-syntax'
+Plug 'jparise/vim-graphql'
 call plug#end()
 
 runtime defaults.vim
@@ -67,6 +68,8 @@ packadd! matchit
 
 let g:hostname = substitute(system('hostname'), '\n', '', '')
 let g:highlightTrailingSpace = 1
+" <Ctrl-6> should go to the last file, not to netrw.
+let g:netrw_altfile = 1
 
 " Includes
 let $VIMRCDIR = expand('<sfile>:p:h')

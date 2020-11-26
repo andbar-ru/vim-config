@@ -1,14 +1,9 @@
 if isdirectory($VIMRCDIR . '/plugged/nerdtree')
-  let NERDTreeWinSize=30
-  let NERDTreeChDirMode=1  " do not change curdir
-  let NERDTreeQuitOnOpen=3
-  let NERDTreeIgnore=['\.pyc', '\.swp$']
-endif
-
-if isdirectory($PLUGDIR . '/supertab')
-  let g:SuperTabDefultCompletionType = "<c-p>"
-  let g:SuperTabRetainCompletionDuration = "completion"
-  let g:SuperTabNoCompleteAfter = ['\s', ':', ')', ']', '}', "'", '"', '^']
+  let NERDTreeWinSize = 30
+  let NERDTreeChDirMode = 1  " do not change curdir
+  let NERDTreeQuitOnOpen = 3
+  let NERDTreeIgnore = ['\.pyc', '\.swp$']
+  let NERDTreeHijackNetrw = 0
 endif
 
 if isdirectory($PLUGDIR . '/vim-python-pep8-indent')
@@ -98,9 +93,9 @@ endif
 "   let g:go_snippet_engine = ""
 " endif
 
-if isdirectory($PLUGDIR . '/vim-polyglot')
-  let g:go_highlight_operators = 1
-endif
+" if isdirectory($PLUGDIR . '/vim-polyglot')
+"   let g:go_highlight_operators = 1
+" endif
 
 if isdirectory($PLUGDIR . '/tagbar')
   " ctagsargs taken from tagbar.vim and modified to support roles.

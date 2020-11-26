@@ -246,3 +246,28 @@ function! SuperTab()
     return "\<tab>"
   endif
 endfunction
+
+" Delete current snippet
+function! DeleteSnippet()
+  let lineNo = search('^\v\s*.+ begin #{40,}$', 'bwc')
+  if lineNo == 0
+    return
+  endif
+  normal! V
+  let lineNo = search('^\v\s*.+ end #{40,}$', 'W')
+  if lineNo == 0
+    return
+  endif
+  normal! d
+endfunction
+
+" Delete all blocks # begin #... # end #... in file.
+function! DeleteAllSnippets()
+  while 1
+    let lineNo = search('^\v\s*.+ begin #{40,}$', 'wc')
+    if lineNo == 0
+      break
+    endif
+    call DeleteSnippet()
+  endwhile
+endfunction

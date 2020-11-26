@@ -42,7 +42,8 @@ augroup cocMaps
   " execute 'autocmd Filetype ' . s:cocFiletypes . ' nmap <silent> [ge <plug>(coc-diagnostic-prev-error)'
   " execute 'autocmd Filetype ' . s:cocFiletypes . ' nmap <silent> ]ge <plug>(coc-diagnostic-next-error)'
   "
-  execute "autocmd Filetype " . s:cocFiletypes . " nmap <silent> <leader>gd <plug>(coc-definition)"
+  execute "autocmd Filetype " . s:cocFiletypes . " nmap <silent> <leader>gdd <plug>(coc-definition)"
+  execute "autocmd Filetype " . s:cocFiletypes . " nmap <silent> gD <plug>(coc-definition)"
   execute "autocmd Filetype " . s:cocFiletypes . " nmap <silent> <leader>gds :<c-u>call CocAction('jumpDefinition', 'split')<cr>"
   execute "autocmd Filetype " . s:cocFiletypes . " nmap <silent> <leader>gdv :<c-u>call CocAction('jumpDefinition', 'vsplit')<cr>"
   execute "autocmd Filetype " . s:cocFiletypes . " nmap <silent> <leader>gdt :<c-u>call CocAction('jumpDefinition', 'tabe')<cr>"

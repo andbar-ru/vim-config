@@ -199,7 +199,7 @@ noremap <A-t> :tabnew<CR>
 inoremap <A-t> <Esc>:tabnew<CR>
 noremap <S-A-t> :exe "tabnew" . expand('%:p:h') . '/'<CR>
 inoremap <S-A-t> <Esc>:exe "tabnew" . expand('%:p:h') . '/'<CR>
-nmap <a-e> :execute "e" . expand('%:p:h') . '/'<cr>Pj
+nmap <a-e> :e .<cr>
 " inoremap <A-e> mapped by auto-pairs
 noremap <A-c> :bw<CR>
 inoremap <A-c> <Esc>:bw<CR>
@@ -229,22 +229,22 @@ nmap <silent> yoc :call DCYOutWrapper('y')<cr>
 
 noremap <A--> :ToggleDashInIskeyword<CR>
 inoremap <A--> <C-o>:ToggleDashInIskeyword<CR>
-" Удаление блока # begin #... # end #... (delete snippet)
-noremap <leader>ds ?\v^\s*.+ begin #{40,}$<cr>v/\v^\s*.+ end #{40,}$<cr>Vd
+" Delete block # begin #... # end #...
+noremap <leader>ds :call DeleteSnippet()<cr>
 
-" Поиск
-"Поиск слова под курсором в соседних окнах
-nnoremap <leader>/h yiw<C-w>h/<C-r>"<CR>
-nnoremap <leader>/j yiw<C-w>j/<C-r>"<CR>
-nnoremap <leader>/k yiw<C-w>k/<C-r>"<CR>
-nnoremap <leader>/l yiw<C-w>l/<C-r>"<CR>
-"Поиск выделенного текста в соседних окнах
-vnoremap <leader>/h y<C-w>h/<C-r>"<CR>
-vnoremap <leader>/j y<C-w>j/<C-r>"<CR>
-vnoremap <leader>/k y<C-w>k/<C-r>"<CR>
-vnoremap <leader>/l y<C-w>l/<C-r>"<CR>
-" Сколько раз слово под курсором встречается в файле
-nnoremap <leader>* *<C-o>:%s///n<CR>
+" Search
+" Search word under cursor in adjacent windows.
+nnoremap <leader>/h yiw<c-w>h/\<<c-r>"\><cr>
+nnoremap <leader>/j yiw<c-w>j/\<<c-r>"\><cr>
+nnoremap <leader>/k yiw<c-w>k/\<<c-r>"\><cr>
+nnoremap <leader>/l yiw<c-w>l/\<<c-r>"\><cr>
+" Search selected fragment in adjacent windows.
+vnoremap <leader>/h y<c-w>h/<c-r>"<cr>
+vnoremap <leader>/j y<c-w>j/<c-r>"<cr>
+vnoremap <leader>/k y<c-w>k/<c-r>"<cr>
+vnoremap <leader>/l y<c-w>l/<c-r>"<cr>
+" How many times word under cursor occurs in the file.
+nnoremap <leader>* *<c-o>:%s///n<cr>
 " Следующее/предыдущее вхождение выделенного фрагмента (в пределах строки)
 " (http://vim.wikia.com/wiki/Search_for_visually_selected_text)
 vnoremap <expr> <leader>8 'y/\V' . escape(@",'\') . '<cr>'
@@ -319,6 +319,11 @@ onoremap <silent> [, :<c-u>execute "keeppatterns ?" . mergeConflictMarkerPattern
 " Could not apply keeppatterns here.
 vnoremap <silent> ], /\v^(\<{7}\|\={7}\|\>{7})<cr>
 vnoremap <silent> [, ?\v^(\<{7}\|\={7}\|\>{7})<cr>
+
+" Go to next marker /* ---, e.g. /* --- DATA --- */
+let vueGroupMarkerPattern = '^\s\+\/\*\s*---'
+nnoremap <silent> ]v :<c-u>execute "keeppatterns /" . vueGroupMarkerPattern<cr>0
+nnoremap <silent> [v :<c-u>execute "keeppatterns ?" . vueGroupMarkerPattern<cr>0
 
 " Ripgrep word under cursor or selected fragment
 nnoremap <expr> <leader>rg ":Rg -Fw '" . expand('<cword>') . "'<cr>"
