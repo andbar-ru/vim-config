@@ -70,6 +70,8 @@ let g:hostname = substitute(system('hostname'), '\n', '', '')
 let g:highlightTrailingSpace = 1
 " <Ctrl-6> should go to the last file, not to netrw.
 let g:netrw_altfile = 1
+" from autoload/netrw.vim -nonu +relativenumber
+let g:netrw_bufsettings = "noma nomod nobl nowrap ro relativenumber"
 
 " Includes
 let $VIMRCDIR = expand('<sfile>:p:h')
@@ -79,7 +81,6 @@ runtime functions.vim
 runtime commands.vim
 runtime maps.vim
 runtime autocmds.vim
-runtime syntax.vim
 
 " Colorscheme
 if $USER == 'root'
