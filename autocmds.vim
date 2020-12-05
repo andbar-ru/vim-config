@@ -1,4 +1,5 @@
-augroup vimrc
+" Here are only general autocommands. Plugin-specific autocommands elsewhere.
+augroup general
   autocmd!
   " debian system vimrc
   autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif

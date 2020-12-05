@@ -45,16 +45,15 @@ if has('nvim')
   Plug 'equalsraf/neovim-gui-shim'
 endif
 
-" vim-polyglot causes error 'Error detected while processing function <SNR>18_BMRemove: E731: using Dictionary as a String'
-" Plug 'sheerun/vim-polyglot'
-Plug 'leafgarland/typescript-vim'
-Plug 'pangloss/vim-javascript'
-Plug 'dzeban/vim-log-syntax'
-Plug 'posva/vim-vue'
-Plug 'groenewege/vim-less'
-Plug 'Vimjas/vim-python-pep8-indent'
-Plug 'vim-python/python-syntax'
-Plug 'jparise/vim-graphql'
+Plug 'sheerun/vim-polyglot'
+" Plug 'leafgarland/typescript-vim'
+" Plug 'pangloss/vim-javascript'
+" Plug 'dzeban/vim-log-syntax'
+" Plug 'posva/vim-vue'
+" Plug 'groenewege/vim-less'
+" Plug 'Vimjas/vim-python-pep8-indent'
+" Plug 'vim-python/python-syntax'
+" Plug 'jparise/vim-graphql'
 call plug#end()
 
 runtime defaults.vim

@@ -6,11 +6,6 @@ if isdirectory($VIMRCDIR . '/plugged/nerdtree')
   let NERDTreeHijackNetrw = 0
 endif
 
-if isdirectory($PLUGDIR . '/vim-python-pep8-indent')
-  let g:python_pep8_indent_multiline_string=-1
-  let g:python_highlight_all = 1
-endif
-
 if isdirectory($PLUGDIR . '/vim-gitgutter')
   let g:gitgutter_signs = 0
 endif
@@ -44,18 +39,6 @@ if isdirectory($PLUGDIR . '/fzf.vim')
 
   let $FZF_DEFAULT_OPTS = '--bind ctrl-a:select-all'
 endif
-
-" if isdirectory($PLUGDIR . '/ale')
-"   let g:ale_sign_error = 'E'
-"   let g:ale_sign_warning = 'W'
-"   let g:ale_lint_on_text_changed = 'never'
-"   let g:ale_lint_on_insert_leave = 0
-"   let g:ale_lint_on_enter = 0
-"   let g:ale_open_list = 1
-"   let g:ale_linters = {
-"   \   'go': ['gofmt', 'golint']
-"   \}
-" endif
 
 if isdirectory($PLUGDIR . '/neosnippet.vim')
   let g:neosnippet#snippets_directory="$VIMRCDIR/snippets"
@@ -91,10 +74,6 @@ endif
 "   let g:go_metalinter_autosave_enabled = ['govet', 'errcheck', 'golint', 'staticcheck']
 "   " Disable snippets in vim-go.
 "   let g:go_snippet_engine = ""
-" endif
-
-" if isdirectory($PLUGDIR . '/vim-polyglot')
-"   let g:go_highlight_operators = 1
 " endif
 
 if isdirectory($PLUGDIR . '/tagbar')
@@ -135,10 +114,6 @@ if isdirectory($PLUGDIR . '/tagbar')
   \}
 endif
 
-if isdirectory($PLUGDIR . '/vim-vue')
-  let g:vue_pre_processors = ['typescript']
-endif
-
 if isdirectory($PLUGDIR . '/coc.nvim')
   " Desactivate coc by default, activate only for certain conditions.
   let g:did_coc_loaded = 1
@@ -149,13 +124,19 @@ if isdirectory($PLUGDIR . '/coc.nvim')
     unlet g:did_coc_loaded
   endif
 
-  " coc.nvim need vim >= 8.1.1719 to support features like popup and text property.
-  let g:coc_disable_startup_warning = 1
-
   if &diff
     let g:did_coc_loaded = 1
   endif
-"   if (!has('nvim'))
-"     let g:did_coc_loaded = 1
-"   endif
+  " All coc-specific settings in plugin/coc.vim.
+endif
+
+if isdirectory($PLUGDIR . '/vim-polyglot')
+  let g:go_highlight_operators = 1
+endif
+if isdirectory($PLUGDIR . '/vim-polyglot') || isdirectory($PLUGDIR . '/vim-vue')
+  let g:vue_pre_processors = ['typescript']
+endif
+if isdirectory($PLUGDIR . '/vim-polyglot') || isdirectory($PLUGDIR . '/vim-python-pep8-indent')
+  let g:python_pep8_indent_multiline_string=-1
+  let g:python_highlight_all = 1
 endif

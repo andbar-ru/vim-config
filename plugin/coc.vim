@@ -129,6 +129,8 @@ augroup cocAutoCommands
   autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
   " Update signature help on jump placeholder
   autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+  " Organize imports on save.
+  autocmd FileType go autocmd BufWritePre <buffer> call CocAction('runCommand', 'editor.action.organizeImport')
 augroup end
 
 an 1.125 PopUp.-SEP5- <Nop>

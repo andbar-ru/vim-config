@@ -1,6 +1,8 @@
 {
   "coc.preferences.colorSupport": false,
   "coc.preferences.currentFunctionSymbolAutoUpdate": false,
+  "coc.preferences.formatOnSaveFiletypes": ["go"],
+  "coc.preferences.messageLevel": "error",
   "codeLens.enable": true,
   "diagnostic.refreshAfterSave": true,
   "diagnostic.errorSign": "E",

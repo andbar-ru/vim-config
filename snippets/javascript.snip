@@ -26,10 +26,15 @@ options head
   window.${1} = $1${0}
 	// end ###########################################
 
+snippet comment
+alias /
+options head
+	/* ${0} */
+
 snippet func-doc
 alias /*
 options head
-  /** $0 */
+  /** ${0} */
 
 snippet func-extended-doc
 alias /**
@@ -37,6 +42,11 @@ options head
   /**
    * ${0}
    */
+
+snippet vue-group-comment
+alias /-
+options head
+	/* --- ${0} --- */
 
 snippet begin-end-tsignore
 alias bet
