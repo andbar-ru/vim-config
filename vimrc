@@ -1,3 +1,5 @@
+let g:polyglot_disabled = ['typescript']
+
 let g:plug_window='topleft'
 silent! call plug#begin()
 " colorschemes
@@ -46,7 +48,7 @@ if has('nvim')
 endif
 
 Plug 'sheerun/vim-polyglot'
-" Plug 'leafgarland/typescript-vim'
+Plug 'leafgarland/typescript-vim'
 " Plug 'pangloss/vim-javascript'
 " Plug 'dzeban/vim-log-syntax'
 " Plug 'posva/vim-vue'
