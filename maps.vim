@@ -137,7 +137,6 @@ inoremap <s-del> <c-o>de
 cnoremap <s-del> <s-right><c-w>
 inoremap <c-bs> <esc>dBxs
 inoremap <c-del> <esc>ldEs
-inoremap <expr> <c-l> pumvisible() ? '<c-l>' : '<c-o>dd'
 inoremap <c-s-del> <c-\><c-o>D
 " Delete the closing tag because I sometimes forget to close opening tag with <a->>
 " when I don't want vim-closetag to add closing tag automatically.

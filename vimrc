@@ -1,8 +1,11 @@
+" Disable 'sensible' in polyglot because it sets 'noswapfile'.
+let g:polyglot_disabled = ['sensible', 'typescript']
+
 let g:plug_window='topleft'
 silent! call plug#begin()
 " colorschemes
-Plug 'mswift42/vim-themes'
 Plug 'andbar-ru/vim-unicon'
+Plug 'mswift42/vim-themes'
 Plug 'morhetz/gruvbox'
 
 Plug 'nathanaelkane/vim-indent-guides'
@@ -46,7 +49,7 @@ if has('nvim')
 endif
 
 Plug 'sheerun/vim-polyglot'
-" Plug 'leafgarland/typescript-vim'
+Plug 'leafgarland/typescript-vim'
 " Plug 'pangloss/vim-javascript'
 " Plug 'dzeban/vim-log-syntax'
 " Plug 'posva/vim-vue'
