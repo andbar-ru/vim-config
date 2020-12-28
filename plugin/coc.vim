@@ -79,7 +79,7 @@ augroup cocMaps
   execute "autocmd Filetype " . s:cocFiletypes . " nmap <leader>cca <plug>(coc-codeaction)"
   " Fix autofix problem of current line
   execute "autocmd Filetype " . s:cocFiletypes . " nmap <leader>cqf <plug>(coc-fix-current)"
-  " execute 'autocmd Filetype ' . s:cocFiletypes . ' nmap <leader>chf <plug>(coc-float-hide)'
+  execute 'autocmd Filetype ' . s:cocFiletypes . ' nmap <leader>chf <plug>(coc-float-hide)'
   execute "autocmd Filetype " . s:cocFiletypes . " nmap <leader>crf <plug>(coc-refactor)"
   " Mappings for function text object, requires document symbols feature of languageserver.
   execute "autocmd Filetype " . s:cocFiletypes . " xmap if <plug>(coc-funcobj-i)"
