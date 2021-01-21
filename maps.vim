@@ -251,8 +251,10 @@ vnoremap <expr> <leader>8 'y/\V' . escape(@",'\') . '<cr>'
 vnoremap <expr> <leader>* 'y/\V' . escape(@",'\') . '<cr>'
 vnoremap <expr> <leader>3 'y?\V' . escape(@",'\') . '<cr>'
 vnoremap <expr> <leader># 'y?\V' . escape(@",'\') . '<cr>'
-" Повторить последний поиск, но слово целиком
+" Repeat last search but wordwise.
 nnoremap <a-?> /\<<c-r>/\><cr>
+" Search wordwise
+nnoremap <c-/> /\<\><left><left>
 
 "Django, Jinja, Vue templates
 inoremap <A-{> {{<space><space>}}<left><left><left>
@@ -364,7 +366,7 @@ if isdirectory($PLUGDIR . '/neosnippet.vim')
 endif
 
 if isdirectory($PLUGDIR . '/tcomment_vim')
-  nmap <A-/> <Plug>TComment_<c-_><c-_>
+  nmap <a-/> <plug>TComment_<c-_><c-_>
 endif
 
 if isdirectory($PLUGDIR . '/auto-pairs')

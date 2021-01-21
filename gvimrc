@@ -16,6 +16,8 @@ set mousemodel=popup
 if g:hostname == 'asus'
     set lines=23 columns=100
     set guifont=Dejavu\ Sans\ Mono\ 7
+elseif &diff
+    set lines=100 columns=208
 else
     set lines=23 columns=104
 endif
