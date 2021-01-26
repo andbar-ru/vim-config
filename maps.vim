@@ -200,8 +200,6 @@ noremap <S-A-t> :exe "tabnew" . expand('%:p:h') . '/'<CR>
 inoremap <S-A-t> <Esc>:exe "tabnew" . expand('%:p:h') . '/'<CR>
 nmap <a-e> :e .<cr>
 " inoremap <A-e> mapped by auto-pairs
-noremap <A-c> :bw<CR>
-inoremap <A-c> <Esc>:bw<CR>
 noremap [t :tprevious<cr>
 noremap ]t :tnext<cr>
 noremap [b :bprevious<cr>
@@ -251,10 +249,13 @@ vnoremap <expr> <leader>8 'y/\V' . escape(@",'\') . '<cr>'
 vnoremap <expr> <leader>* 'y/\V' . escape(@",'\') . '<cr>'
 vnoremap <expr> <leader>3 'y?\V' . escape(@",'\') . '<cr>'
 vnoremap <expr> <leader># 'y?\V' . escape(@",'\') . '<cr>'
+" Case-insensitive search
+nnoremap <c-/> /\c
+" Search wordwise
+nnoremap <a-/> /\<\><left><left>
 " Repeat last search but wordwise.
 nnoremap <a-?> /\<<c-r>/\><cr>
-" Search wordwise
-nnoremap <c-/> /\<\><left><left>
+
 
 "Django, Jinja, Vue templates
 inoremap <A-{> {{<space><space>}}<left><left><left>
@@ -366,7 +367,7 @@ if isdirectory($PLUGDIR . '/neosnippet.vim')
 endif
 
 if isdirectory($PLUGDIR . '/tcomment_vim')
-  nmap <a-/> <plug>TComment_<c-_><c-_>
+  nmap <a-c> <plug>TComment_<c-_><c-_>
 endif
 
 if isdirectory($PLUGDIR . '/auto-pairs')
