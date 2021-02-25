@@ -141,7 +141,7 @@ inoremap <c-s-del> <c-\><c-o>D
 " Delete the closing tag because I sometimes forget to close opening tag with <a->>
 " when I don't want vim-closetag to add closing tag automatically.
 inoremap <a-<> <c-o>da>
-nnoremap <del> "_d
+noremap <del> "_d
 
 " Undo
 inoremap <C-z> <C-o>u
@@ -204,6 +204,8 @@ noremap [t :tprevious<cr>
 noremap ]t :tnext<cr>
 noremap [b :bprevious<cr>
 noremap ]b :bnext<cr>
+noremap [n :previous
+noremap ]n :next<cr>
 
 " Detach buffer to another viewport
 nnoremap <leader>os <c-o>:split #<cr>
@@ -332,6 +334,9 @@ nnoremap <silent> [v :<c-u>execute "keeppatterns ?" . vueGroupMarkerPattern<cr>0
 nnoremap <expr> <leader>rg ":Rg -Fw '" . expand('<cword>') . "'<cr>"
 vnoremap <leader>rg :<c-u>Rg -F '<c-r>*'<cr>
 
+" fzf: search git files
+nnoremap <leader>gf :GFiles<cr>
+
 "=================================================
 " Commands
 "=================================================
@@ -364,6 +369,8 @@ if isdirectory($PLUGDIR . '/neosnippet.vim')
   smap <c-j> <Plug>(neosnippet_expand_or_jump)
   xmap <c-j> <Plug>(neosnippet_expand_target)
   nmap <leader>rs :call neosnippet#variables#set_snippets({})<cr>
+  " Wrap selected lines in begin-end block.
+  vmap <leader>be <c-j>be<cr>gv=
 endif
 
 if isdirectory($PLUGDIR . '/tcomment_vim')
