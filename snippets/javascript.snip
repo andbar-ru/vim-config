@@ -60,3 +60,26 @@ snippet ts-ignore
 alias ti
 options head
 	// @ts-ignore
+
+snippet component
+alias comp
+options head
+	<template>
+		<div class="$1">$1 Template</div>
+	</template>
+
+	<script lang="ts">
+	import { Component, Vue } from 'vue-property-decorator'
+
+	@Component({
+		layout: ['dialog', { title: 'Window Title', top: 0, left: 0, width: 600, height: 600 }],
+	})
+	export default class ${1} extends Vue {
+	}
+	</script>
+
+	<style lang="scss">
+	.$1 {
+
+	}
+	</style>
