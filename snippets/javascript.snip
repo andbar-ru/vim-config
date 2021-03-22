@@ -71,8 +71,13 @@ options head
 	<script lang="ts">
 	import { Component, Vue } from 'vue-property-decorator'
 
+	/** Параметры компонента. */
+	export interface ComponentOptions {
+		groupName: string
+	}
+
 	@Component({
-		layout: ['dialog', { title: 'Window Title', top: 0, left: 0, width: 600, height: 600 }],
+		layout: ['dialog', { title: 'Window Title', top: 0, left: 0, width: 600, resizable: true }],
 	})
 	export default class ${1} extends Vue {
 	}

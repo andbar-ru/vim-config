@@ -60,6 +60,8 @@ Plug 'leafgarland/typescript-vim'
 call plug#end()
 
 runtime defaults.vim
+" Cancel BufReadPost autocmd in defaults.vim. My BufReadPost autocmd is in ./autocmds.vim.
+autocmd! vimStartup BufReadPost
 
 if has('win32')
   let $LANG = 'en'

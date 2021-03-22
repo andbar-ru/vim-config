@@ -1,8 +1,11 @@
 " Here are only general autocommands. Plugin-specific autocommands elsewhere.
 augroup general
   autocmd!
-  " debian system vimrc
-  autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+  " Customized autocmd from defaults.vim
+  autocmd BufReadPost *
+    \ if !&diff && &ft !~# 'commit' && line("'\"") >= 1 && line("'\"") <= line("$")
+    \ |   exe "normal! g`\""
+    \ | endif
   autocmd VimLeavePre * silent mksession! $VIMRCDIR/sessions/lastSession.vim
   autocmd BufRead * if getfsize(expand('%')) > 1048576 | setlocal syntax=OFF | endif
   if exists('g:highlightTrailingSpace')

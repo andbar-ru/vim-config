@@ -370,7 +370,7 @@ if isdirectory($PLUGDIR . '/neosnippet.vim')
   xmap <c-j> <Plug>(neosnippet_expand_target)
   nmap <leader>rs :call neosnippet#variables#set_snippets({})<cr>
   " Wrap selected lines in begin-end block.
-  vmap <leader>be <c-j>be<cr>gv=
+  vmap <leader>be <c-j>be<cr>
 endif
 
 if isdirectory($PLUGDIR . '/tcomment_vim')
