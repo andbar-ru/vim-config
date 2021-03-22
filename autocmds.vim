@@ -3,7 +3,7 @@ augroup general
   autocmd!
   " Customized autocmd from defaults.vim
   autocmd BufReadPost *
-    \ if !&diff && &ft !~# 'commit' && line("'\"") >= 1 && line("'\"") <= line("$")
+    \ if line("'\"") >= 1 && line("'\"") <= line("$") && &ft !~# 'commit' && !&diff
     \ |   exe "normal! g`\""
     \ | endif
   autocmd VimLeavePre * silent mksession! $VIMRCDIR/sessions/lastSession.vim
