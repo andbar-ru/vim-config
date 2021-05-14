@@ -61,7 +61,9 @@ call plug#end()
 
 runtime defaults.vim
 " Cancel BufReadPost autocmd in defaults.vim. My BufReadPost autocmd is in ./autocmds.vim.
-autocmd! vimStartup BufReadPost
+if &diff
+  autocmd! vimStartup BufReadPost
+endif
 
 if has('win32')
   let $LANG = 'en'

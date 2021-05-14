@@ -4,7 +4,7 @@ sessions/*
 !sessions/.gitkeep
 !bookmarks/.gitkeep
 swapfiles/*
+test_configs/*
 !swapfiles/.gitkeep
-testvimrc
 view/
 tags

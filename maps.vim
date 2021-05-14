@@ -325,10 +325,14 @@ onoremap <silent> [, :<c-u>execute "keeppatterns ?" . mergeConflictMarkerPattern
 vnoremap <silent> ], /\v^(\<{7}\|\={7}\|\>{7})<cr>
 vnoremap <silent> [, ?\v^(\<{7}\|\={7}\|\>{7})<cr>
 
-" Go to next marker /* ---, e.g. /* --- DATA --- */
+" Go to next marker /* ---, e.g. /* --- DATA --- */, /* --- METHODS --- */
 let vueGroupMarkerPattern = '^\s\+\/\*\s*---'
 nnoremap <silent> ]v :<c-u>execute "keeppatterns /" . vueGroupMarkerPattern<cr>0
 nnoremap <silent> [v :<c-u>execute "keeppatterns ?" . vueGroupMarkerPattern<cr>0
+" Select group until next marker, excluding it
+vnoremap <silent> ]v :<c-u>call search(vueGroupMarkerPattern, 'sW')<cr>kV''
+" Select previous group and exclude current line
+vnoremap <silent> [v 0:<c-u>call search(vueGroupMarkerPattern, 'bsW')<cr>V''k
 
 " Ripgrep word under cursor or selected fragment
 nnoremap <expr> <leader>rg ":Rg -Fw '" . expand('<cword>') . "'<cr>"

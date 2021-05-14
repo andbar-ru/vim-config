@@ -37,10 +37,10 @@ imap <expr> <s-tab> pumvisible() ? '<c-p>' : '<s-tab>'
 let s:cocFiletypes = "javascript,json,typescript,vue,python,go"
 augroup cocMaps
   execute "autocmd Filetype " . s:cocFiletypes . " nmap <silent> <leader>cld :<c-u>CocList diagnostics<cr>"
-  execute "autocmd Filetype " . s:cocFiletypes . " nmap <silent> [g <plug>(coc-diagnostic-prev)"
-  execute "autocmd Filetype " . s:cocFiletypes . " nmap <silent> ]g <plug>(coc-diagnostic-next)"
-  " execute 'autocmd Filetype ' . s:cocFiletypes . ' nmap <silent> [ge <plug>(coc-diagnostic-prev-error)'
-  " execute 'autocmd Filetype ' . s:cocFiletypes . ' nmap <silent> ]ge <plug>(coc-diagnostic-next-error)'
+  " execute 'autocmd Filetype ' . s:cocFiletypes . ' nmap <silent> [g <plug>(coc-diagnostic-prev)'
+  " execute 'autocmd Filetype ' . s:cocFiletypes . ' nmap <silent> ]g <plug>(coc-diagnostic-next)'
+  execute "autocmd Filetype " . s:cocFiletypes . " nmap <silent> [g <plug>(coc-diagnostic-prev-error)"
+  execute "autocmd Filetype " . s:cocFiletypes . " nmap <silent> ]g <plug>(coc-diagnostic-next-error)"
   "
   execute "autocmd Filetype " . s:cocFiletypes . " nmap <silent> <leader>gdd <plug>(coc-definition)"
   execute "autocmd Filetype " . s:cocFiletypes . " nmap <silent> gD <plug>(coc-definition)"
@@ -138,13 +138,13 @@ an 1.125 PopUp.-SEP5- <Nop>
 " <Plug>(coc-diagnostic-info)
 anoremenu 1.130 PopUp.Coc.Diagnostic.List<tab><leader>cld :<c-u>call CocActionAsync('diagnosticList')<cr>
 " <Plug>(coc-diagnostic-prev)
-anoremenu 1.130 PopUp.Coc.Diagnostic.Prev<tab>[g :<c-u>call CocActionAsync('diagnosticPrevious')<cr>
+anoremenu 1.130 PopUp.Coc.Diagnostic.Prev :<c-u>call CocActionAsync('diagnosticPrevious')<cr>
 " <Plug>(coc-diagnostic-next)
-anoremenu 1.130 PopUp.Coc.Diagnostic.Next<tab>]g :<c-u>call CocActionAsync('diagnosticNext')<cr>
+anoremenu 1.130 PopUp.Coc.Diagnostic.Next :<c-u>call CocActionAsync('diagnosticNext')<cr>
 " <Plug>(coc-diagnostic-prev-error)
-anoremenu 1.130 PopUp.Coc.Diagnostic.Prev\ Error :<c-u>call CocActionAsync('diagnosticPrevious', 'error')<cr>
+anoremenu 1.130 PopUp.Coc.Diagnostic.Prev\ Error<tab>[g :<c-u>call CocActionAsync('diagnosticPrevious', 'error')<cr>
 " <Plug>(coc-diagnostic-next-error)
-anoremenu 1.130 PopUp.Coc.Diagnostic.Next\ Error :<c-u>call CocActionAsync('diagnosticNext', 'error')<cr>
+anoremenu 1.130 PopUp.Coc.Diagnostic.Next\ Error<tab>]g :<c-u>call CocActionAsync('diagnosticNext', 'error')<cr>
 anoremenu 1.130 PopUp.Coc.Diagnostic.Info :<c-u>call CocActionAsync('diagnosticInfo')<cr>
 anoremenu 1.130 PopUp.Coc.Diagnostic.Toggle :<c-u>call CocActionAsync('diagnosticToggle')<cr>
 

@@ -56,6 +56,14 @@ options head
 	${0:TARGET}
 	// end ###########################################
 
+snippet window-component-this
+alias wct
+options head
+	// begin #########################################
+	// @ts-ignore
+	window.component = this
+	// end ###########################################
+
 snippet ts-ignore
 alias ti
 options head
@@ -88,3 +96,31 @@ options head
 
 	}
 	</style>
+
+snippet apollo-query
+alias aq
+options head
+	try {
+		const { data } = await this.$apollo.query<${1:query}, ${2:queryArgs}>({
+			client: '${3}',
+			query: ${4},
+			fetchPolicy: '${5}',
+			variables: {},
+		})
+		// begin #########################################
+		console.log(data)
+		// end ###########################################
+	} catch(err) {
+		const text = \`Ошибка запроса "${4}": ${err}\`
+		console.error(err)
+		this.$dialog.error({ title: 'Ошибка', text: text })
+	}
+
+snippet apollo-error
+alias ae
+options head
+	error(err) {
+		const text = \`Ошибка запроса "${0}": ${err}\`
+		console.error(err)
+		this.$dialog.error({ title: 'Ошибка', text: text })
+	},
