@@ -334,6 +334,15 @@ vnoremap <silent> ]v :<c-u>call search(vueGroupMarkerPattern, 'sW')<cr>kV''
 " Select previous group and exclude current line
 vnoremap <silent> [v 0:<c-u>call search(vueGroupMarkerPattern, 'bsW')<cr>V''k
 
+" Go through the beginning of a block to its end. Mnemonics: f = function
+nnoremap <silent> ]f :call search('(.*) {', 'eW')<cr>%
+onoremap <silent> ]f :call search('(.*) {', 'eW') <bar> execute 'normal %j'<cr>
+vnoremap <silent> ]f :<c-u>call search('(.*) {', 'eWs')<cr>V''o%
+" Go through the end of a block to its beginning.
+nnoremap <silent> [f :call search('^\s*}', 'beW')<cr>%{
+onoremap <silent> [f :call search('^\s*}', 'beW') <bar> execute 'normal %{'<cr>
+vnoremap <silent> [f :<c-u>call search('^\s*}', 'beWs')<cr>V''o%{j
+
 " Ripgrep word under cursor or selected fragment
 nnoremap <expr> <leader>rg ":Rg -Fw '" . expand('<cword>') . "'<cr>"
 vnoremap <leader>rg :<c-u>Rg -F '<c-r>*'<cr>

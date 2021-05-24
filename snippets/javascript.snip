@@ -97,6 +97,26 @@ options head
 	}
 	</style>
 
+snippet apollo-smart-query
+alias asq
+options head
+	@SmartQuery<${1:class}, ${2:resultType}, ${3:variablesType}, ${4:queryType}>({
+		client: '${5}',
+		query: ${6:query},
+		fetchPolicy: '${7}',
+		update({ ${8} }) {
+			// begin #########################################
+			console.log($8)
+			// end ###########################################
+		},
+		error(err) {
+			const text = \`Ошибка запроса "$6": ${err}\`
+			console.error(err)
+			this.$dialog.error({ title: 'Ошибка', text: text })
+		},
+	})
+	private readonly $8: $2 = null
+
 snippet apollo-query
 alias aq
 options head
@@ -111,7 +131,7 @@ options head
 		console.log(data)
 		// end ###########################################
 	} catch(err) {
-		const text = \`Ошибка запроса "${4}": ${err}\`
+		const text = \`Ошибка запроса "$4": ${err}\`
 		console.error(err)
 		this.$dialog.error({ title: 'Ошибка', text: text })
 	}
