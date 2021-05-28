@@ -108,6 +108,7 @@ options head
 			// begin #########################################
 			console.log($8)
 			// end ###########################################
+			return $10
 		},
 		error(err) {
 			const text = \`Ошибка запроса "$6": ${err}\`
@@ -115,7 +116,7 @@ options head
 			this.$dialog.error({ title: 'Ошибка', text: text })
 		},
 	})
-	private readonly $8: $2 = null
+	private readonly ${9}: $2 = ${10:nullValue}
 
 snippet apollo-query
 alias aq
