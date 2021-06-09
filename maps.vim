@@ -60,6 +60,8 @@ endif
 noremap <S-F10> :ToggleMenu<CR>
 inoremap <S-F10> <C-o>:ToggleMenu<CR>
 
+nmap <F11> <plug>ToggleSearchMode
+
 " Перечитать настройки
 nnoremap <leader>sv :source $MYVIMRC<cr>
 
@@ -345,19 +347,17 @@ nnoremap <silent> [f :call search(functionEnd, 'beW')<cr>%{
 onoremap <silent> [f :call search(functionEnd, 'beW') <bar> execute 'normal %{'<cr>
 vnoremap <silent> [f :<c-u>call search(functionEnd, 'beWs')<cr>V''o%{j
 
-" Ripgrep word under cursor or selected fragment
-nnoremap <expr> <leader>rg ":Rg -Fw '" . expand('<cword>') . "'<cr>"
-vnoremap <leader>rg :<c-u>Rg -F '<c-r>*'<cr>
-
-" fzf: search git files
-nnoremap <leader>gf :GFiles<cr>
-
 "=================================================
 " Commands
 "=================================================
 " a is 'action'
 nnoremap <leader>afj :FormatJson<cr>
 nnoremap <leader>ags :GetSyntaxGroupUnderCursor<cr>
+" fzf: search git files
+nnoremap <leader>gf :GFiles<cr>
+" Ripgrep word under cursor or selected fragment
+nnoremap <expr> <leader>rg ":Rg -Fw '" . expand('<cword>') . "'<cr>"
+vnoremap <leader>rg :<c-u>Rg -F '<c-r>*'<cr>
 
 "=================================================
 " Plugin specific

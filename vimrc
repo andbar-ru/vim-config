@@ -86,6 +86,7 @@ runtime plugins_settings.vim
 runtime functions.vim
 runtime commands.vim
 runtime maps.vim
+runtime abbrs.vim
 runtime autocmds.vim
 
 " Colorscheme
