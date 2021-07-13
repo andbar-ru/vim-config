@@ -164,8 +164,8 @@ noremap <a-y> "+y
 noremap <s-a-y> :%y+<cr>
 vnoremap y y`]
 vnoremap gy y
-" Duplicate multiple lines. gPP (not 2P) to be able select pasted.
-nnoremap yp ddgPP']
+" Duplicate multiple lines.
+nnoremap <silent> <expr> yp ':<c-u> normal ' . v:count1 . 'yy' . (v:count1 > 1 ? v:count1 - 1 . 'j' : '') . 'p<cr>'
 
 " Копировать строку и вставить после или вместо текущей.
 nnoremap <silent> _ :<c-u>call CopyLine(v:count, 0, 0)<cr>

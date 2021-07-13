@@ -127,6 +127,11 @@ if isdirectory($PLUGDIR . '/coc.nvim')
     unlet g:did_coc_loaded
   endif
 
+  " Disable coc in node_modules.
+  if stridx(expand('%:p'), 'node_modules') != -1
+    let g:did_coc_loaded = 1
+  endif
+
   if &diff
     let g:did_coc_loaded = 1
   endif
@@ -142,4 +147,14 @@ endif
 if isdirectory($PLUGDIR . '/vim-polyglot') || isdirectory($PLUGDIR . '/vim-python-pep8-indent')
   let g:python_pep8_indent_multiline_string=-1
   let g:python_highlight_all = 1
+endif
+
+if isdirectory($PLUGDIR . '/vim-vue-plugin')
+  let g:vim_vue_plugin_config = {
+    \'syntax': {
+      \'template': ['html'],
+      \'script': ['typescript'],
+      \'style': ['scss'],
+    \},
+  \}
 endif

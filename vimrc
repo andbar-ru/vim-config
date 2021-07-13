@@ -1,5 +1,5 @@
 " Disable 'sensible' in polyglot because it sets 'noswapfile'.
-let g:polyglot_disabled = ['sensible', 'typescript']
+" let g:polyglot_disabled = ['sensible', 'typescript', 'html']
 
 let g:plug_window='topleft'
 silent! call plug#begin()
@@ -48,15 +48,18 @@ if has('nvim')
   Plug 'equalsraf/neovim-gui-shim'
 endif
 
-Plug 'sheerun/vim-polyglot'
+" Plug 'sheerun/vim-polyglot'
 Plug 'leafgarland/typescript-vim'
-" Plug 'pangloss/vim-javascript'
-" Plug 'dzeban/vim-log-syntax'
+" BEGIN WITHOUT POLYGLOT
+Plug 'pangloss/vim-javascript'
+Plug 'dzeban/vim-log-syntax'
 " Plug 'posva/vim-vue'
-" Plug 'groenewege/vim-less'
-" Plug 'Vimjas/vim-python-pep8-indent'
-" Plug 'vim-python/python-syntax'
-" Plug 'jparise/vim-graphql'
+Plug 'leafOfTree/vim-vue-plugin'
+Plug 'groenewege/vim-less'
+Plug 'Vimjas/vim-python-pep8-indent'
+Plug 'vim-python/python-syntax'
+Plug 'jparise/vim-graphql'
+" END WITHOUT POLYGLOT
 call plug#end()
 
 runtime defaults.vim
@@ -72,12 +75,19 @@ endif
 
 packadd! matchit
 
+" Global variables
 let g:hostname = substitute(system('hostname'), '\n', '', '')
 let g:highlightTrailingSpace = 1
 " <Ctrl-6> should go to the last file, not to netrw.
 let g:netrw_altfile = 1
 " from autoload/netrw.vim -nonu +relativenumber
 let g:netrw_bufsettings = "noma nomod nobl nowrap ro relativenumber"
+let g:indentLine_enabled=0
+
+let g:html_indent_script1 = "zero"
+let g:html_indent_style1 = "zero"
+" Do not increase indent for these tags.
+let g:html_indent_autotags = "html,body,head"
 
 " Includes
 let $VIMRCDIR = expand('<sfile>:p:h')
@@ -108,8 +118,6 @@ if !exists('g:colors_name')
   set background=dark
   colorscheme blue
 endif
-
-let g:indentLine_enabled=0
 
 if version >= 800
   if executable('tput') && system('tput colors') >= 256

@@ -1,7 +1,7 @@
 {
   "coc.preferences.colorSupport": false,
   "coc.preferences.currentFunctionSymbolAutoUpdate": false,
-  "coc.preferences.formatOnSaveFiletypes": ["go", "vue"],
+  "coc.preferences.formatOnSaveFiletypes": ["go", "vue", "typescript"],
   "coc.preferences.messageLevel": "warning",
   "coc.preferences.willSaveHandlerTimeout": 5000,
   "codeLens.enable": true,

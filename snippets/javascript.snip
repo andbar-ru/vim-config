@@ -79,6 +79,27 @@ options head
 	<script lang="ts">
 	import { Component, Vue } from 'vue-property-decorator'
 
+	@Component
+	export default class ${1} extends Vue {
+	}
+	</script>
+
+	<style lang="scss">
+	.$1 {
+
+	}
+	</style>
+
+snippet componentWindow
+alias compWin
+options head
+	<template>
+		<div class="$1">$1 Template</div>
+	</template>
+
+	<script lang="ts">
+	import { Component, Vue } from 'vue-property-decorator'
+
 	/** Параметры компонента. */
 	export interface ComponentOptions {
 		groupName: string
@@ -111,7 +132,7 @@ options head
 			return $10
 		},
 		error(err) {
-			const text = \`Ошибка запроса "$6": ${err}\`
+			const text = \`ошибка запроса "$6": ${err}\`
 			console.error(err)
 			this.$dialog.error({ title: 'Ошибка', text: text })
 		},
@@ -132,7 +153,7 @@ options head
 		console.log(data)
 		// end ###########################################
 	} catch(err) {
-		const text = \`Ошибка запроса "$4": ${err}\`
+		const text = \`ошибка запроса "$4": ${err}\`
 		console.error(err)
 		this.$dialog.error({ title: 'Ошибка', text: text })
 	}
@@ -141,7 +162,7 @@ snippet apollo-error
 alias ae
 options head
 	error(err) {
-		const text = \`Ошибка запроса "${0}": ${err}\`
+		const text = \`ошибка запроса "${0}": ${err}\`
 		console.error(err)
 		this.$dialog.error({ title: 'Ошибка', text: text })
 	},
