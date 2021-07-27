@@ -1,0 +1,2 @@
+Ссылка leafgarland_typescript.vim создана, чтобы плагин vim-vue-plugin не использовал для подсветки
+кода typescript $VIMRUNTIME/syntax/typescript.vim.

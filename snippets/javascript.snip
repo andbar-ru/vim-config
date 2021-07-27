@@ -64,6 +64,16 @@ options head
 	window.component = this
 	// end ###########################################
 
+snippet mounted-window-component-this
+alias mwct
+options head
+	// begin #########################################
+	private mounted() {
+		// @ts-ignore
+		window.component = this
+	}
+	// end ###########################################
+
 snippet ts-ignore
 alias ti
 options head

@@ -76,43 +76,43 @@ endif
 "   let g:go_snippet_engine = ""
 " endif
 
-if isdirectory($PLUGDIR . '/tagbar')
-  " ctagsargs taken from tagbar.vim and modified to support roles.
-  let g:tagbar_type_vue = {
-    \'ctagstype': 'vue',
-    \'kinds': [
-      \'t:tags:0:1',
-      \'o:objects:0:1',
-      \'p:properties:0:0',
-      \'n:names:0:0',
-      \'f:functions:0:1',
-      \'e:events:0:0',
-      \'v:variables:0:0',
-      \'c:style_classes:0:0',
-      \'i:style_ids:0:0',
-      \'s:style_selectors:0:0'
-    \],
-    \'sro': '.',
-    \'kind2scope': {
-      \'o': 'object',
-      \'p': 'property',
-      \'n': 'name',
-      \'f': 'function',
-    \},
-    \'sort': 0,
-    \'ctagsargs': [
-      \'-o',
-      \'-',
-      \'--format=2',
-      \'--excmd=pattern',
-      \'--fields=nksSafrE',
-      \'--extras=+rg',
-      \'--file-scope=yes',
-      \'--sort=no',
-      \'--append=no'
-    \]
-  \}
-endif
+" if isdirectory($PLUGDIR . '/tagbar')
+"   " ctagsargs taken from tagbar.vim and modified to support roles.
+"   let g:tagbar_type_vue = {
+"     \'ctagstype': 'vue',
+"     \'kinds': [
+"       \'t:tags:0:1',
+"       \'o:objects:0:1',
+"       \'p:properties:0:0',
+"       \'n:names:0:0',
+"       \'f:functions:0:1',
+"       \'e:events:0:0',
+"       \'v:variables:0:0',
+"       \'c:style_classes:0:0',
+"       \'i:style_ids:0:0',
+"       \'s:style_selectors:0:0'
+"     \],
+"     \'sro': '.',
+"     \'kind2scope': {
+"       \'o': 'object',
+"       \'p': 'property',
+"       \'n': 'name',
+"       \'f': 'function',
+"     \},
+"     \'sort': 0,
+"     \'ctagsargs': [
+"       \'-o',
+"       \'-',
+"       \'--format=2',
+"       \'--excmd=pattern',
+"       \'--fields=nksSafrE',
+"       \'--extras=+rg',
+"       \'--file-scope=yes',
+"       \'--sort=no',
+"       \'--append=no'
+"     \]
+"   \}
+" endif
 
 if isdirectory($PLUGDIR . '/coc.nvim')
   let g:coc_node_path = "~/Programs/nvm/versions/node/v14.17.0/bin/node"
@@ -153,7 +153,7 @@ if isdirectory($PLUGDIR . '/vim-vue-plugin')
   let g:vim_vue_plugin_config = {
     \'syntax': {
       \'template': ['html'],
-      \'script': ['typescript'],
+      \'script': ['leafgarland_typescript'],
       \'style': ['scss'],
     \},
   \}

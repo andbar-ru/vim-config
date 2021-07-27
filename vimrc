@@ -30,7 +30,6 @@ if version >= 740
 endif
 Plug 'jeetsukumaran/vim-indentwise'
 Plug 'simnalamburt/vim-mundo'
-Plug 'AndrewRadev/splitjoin.vim'
 Plug 'voithos/vim-python-matchit'
 if version >= 800
   " If one add {'for':'go'}, vim-go/syntax/go.vim loads later than builtin syntax/go.vim.
@@ -52,8 +51,9 @@ endif
 Plug 'leafgarland/typescript-vim'
 " BEGIN WITHOUT POLYGLOT
 Plug 'pangloss/vim-javascript'
-Plug 'dzeban/vim-log-syntax'
+" Plug 'dzeban/vim-log-syntax'
 " Plug 'posva/vim-vue'
+" Plug 'andbar-ru/vim-indent-html'
 Plug 'leafOfTree/vim-vue-plugin'
 Plug 'groenewege/vim-less'
 Plug 'Vimjas/vim-python-pep8-indent'
@@ -88,6 +88,8 @@ let g:html_indent_script1 = "zero"
 let g:html_indent_style1 = "zero"
 " Do not increase indent for these tags.
 let g:html_indent_autotags = "html,body,head"
+
+let g:yats_host_keyword = 0
 
 " Includes
 let $VIMRCDIR = expand('<sfile>:p:h')
@@ -158,7 +160,6 @@ set nostartofline
 set whichwrap+=<,>,[,]
 set listchars=tab:»\ ,trail:·,eol:¶
 set showbreak=↳\ 
-set updatetime=300
 set gdefault
 set pastetoggle=<a-p>
 set directory=$VIMRCDIR/swapfiles/
@@ -184,6 +185,7 @@ set complete-=t " exclude tags, for tags <c-x><c-]>
 set scrolloff=0
 set noautoread
 set linespace=-1
+set regexpengine=0
 
 " nvim or not
 if has('nvim')

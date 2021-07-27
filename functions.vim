@@ -280,3 +280,17 @@ function! DeleteAllSnippets()
   endwhile
   echo linesDeletedSum . ' fewer lines'
 endfunction
+
+function! GoToFile(path)
+  let filepath = a:path
+  if filepath[0] == '@'
+    let filepath = systemlist('git rev-parse --show-toplevel')[0] . '/src' . filepath[1:]
+  endif
+
+  if (!filereadable(filepath))
+    echoerr 'File "' . filepath . '" is not exist.'
+    return 0
+  endif
+
+  execute 'e ' . filepath
+endfunction

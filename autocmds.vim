@@ -18,6 +18,8 @@ augroup general
   autocmd FileType vue setlocal iskeyword+=45
   autocmd FileType json setlocal foldminlines=0 foldnestmax=99
   autocmd FileType neosnippet setlocal noexpandtab
+  " Allow '@' in path names. It is for 'gf' on path names beginning from '@'.
+  autocmd FileType vue,typescript setlocal isfname+=@-@
   autocmd BufLeave * call AutoSaveWinView()
   autocmd BufEnter * call AutoRestoreWinView()
   autocmd VimResized * if &diff | wincmd = | endif

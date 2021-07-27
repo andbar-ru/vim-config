@@ -206,7 +206,7 @@ noremap [t :tprevious<cr>
 noremap ]t :tnext<cr>
 noremap [b :bprevious<cr>
 noremap ]b :bnext<cr>
-noremap [n :previous
+noremap [n :previous<cr>
 noremap ]n :next<cr>
 
 " Detach buffer to another viewport
@@ -406,3 +406,9 @@ if isdirectory($PLUGDIR . '/splitjoin.vim')
   nmap <leader>sjs :SplitjoinSplit<cr>
   nmap <leader>sjj :SplitjoinJoin<cr>
 endif
+
+" FileType specific mappings.
+augroup maps
+  autocmd!
+  autocmd FileType vue,typescript nnoremap <buffer> gf :call GoToFile(expand('<cfile>'))<cr>
+augroup end

@@ -1,0 +1,1 @@
+../plugged/vim-vue-plugin/lib/indent/typescript.vim
