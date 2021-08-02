@@ -107,7 +107,7 @@ endfunction
 " Select entire comment line-wise.
 function! SelectComment()
   let initLine = line('.')
-  let firstNonBlankCharacterCol = IndentChars('.') + 1
+  let firstNonBlankCharacterCol = IndentChars('.')
   if SynName(initLine, firstNonBlankCharacterCol) != 'Comment'
     return
   endif
@@ -117,7 +117,7 @@ function! SelectComment()
   " backward
   while curLine > 0
     let curLine -= 1
-    if SynName(curLine, IndentChars(curLine)+1) != 'Comment'
+    if SynName(curLine, IndentChars(curLine)) != 'Comment'
       let beginLine = curLine + 1
       break
     endif
@@ -126,7 +126,7 @@ function! SelectComment()
   let curLine = initLine
   while curLine <= line('$')
     let curLine += 1
-    if SynName(curLine, IndentChars(curLine)+1) != 'Comment'
+    if SynName(curLine, IndentChars(curLine)) != 'Comment'
       let endLine = curLine - 1
       break
     endif
@@ -281,16 +281,16 @@ function! DeleteAllSnippets()
   echo linesDeletedSum . ' fewer lines'
 endfunction
 
+" Tries to open non-standard path names.
 function! GoToFile(path)
-  let filepath = a:path
-  if filepath[0] == '@'
-    let filepath = systemlist('git rev-parse --show-toplevel')[0] . '/src' . filepath[1:]
+  if a:path[0] == '@'
+    let filepath = systemlist('git rev-parse --show-toplevel')[0] . '/src' . a:path[1:]
+    if (!filereadable(filepath))
+      echoerr "Can't find file \"" . filepath . '"'
+      return 0
+    endif
+    execute 'e ' . filepath
+  else
+    execute 'normal! gf'
   endif
-
-  if (!filereadable(filepath))
-    echoerr 'File "' . filepath . '" is not exist.'
-    return 0
-  endif
-
-  execute 'e ' . filepath
 endfunction

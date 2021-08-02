@@ -131,9 +131,9 @@ options head
 snippet apollo-smart-query
 alias asq
 options head
-	@SmartQuery<${1:class}, ${2:resultType}, ${3:variablesType}, ${4:queryType}>({
+	@SmartQuery<${1:#:class}, ${2:#:resultType}, ${3:#:variablesType}, ${4:#:queryType}>({
 		client: '${5}',
-		query: ${6:query},
+		query: ${6:#:query},
 		fetchPolicy: '${7}',
 		update({ ${8} }) {
 			// begin #########################################
@@ -147,13 +147,13 @@ options head
 			this.$dialog.error({ title: 'Ошибка', text: text })
 		},
 	})
-	private readonly ${9}: $2 = ${10:nullValue}
+	private readonly ${9}: $2 = ${10:#:nullValue}
 
 snippet apollo-query
 alias aq
 options head
 	try {
-		const { data } = await this.$apollo.query<${1:query}, ${2:queryArgs}>({
+		const { data } = await this.$apollo.query<${1:#:query}, ${2:#:queryArgs}>({
 			client: '${3}',
 			query: ${4},
 			fetchPolicy: '${5}',
@@ -176,3 +176,11 @@ options head
 		console.error(err)
 		this.$dialog.error({ title: 'Ошибка', text: text })
 	},
+
+snippet reduce
+alias red
+options word
+	reduce<${1:#:result_type}>((${2:#:result}, ${3:#:item}) => {
+		${5}
+		return $2
+	}, ${4:#:base_value})

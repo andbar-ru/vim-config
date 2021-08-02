@@ -16,7 +16,6 @@ if executable('git')
   silent! system('git rev-parse --is-inside-work-tree')
   if !v:shell_error
     Plug 'tpope/vim-fugitive'
-    " Plug 'airblade/vim-gitgutter'
   endif
 endif
 Plug 'tomtom/tcomment_vim'
@@ -48,13 +47,11 @@ if has('nvim')
 endif
 
 " Plug 'sheerun/vim-polyglot'
-Plug 'leafgarland/typescript-vim'
+Plug 'andbar-ru/typescript-vim'
 " BEGIN WITHOUT POLYGLOT
 Plug 'pangloss/vim-javascript'
-" Plug 'dzeban/vim-log-syntax'
-" Plug 'posva/vim-vue'
-" Plug 'andbar-ru/vim-indent-html'
-Plug 'leafOfTree/vim-vue-plugin'
+Plug 'andbar-ru/vim-vue'
+" Plug 'leafOfTree/vim-vue-plugin'
 Plug 'groenewege/vim-less'
 Plug 'Vimjas/vim-python-pep8-indent'
 Plug 'vim-python/python-syntax'

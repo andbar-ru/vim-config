@@ -49,8 +49,9 @@ endif
 "   inoremap <S-F7> <C-o>:ALEToggleBuffer<CR>
 " endif
 
-noremap <F8> :syntax sync fromstart<CR>
-inoremap <F8> <C-o>:syntax sync fromstart<CR>
+noremap <F8> :syntax sync fromstart<cr>
+inoremap <F8> <c-o>:syntax sync fromstart<cr>
+noremap <S-F8> :set syntax=ON<cr>
 
 if isdirectory($PLUGDIR . '/vim-gitgutter')
   noremap <F9> :GitGutterSignsToggle<CR>
