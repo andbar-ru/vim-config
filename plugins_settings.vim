@@ -143,6 +143,7 @@ if isdirectory($PLUGDIR . '/vim-polyglot')
 endif
 if isdirectory($PLUGDIR . '/vim-polyglot') || isdirectory($PLUGDIR . '/vim-vue')
   let g:vue_pre_processors = ['typescript']
+  " let g:vue_debug_indent = v:true
 endif
 if isdirectory($PLUGDIR . '/vim-polyglot') || isdirectory($PLUGDIR . '/vim-python-pep8-indent')
   let g:python_pep8_indent_multiline_string=-1

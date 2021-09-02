@@ -277,11 +277,11 @@ noremap <A-l> :SetColumnsAsLongestLine<CR>
 
 noremap <leader>dg :diffget<CR>
 
-" Навигация
+" Navigation
 nnoremap <up> gk
 nnoremap <down> gj
-" Добавить позицию в jumplist при навигации с помощью мыши
-nnoremap <LeftMouse> m'<LeftMouse>
+" Add position into jumplist when clicking LMB and line number changes more than 10.
+nnoremap <expr> <LeftMouse> abs(line(".") - line("''")) > 10 ? "m'<LeftMouse>" : "<LeftMouse>"
 " Smart Home
 noremap <expr> <silent> <Home> col('.') == match(getline('.'),'\S')+1 ? '0' : '^'
 imap <silent> <Home> <C-o><Home>
