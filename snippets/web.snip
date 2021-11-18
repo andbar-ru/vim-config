@@ -52,7 +52,7 @@ snippet begin-end-tsignore
 alias bet
 options head
 	// begin #########################################
-	// @ts-ignore
+	// @ts-ignore debug
 	${0:TARGET}
 	// end ###########################################
 
@@ -60,7 +60,7 @@ snippet window-component-this
 alias wct
 options head
 	// begin #########################################
-	// @ts-ignore
+	// @ts-ignore debug
 	window.component = this
 	// end ###########################################
 
@@ -69,7 +69,7 @@ alias mwct
 options head
 	// begin #########################################
 	private mounted() {
-		// @ts-ignore
+		// @ts-ignore debug
 		window.component = this
 	}
 	// end ###########################################
@@ -77,7 +77,7 @@ options head
 snippet ts-ignore
 alias ti
 options head
-	// @ts-ignore
+	// @ts-ignore debug
 
 snippet component
 alias comp
@@ -143,7 +143,7 @@ options head
 		},
 		error(err) {
 			const text = \`ошибка запроса "$6": ${err}\`
-			console.error(err)
+			console.error(text)
 			this.$dialog.error({ title: 'Ошибка', text: text })
 		},
 	})
@@ -164,7 +164,7 @@ options head
 		// end ###########################################
 	} catch(err) {
 		const text = \`ошибка запроса "$4": ${err}\`
-		console.error(err)
+		console.error(text)
 		this.$dialog.error({ title: 'Ошибка', text: text })
 	}
 
@@ -173,7 +173,7 @@ alias ae
 options head
 	error(err) {
 		const text = \`ошибка запроса "${0}": ${err}\`
-		console.error(err)
+		console.error(text)
 		this.$dialog.error({ title: 'Ошибка', text: text })
 	},
 

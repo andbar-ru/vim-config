@@ -181,7 +181,6 @@ endif
 set complete-=t " exclude tags, for tags <c-x><c-]>
 set scrolloff=0
 set noautoread
-set linespace=-1
 set regexpengine=0
 
 " nvim or not

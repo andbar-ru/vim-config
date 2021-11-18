@@ -115,25 +115,22 @@ endif
 " endif
 
 if isdirectory($PLUGDIR . '/coc.nvim')
-  let g:coc_node_path = "~/Programs/nvm/versions/node/v14.17.0/bin/node"
+  " let g:coc_node_path = '~/bin/node' " already in $PATH
   " Desactivate coc by default, activate only for certain conditions.
-  let g:did_coc_loaded = 1
+  let g:coc_start_at_startup = 0
   if stridx(expand('%:p'), $HOME . '/Projects') == 0 ||
-   \ expand('%:t') == 'coc-settings.json' ||
-   \ stridx(expand('%:p'), $HOME . '/Coding/typescript') == 0 ||
-   \ stridx(expand('%:p'), $HOME . '/Coding/Go') == 0 ||
-   \ stridx(expand('%:p'), $HOME . '/Go') == 0
-    let $NODE_ENV='development'
-    unlet g:did_coc_loaded
+   \ expand('%:t') == 'coc-settings.json'
+    let $NODE_ENV = 'development'
+    let g:coc_start_at_startup = 1
   endif
 
-  " Disable coc in node_modules.
+	" Disable coc in node_modules.
   if stridx(expand('%:p'), 'node_modules') != -1
-    let g:did_coc_loaded = 1
+    let g:coc_start_at_startup = 0
   endif
 
   if &diff
-    let g:did_coc_loaded = 1
+    let g:coc_start_at_startup = 0
   endif
   " All coc-specific settings in plugin/coc.vim.
 endif

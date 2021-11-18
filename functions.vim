@@ -283,14 +283,21 @@ endfunction
 
 " Tries to open non-standard path names.
 function! GoToFile(path)
+  let filepathOrig = ''
   if a:path[0] == '@'
-    let filepath = systemlist('git rev-parse --show-toplevel')[0] . '/src' . a:path[1:]
-    if (!filereadable(filepath))
-      echoerr "Can't find file \"" . filepath . '"'
-      return 0
-    endif
-    execute 'e ' . filepath
+    let filepathOrig = systemlist('git rev-parse --show-toplevel')[0] .. '/src' .. a:path[1:]
   else
-    execute 'normal! gf'
+    let filepathOrig = a:path
   endif
+
+  let filepath = filepathOrig
+  if (!filereadable(filepath))
+    let filepath ..= '.ts'
+  endif
+  if (!filereadable(filepath))
+    echoerr "Can't find file \"" .. filepathOrig .. '"'
+    return 0
+  endif
+
+  execute 'e ' .. filepath
 endfunction

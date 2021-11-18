@@ -51,7 +51,7 @@ endif
 
 noremap <F8> :syntax sync fromstart<cr>
 inoremap <F8> <c-o>:syntax sync fromstart<cr>
-noremap <S-F8> :set syntax=ON<cr>
+noremap <expr> <S-F8> &syntax == 'OFF' ? ':setlocal syntax=ON<cr>' : ':setlocal syntax=OFF<cr>'
 
 if isdirectory($PLUGDIR . '/vim-gitgutter')
   noremap <F9> :GitGutterSignsToggle<CR>
@@ -145,6 +145,7 @@ inoremap <c-s-del> <c-\><c-o>D
 " when I don't want vim-closetag to add closing tag automatically.
 inoremap <a-<> <c-o>da>
 noremap <del> "_d
+noremap <c-del> "_c
 
 " Undo
 inoremap <C-z> <C-o>u
@@ -157,9 +158,13 @@ noremap <silent> <S-A-h> :let @/ = '\V\<' . escape(expand('<cword>'), '\') . '\>
 noremap <A-0> :vertical resize 100<CR>
 inoremap <A-0> <C-o>:vertical resize 100<CR>
 
-" Reset mapping defined in system defaults.vim.
+" Macros
+nnoremap \q q
+nnoremap q <nop>
 unmap Q
 nnoremap Q @@
+
+" Copy
 noremap Y y$
 noremap <a-y> "+y
 noremap <s-a-y> :%y+<cr>
@@ -173,8 +178,15 @@ nnoremap <silent> _ :<c-u>call CopyLine(v:count, 0, 0)<cr>
 nnoremap <silent> g_ :<c-u>call CopyLine(v:count, 1, 0)<cr>
 nnoremap <silent> \_ :<c-u>call CopyLine(v:count, 1, 1)<cr>
 
-nnoremap <a-p> :set paste!<cr>
-inoremap <a-p> <c-o>:set paste!<cr>
+" Copy|paste into|from clipboard
+noremap <c-insert> "+y
+noremap <expr> <s-insert> line('.') == 1 ? '"+P' : '"+p'
+inoremap <s-insert> <c-r>+
+
+" Toggle 'paste' mode. One could use 'set paste!' but that is not descriptive enough in the
+" statusline.
+nnoremap <expr> <a-p> &paste ? ':set nopaste<cr>' : ':set paste<cr>'
+inoremap <expr> <a-p> &paste ? '<c-o>:set nopaste<cr>' : '<c-o>:set paste<cr>'
 " Paste and fix the indent.
 inoremap <c-v> <c-r><c-p>"
 inoremap <MiddleMouse> <c-r><c-p>*
@@ -347,6 +359,8 @@ let functionEnd = '^\s*}$'
 nnoremap <silent> [f :call search(functionEnd, 'beW')<cr>%{
 onoremap <silent> [f :call search(functionEnd, 'beW') <bar> execute 'normal %{'<cr>
 vnoremap <silent> [f :<c-u>call search(functionEnd, 'beWs')<cr>V''o%{j
+
+nnoremap <leader>pc :call popup_clear()<cr>
 
 "=================================================
 " Commands
