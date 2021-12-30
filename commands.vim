@@ -10,7 +10,7 @@ command! RefineChessMoves :silent s/ {[^}]*}//<bar>s/\(\d\.\)\@<= //
 command! RemoveTrailingSpaces :%s/\s\+$//e
 command! SetColumnsAsLongestLine :silent let &columns = max(map(getline(1, '$'), 'len(v:val)'))
 command! SyntaxSync :syntax sync fromstart
-command! ToggleDashInIskeyword if &iskeyword !~ 45 | setlocal iskeyword+=45 | else | setlocal iskeyword-=45 | endif
+command! ToggleDashInIskeyword if &iskeyword !~ 45 | setlocal iskeyword+=45 | echom "iskeyword += '-'" | else | setlocal iskeyword-=45 | echom "iskeyword -= '-'" | endif
 command! ToggleMenu if &guioptions=~"m" | set guioptions-=m | else | set guioptions+=m | endif
 command! ToggleScrollbar if &guioptions=~"r" | set guioptions-=r | else | set guioptions+=r | endif
 command! DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis | wincmd p | diffthis

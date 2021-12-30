@@ -22,6 +22,6 @@ augroup general
   autocmd FileType vue,typescript setlocal isfname+=@-@
   autocmd BufLeave * call AutoSaveWinView()
   autocmd BufEnter * call AutoRestoreWinView()
-  autocmd VimResized * if &diff | wincmd = | endif
+  autocmd VimResized * if &equalalways | wincmd = | endif
   autocmd FocusGained * :checktime
 augroup end

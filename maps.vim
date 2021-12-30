@@ -66,7 +66,8 @@ nmap <F11> <plug>ToggleSearchMode
 " Перечитать настройки
 nnoremap <leader>sv :source $MYVIMRC<cr>
 
-inoremap <expr> zz match(getline('.'), '^\s*$')+1 ? '<esc>zzddO' : '<c-o>zz'
+" Redraw line at center of window in insert mode. Discarded 'zz' because of confusing when typing 'я'.
+inoremap <a-z> <c-o>zz
 
 " Changing keyboard layout and go to alternate file.
 inoremap <c-space> 
@@ -163,6 +164,9 @@ nnoremap \q q
 nnoremap q <nop>
 unmap Q
 nnoremap Q @@
+
+" Clear status line, e.g. to remove message 'search hit BOTTOM, continuing at TOP'
+noremap \c :echo<cr>
 
 " Copy
 noremap Y y$
@@ -420,6 +424,11 @@ if isdirectory($PLUGDIR . '/splitjoin.vim')
   let g:splitjoin_join_mapping = ''
   nmap <leader>sjs :SplitjoinSplit<cr>
   nmap <leader>sjj :SplitjoinJoin<cr>
+endif
+
+if isdirectory($PLUGDIR . '/vim-indentwise')
+  map [$ <Plug>(IndentWiseBlockScopeBoundaryBegin)
+  map ]$ <Plug>(IndentWiseBlockScopeBoundaryEnd)
 endif
 
 " FileType specific mappings.

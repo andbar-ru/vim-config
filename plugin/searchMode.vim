@@ -1,9 +1,11 @@
 " SearchMode cycles between 3 search modes:
-" * Normal - no mappings: search next ans previous work as normal (default)
-" * Scroll hit to middle if not on same page - no scrolling occurs if the next hit is after the
+" 1 Normal - no mappings: search next ans previous work as normal (default)
+" 2 Scroll hit to middle if not on same page - no scrolling occurs if the next hit is after the
 " first line and before the last line of the window; otherwise, the search hit is scrolled to the
 " middle.
-" * Scroll hit to middle - the search hit is always scrolled to the middle (when posiible).
+" 3 Scroll hit to middle - the search hit is always scrolled to the middle (when posiible).
+" Modes 2 and 3 have the issue: message "search hit BOTTOM, continuing at TOP" disappears
+" immediately when search wraps.
 function! s:SearchMode(silent)
   if !exists('s:searchmode') || s:searchmode == 0
     if !a:silent
@@ -47,8 +49,5 @@ function! s:MaybeMiddle()
     normal! zz
   endif
 endfunction
-
-" Activate default mode 'scroll hit to middle if not on same page'.
-call <sid>SearchMode(1)
 
 nnoremap <silent> <plug>ToggleSearchMode :<c-u>call <sid>SearchMode(0)<cr>

@@ -1,1 +1,109 @@
-web.snip
+include web.snip
+
+snippet component
+alias comp
+options head
+	<template>
+		<div class="$1">$1 Template</div>
+	</template>
+
+	<script lang="ts">
+	import { Component, Vue } from 'vue-property-decorator'
+
+	@Component
+	export default class ${1} extends Vue {
+	}
+	</script>
+
+	<style lang="scss">
+	.$1 {
+
+	}
+	</style>
+
+snippet componentWindow
+alias compWin
+options head
+	<template>
+		<div class="$1">$1 Template</div>
+	</template>
+
+	<script lang="ts">
+	import { Component, Vue } from 'vue-property-decorator'
+
+	/** Параметры компонента. */
+	export interface ComponentOptions {
+		groupName: string
+	}
+
+	@Component({
+		layout: ['dialog', { title: 'Window Title', top: 0, left: 0, width: 600, resizable: true }],
+	})
+	export default class ${1} extends Vue {
+	}
+	</script>
+
+	<style lang="scss">
+	.$1 {
+
+	}
+	</style>
+
+snippet apollo-smart-query
+alias asq
+options head
+	@SmartQuery<${1:#:class}, ${2:#:resultType}, ${3:#:variablesType}, ${4:#:queryType}>({
+		client: '${5}',
+		query: ${6:#:query},
+		fetchPolicy: '${7}',
+		update({ ${8} }) {
+			// begin #########################################
+			console.log($8)
+			// end ###########################################
+			return $10
+		},
+		error(err) {
+			const text = \`ошибка запроса "$6": ${err}\`
+			console.error(text)
+			this.$dialog.error({ title: 'Ошибка', text: text })
+		},
+	})
+	private readonly ${9}: $2 = ${10:#:nullValue}
+
+snippet apollo-query
+alias aq
+options head
+	try {
+		const { data } = await this.$apollo.query<${1:#:query}, ${2:#:queryArgs}>({
+			client: '${3}',
+			query: ${4},
+			fetchPolicy: '${5}',
+			variables: {},
+		})
+		// begin #########################################
+		console.log(data)
+		// end ###########################################
+	} catch(err) {
+		const text = \`ошибка запроса "$4": ${err}\`
+		console.error(text)
+		this.$dialog.error({ title: 'Ошибка', text: text })
+	}
+
+snippet apollo-error
+alias ae
+options head
+	error(err) {
+		const text = \`ошибка запроса "${0}": ${err}\`
+		console.error(text)
+		this.$dialog.error({ title: 'Ошибка', text: text })
+	},
+
+snippet vuetify-theme-isDark
+alias vtd
+options word
+	$vuetify.theme.isDark ? 'theme--dark' : 'theme--light'
+
+snippet class-vuetify-theme-isDark
+alias cvtd
+options word
+	:class="$vuetify.theme.isDark ? 'theme--dark' : 'theme--light'"
