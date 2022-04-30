@@ -1,7 +1,7 @@
 {
   "coc.preferences.colorSupport": false,
   "coc.preferences.currentFunctionSymbolAutoUpdate": false,
-  "coc.preferences.formatOnSaveFiletypes": ["go", "vue", "typescript", "javascript"],
+  "coc.preferences.formatOnSaveFiletypes": ["go", "vue", "typescript", "javascript", "graphql"],
   "coc.preferences.messageLevel": "warning",
   "coc.preferences.willSaveHandlerTimeout": 5000,
   "prettier.printWidth": 120,

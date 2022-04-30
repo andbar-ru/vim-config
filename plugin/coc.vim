@@ -112,6 +112,7 @@ augroup cocMaps
   """"""""""""""""""""""""""""""""""""""""""""""""""
   " Often coc-vetur doesn't update diagnostic with no kick
   autocmd Filetype javascript,json,typescript,vue,python nmap <silent> <leader>rv :<c-u>call CocAction('reloadExtension', 'coc-vetur')<cr>
+  autocmd Filetype javascript,json,typescript,vue,python nmap <silent> <leader>rt :<c-u>call CocAction('reloadExtension', 'coc-tsserver')<cr>
 augroup end
 
 augroup cocCommands

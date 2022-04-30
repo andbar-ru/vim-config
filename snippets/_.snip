@@ -6,3 +6,8 @@ options head
 	// begin #########################################
 	${0:TARGET}
 	// end ###########################################
+
+snippet current-filename
+alias %
+options word
+	`expand('%:t:r')`

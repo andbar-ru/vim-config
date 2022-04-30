@@ -98,3 +98,27 @@ options head
 	<!--
 		${0:TARGET}
 	-->
+
+snippet document-query-variables-line
+alias dqvl
+options word
+	${1:#:prefix}Document, $1Query, $1QueryVariables
+
+snippet document-query-variables
+alias dqv
+options head
+	${1:#:prefix}Document,
+	$1Query,
+	$1QueryVariables,
+
+snippet document-mutation-variables-line
+alias dmvl
+options word
+	${1:#:prefix}Document, $1Mutation, $1MutationVariables
+
+snippet document-mutation-variables
+alias dmv
+options head
+	${1:#:prefix}Document,
+	$1Mutation,
+	$1MutationVariables,

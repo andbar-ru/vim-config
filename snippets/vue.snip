@@ -52,23 +52,23 @@ options head
 snippet apollo-smart-query
 alias asq
 options head
-	@SmartQuery<${1:#:class}, ${2:#:resultType}, ${3:#:variablesType}, ${4:#:queryType}>({
-		client: '${5}',
-		query: ${6:#:query},
-		fetchPolicy: '${7}',
-		update({ ${8} }) {
+	@SmartQuery<${1:#:class}, ${2:#:resultType}, ${3:#:prefix}QueryVariables, $3Query>({
+		client: '${4}',
+		query: $3Document,
+		fetchPolicy: '${5}',
+		update({ ${6} }) {
 			// begin #########################################
-			console.log($8)
+			console.log($6)
 			// end ###########################################
-			return $10
+			return $8
 		},
 		error(err) {
-			const text = \`ошибка запроса "$6": ${err}\`
+			const text = \`ошибка запроса документа "$3Document": ${err}\`
 			console.error(text)
 			this.$dialog.error({ title: 'Ошибка', text: text })
 		},
 	})
-	private readonly ${9}: $2 = ${10:#:nullValue}
+	private readonly ${7}: $2 = ${8:#:nullValue}
 
 snippet apollo-query
 alias aq
@@ -84,7 +84,45 @@ options head
 		console.log(data)
 		// end ###########################################
 	} catch(err) {
-		const text = \`ошибка запроса "$4": ${err}\`
+		const text = \`ошибка запроса документа "$4": ${err}\`
+		console.error(text)
+		this.$dialog.error({ title: 'Ошибка', text: text })
+	}
+
+snippet apollo-query-document
+alias aqd
+options head
+	try {
+		const { data } = await this.$apollo.query<${1:#:prefix}Query, $1QueryVariables>({
+			client: '${2}',
+			query: $1Document,
+			fetchPolicy: '${3}',
+			variables: {},
+		})
+		// begin #########################################
+		console.log(data)
+		// end ###########################################
+	} catch(err) {
+		const text = \`ошибка запроса документа "$1Document": ${err}\`
+		console.error(text)
+		this.$dialog.error({ title: 'Ошибка', text: text })
+	}
+
+snippet apollo-mutation-document
+alias amd
+options head
+	try {
+		const { data } = await this.$apollo.mutate<${1:#:prefix}Mutation, $1MutationVariables>({
+			client: '${2}',
+			fetchPolicy: 'no-cache',
+			mutation: $1Document,
+			variables: {},
+		})
+		// begin #########################################
+		console.log(data)
+		// end ###########################################
+	} catch(err) {
+		const text = \`ошибка запроса документа "$1Document": ${err}\`
 		console.error(text)
 		this.$dialog.error({ title: 'Ошибка', text: text })
 	}
@@ -93,10 +131,21 @@ snippet apollo-error
 alias ae
 options head
 	error(err) {
-		const text = \`ошибка запроса "${0}": ${err}\`
+		const text = \`ошибка запроса документа "${0}": ${err}\`
 		console.error(text)
 		this.$dialog.error({ title: 'Ошибка', text: text })
 	},
+
+snippet apollo-return-nodes
+alias arn
+options head
+	return (${1:#:query}?.edges ?? []).reduce<${2:#:resultType}>((nodes, edge) => {
+		const node = edge?.node
+		if (node) {
+			nodes.push(node)
+		}
+		return nodes
+	}, [])
 
 snippet vuetify-theme-isDark
 alias vtd
