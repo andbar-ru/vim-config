@@ -17,6 +17,7 @@ if g:hostname == 'asus'
     set lines=23 columns=100
 elseif &diff
     set lines=100 columns=208
+    winpos 333 16 " aligns in center if a screen size is 1920x1200
 else
     set lines=23 columns=104
 endif

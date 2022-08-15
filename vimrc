@@ -130,6 +130,7 @@ set mouse=a
 set colorcolumn=100
 set encoding=utf-8
 set history=10000
+set viminfo='1000,<100,s10,h,:10000
 set showmatch
 set noignorecase
 set nohlsearch

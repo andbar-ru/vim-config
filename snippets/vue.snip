@@ -24,6 +24,9 @@ options head
 snippet componentWindow
 alias compWin
 options head
+	<!--
+		Путь: путь к окну в интерфейсе
+	-->
 	<template>
 		<div class="$1">$1 Template</div>
 	</template>
@@ -39,7 +42,75 @@ options head
 	@Component({
 		layout: ['dialog', { title: 'Window Title', top: 0, left: 0, width: 600, resizable: true }],
 	})
-	export default class ${1} extends Vue {
+	export default class ${1} extends Vue implements ComponentOptions {
+		/* --- PROPS --- */
+
+		/** Группа окон, в которую входит это окно */
+		@StrictPropRequired<ComponentOptions['groupName']>({ type: String })
+		public declare readonly groupName: ComponentOptions['groupName']
+	}
+	</script>
+
+	<style lang="scss">
+	.$1 {
+
+	}
+	</style>
+
+snippet componentWindowMode
+alias compWinMode
+options head
+	<!--
+		Путь: путь к окну в интерфейсе
+	-->
+	<template>
+		<div class="$1">$1 Template</div>
+	</template>
+
+	<script lang="ts">
+	import { Component, Vue } from 'vue-property-decorator'
+
+	import { WindowMode } from '@/typings'
+	import { StrictPropRequired } from '@/decorators'
+
+	/** Параметры компонента. */
+	export interface ComponentOptions {
+		groupName: string
+		mode: WindowMode
+	}
+
+	@Component({
+		layout: ['dialog', { title: 'Window Title', top: 0, left: 0, width: 600, resizable: true }],
+	})
+	export default class ${1} extends Vue implements ComponentOptions {
+		/* --- PROPS --- */
+
+		/** Группа окон, в которую входит это окно */
+		@StrictPropRequired<ComponentOptions['groupName']>({ type: String })
+		public declare readonly groupName: ComponentOptions['groupName']
+
+		/** Режим окна при открытии */
+		@StrictPropRequired<ComponentOptions['mode']>({
+			type: Number,
+			validator: (value) => Object.values(WindowMode).includes(Number(value)),
+		})
+		public declare readonly mode: ComponentOptions['mode']
+
+		/* --- DATA --- */
+
+		/** Текущий режим. Может меняться из WindowMode.View в WindowMode.Edit */
+		private curMode = WindowMode.View
+
+		/* --- HOOKS --- */
+
+		private created() {
+			if (Object.values(WindowMode).includes(Number(this.mode))) {
+				this.curMode = this.mode
+			} else {
+				// Ошибка уже в консоли, т.к. инициирована валидацией параметра "mode"
+				this.curMode = WindowMode.View
+			}
+		}
 	}
 	</script>
 
@@ -108,8 +179,8 @@ options head
 		this.$dialog.error({ title: 'Ошибка', text: text })
 	}
 
-snippet apollo-mutation-document
-alias amd
+snippet apollo-mutation
+alias am
 options head
 	try {
 		const { data } = await this.$apollo.mutate<${1:#:prefix}Mutation, $1MutationVariables>({
@@ -122,7 +193,7 @@ options head
 		console.log(data)
 		// end ###########################################
 	} catch(err) {
-		const text = \`ошибка запроса документа "$1Document": ${err}\`
+		const text = \`ошибка мутации по документу "$1Document": ${err}\`
 		console.error(text)
 		this.$dialog.error({ title: 'Ошибка', text: text })
 	}
