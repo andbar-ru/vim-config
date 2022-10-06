@@ -2,16 +2,16 @@ if exists('g:did_coc_loaded') || v:version < 800 || !(isdirectory($PLUGDIR . '/c
   finish
 endif
 
-function! s:check_back_space() abort
+function! s:CheckBackspace() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1] =~# '\s'
 endfunction
 
-function! s:show_documentation()
-  if (index(['vim', 'help'], &filetype) >= 0)
-    execute 'h ' . expand('<cword>')
+function! s:ShowDocumentation()
+  if CocAction('hasProvider', 'hover')
+    call CocActionAsync('doHover')
   else
-    call CocAction('doHover')
+    call feedkeys('K', 'in')
   endif
 endfunction
 
@@ -27,12 +27,24 @@ highlight default link CocWarningSign Type
 highlight default link CocInfoSign String
 highlight default link CocHintSign PreProc
 
+"=================================================
 " mappings
-imap <silent> <expr> <tab>
-      \ pumvisible() ? '<c-n>' :
-      \ <sid>check_back_space() ? '<tab>' :
+"=================================================
+
+" Use tab for trigger completion with characters ahead and navigate.
+" NOTE: There's always complete item selected by default, you may want to enable
+" no select by `"suggest.noselect": true` in your configuration file.
+" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
+" other plugin before putting this into your config.
+inoremap <silent> <expr> <tab>
+      \ coc#pum#visible() ? coc#pum#next(1) :
+      \ <sid>CheckBackspace() ? '<tab>' :
       \ coc#refresh()
-imap <expr> <s-tab> pumvisible() ? '<c-p>' : '<s-tab>'
+inoremap <expr> <s-tab> coc#pum#visible() ? coc#pum#prev(1) : '<c-h>'
+
+" Make <CR> to accept selected completion item or notify coc.nvim to format
+" <C-g>u breaks current undo, please make your own choice.
+inoremap <silent> <expr> <cr> coc#pum#visible() ? coc#pum#confirm() : pumvisible() ?  '<c-y>' : '<c-g>u<cr><c-r>=coc#on_enter()<cr>'
 
 let s:cocFiletypes = "javascript,json,typescript,vue,python,go"
 augroup cocMaps
@@ -63,7 +75,7 @@ augroup cocMaps
   execute "autocmd Filetype " . s:cocFiletypes . " nmap <silent> <leader>grv :<c-u>call CocAction('jumpReferences', 'vsplit')<cr>"
   execute "autocmd Filetype " . s:cocFiletypes . " nmap <silent> <leader>grt :<c-u>call CocAction('jumpReferences', 'tabe')<cr>"
 
-  execute "autocmd Filetype " . s:cocFiletypes . " nnoremap <silent> K :call <sid>show_documentation()<cr>"
+  execute "autocmd Filetype " . s:cocFiletypes . " nnoremap <silent> K :call <sid>ShowDocumentation()<cr>"
   execute "autocmd Filetype " . s:cocFiletypes . " nnoremap <silent> <leader>csh :<c-u>call CocActionAsync('showSignatureHelp')<cr>"
   execute "autocmd Filetype " . s:cocFiletypes . " nmap <leader>pf :<c-u>echo CocAction('getCurrentFunctionSymbol')<cr>"
   execute "autocmd Filetype " . s:cocFiletypes . " nmap <leader>cr <plug>(coc-rename)"

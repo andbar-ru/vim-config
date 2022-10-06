@@ -183,6 +183,7 @@ set complete-=t " exclude tags, for tags <c-x><c-]>
 set scrolloff=0
 set noautoread
 set regexpengine=0
+set updatetime=300 " recommended by coc.nvim's documentation
 
 " nvim or not
 if has('nvim')
