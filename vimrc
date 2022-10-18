@@ -30,6 +30,7 @@ endif
 Plug 'jeetsukumaran/vim-indentwise'
 Plug 'simnalamburt/vim-mundo'
 Plug 'voithos/vim-python-matchit'
+Plug 'AndrewRadev/splitjoin.vim'
 if version >= 800
   " If one add {'for':'go'}, vim-go/syntax/go.vim loads later than builtin syntax/go.vim.
   " Plug 'fatih/vim-go', {'do':':GoInstallBinaries'}
@@ -47,8 +48,8 @@ if has('nvim')
 endif
 
 " Plug 'sheerun/vim-polyglot'
-Plug 'andbar-ru/typescript-vim'
 " BEGIN WITHOUT POLYGLOT
+Plug 'andbar-ru/typescript-vim'
 Plug 'pangloss/vim-javascript'
 Plug 'andbar-ru/vim-vue'
 " Plug 'leafOfTree/vim-vue-plugin'

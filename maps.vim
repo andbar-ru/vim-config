@@ -419,13 +419,6 @@ if isdirectory($PLUGDIR . '/auto-pairs')
   let g:AutoPairsShortcutToggle = '<a-s-p>'
 endif
 
-if isdirectory($PLUGDIR . '/splitjoin.vim')
-  let g:splitjoin_split_mapping = ''
-  let g:splitjoin_join_mapping = ''
-  nmap <leader>sjs :SplitjoinSplit<cr>
-  nmap <leader>sjj :SplitjoinJoin<cr>
-endif
-
 if isdirectory($PLUGDIR . '/vim-indentwise')
   map [$ <Plug>(IndentWiseBlockScopeBoundaryBegin)
   map ]$ <Plug>(IndentWiseBlockScopeBoundaryEnd)

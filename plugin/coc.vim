@@ -19,13 +19,13 @@ endfunction
 " set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 " Colors
-highlight default link CocFloating DiffChange
-highlight default link CocErrorHighlight CocUnderline
-highlight default link CocWarningHighlight CocUnderline
-highlight default CocErrorSign ctermfg=red guifg=#ad2b52
-highlight default link CocWarningSign Type
-highlight default link CocInfoSign String
-highlight default link CocHintSign PreProc
+highlight link CocErrorHighlight CocUnderline
+highlight link CocWarningHighlight CocUnderline
+highlight CocErrorSign ctermfg=red guifg=#ad2b52
+highlight link CocWarningSign Type
+highlight link CocInfoSign String
+highlight link CocHintSign PreProc
+highlight link CocMenuSel PmenuSel
 
 "=================================================
 " mappings
