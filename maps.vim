@@ -366,6 +366,34 @@ vnoremap <silent> [f :<c-u>call search(functionEnd, 'beWs')<cr>V''o%{j
 
 nnoremap <leader>pc :call popup_clear()<cr>
 
+" Write .viminfo after setting a mark because git hooks can modify files resulting in vanishing marks.
+nnoremap <silent> ma ma:wv<cr>
+nnoremap <silent> mb mb:wv<cr>
+nnoremap <silent> mc mc:wv<cr>
+nnoremap <silent> md md:wv<cr>
+nnoremap <silent> me me:wv<cr>
+nnoremap <silent> mf mf:wv<cr>
+nnoremap <silent> mg mg:wv<cr>
+nnoremap <silent> mh mh:wv<cr>
+nnoremap <silent> mi mi:wv<cr>
+nnoremap <silent> mj mj:wv<cr>
+nnoremap <silent> mk mk:wv<cr>
+nnoremap <silent> ml ml:wv<cr>
+nnoremap <silent> mm mm:wv<cr>
+nnoremap <silent> mn mn:wv<cr>
+nnoremap <silent> mo mo:wv<cr>
+nnoremap <silent> mp mp:wv<cr>
+nnoremap <silent> mq mq:wv<cr>
+nnoremap <silent> mr mr:wv<cr>
+nnoremap <silent> ms ms:wv<cr>
+nnoremap <silent> mt mt:wv<cr>
+nnoremap <silent> mu mu:wv<cr>
+nnoremap <silent> mv mv:wv<cr>
+nnoremap <silent> mw mw:wv<cr>
+nnoremap <silent> mx mx:wv<cr>
+nnoremap <silent> my my:wv<cr>
+nnoremap <silent> mz mz:wv<cr>
+
 "=================================================
 " Commands
 "=================================================
