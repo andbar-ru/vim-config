@@ -58,6 +58,7 @@ Plug 'Vimjas/vim-python-pep8-indent'
 Plug 'vim-python/python-syntax'
 Plug 'jparise/vim-graphql'
 " END WITHOUT POLYGLOT
+Plug 'airblade/vim-rooter'
 call plug#end()
 
 runtime defaults.vim
@@ -138,13 +139,12 @@ set nohlsearch
 set nobackup
 set nowritebackup
 set autowrite
-set autochdir
 set splitbelow
 set splitright
 set display=lastline
 set title
 set lazyredraw
-set clipboard=unnamed " Команды копирования и удаления помещают в регистр "*
+" set clipboard=unnamed " Команды копирования и удаления помещают в регистр "*
 set wildmode=list:longest
 set cursorline
 set visualbell

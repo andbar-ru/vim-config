@@ -96,12 +96,14 @@ inoremap <C-S-PageUp> <C-o>:tabm -<CR>
 noremap <C-S-PageDown> :tabm +<CR>
 inoremap <C-S-PageDown> <C-o>:tabm +<CR>
 
-nnoremap <expr> <CR> (&ft == 'qf' ? '<CR>' : 'o<Esc>')
+" vim cmdline window has ft='vim', and <cr> in it executes the command-line under the cursor.
+nnoremap <expr> <cr> (index(['qf', 'vim'], &ft) >= 0 ? '<CR>' : 'o<Esc>')
+
 imap <expr> <cr> pumvisible() ? '<c-y>' : '<cr><Plug>AutoPairsReturn'
 nnoremap <S-CR> O<Esc>
 inoremap <S-CR> <END><CR>
 inoremap <C-S-CR> <C-O>O
-inoremap <c-cr> <cr><esc>yypks<tab>
+inoremap <c-cr> <cr><esc>yypkC<tab>
 " Отступы в режиме выделения с сохранением выделения
 vnoremap <tab> >gv
 vnoremap <s-tab> <gv
@@ -217,7 +219,8 @@ noremap <A-t> :tabnew<CR>
 inoremap <A-t> <Esc>:tabnew<CR>
 noremap <S-A-t> :exe "tabnew" . expand('%:p:h') . '/'<CR>
 inoremap <S-A-t> <Esc>:exe "tabnew" . expand('%:p:h') . '/'<CR>
-nmap <a-e> :e .<cr>
+" Opens netrw at the current file's directory.
+nmap <a-e> :E<cr>
 " inoremap <A-e> mapped by auto-pairs
 noremap [t :tprevious<cr>
 noremap ]t :tnext<cr>
@@ -394,6 +397,9 @@ nnoremap <silent> mx mx:wv<cr>
 nnoremap <silent> my my:wv<cr>
 nnoremap <silent> mz mz:wv<cr>
 
+" Expands active fuke directory.
+cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
+
 "=================================================
 " Commands
 "=================================================
@@ -441,8 +447,8 @@ endif
 
 if isdirectory($PLUGDIR . '/auto-pairs')
   " Дополнение к Fast Wrap <M-e>
-  inoremap <a-$> <c-o>x<end><c-r>*
-  inoremap <a-end> <c-o>x<end><c-r>*
+  inoremap <a-$> <c-o>x<end><c-r>"
+  inoremap <a-end> <c-o>x<end><c-r>"
   " Default <a-p> is for 'set paste!'
   let g:AutoPairsShortcutToggle = '<a-s-p>'
 endif

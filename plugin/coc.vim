@@ -1,4 +1,4 @@
-if exists('g:did_coc_loaded') || v:version < 800 || !(isdirectory($PLUGDIR . '/coc.nvim'))
+if exists('g:did_coc_loaded') || v:version < 800 || !(isdirectory($PLUGDIR . '/coc.nvim')) || !g:coc_start_at_startup
   finish
 endif
 

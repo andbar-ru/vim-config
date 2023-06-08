@@ -287,7 +287,7 @@ function! GoToFile(path)
   if a:path[0] == '@'
     let filepathOrig = systemlist('git rev-parse --show-toplevel')[0] .. '/src' .. a:path[1:]
   else
-    let filepathOrig = a:path
+    let filepathOrig = simplify(expand('%:h') .. '/' .. a:path)
   endif
 
   let filepath = filepathOrig

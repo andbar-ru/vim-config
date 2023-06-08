@@ -134,9 +134,7 @@ options head
 			return $8
 		},
 		error(err) {
-			const text = \`ошибка запроса документа "$3Document": ${err}\`
-			console.error(text)
-			this.$dialog.error({ title: 'Ошибка', text: text })
+			showMessage(this, \`Ошибка запроса "$3Document": ${err}\`, { type: 'dialog', severity: 'error' })
 		},
 	})
 	private readonly ${7}: $2 = ${8:#:nullValue}
@@ -155,9 +153,7 @@ options head
 		console.log(data)
 		// end ###########################################
 	} catch(err) {
-		const text = \`ошибка запроса документа "$4": ${err}\`
-		console.error(text)
-		this.$dialog.error({ title: 'Ошибка', text: text })
+		showMessage(this, \`Ошибка запроса "$4": ${err}\`, { type: 'dialog', severity: 'error' })
 	}
 
 snippet apollo-query-document
@@ -174,9 +170,7 @@ options head
 		console.log(data)
 		// end ###########################################
 	} catch(err) {
-		const text = \`ошибка запроса документа "$1Document": ${err}\`
-		console.error(text)
-		this.$dialog.error({ title: 'Ошибка', text: text })
+		showMessage(this, \`Ошибка запроса "$1Document": ${err}\`, { type: 'dialog', severity: 'error' })
 	}
 
 snippet apollo-mutation
@@ -193,18 +187,14 @@ options head
 		console.log(data)
 		// end ###########################################
 	} catch(err) {
-		const text = \`ошибка мутации по документу "$1Document": ${err}\`
-		console.error(text)
-		this.$dialog.error({ title: 'Ошибка', text: text })
+		showMessage(this, \`Ошибка мутации "$1Document": ${err}\`, { type: 'dialog', severity: 'error' })
 	}
 
 snippet apollo-error
 alias ae
 options head
 	error(err) {
-		const text = \`ошибка запроса документа "${0}": ${err}\`
-		console.error(text)
-		this.$dialog.error({ title: 'Ошибка', text: text })
+		showMessage(this, \`Ошибка запроса "${0}": ${err}\`, { type: 'dialog', severity: 'error' })
 	},
 
 snippet apollo-return-nodes
