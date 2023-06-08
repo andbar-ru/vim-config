@@ -4,7 +4,8 @@ augroup general autocmd!  autocmd VimLeavePre * silent mksession! $VIMRCDIR/sess
   if exists('g:highlightTrailingSpace')
     autocmd BufNew,BufRead * call HiTrail(g:highlightTrailingSpace)
   endif
-  autocmd BufRead * if !&diff | exec 'normal zv' | endif autocmd BufRead * :syntax sync fromstart
+  autocmd BufRead * if !&diff | exec 'normal zv' | endif
+  autocmd BufRead * :syntax sync fromstart
   autocmd BufRead log.txt setlocal autoread filetype=logtxt autocmd BufRead *.log.txt
 setlocal autoread filetype=logtxt
   autocmd BufRead rules setlocal noexpandtab  " debian/rules
