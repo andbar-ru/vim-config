@@ -123,6 +123,9 @@ nnoremap <expr> <A-v> '`[' . strpart(getregtype(), 0, 1) . '`]'
 inoremap <expr> <A-v> '<Esc>`[' . strpart(getregtype(), 0, 1) . '`]'
 " Select entire comment (vac is occupied by "select a class")
 nnoremap vam :call SelectComment()<cr>
+" Toggle block comment manually
+vnoremap <leader>bc :<c-u>call ToggleBlockComment(1)<cr>
+nnoremap <leader>bc :call ToggleBlockComment(0)<cr>
 " Выполнение команды для каждой выделенной строки
 vnoremap <A-n> :norm<Space>
 " Перемещение строк вверх и вниз (на предмет соответствия отступам см. ==)
@@ -396,9 +399,42 @@ nnoremap <silent> mw mw:wv<cr>
 nnoremap <silent> mx mx:wv<cr>
 nnoremap <silent> my my:wv<cr>
 nnoremap <silent> mz mz:wv<cr>
+nnoremap <silent> mA mA:wv<cr>
+nnoremap <silent> mB mB:wv<cr>
+nnoremap <silent> mC mC:wv<cr>
+nnoremap <silent> mD mD:wv<cr>
+nnoremap <silent> mE mE:wv<cr>
+nnoremap <silent> mF mF:wv<cr>
+nnoremap <silent> mG mG:wv<cr>
+nnoremap <silent> mH mH:wv<cr>
+nnoremap <silent> mI mI:wv<cr>
+nnoremap <silent> mJ mJ:wv<cr>
+nnoremap <silent> mK mK:wv<cr>
+nnoremap <silent> mL mL:wv<cr>
+nnoremap <silent> mM mM:wv<cr>
+nnoremap <silent> mN mN:wv<cr>
+nnoremap <silent> mO mO:wv<cr>
+nnoremap <silent> mP mP:wv<cr>
+nnoremap <silent> mQ mQ:wv<cr>
+nnoremap <silent> mR mR:wv<cr>
+nnoremap <silent> mS mS:wv<cr>
+nnoremap <silent> mT mT:wv<cr>
+nnoremap <silent> mU mU:wv<cr>
+nnoremap <silent> mV mV:wv<cr>
+nnoremap <silent> mW mW:wv<cr>
+nnoremap <silent> mX mX:wv<cr>
+nnoremap <silent> mY mY:wv<cr>
+nnoremap <silent> mZ mZ:wv<cr>
 
-" Expands active fuke directory.
-cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
+" Expands active file name without extension
+cnoremap <expr> %% getcmdtype() == ':' ? expand('%:t:r') : '%%'
+" Expands active file directory relative to cwd.
+cnoremap <expr> %%% getcmdtype() == ':' ? expand('%:h')..'/' : '%%%'
+
+" Yank successive ...Document, ...Query and ...Variables names to registers.
+nnoremap <leader>dqv "dyiw+"qyiw+"vyiw
+" Yank successive ...Document, ...Mutation and ...Variables names to registers.
+nnoremap <leader>dmv "dyiw+"myiw+"vyiw
 
 "=================================================
 " Commands
@@ -416,7 +452,7 @@ vnoremap <leader>rg :<c-u>Rg -F '<c-r>*'<cr>
 " Plugin specific
 "=================================================
 if isdirectory($PLUGDIR . '/vim-fugitive')
-  nmap <leader>gb :Gblame -w -M -C<cr>
+  nmap <leader>gb :Git blame -w -M -C<cr>
   nmap <leader>gw :Gwrite <bar> if &diff <bar> quitall <bar> endif<cr>
 endif
 

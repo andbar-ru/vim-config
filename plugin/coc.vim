@@ -133,7 +133,7 @@ augroup cocCommands
   " Use `:Fold` to fold current buffer
   command! -nargs=? Fold :call CocAction('fold', <f-args>)
   " Use `:OR` for organize import of current buffer
-  command! -nargs=0 OR :call CocAction('runCommand', 'editor.action.organizeImport')
+  command! -nargs=0 OR :silent! call CocAction('organizeImport')
 augroup end
 
 augroup cocAutoCommands
@@ -142,8 +142,9 @@ augroup cocAutoCommands
   autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
   " Update signature help on jump placeholder
   autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
-  " Organize imports on save.
-  autocmd FileType go autocmd BufWritePre <buffer> call CocAction('runCommand', 'editor.action.organizeImport')
+  " Organize imports on save. `CocAction('runCommand', 'editor.action.organizeImport')` prints error
+  " even if no errors.
+  autocmd FileType go autocmd BufWritePre <buffer> silent! call CocAction('organizeImport')
 augroup end
 
 an 1.125 PopUp.-SEP5- <Nop>

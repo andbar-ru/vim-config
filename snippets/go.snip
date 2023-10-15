@@ -21,6 +21,10 @@ snippet println
 alias pl
 	fmt.Println(${0})
 
+snippet errorf
+alias fe
+	fmt.Errorf("${1}", ${0})
+
 snippet iferr
 alias e
 options head

@@ -1,5 +1,4 @@
 {
-  "coc.preferences.colorSupport": false,
   "coc.preferences.currentFunctionSymbolAutoUpdate": false,
   "coc.preferences.formatOnSaveFiletypes": ["go", "vue", "typescript", "javascript", "graphql"],
   "coc.preferences.messageLevel": "warning",

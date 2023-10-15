@@ -134,6 +134,26 @@ function! SelectComment()
   execute('normal ' . beginLine . 'GV' . endLine . 'G')
 endfunction
 
+" Comments selected lines as block in visual mode and uncomments in another mode.
+" Mode is given by argument.
+function! ToggleBlockComment(isVisualMode)
+  if a:isVisualMode
+    let line0 = line("'<")
+    let indent = indent(line0)
+    let line1 = line("'>")
+    let indentStr = repeat(' ', indent)
+    call append(line0 - 1, indentStr .. "/*")
+    call append(line1, indentStr .. '*/')
+  else
+    let line0 = search('^\s*/\*', 'bcnW')
+    let line1 = search('^\s*\*/', 'cnW')
+    if line0 > 0 && line1 > 0
+      execute line1 .. "d _"
+      execute line0 .. "d _"
+    endif
+  endif
+endfunction
+
 " Строка пустая или состоит из пробельных символов?
 function! IsLineEmpty(line)
   if match(getline(a:line), '^\s*$') == 0
@@ -300,4 +320,11 @@ function! GoToFile(path)
   endif
 
   execute 'e ' .. filepath
+endfunction
+
+" Creates new package in the parent directory and saves current file as main.go in that package.
+function! GoSavNewMain(name)
+  let newDir = expand('%:p:h:h') .. '/' .. a:name
+  call system('mkdir ' .. newDir)
+  exec 'sav ' .. newDir .. '/main.go'
 endfunction

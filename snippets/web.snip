@@ -122,3 +122,13 @@ options head
 	${1:#:prefix}Document,
 	$1Mutation,
 	$1MutationVariables,
+
+snippet showMessage
+alias sm
+options word
+	showMessage(this, \`$1\`, { type: 'dialog', severity: '$0' })
+
+snippet prettier-ignore
+alias pi
+options word
+	// prettier-ignore
