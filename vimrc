@@ -5,8 +5,6 @@ let g:plug_window='topleft'
 silent! call plug#begin()
 " colorschemes
 Plug 'andbar-ru/vim-unicon'
-Plug 'mswift42/vim-themes'
-Plug 'morhetz/gruvbox'
 
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'tpope/vim-surround'
@@ -19,8 +17,6 @@ if executable('git')
   endif
 endif
 Plug 'tomtom/tcomment_vim'
-Plug 'scrooloose/nerdtree'
-Plug 'majutsushi/tagbar'
 Plug 'danro/rename.vim'
 Plug 'alvan/vim-closetag'
 Plug 'jiangmiao/auto-pairs'
@@ -42,9 +38,6 @@ if has('unix') && version >= 800 && $USER != 'root'
   Plug 'junegunn/fzf.vim'
   " Useful optional dependencies: watchman
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
-endif
-if has('nvim')
-  Plug 'equalsraf/neovim-gui-shim'
 endif
 
 " Plug 'sheerun/vim-polyglot'
@@ -88,7 +81,8 @@ let g:html_indent_style1 = "zero"
 " Do not increase indent for these tags.
 let g:html_indent_autotags = "html,body,head"
 
-let g:yats_host_keyword = 0
+" Customize go syntax
+let g:go_highlight_operators = 1
 
 " Includes
 let $VIMRCDIR = expand('<sfile>:p:h')

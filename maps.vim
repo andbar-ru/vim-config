@@ -34,29 +34,9 @@ if isdirectory($PLUGDIR . '/bufexplorer')
   inoremap <S-F5> <Esc>:BufExplorerVerticalSplit<CR>
 endif
 
-if isdirectory($PLUGDIR . '/nerdtree')
-  noremap <F6> :NERDTreeToggle<CR>
-  inoremap <F6> <C-o>:NERDTreeToggle<CR>
-endif
-
-if isdirectory($PLUGDIR . '/tagbar')
-  noremap <F7> :TagbarToggle<CR>
-  inoremap <F7> <C-o>:TagbarToggle<CR>
-endif
-
-" if isdirectory($PLUGDIR . '/ale')
-"   noremap <S-F7> :ALEToggleBuffer<CR>
-"   inoremap <S-F7> <C-o>:ALEToggleBuffer<CR>
-" endif
-
 noremap <F8> :syntax sync fromstart<cr>
 inoremap <F8> <c-o>:syntax sync fromstart<cr>
 noremap <expr> <S-F8> &syntax == 'OFF' ? ':setlocal syntax=ON<cr>' : ':setlocal syntax=OFF<cr>'
-
-if isdirectory($PLUGDIR . '/vim-gitgutter')
-  noremap <F9> :GitGutterSignsToggle<CR>
-  noremap <S-F9> :GitGutterLineHighlightsToggle<CR>
-endif
 
 noremap <S-F10> :ToggleMenu<CR>
 inoremap <S-F10> <C-o>:ToggleMenu<CR>
@@ -455,18 +435,6 @@ if isdirectory($PLUGDIR . '/vim-fugitive')
   nmap <leader>gb :Git blame -w -M -C<cr>
   nmap <leader>gw :Gwrite <bar> if &diff <bar> quitall <bar> endif<cr>
 endif
-
-" if isdirectory($PLUGDIR . '/vim-go')
-"   augroup goMaps
-"     autocmd FileType go nmap <leader>gb :<c-u>call BuildGoFiles()<cr>
-"     autocmd FileType go nmap <leader>gr <Plug>(go-run)
-"     autocmd FileType go nmap <leader>gt <Plug>(go-test)
-"     autocmd FileType go nmap <leader>gtf <Plug>(go-test-func)
-"     autocmd FileType go nmap <leader>gc <Plug>(go-coverage-toggle)
-"     autocmd FileType go nmap <leader>gi <Plug>(go-info)
-"     autocmd FileType go nmap <a-s-h> :GoSameIdsAutoToggle<cr>
-"   augroup end
-" endif
 
 if isdirectory($PLUGDIR . '/neosnippet.vim')
   imap <c-j> <Plug>(neosnippet_expand_or_jump)

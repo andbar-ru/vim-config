@@ -125,8 +125,11 @@ alias asq
 options head
 	@SmartQuery<${1:#:class}, ${2:#:resultType}, ${3:#:prefix}QueryVariables, $3Query>({
 		client: '${4}',
-		query: $3Document,
 		fetchPolicy: '${5}',
+		query: $3Document,
+		variables() {
+			${9}
+		},
 		update({ ${6} }) {
 			// begin #########################################
 			console.log($6)
