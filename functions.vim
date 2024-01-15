@@ -225,6 +225,30 @@ function! DCYOutWrapper(action)
   execute 'normal ds' . braceChar
 endfunction
 
+" Delete wrapping '{', '}' lines and undent inner content.
+function! DeleteOutWrapperBlock()
+  let pos = getcurpos()
+  let ind = indent('.')
+  let startLine = search('{$', 'bW')
+  if startLine == 0
+    return
+  endif
+  let startInd = indent('.')
+  let indDiff = ind - startInd
+  execute 'normal %'
+  let endLine = line('.')
+  if endLine - startLine <= 1
+    return
+  endif
+  " undent inner content
+  execute startLine+1 .. ',' .. (endLine-1) .. '<'
+  execute endLine .. 'd'
+  execute startLine .. 'd'
+  let pos[1] -= 1
+  let pos[2] -= indDiff
+  call setpos('.', pos)
+endfunction
+
 " Run :GoBuild or :GoTestCompile based on the go file.
 function! BuildGoFiles()
   let l:file = expand('%')

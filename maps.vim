@@ -230,6 +230,7 @@ nnoremap <silent> <expr> yac DCYAWrapper('y')
 nmap <silent> doc :call DCYOutWrapper('d')<cr>
 nmap <silent> coc :call DCYOutWrapper('d')<cr>i
 nmap <silent> yoc :call DCYOutWrapper('y')<cr>
+nnoremap <silent> dob :call DeleteOutWrapperBlock()<cr>
 
 noremap <A--> :ToggleDashInIskeyword<CR>
 inoremap <A--> <C-o>:ToggleDashInIskeyword<CR>
