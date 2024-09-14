@@ -32,6 +32,7 @@ if has('unix') && version >= 800 && $USER != 'root'
   Plug 'junegunn/fzf.vim'
 endif
 Plug 'airblade/vim-rooter'
+Plug 'govim/govim'
 call plug#end()
 
 runtime defaults.vim
@@ -129,7 +130,7 @@ set shiftwidth=2
 set smarttab
 set expandtab
 set autoindent
-set copyindent
+set smartindent
 set hidden
 set nostartofline
 set whichwrap+=<,>,[,]
@@ -142,7 +143,7 @@ set switchbuf=usetab
 set keymap=russian-jcukenwin
 set iminsert=0
 set imsearch=0
-set backspace=indent,eol,start
+set backspace=indent,eol,start " =2
 set nofoldenable
 set foldmethod=indent
 set foldminlines=3
@@ -160,7 +161,14 @@ set complete-=t " exclude tags, for tags <c-x><c-]>
 set scrolloff=0
 set noautoread
 set regexpengine=0
-set updatetime=300 " recommended by coc.nvim's documentation
+
+" Set/changed according to the recommendations in govim documentation: plugged/govim/cmd/govim/config/minimal.[g]vimrc
+set noswapfile
+set ttymouse=sgr
+set updatetime=500 " default 4000
+set balloondelay=250 " default 600
+set completeopt+=popup
+set completepopup=align:menu,border:off,highlight:Pmenu
 
 " nvim or not
 if has('nvim')
