@@ -40,32 +40,3 @@ if isdirectory($PLUGDIR . '/auto-pairs')
   let g:AutoPairsMultilineClose = 0
   let g:AutoPairsMapCR = 0
 endif
-
-if isdirectory($PLUGDIR . '/coc.nvim')
-  " Desactivate coc by default, activate only for certain conditions.
-  let g:coc_start_at_startup = 0
-  if stridx(expand('%:p'), $HOME . '/Projects') == 0 || stridx(expand('%:p'), $HOME . '/Coding/typescript') == 0 || stridx(expand('%:p'), $HOME . '/Coding/Go') == 0 || expand('%:t') == 'coc-settings.json'
-    let $NODE_ENV = 'development'
-    let g:coc_start_at_startup = 1
-  endif
-
-	" Disable coc in node_modules.
-  if stridx(expand('%:p'), 'node_modules') != -1
-    let g:coc_start_at_startup = 0
-  endif
-
-  if &diff
-    let g:coc_start_at_startup = 0
-  endif
-  " All coc-specific settings in plugin/coc.vim.
-endif
-
-if isdirectory($PLUGDIR . '/vim-vue-plugin')
-  let g:vim_vue_plugin_config = {
-    \'syntax': {
-      \'template': ['html'],
-      \'script': ['leafgarland_typescript'],
-      \'style': ['scss'],
-    \},
-  \}
-endif

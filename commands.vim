@@ -17,15 +17,6 @@ command! DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis | wincm
 command! CloseListWindows windo if &buftype == 'quickfix' | lclose | cclose | endif
 command! DeleteAllSnippets :call DeleteAllSnippets()
 
-" if isdirectory($PLUGDIR . '/vim-go')
-"   augroup goCommands
-"     autocmd FileType go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
-"     autocmd FileType go command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit')
-"     autocmd FileType go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
-"     autocmd FileType go command! -bang AT call go#alternate#Switch(<bang>0, 'tabe')
-"   augroup end
-" endif
-
 if isdirectory($PLUGDIR . '/fzf.vim')
   " Do not show preview by default:
   " : fzf#vim#with_preview('right:50%:hidden', '?'),

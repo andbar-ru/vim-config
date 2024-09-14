@@ -1,6 +1,3 @@
-" Disable 'sensible' in polyglot because it sets 'noswapfile'.
-" let g:polyglot_disabled = ['sensible', 'typescript', 'html']
-
 let g:plug_window='topleft'
 silent! call plug#begin()
 " colorschemes
@@ -28,29 +25,13 @@ Plug 'simnalamburt/vim-mundo'
 Plug 'voithos/vim-python-matchit'
 Plug 'AndrewRadev/splitjoin.vim'
 if version >= 800
-  " If one add {'for':'go'}, vim-go/syntax/go.vim loads later than builtin syntax/go.vim.
-  " Plug 'fatih/vim-go', {'do':':GoInstallBinaries'}
   Plug 'Shougo/neosnippet.vim'
   Plug 'Shougo/neosnippet-snippets'
 endif
 if has('unix') && version >= 800 && $USER != 'root'
   Plug 'junegunn/fzf', { 'dir': '~/Programs/fzf', 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
-  " Useful optional dependencies: watchman
-  Plug 'neoclide/coc.nvim', {'branch': 'release'}
 endif
-
-" Plug 'sheerun/vim-polyglot'
-" BEGIN WITHOUT POLYGLOT
-Plug 'andbar-ru/typescript-vim'
-Plug 'pangloss/vim-javascript'
-Plug 'andbar-ru/vim-vue'
-" Plug 'leafOfTree/vim-vue-plugin'
-Plug 'groenewege/vim-less'
-Plug 'Vimjas/vim-python-pep8-indent'
-Plug 'vim-python/python-syntax'
-Plug 'jparise/vim-graphql'
-" END WITHOUT POLYGLOT
 Plug 'airblade/vim-rooter'
 call plug#end()
 
@@ -76,6 +57,7 @@ let g:netrw_altfile = 1
 let g:netrw_bufsettings = "noma nomod nobl nowrap ro relativenumber"
 let g:indentLine_enabled=0
 
+" Language specific settings <<END
 let g:html_indent_script1 = "zero"
 let g:html_indent_style1 = "zero"
 " Do not increase indent for these tags.
@@ -83,6 +65,7 @@ let g:html_indent_autotags = "html,body,head"
 
 " Customize go syntax
 let g:go_highlight_operators = 1
+" END
 
 " Includes
 let $VIMRCDIR = expand('<sfile>:p:h')
