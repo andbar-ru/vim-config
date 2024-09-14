@@ -22,7 +22,6 @@ if version >= 740
 endif
 Plug 'jeetsukumaran/vim-indentwise'
 Plug 'simnalamburt/vim-mundo'
-Plug 'voithos/vim-python-matchit'
 Plug 'AndrewRadev/splitjoin.vim'
 if version >= 800
   Plug 'Shougo/neosnippet.vim'
