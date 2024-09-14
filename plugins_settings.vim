@@ -42,7 +42,6 @@ if isdirectory($PLUGDIR . '/auto-pairs')
 endif
 
 if isdirectory($PLUGDIR . '/coc.nvim')
-  let g:coc_node_path = '~/Programs/nvm/versions/node/v18.13.0/bin/node'
   " Desactivate coc by default, activate only for certain conditions.
   let g:coc_start_at_startup = 0
   if stridx(expand('%:p'), $HOME . '/Projects') == 0 || stridx(expand('%:p'), $HOME . '/Coding/typescript') == 0 || stridx(expand('%:p'), $HOME . '/Coding/Go') == 0 || expand('%:t') == 'coc-settings.json'

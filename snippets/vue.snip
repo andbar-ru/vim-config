@@ -126,6 +126,7 @@ options head
 	@SmartQuery<${1:#:class}, ${2:#:resultType}, ${3:#:prefix}QueryVariables, $3Query>({
 		client: '${4}',
 		fetchPolicy: '${5}',
+		notifyOnNetworkStatusChange: true,
 		query: $3Document,
 		variables() {
 			${9}
@@ -144,23 +145,6 @@ options head
 
 snippet apollo-query
 alias aq
-options head
-	try {
-		const { data } = await this.$apollo.query<${1:#:query}, ${2:#:queryArgs}>({
-			client: '${3}',
-			query: ${4},
-			fetchPolicy: '${5}',
-			variables: {},
-		})
-		// begin #########################################
-		console.log(data)
-		// end ###########################################
-	} catch(err) {
-		showMessage(this, \`Ошибка запроса "$4": ${err}\`, { type: 'dialog', severity: 'error' })
-	}
-
-snippet apollo-query-document
-alias aqd
 options head
 	try {
 		const { data } = await this.$apollo.query<${1:#:prefix}Query, $1QueryVariables>({
@@ -220,3 +204,21 @@ snippet class-vuetify-theme-isDark
 alias cvtd
 options word
 	:class="$vuetify.theme.isDark ? 'theme--dark' : 'theme--light'"
+
+snippet window-component-this
+alias wct
+options head
+	// begin #########################################
+	// @ts-ignore debug
+	window.${0:component} = this
+	// end ###########################################
+
+snippet mounted-window-component-this
+alias mwct
+options head
+	// begin #########################################
+	private mounted() {
+		// @ts-ignore debug
+		window.${0:component} = this
+	}
+	// end ###########################################

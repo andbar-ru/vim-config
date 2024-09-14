@@ -56,24 +56,6 @@ options head
 	${0:TARGET}
 	// end ###########################################
 
-snippet window-component-this
-alias wct
-options head
-	// begin #########################################
-	// @ts-ignore debug
-	window.component = this
-	// end ###########################################
-
-snippet mounted-window-component-this
-alias mwct
-options head
-	// begin #########################################
-	private mounted() {
-		// @ts-ignore debug
-		window.component = this
-	}
-	// end ###########################################
-
 snippet ts-ignore
 alias tsi
 options head

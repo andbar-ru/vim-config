@@ -1,6 +1,6 @@
 {
   "coc.preferences.currentFunctionSymbolAutoUpdate": false,
-  "coc.preferences.formatOnSaveFiletypes": ["go", "vue", "typescript", "javascript", "graphql"],
+  "coc.preferences.formatOnSave": true,
   "coc.preferences.messageLevel": "warning",
   "coc.preferences.willSaveHandlerTimeout": 5000,
   "prettier.printWidth": 120,
@@ -17,6 +17,16 @@
   "eslint.quiet": true,
   "eslint.run": "onSave",
   "eslint.validate": ["javascript", "typescript", "vue"],
+  "languageserver": {
+    "go": {
+      "command": "gopls",
+      "rootPatterns": ["go.work", "go.mod", ".vim/", ".git/", ".hg/"],
+      "filetypes": ["go"],
+      "initializationOptions": {
+        "usePlaceholders": true
+      }
+    }
+  },
   "signature.hideOnTextChange": true,
   "suggest.autoTrigger": "none",
   "suggest.noselect": false,

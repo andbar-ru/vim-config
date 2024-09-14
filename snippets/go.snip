@@ -32,6 +32,10 @@ options head
 		${0}
 	}
 
+snippet logprintln
+alias ll
+	log.Println(${0})
+
 snippet logfatal
 alias lf
 	log.Fatal(err${0})
@@ -43,3 +47,24 @@ alias lff
 snippet wr
 options word
 	w http.ResponseWriter, r *http.Request
+
+snippet gofunc
+alias gf
+options head
+	go func() {
+		${0}
+	}()
+
+snippet gofuncarg
+alias gfa
+options head
+	go func(${1:name} ${2:type}) {
+		${0}
+	}($3)
+
+snippet deferfunc
+alias df
+options head
+	defer func() {
+		${0}
+	}()

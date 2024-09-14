@@ -291,8 +291,10 @@ imap <silent> <Home> <C-o><Home>
 nnoremap <silent> [gi :call GoToLineWithWordAndMininalIndent()<CR>
 
 " Swap words (cursor on delimiter)
-nnoremap <leader>sw v?\w<CR>bo/\w<CR>e:s/\%V\(\w\+\)\(\W\+\)\(\w\+\)/\3\2\1/g<CR>``
-nnoremap <leader>sW v?\S<CR>Bo/\S<CR>E:s/\%V\(\S\+\)\(\s\+\)\(\S\+\)/\3\2\1/g<CR>``
+" cursor on '/': word/anotherWord -> anotherWord/word
+nnoremap <leader>sw bdeep`[dbhPl
+" cursor on '/': WORD1%with.symbols/WORD2$with@symbols -> WORD2$with@symbols/WORD1%with.symbols
+nnoremap <leader>sW mzBd`zlmzEp`[d`zhPl
 vnoremap <leader>sw "1d"1db"1de"2P"4p"3p
 vnoremap <leader>sW "1d"1dB"1dE"2P"4p"3p
 

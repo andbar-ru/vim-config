@@ -1,1 +1,116 @@
-web.snip
+snippet console.log
+alias cl
+options head
+	// begin #########################################
+	console.log(${0})
+	// end ###########################################
+
+snippet console.debug
+alias cd
+options head
+	// begin #########################################
+	console.debug(${0})
+	// end ###########################################
+
+snippet debugger
+alias d
+options head
+	// begin #########################################
+  debugger
+	// end ###########################################
+
+snippet global-var
+alias w
+options head
+	// begin #########################################
+  window.${1} = $1${0}
+	// end ###########################################
+
+snippet comment
+alias /
+options head
+	/* ${0} */
+
+snippet func-doc
+alias /*
+options head
+  /** ${0} */
+
+snippet func-extended-doc
+alias /**
+options head
+  /**
+   * ${0}
+   */
+
+snippet vue-group-comment
+alias /-
+options head
+	/* --- ${0} --- */
+
+snippet begin-end-tsignore
+alias bet
+options head
+	// begin #########################################
+	// @ts-ignore debug
+	${0:TARGET}
+	// end ###########################################
+
+snippet ts-ignore
+alias tsi
+options head
+	// @ts-ignore debug
+
+snippet reduce
+alias red
+options word
+	reduce<${1:#:result_type}>((${2:#:result}, ${3:#:item}) => {
+		${5}
+		return $2
+	}, ${4:#:base_value})
+
+snippet html-comment
+alias <!
+options word
+	<!-- ${0:TARGET} -->
+
+snippet html-comment-multiline
+alias <!-
+options head
+	<!--
+		${0:TARGET}
+	-->
+
+snippet document-query-variables-line
+alias dqvl
+options word
+	${1:#:prefix}Document, $1Query, $1QueryVariables
+
+snippet document-query-variables
+alias dqv
+options head
+	${1:#:prefix}Document,
+	$1Query,
+	$1QueryVariables,
+
+snippet document-mutation-variables-line
+alias dmvl
+options word
+	${1:#:prefix}Document, $1Mutation, $1MutationVariables
+
+snippet document-mutation-variables
+alias dmv
+options head
+	${1:#:prefix}Document,
+	$1Mutation,
+	$1MutationVariables,
+
+snippet showMessage
+alias sm
+options word
+	showMessage(this, \`$1\`, { type: 'dialog', severity: '$0' })
+
+snippet prettier-ignore
+alias pi
+options word
+	// prettier-ignore
