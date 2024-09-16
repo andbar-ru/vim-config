@@ -32,7 +32,7 @@ if has('unix') && version >= 800 && $USER != 'root'
   Plug 'junegunn/fzf.vim'
 endif
 Plug 'airblade/vim-rooter'
-Plug 'govim/govim'
+Plug 'govim/govim', { 'for': ['go', 'gomod', 'gosum'] }
 call plug#end()
 
 runtime defaults.vim
@@ -163,7 +163,6 @@ set noautoread
 set regexpengine=0
 
 " Set/changed according to the recommendations in govim documentation: plugged/govim/cmd/govim/config/minimal.[g]vimrc
-set noswapfile
 set ttymouse=sgr
 set updatetime=500 " default 4000
 set balloondelay=250 " default 600

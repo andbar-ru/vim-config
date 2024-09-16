@@ -285,7 +285,11 @@ function! SuperTab()
   let char = getline('.')[col - 2]
   " There is an identifier before the cursor, so complete the identifier.
   if char =~ '\k'
-    return "\<c-p>"
+    if &ft == 'go'
+      return "\<c-x>\<c-o>" " omni-completion by govim
+    else
+      return "\<c-p>"
+    endif
   else
     return "\<tab>"
   endif

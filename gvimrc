@@ -1,7 +1,7 @@
 if has('win32')
     set guifont=Consolas:h8
 else
-    set guifont=InputMonoNarrow\ 8
+    set guifont=Input\ Mono\ Narrow\ 8
     set linespace=1 " for this font only
 endif
 set guioptions-=m

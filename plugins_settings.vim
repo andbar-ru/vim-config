@@ -40,3 +40,7 @@ if isdirectory($PLUGDIR . '/auto-pairs')
   let g:AutoPairsMultilineClose = 0
   let g:AutoPairsMapCR = 0
 endif
+
+if isdirectory($PLUGDIR . '/vim-rooter')
+  let g:rooter_patterns = ['.git', 'go.mod', 'Makefile', 'package.json']
+endif
