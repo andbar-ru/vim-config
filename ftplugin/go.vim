@@ -30,3 +30,12 @@ inoremap <silent> <buffer> <a-g>f <c-o>:GOVIMFillStruct<cr>
 set wildcharm=<tab>
 nnoremap <buffer> <leader>gv :GOVIM<tab>
 
+" Adjust highlights to colorscheme
+highlight GOVIMErr  gui=underline
+highlight GOVIMWarn gui=underline
+highlight GOVIMInfo gui=underline
+highlight GOVIMHint gui=underline
+highlight link GOVIMSignErr  Error
+highlight link GOVimSignWarn Type
+highlight link GOVIMSignInfo String
+highlight link GOVIMSignHint PreProc
