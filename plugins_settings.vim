@@ -44,3 +44,17 @@ endif
 if isdirectory($PLUGDIR . '/vim-rooter')
   let g:rooter_patterns = ['.git', 'go.mod', 'Makefile', 'package.json']
 endif
+
+if isdirectory($PLUGDIR . '/asyncomplete.vim')
+  let g:asyncomplete_auto_popup = 0
+
+  function! Omni()
+    call asyncomplete#register_source(asyncomplete#sources#omni#get_source_options({
+          \ 'name': 'omni',
+          \ 'whitelist': g:omni_filetypes,
+          \ 'completor': function('asyncomplete#sources#omni#completor')
+          \ }))
+  endfunction
+
+  au VimEnter * :call Omni()
+endif

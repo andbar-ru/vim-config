@@ -33,6 +33,8 @@ if has('unix') && version >= 800 && $USER != 'root'
 endif
 Plug 'airblade/vim-rooter'
 Plug 'govim/govim', { 'for': ['go', 'gomod', 'gosum'] }
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'yami-beta/asyncomplete-omni.vim'
 call plug#end()
 
 runtime defaults.vim
@@ -66,6 +68,8 @@ let g:html_indent_autotags = "html,body,head"
 " Customize go syntax
 let g:go_highlight_operators = 1
 " END
+
+let g:omni_filetypes = ['go']
 
 " Includes
 let $VIMRCDIR = expand('<sfile>:p:h')

@@ -319,10 +319,6 @@ if has('nvim')
   vmap <LeftRelease> "*ygv
 endif
 
-inoremap <expr> <tab> SuperTab()
-" For coc.nvim mode
-inoremap <expr> <c-tab> SuperTab()
-
 " Go to next merge conflict marker
 let mergeConflictMarkerPattern = '\v^(\<{7}|\={7}|\>{7})'
 nnoremap <silent> ], :<c-u>execute "keeppatterns /" . mergeConflictMarkerPattern<cr>0
@@ -332,6 +328,15 @@ onoremap <silent> [, :<c-u>execute "keeppatterns ?" . mergeConflictMarkerPattern
 " Could not apply keeppatterns here.
 vnoremap <silent> ], /\v^(\<{7}\|\={7}\|\>{7})<cr>
 vnoremap <silent> [, ?\v^(\<{7}\|\={7}\|\>{7})<cr>
+
+" Tab completion
+inoremap <silent> <expr> <tab>
+  \ pumvisible() ? "\<c-n>" :
+  \ CheckBackspace() ? "\<tab>" :
+  \ index(g:omni_filetypes, &ft) != -1 && isdirectory($PLUGDIR . '/asyncomplete.vim') ? asyncomplete#force_refresh() :
+  \ "\<c-p>"
+inoremap <expr> <s-tab> pumvisible() ? "\<c-p>" : "\<s-tab>"
+inoremap <expr> <cr>    pumvisible() ? "\<c-y>" : "\<cr>"
 
 " Go to next marker /* ---, e.g. /* --- DATA --- */, /* --- METHODS --- */
 let vueGroupMarkerPattern = '^\s\+\/\*\s*---'
@@ -465,7 +470,9 @@ if isdirectory($PLUGDIR . '/vim-indentwise')
   map ]$ <Plug>(IndentWiseBlockScopeBoundaryEnd)
 endif
 
-" FileType specific mappings.
+"=================================================
+" FileType specific
+"=================================================
 augroup maps
   autocmd!
   autocmd FileType vue,typescript nnoremap <buffer> gf :call GoToFile(expand('<cfile>'))<cr>

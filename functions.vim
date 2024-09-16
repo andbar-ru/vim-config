@@ -259,40 +259,9 @@ function! BuildGoFiles()
   endif
 endfunction
 
-" Indents if cursor is at the beginning of line. Else do completion.
-function! SuperTab()
-  let col = col('.')
-  " Cursor is on the first column.
-  if col == 1
-    " Indentwise tab
-    if IsLineEmpty('.')
-      " If previous calling didn't take effect, just type <tab>.
-      if exists('g:prevSuperTabCurPos') && g:prevSuperTabCurPos == getcurpos()
-        return "\<tab>"
-      endif
-      let g:prevSuperTabCurPos = getcurpos()
-
-      if line('.') == line('$')
-        return "\<esc>ddo"
-      else
-        return "\<esc>ddO"
-      endif
-    else
-      return "\<tab>"
-    endif
-  endif
-
-  let char = getline('.')[col - 2]
-  " There is an identifier before the cursor, so complete the identifier.
-  if char =~ '\k'
-    if &ft == 'go'
-      return "\<c-x>\<c-o>" " omni-completion by govim
-    else
-      return "\<c-p>"
-    endif
-  else
-    return "\<tab>"
-  endif
+function! CheckBackspace() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col-1] =~ '\s'
 endfunction
 
 " Delete current snippet
