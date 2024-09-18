@@ -47,6 +47,7 @@ endif
 
 if isdirectory($PLUGDIR . '/asyncomplete.vim')
   let g:asyncomplete_auto_popup = 0
+  let g:asyncomplete_auto_completeopt = 0
 
   function! Omni()
     call asyncomplete#register_source(asyncomplete#sources#omni#get_source_options({
@@ -57,4 +58,12 @@ if isdirectory($PLUGDIR . '/asyncomplete.vim')
   endfunction
 
   au VimEnter * :call Omni()
+endif
+
+" This needs changes in plugged/govim/ftplugin/go.vim:
+" if !exists('g:govim_disable_mouse_hover') || !g:govim_disable_mouse_hover
+"   setlocal balloonexpr=GOVIM_internal_BalloonExpr()
+" endif
+if isdirectory($PLUGDIR . '/govim')
+  let g:govim_disable_mouse_hover = 1
 endif

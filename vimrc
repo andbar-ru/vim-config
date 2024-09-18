@@ -168,8 +168,6 @@ set regexpengine=0
 
 " Set/changed according to the recommendations in govim documentation: plugged/govim/cmd/govim/config/minimal.[g]vimrc
 set ttymouse=sgr
-set updatetime=500 " default 4000
-set balloondelay=250 " default 600
 set completeopt+=popup
 set completepopup=align:menu,border:off,highlight:Pmenu
 

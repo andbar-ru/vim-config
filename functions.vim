@@ -325,3 +325,19 @@ function! GoSavNewMain(name)
   call system('mkdir ' .. newDir)
   exec 'sav ' .. newDir .. '/main.go'
 endfunction
+
+function! WrappingCnext()
+  try
+    cnext
+  catch /.*/
+    cfirst
+  endtry
+endfunction
+
+function! WrappingCprev()
+  try
+    cprev
+  catch /.*/
+    clast
+  endtry
+endfunction

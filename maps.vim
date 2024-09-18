@@ -79,11 +79,10 @@ inoremap <C-S-PageDown> <C-o>:tabm +<CR>
 " vim cmdline window has ft='vim', and <cr> in it executes the command-line under the cursor.
 nnoremap <expr> <cr> (index(['qf', 'vim'], &ft) >= 0 ? '<CR>' : 'o<Esc>')
 
-imap <expr> <cr> pumvisible() ? '<c-y>' : '<cr><Plug>AutoPairsReturn'
 nnoremap <S-CR> O<Esc>
 inoremap <S-CR> <END><CR>
 inoremap <C-S-CR> <C-O>O
-inoremap <c-cr> <cr><esc>yypkC<tab>
+inoremap <c-cr> <cr><esc>O
 " Отступы в режиме выделения с сохранением выделения
 vnoremap <tab> >gv
 vnoremap <s-tab> <gv
@@ -288,7 +287,7 @@ nnoremap <expr> <LeftMouse> abs(line(".") - line("''")) > 10 ? "m'<LeftMouse>" :
 " Smart Home
 noremap <expr> <silent> <Home> col('.') == match(getline('.'),'\S')+1 ? '0' : '^'
 imap <silent> <Home> <C-o><Home>
-nnoremap <silent> [gi :call GoToLineWithWordAndMininalIndent()<CR>
+nnoremap <silent> [wmi :call GoToLineWithWordAndMininalIndent()<cr>
 
 " Swap words (cursor on delimiter)
 " cursor on '/': word/anotherWord -> anotherWord/word
@@ -336,7 +335,7 @@ inoremap <silent> <expr> <tab>
   \ index(g:omni_filetypes, &ft) != -1 && isdirectory($PLUGDIR . '/asyncomplete.vim') ? asyncomplete#force_refresh() :
   \ "\<c-p>"
 inoremap <expr> <s-tab> pumvisible() ? "\<c-p>" : "\<s-tab>"
-inoremap <expr> <cr>    pumvisible() ? "\<c-y>" : "\<cr>"
+imap <expr> <cr> pumvisible() ? '<c-y>' : '<cr><Plug>AutoPairsReturn'
 
 " Go to next marker /* ---, e.g. /* --- DATA --- */, /* --- METHODS --- */
 let vueGroupMarkerPattern = '^\s\+\/\*\s*---'
@@ -357,6 +356,9 @@ let functionEnd = '^\s*}$'
 nnoremap <silent> [f :call search(functionEnd, 'beW')<cr>%{
 onoremap <silent> [f :call search(functionEnd, 'beW') <bar> execute 'normal %{'<cr>
 vnoremap <silent> [f :<c-u>call search(functionEnd, 'beWs')<cr>V''o%{j
+" Wrapping walking errors
+nnoremap <silent> ]g :<c-u>call WrappingCnext()<cr>
+nnoremap <silent> [g :<c-u>call WrappingCprev()<cr>
 
 nnoremap <leader>pc :call popup_clear()<cr>
 
