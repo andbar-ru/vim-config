@@ -33,8 +33,6 @@ if has('unix') && version >= 800 && $USER != 'root'
 endif
 Plug 'airblade/vim-rooter'
 Plug 'govim/govim', { 'for': ['go', 'gomod', 'gosum'] }
-Plug 'prabirshrestha/asyncomplete.vim'
-Plug 'yami-beta/asyncomplete-omni.vim'
 call plug#end()
 
 runtime defaults.vim

@@ -186,15 +186,15 @@ nnoremap <silent> <expr> [q ':<c-u>' . (v:count ? v:count : '') . 'cprevious<cr>
 nnoremap <silent> <expr> ]q ':<c-u>' . (v:count ? v:count : '') . 'cnext<cr>'
 nnoremap <silent> <expr> [Q ':<c-u>' . (v:count ? v:count : '') . 'cfirst<cr>'
 nnoremap <silent> <expr> ]Q ':<c-u>' . (v:count ? v:count : '') . 'clast<cr>'
-nnoremap <leader>qc :cclose<cr>
-nnoremap <leader>qo :copen<cr>
+nnoremap qc :cclose<cr>
+nnoremap qo :copen<cr>
 " location-list
 nnoremap <silent> <expr> [l ':<c-u>' . (v:count ? v:count : '') . 'lprevious<cr>'
 nnoremap <silent> <expr> ]l ':<c-u>' . (v:count ? v:count : '') . 'lnext<cr>'
 nnoremap <silent> <expr> [L ':<c-u>' . (v:count ? v:count : '') . 'lfirst<cr>'
 nnoremap <silent> <expr> ]L ':<c-u>' . (v:count ? v:count : '') . 'llast<cr>'
-nnoremap <leader>lc :lclose<cr>
-nnoremap <leader>lo :lopen<cr>
+nnoremap lc :lclose<cr>
+nnoremap lo :lopen<cr>
 nnoremap <leader>cc :CloseListWindows<cr>
 
 noremap <A-t> :tabnew<CR>
@@ -329,11 +329,7 @@ vnoremap <silent> ], /\v^(\<{7}\|\={7}\|\>{7})<cr>
 vnoremap <silent> [, ?\v^(\<{7}\|\={7}\|\>{7})<cr>
 
 " Tab completion
-inoremap <silent> <expr> <tab>
-  \ pumvisible() ? "\<c-n>" :
-  \ CheckBackspace() ? "\<tab>" :
-  \ index(g:omni_filetypes, &ft) != -1 && isdirectory($PLUGDIR . '/asyncomplete.vim') ? asyncomplete#force_refresh() :
-  \ "\<c-p>"
+inoremap <expr> <tab> pumvisible() ? "\<c-n>" : SuperTab()
 inoremap <expr> <s-tab> pumvisible() ? "\<c-p>" : "\<s-tab>"
 imap <expr> <cr> pumvisible() ? '<c-y>' : '<cr><Plug>AutoPairsReturn'
 

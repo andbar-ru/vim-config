@@ -264,6 +264,36 @@ function! CheckBackspace() abort
   return !col || getline('.')[col-1] =~ '\s'
 endfunction
 
+" Indents if cursor is at the beginning of a line or after a space else do completion.
+function! SuperTab()
+  let col = col('.')
+  " Cursor is on the first column.
+  if col == 1
+    " Indentwise tab
+    if IsLineEmpty('.')
+      if line('.') == line('$')
+        return "\<esc>ddo"
+      else
+        return "\<esc>ddO"
+      endif
+    else
+      return "\<tab>"
+    endif
+  endif
+
+  let char = getline('.')[col-2]
+  " There is an identifier before the cursor, so complete the identifier.
+  if char =~ '\k'
+    if index(g:omni_filetypes, &ft) != -1
+      return "\<c-x>\<c-o>"
+    else
+      return "\<c-p>"
+    endif
+  else
+    return "\<tab>"
+  endif
+endfunction
+
 " Delete current snippet
 function! DeleteSnippet()
   let lineNoBegin = search('^\v\s*.+ begin #{40,}$', 'bwc')
