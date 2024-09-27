@@ -33,6 +33,7 @@ if has('unix') && version >= 800 && $USER != 'root'
 endif
 Plug 'airblade/vim-rooter'
 Plug 'govim/govim', { 'for': ['go', 'gomod', 'gosum'] }
+Plug 'preservim/tagbar' " needs `go install github.com/jstemmer/gotags@latest` for go
 call plug#end()
 
 runtime defaults.vim

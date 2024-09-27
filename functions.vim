@@ -259,11 +259,6 @@ function! BuildGoFiles()
   endif
 endfunction
 
-function! CheckBackspace() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col-1] =~ '\s'
-endfunction
-
 " Indents if cursor is at the beginning of a line or after a space else do completion.
 function! SuperTab()
   let col = col('.')

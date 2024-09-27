@@ -18,13 +18,16 @@ nnoremap <silent> <buffer> <leader>gsf :GOVIMSuggestedFixes<cr>
 nnoremap <silent> <buffer> <leader>gt :GOVIMGoToTypeDef<cr>
 " Update quickfix window to ensure it contains diagnostics and not something else.
 nnoremap <buffer> <leader>gq :GOVIMQuickfixDiagnostics<cr>
+nnoremap <buffer> <leader>gi :GOVIMGoImports<cr>
 
 function! s:ToggleHighlightReferenses()
   if s:highlight_references
     execute 'GOVIMClearReferencesHighlights'
+    call govim#config#Set('HighlightReferences', 0)
     let s:highlight_references = 0
   else
     execute 'GOVIMHighlightReferences'
+    call govim#config#Set('HighlightReferences', 1)
     let s:highlight_references = 1
   endif
 endfunction
@@ -78,3 +81,4 @@ highlight link GOVIMSignErr  Error
 highlight link GOVimSignWarn Type
 highlight link GOVIMSignInfo String
 highlight link GOVIMSignHint PreProc
+highlight link GOVIMReferences DiffText

@@ -27,13 +27,6 @@ inoremap <silent> <F4> <C-o>:set nu!<CR>
 noremap <silent> <S-F4> :set relativenumber!<CR>
 inoremap <silent> <S-F4> <C-o>:set relativenumber!<CR>
 
-if isdirectory($PLUGDIR . '/bufexplorer')
-  noremap <F5> :ToggleBufExplorer<CR>
-  inoremap <F5> <Esc>:ToggleBufExplorer<CR>
-  noremap <S-F5> :BufExplorerVerticalSplit<CR>
-  inoremap <S-F5> <Esc>:BufExplorerVerticalSplit<CR>
-endif
-
 noremap <F8> :syntax sync fromstart<cr>
 inoremap <F8> <c-o>:syntax sync fromstart<cr>
 noremap <expr> <S-F8> &syntax == 'OFF' ? ':setlocal syntax=ON<cr>' : ':setlocal syntax=OFF<cr>'
@@ -466,6 +459,17 @@ endif
 if isdirectory($PLUGDIR . '/vim-indentwise')
   map [$ <Plug>(IndentWiseBlockScopeBoundaryBegin)
   map ]$ <Plug>(IndentWiseBlockScopeBoundaryEnd)
+endif
+
+if isdirectory($PLUGDIR . '/bufexplorer')
+  noremap <F5> :ToggleBufExplorer<CR>
+  inoremap <F5> <Esc>:ToggleBufExplorer<CR>
+  noremap <S-F5> :BufExplorerVerticalSplit<CR>
+  inoremap <S-F5> <Esc>:BufExplorerVerticalSplit<CR>
+endif
+
+if isdirectory($PLUGDIR . '/tagbar')
+  nmap <F7> :TagbarToggle<cr>
 endif
 
 "=================================================

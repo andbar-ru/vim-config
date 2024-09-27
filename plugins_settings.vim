@@ -51,4 +51,8 @@ endif
 " endif
 if isdirectory($PLUGDIR . '/govim')
   let g:govim_disable_mouse_hover = 1
+  " Do not load govim in diff mode.
+  if &diff
+    let g:govimpluginloaded = 1
+  endif
 endif
