@@ -10,6 +10,7 @@ augroup general autocmd!  autocmd VimLeavePre * silent mksession! $VIMRCDIR/sess
 setlocal autoread filetype=logtxt
   autocmd BufRead rules setlocal noexpandtab  " debian/rules
   autocmd BufRead .xbindkeysrc setlocal ft=conf
+
   autocmd FileType python setlocal ts=4 sw=4 cc=100,120 completeopt-=preview
   autocmd FileType go setlocal ts=4 sw=4 noet
   autocmd FileType java setlocal ts=4 sw=4 et
@@ -18,6 +19,7 @@ setlocal autoread filetype=logtxt
   autocmd FileType neosnippet setlocal noexpandtab
   " Allow '@' in path names. It is for 'gf' on path names beginning from '@'.
   autocmd FileType vue,typescript setlocal isfname+=@-@
+
   autocmd BufLeave * call AutoSaveWinView()
   autocmd BufEnter * call AutoRestoreWinView()
   autocmd VimResized * if &equalalways | wincmd = | endif

@@ -32,8 +32,11 @@ if has('unix') && version >= 800 && $USER != 'root'
   Plug 'junegunn/fzf.vim'
 endif
 Plug 'airblade/vim-rooter'
-Plug 'govim/govim', { 'for': ['go', 'gomod', 'gosum'] }
+if $USER != 'root'
+  Plug 'govim/govim', { 'for': ['go', 'gomod', 'gosum'] }
+endif
 Plug 'preservim/tagbar' " needs `go install github.com/jstemmer/gotags@latest` for go
+Plug 'wellle/targets.vim'
 call plug#end()
 
 runtime defaults.vim
@@ -169,6 +172,10 @@ set regexpengine=0
 set ttymouse=sgr
 set completeopt+=popup
 set completepopup=align:menu,border:off,highlight:Pmenu
+
+if $USER == 'root'
+  set noswapfile
+endif
 
 " nvim or not
 if has('nvim')

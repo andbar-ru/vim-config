@@ -1,3 +1,7 @@
+if $USER == 'root'
+  finish
+endif
+
 let s:highlight_references = 0
 
 setlocal updatetime=500 " default 4000
