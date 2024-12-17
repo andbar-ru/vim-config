@@ -37,6 +37,7 @@ if $USER != 'root'
 endif
 Plug 'preservim/tagbar' " needs `go install github.com/jstemmer/gotags@latest` for go
 Plug 'wellle/targets.vim'
+Plug 'Exafunction/codeium.vim'
 call plug#end()
 
 runtime defaults.vim
@@ -167,6 +168,7 @@ set complete-=t " exclude tags, for tags <c-x><c-]>
 set scrolloff=0
 set noautoread
 set regexpengine=0
+set formatoptions+=r
 
 " Set/changed according to the recommendations in govim documentation: plugged/govim/cmd/govim/config/minimal.[g]vimrc
 set ttymouse=sgr

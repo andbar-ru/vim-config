@@ -16,6 +16,7 @@ command! ToggleScrollbar if &guioptions=~"r" | set guioptions-=r | else | set gu
 command! DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis | wincmd p | diffthis
 command! CloseListWindows windo if &buftype == 'quickfix' | lclose | cclose | endif
 command! DeleteAllSnippets :call DeleteAllSnippets()
+command! -nargs=1 GoSavNewMain :call GoSavNewMain("<args>")
 
 if isdirectory($PLUGDIR . '/fzf.vim')
   " Do not show preview by default:

@@ -1,5 +1,8 @@
 " Here are only general autocommands. Plugin-specific autocommands elsewhere.
-augroup general autocmd!  autocmd VimLeavePre * silent mksession! $VIMRCDIR/sessions/lastSession.vim
+augroup general
+  autocmd!
+
+  autocmd VimLeavePre * silent mksession! $VIMRCDIR/sessions/lastSession.vim
   autocmd BufRead * if getfsize(expand('%')) > 1048576 | setlocal syntax=OFF | endif
   if exists('g:highlightTrailingSpace')
     autocmd BufNew,BufRead * call HiTrail(g:highlightTrailingSpace)

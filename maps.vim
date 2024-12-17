@@ -473,6 +473,15 @@ if isdirectory($PLUGDIR . '/tagbar')
   nmap <F7> :TagbarToggle<cr>
 endif
 
+if isdirectory($PLUGDIR . '/codeium.vim')
+  inoremap <a-.> <cmd>call codeium#CycleOrComplete()<cr>
+  inoremap <a-,> <cmd>call codeium#CycleCompletions(-1)<cr>
+  inoremap <a-c> <cmd>call codeium#Clear()<cr>
+  inoremap <script><silent><nowait><expr> <a-w> codeium#AcceptNextWord()
+  inoremap <script><silent><nowait><expr> <a-l> codeium#AcceptNextLine()
+  inoremap <script><silent><nowait><expr> <a-a> codeium#Accept()
+endif
+
 "=================================================
 " FileType specific
 "=================================================
