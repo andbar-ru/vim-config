@@ -416,6 +416,8 @@ nnoremap <leader>dqv "dyiw+"qyiw+"vyiw
 " Yank successive ...Document, ...Mutation and ...Variables names to registers.
 nnoremap <leader>dmv "dyiw+"myiw+"vyiw
 
+nnoremap <expr> <leader>for &formatoptions =~# 'r' ? ':setlocal formatoptions-=r<cr>' : ':setlocal formatoptions+=r<cr>'
+
 "=================================================
 " Commands
 "=================================================

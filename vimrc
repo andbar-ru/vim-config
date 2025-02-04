@@ -17,17 +17,13 @@ Plug 'tomtom/tcomment_vim'
 Plug 'danro/rename.vim'
 Plug 'alvan/vim-closetag'
 Plug 'jiangmiao/auto-pairs'
-if version >= 740
-  Plug 'jlanzarotta/bufexplorer'
-endif
+Plug 'jlanzarotta/bufexplorer'
 Plug 'jeetsukumaran/vim-indentwise'
 Plug 'simnalamburt/vim-mundo'
 Plug 'AndrewRadev/splitjoin.vim'
-if version >= 800
-  Plug 'Shougo/neosnippet.vim'
-  Plug 'Shougo/neosnippet-snippets'
-endif
-if has('unix') && version >= 800 && $USER != 'root'
+Plug 'Shougo/neosnippet.vim'
+Plug 'Shougo/neosnippet-snippets'
+if has('unix') && $USER != 'root'
   Plug 'junegunn/fzf', { 'dir': '~/Programs/fzf', 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
 endif
@@ -168,7 +164,6 @@ set complete-=t " exclude tags, for tags <c-x><c-]>
 set scrolloff=0
 set noautoread
 set regexpengine=0
-set formatoptions+=r
 
 " Set/changed according to the recommendations in govim documentation: plugged/govim/cmd/govim/config/minimal.[g]vimrc
 set ttymouse=sgr

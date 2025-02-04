@@ -58,6 +58,7 @@ if isdirectory($PLUGDIR . '/govim')
 endif
 
 if isdirectory($PLUGDIR . '/codeium.vim')
+  let g:codeium_enabled = v:false
   let g:codeium_manual = v:true
   let g:codeium_disable_bindings = v:true
 endif

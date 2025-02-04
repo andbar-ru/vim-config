@@ -21,9 +21,23 @@ snippet println
 alias pl
 	fmt.Println(${0})
 
+snippet sprintf
+alias spf
+options word
+	fmt.Sprintf("${1}", ${0})
+
+snippet sprintfv
+alias spfv
+options word
+	fmt.Sprintf(${0:TARGET})
+
 snippet errorf
 alias fe
 	fmt.Errorf("${1}", ${0})
+
+snippet errorferr
+alias fee
+	fmt.Errorf("${1}: %w", err)
 
 snippet iferr
 alias e
@@ -39,6 +53,13 @@ options head
 		return ${0}err
 	}
 
+snippet iferrreturnfe
+alias efe
+options head
+	if err != nil {
+		return fmt.Errorf("${1}: %w", err)
+	}
+
 snippet iferrpanic
 alias ep
 options head
@@ -46,21 +67,15 @@ options head
 		panic(err)
 	}${0}
 
-snippet logprintln
-alias ll
-	log.Println(${0})
-
-snippet logfatal
-alias lf
-	log.Fatal(err${0})
-
-snippet logfatalf
-alias lff
-	log.Fatalf("${1}", ${0})
-
 snippet wr
 options word
 	w http.ResponseWriter, r *http.Request
+
+snippet httperror
+alias he
+	http.Error(w, "${1}", http.Status${2})
+	return
+options head
 
 snippet gofunc
 alias gf
