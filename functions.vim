@@ -259,8 +259,27 @@ function! BuildGoFiles()
   endif
 endfunction
 
-" Indents if cursor is at the beginning of a line or after a space else do completion.
-function! SuperTab()
+" Timer callback to check the completion info and auto-fallback if needed.
+function! OmniCompletionFallback(timer) abort
+  " Get information about the current completion. The 'items' list will be empty if omni-completion
+  " did not offer any candidates.
+  let info = complete_info()
+  if empty(info.items)
+    " Reset the failed completion and trigger builtin completion
+    call feedkeys("\<c-e>\<c-p>", 'n')
+  endif
+endfunction
+
+" Trigger omni-completion and set a timer to check for a fallback.
+function! OmniCompletion() abort
+  call feedkeys("\<c-x>\<c-o>", 'n')
+  call timer_start(50, 'OmniCompletionFallback')
+  " Return an empty string so that nothing extra is inserted.
+  return ''
+endfunction
+
+" Indents if the cursor is at the beginning of a line or after a space; otherwise, do completion.
+function! SuperTab() abort
   let col = col('.')
   " Cursor is on the first column.
   if col == 1
@@ -280,7 +299,7 @@ function! SuperTab()
   " There is an identifier before the cursor, so complete the identifier.
   if char =~ '\k' || char == '.'
     if index(g:omni_filetypes, &ft) != -1
-      return "\<c-x>\<c-o>"
+      return OmniCompletion()
     else
       return "\<c-p>"
     endif
