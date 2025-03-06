@@ -259,6 +259,20 @@ function! BuildGoFiles()
   endif
 endfunction
 
+" Returns v:true if the cursor is inside a comment or a string, else returns v:false.
+function! InCommentOrString() abort
+  let l = line('.')
+  let c = col('.')
+  let lc = col('$')
+  " In Insert mode the rightmost cursor position is beyond last character, move to the last
+  " character.
+  if c >= lc
+    let c = lc - 1
+  endif
+  let synName = synIDattr(synIDtrans(synID(l, c, 1)), 'name')
+  return synName == 'Comment' || synName == 'String'
+endfunction
+
 " Timer callback to check the completion info and auto-fallback if needed.
 function! OmniCompletionFallback(timer) abort
   " Get information about the current completion. The 'items' list will be empty if omni-completion
@@ -278,9 +292,14 @@ function! OmniCompletion() abort
   return ''
 endfunction
 
+function! LastChar() abort
+  let char = strpart(getline("."), col(".") - 1, 1, v:true)
+  echo char
+endfunction
+
 " Indents if the cursor is at the beginning of a line or after a space; otherwise, do completion.
 function! SuperTab() abort
-  let col = col('.')
+  let col = charcol('.')
   " Cursor is on the first column.
   if col == 1
     " Indentwise tab
@@ -295,10 +314,13 @@ function! SuperTab() abort
     endif
   endif
 
-  let char = getline('.')[col-2]
+  let char = strcharpart(getline("."), col - 2, 1, v:true)
+  echom '"' .. char .. '"'
   " There is an identifier before the cursor, so complete the identifier.
   if char =~ '\k' || char == '.'
-    if index(g:omni_filetypes, &ft) != -1
+    if InCommentOrString()
+      return "\<c-p>"
+    elseif index(g:omni_filetypes, &ft) != -1
       return OmniCompletion()
     else
       return "\<c-p>"

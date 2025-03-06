@@ -1,6 +1,6 @@
 an 1.105 PopUp.-SEP3- <Nop>
 
-anoremenu 1.110 PopUp.Close\ Tab :tabclose<CR>
+anoremenu 1.110 PopUp.Close\ Tab :tabclose<cr>
 
 an 1.115 PopUp.-SEP4- <Nop>
 
@@ -12,3 +12,5 @@ for line in lines
     execute 'anoremenu 1.120 PopUp.Commands.' . command . ' :' . command . '<cr>'
   endif
 endfor
+
+anoremenu 1.130 PopUp.Open\ Terminal :term<cr>

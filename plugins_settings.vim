@@ -55,10 +55,5 @@ if isdirectory($PLUGDIR . '/govim')
   if &diff
     let g:govimpluginloaded = 1
   endif
-endif
-
-if isdirectory($PLUGDIR . '/codeium.vim')
-  let g:codeium_enabled = v:false
-  let g:codeium_manual = v:true
-  let g:codeium_disable_bindings = v:true
+  let $GOVIM_USE_GOPLS_FROM_PATH = "true"
 endif

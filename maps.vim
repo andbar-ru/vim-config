@@ -186,8 +186,9 @@ nnoremap <silent> <expr> [l ':<c-u>' . (v:count ? v:count : '') . 'lprevious<cr>
 nnoremap <silent> <expr> ]l ':<c-u>' . (v:count ? v:count : '') . 'lnext<cr>'
 nnoremap <silent> <expr> [L ':<c-u>' . (v:count ? v:count : '') . 'lfirst<cr>'
 nnoremap <silent> <expr> ]L ':<c-u>' . (v:count ? v:count : '') . 'llast<cr>'
-nnoremap lc :lclose<cr>
-nnoremap lo :lopen<cr>
+" mapping l is not good idea, so ql
+nnoremap qlc :lclose<cr>
+nnoremap qlo :lopen<cr>
 nnoremap <leader>cc :CloseListWindows<cr>
 
 noremap <A-t> :tabnew<CR>
@@ -416,7 +417,8 @@ nnoremap <leader>dqv "dyiw+"qyiw+"vyiw
 " Yank successive ...Document, ...Mutation and ...Variables names to registers.
 nnoremap <leader>dmv "dyiw+"myiw+"vyiw
 
-nnoremap <expr> <leader>for &formatoptions =~# 'r' ? ':setlocal formatoptions-=r<cr>' : ':setlocal formatoptions+=r<cr>'
+nnoremap <expr> <a-r> &formatoptions =~# 'r' ? ':setlocal formatoptions-=r<cr>' : ':setlocal formatoptions+=r<cr>'
+inoremap <expr> <a-r> &formatoptions =~# 'r' ? '<c-o>:setlocal formatoptions-=r<cr>' : '<c-o>:setlocal formatoptions+=r<cr>'
 
 "=================================================
 " Commands
@@ -473,15 +475,6 @@ endif
 
 if isdirectory($PLUGDIR . '/tagbar')
   nmap <F7> :TagbarToggle<cr>
-endif
-
-if isdirectory($PLUGDIR . '/codeium.vim')
-  inoremap <a-.> <cmd>call codeium#CycleOrComplete()<cr>
-  inoremap <a-,> <cmd>call codeium#CycleCompletions(-1)<cr>
-  inoremap <a-c> <cmd>call codeium#Clear()<cr>
-  inoremap <script><silent><nowait><expr> <a-w> codeium#AcceptNextWord()
-  inoremap <script><silent><nowait><expr> <a-l> codeium#AcceptNextLine()
-  inoremap <script><silent><nowait><expr> <a-a> codeium#Accept()
 endif
 
 "=================================================
