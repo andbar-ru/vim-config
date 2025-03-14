@@ -477,6 +477,11 @@ if isdirectory($PLUGDIR . '/tagbar')
   nmap <F7> :TagbarToggle<cr>
 endif
 
+if isdirectory($PLUGDIR . '/augment.vim')
+  " Required plugin's code modification in autoload/augment.vim: search '<andbar>'
+  inoremap <a-s> <cmd>call augment#Suggest()<cr>
+endif
+
 "=================================================
 " FileType specific
 "=================================================
