@@ -61,6 +61,6 @@ endif
 if isdirectory($PLUGDIR . '/augment.vim')
   let g:augment_node_command = "node-proxy"
   " Required plugin's code modification in autoload/augment.vim: search '<andbar>'
-  let g:augment_disable_auto_suggestions = v:true
+  let g:augment_disable_completions = v:true
   let g:augment_workspace_folders = ['~/Projects/bas-core/go/services/ca', '~/Projects/bas-core/go/services/bas-core']
 endif

@@ -33,7 +33,7 @@ if $USER != 'root'
 endif
 Plug 'preservim/tagbar' " needs `go install github.com/jstemmer/gotags@latest` for go
 Plug 'wellle/targets.vim'
-Plug 'augmentcode/augment.vim', { 'branch': 'prerelease' }
+Plug 'augmentcode/augment.vim'
 call plug#end()
 
 runtime defaults.vim
