@@ -14,6 +14,10 @@ set signcolumn=number
 " See available settings in plugged/govim/cmd/govim/config/config.go::type Config
 call govim#config#Set('HighlightReferences', s:highlight_references)
 
+if exists("g:govim_gopls_directory_filters") && type(g:govim_gopls_directory_filters) == 3
+  call govim#config#Set('GoplsDirectoryFilters', g:govim_gopls_directory_filters)
+endif
+
 " See available commands in plugged/govim/cmd/govim/config/config.go::type Command
 nnoremap <silent> <buffer> K :<c-u>call GOVIMHover()<cr>
 nnoremap <silent> <buffer> <leader>gr :GOVIMReferences<cr>

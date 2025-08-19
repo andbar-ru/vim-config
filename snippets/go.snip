@@ -39,6 +39,22 @@ snippet errorferr
 alias fee
 	fmt.Errorf("${1}: %w", err)
 
+snippet logprintln
+alias lpl
+	log.Println("${0}")
+
+snippet logprintf
+alias lpf
+	log.Printf("${1}", ${0})
+
+snippet logfatal
+alias lf
+	log.Fatal("${0}")
+
+snippet logfatalf
+alias lff
+	log.Fatalf("${1}", ${0})
+
 snippet iferr
 alias e
 options head

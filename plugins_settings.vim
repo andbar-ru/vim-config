@@ -51,16 +51,12 @@ endif
 " endif
 if isdirectory($PLUGDIR . '/govim')
   let g:govim_disable_mouse_hover = 1
+  let g:govim_gopls_directory_filters = ['-services/bas-core-tasks-creator', '-services/rabbitmq-client', '-services/thin-client', '-services/bas-core-tasks-scheduler']
   " Do not load govim in diff mode.
   if &diff
     let g:govimpluginloaded = 1
   endif
+  " let $GOVIM_GOPLS_FLAGS="-debug=localhost:6060 -logfile=/home/i/tmp/gopls.log"
+  let $GOVIM_GOPLS_FLAGS="-logfile=/home/i/tmp/gopls.log"
   let $GOVIM_USE_GOPLS_FROM_PATH = "true"
-endif
-
-if isdirectory($PLUGDIR . '/augment.vim')
-  let g:augment_node_command = "node-proxy"
-  " Required plugin's code modification in autoload/augment.vim: search '<andbar>'
-  let g:augment_disable_completions = v:true
-  let g:augment_workspace_folders = ['~/Projects/bas-core/go/services/ca', '~/Projects/bas-core/go/services/bas-core']
 endif

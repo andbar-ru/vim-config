@@ -196,7 +196,7 @@ inoremap <A-t> <Esc>:tabnew<CR>
 noremap <S-A-t> :exe "tabnew" . expand('%:p:h') . '/'<CR>
 inoremap <S-A-t> <Esc>:exe "tabnew" . expand('%:p:h') . '/'<CR>
 " Opens netrw at the current file's directory.
-nmap <a-e> :E<cr>
+nmap <a-e> :Explore<cr>
 " inoremap <A-e> mapped by auto-pairs
 noremap [t :tprevious<cr>
 noremap ]t :tnext<cr>
@@ -475,11 +475,6 @@ endif
 
 if isdirectory($PLUGDIR . '/tagbar')
   nmap <F7> :TagbarToggle<cr>
-endif
-
-if isdirectory($PLUGDIR . '/augment.vim')
-  " Required plugin's code modification in autoload/augment.vim: search '<andbar>'
-  inoremap <a-s> <cmd>call augment#Suggest()<cr>
 endif
 
 "=================================================

@@ -14,14 +14,15 @@ set guicursor+=a:blinkon0
 set mousemodel=popup
 
 " Initial size of gvim window
-if g:hostname == 'asus'
-    set lines=23 columns=100
-elseif &diff
+if &diff
     set lines=100 columns=220
-    winpos 333 16 " aligns in center if a screen size is 1920x1200
+    winpos 333 0 " aligns in center
     set number
 else
-    set lines=23 columns=104
+    set lines=23 columns=104 " 100 + line numbers gutter (4)
 endif
+
+" Vifm doesn't accept default TERM=linux
+call setenv('TERM', 'xterm-256color')
 
 runtime menu.vim

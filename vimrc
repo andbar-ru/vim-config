@@ -33,7 +33,7 @@ if $USER != 'root'
 endif
 Plug 'preservim/tagbar' " needs `go install github.com/jstemmer/gotags@latest` for go
 Plug 'wellle/targets.vim'
-Plug 'augmentcode/augment.vim'
+Plug 'vifm/vifm.vim'
 call plug#end()
 
 runtime defaults.vim
@@ -170,6 +170,7 @@ set grepprg=rg\ --vimgrep
 set ttymouse=sgr
 set completeopt+=popup
 set completepopup=align:menu,border:off,highlight:Pmenu
+set fileformats=unix " to show explicitly  if file has CRLF at line endings
 
 if $USER == 'root'
   set noswapfile
