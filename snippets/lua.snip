@@ -1,0 +1,87 @@
+snippet function
+alias f
+options word
+	function ${1}(${2})
+		${0}
+	end
+
+snippet function-anonymous
+alias fa
+options word
+	function(${1})
+		${0}
+	end
+
+snippet function1
+alias f1
+options word
+	function ${1}(${2}) ${0} end
+
+snippet while
+alias w
+options head
+	while ${1} do
+		${0}
+	end
+
+snippet if
+options head
+	if ${1} then
+		${0}
+	end
+
+snippet if1
+options head
+	if ${1} then ${0} end
+
+snippet for-range
+alias fr
+options head
+	for ${1} do
+		${0}
+	end
+
+snippet for-in
+alias fi
+options head
+	for ${1} in ${2} do
+		${0}
+	end
+
+snippet for-in-1
+alias fi1
+options head
+	for ${1} in ${2} do ${0} end
+
+snippet iftest
+alias it
+options head
+	if arg[1] == "test" then
+		${0}
+	end
+
+snippet class
+alias c
+options head
+	${1} = {}
+	$1.__index = $1
+
+	function $1.new()
+		local self = setmetatable({}, $1)
+		return self
+	end
+	${0}
+
+snippet subclass
+alias cc
+options head
+	${1} = {}
+	$1.__index = $1
+	setmetatable($1, {__index = ${2}})
+
+	function $1.new()
+		local self = $2.new()
+		setmetatable(self, $1)
+		return self
+	end
+	${0}

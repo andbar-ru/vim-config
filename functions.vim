@@ -386,10 +386,14 @@ function! GoToFile(path)
 endfunction
 
 " Creates new package in the parent directory and saves current file as main.go in that package.
-function! GoSavNewMain(name)
-  let newDir = expand('%:p:h:h') .. '/' .. a:name
+function! GoSavNewMain(dirname, filename = "main.go")
+  let newDir = expand('%:p:h:h') .. '/' .. a:dirname
   call system('mkdir ' .. newDir)
-  exec 'sav ' .. newDir .. '/main.go'
+  let filename = a:filename
+  if filename[-3:] != ".go"
+    let filename ..= ".go"
+  endif
+  exec 'sav ' .. newDir .. '/' .. filename
 endfunction
 
 function! WrappingCnext()

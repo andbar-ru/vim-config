@@ -23,6 +23,7 @@ setlocal autoread filetype=logtxt
   " Allow '@' in path names. It is for 'gf' on path names beginning from '@'.
   autocmd FileType vue,typescript setlocal isfname+=@-@
   autocmd FileType lua setlocal formatoptions-=r
+  autocmd FileType markdown setlocal noexpandtab tabstop=2 shiftwidth=2 textwidth=100
 
   autocmd BufLeave * call AutoSaveWinView()
   autocmd BufEnter * call AutoRestoreWinView()
