@@ -5,6 +5,7 @@ command! FormatJson :execute "%!jq" | normal zR
 command! FormatJsonSort :execute "%!jq -S" | normal zR
 command! MinifyJson :execute "%!jq -c"
 command! FormatXml :%!xmllint -format -
+command! FormatSQL :execute "%!pg_format --function-case=2 --keyword-case=2 --type-case=2 --no-extra-line"
 command! GetSyntaxGroupUnderCursor :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"
 command! RefineChessMoves :silent s/ {[^}]*}//<bar>s/\(\d\.\)\@<= //
 command! RemoveTrailingSpaces :%s/\s\+$//e

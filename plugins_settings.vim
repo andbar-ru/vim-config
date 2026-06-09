@@ -51,12 +51,16 @@ endif
 " endif
 if isdirectory($PLUGDIR . '/govim')
   let g:govim_disable_mouse_hover = 1
-  let g:govim_gopls_directory_filters = ['-services/bas-core-tasks-creator', '-services/rabbitmq-client', '-services/thin-client', '-services/bas-core-tasks-scheduler']
+  let g:govim_gopls_directory_filters = ['-services/rabbitmq-client', '-services/thin-client']
   " Do not load govim in diff mode.
   if &diff
     let g:govimpluginloaded = 1
   endif
   " let $GOVIM_GOPLS_FLAGS="-debug=localhost:6060 -logfile=/home/i/tmp/gopls.log"
-  let $GOVIM_GOPLS_FLAGS="-logfile=/home/i/tmp/gopls.log"
+  let $GOVIM_GOPLS_FLAGS="-logfile=auto"
   let $GOVIM_USE_GOPLS_FROM_PATH = "true"
+endif
+
+if isdirectory($PLUGDIR . '/vifm.vim')
+  let g:vifm_exec_args = "-c 'only | let $IN_VIM = 1'"
 endif

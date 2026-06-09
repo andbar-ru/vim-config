@@ -13,6 +13,13 @@ snippet printf
 alias pf
 	fmt.Printf("${1}\n", ${0})
 
+snippet printfdebug
+alias pfd
+options head
+	// begin #########################################
+	fmt.Printf("\nDEBUG: ${1}\n\n", ${0})
+	// end ###########################################
+
 snippet printfvar
 alias pfv
 	fmt.Printf("${1}: %#v\n", $1${0})
@@ -83,6 +90,13 @@ options head
 		panic(err)
 	}${0}
 
+snippet iferrlogfatal
+alias elf
+options head
+	if err != nil {
+		log.Fatal(err)
+	}${0}
+
 snippet wr
 options word
 	w http.ResponseWriter, r *http.Request
@@ -120,3 +134,19 @@ options head
 	/**************************************************
 	* ${0}
 	**************************************************/
+
+snippet logtofile
+options head
+	// begin #########################################
+	{
+		f, _ := os.OpenFile("/home/i/tmp/go.log", os.O_WRONLY|os.O_CREATE|os.O_APPEND, 0644)
+		defer f.Close()
+		f.WriteString(${0})
+		f.WriteString("\n")
+	}
+	// end ###########################################
+
+snippet queryfailederror
+alias qfe
+options word
+	fmt.Errorf("query '%s' (params: ${1}) failed: %w", query, ${2}, err)

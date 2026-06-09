@@ -195,8 +195,6 @@ noremap <A-t> :tabnew<CR>
 inoremap <A-t> <Esc>:tabnew<CR>
 noremap <S-A-t> :exe "tabnew" . expand('%:p:h') . '/'<CR>
 inoremap <S-A-t> <Esc>:exe "tabnew" . expand('%:p:h') . '/'<CR>
-" Opens netrw at the current file's directory.
-nmap <a-e> :Explore<cr>
 " inoremap <A-e> mapped by auto-pairs
 noremap [t :tprevious<cr>
 noremap ]t :tnext<cr>
@@ -420,6 +418,9 @@ nnoremap <leader>dmv "dyiw+"myiw+"vyiw
 nnoremap <expr> <a-r> &formatoptions =~# 'r' ? ':setlocal formatoptions-=r<cr>' : ':setlocal formatoptions+=r<cr>'
 inoremap <expr> <a-r> &formatoptions =~# 'r' ? '<c-o>:setlocal formatoptions-=r<cr>' : '<c-o>:setlocal formatoptions+=r<cr>'
 
+" Substitute selected text in the entire file
+vnoremap <c-s> :<c-u>%s/<c-r>*
+
 "=================================================
 " Commands
 "=================================================
@@ -471,6 +472,10 @@ if isdirectory($PLUGDIR . '/bufexplorer')
   inoremap <F5> <Esc>:ToggleBufExplorer<CR>
   noremap <S-F5> :BufExplorerVerticalSplit<CR>
   inoremap <S-F5> <Esc>:BufExplorerVerticalSplit<CR>
+endif
+
+if isdirectory($PLUGDIR . '/vifm.vim')
+  nmap <F6> :Vifm<cr>
 endif
 
 if isdirectory($PLUGDIR . '/tagbar')

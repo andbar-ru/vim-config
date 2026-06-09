@@ -26,7 +26,8 @@ nnoremap <silent> <buffer> <leader>gsf :GOVIMSuggestedFixes<cr>
 nnoremap <silent> <buffer> <leader>gt :GOVIMGoToTypeDef<cr>
 " Update quickfix window to ensure it contains diagnostics and not something else.
 nnoremap <buffer> <leader>gq :GOVIMQuickfixDiagnostics<cr>
-nnoremap <buffer> <leader>gi :GOVIMGoImports<cr>
+nnoremap <buffer> <leader>gi :GOVIMImplements<cr>
+nnoremap <buffer> <leader>gm :GOVIMGoImports<cr>
 
 function! s:ToggleHighlightReferenses()
   if s:highlight_references
