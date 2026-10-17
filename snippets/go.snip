@@ -38,6 +38,16 @@ alias spfv
 options word
 	fmt.Sprintf(${0:TARGET})
 
+snippet fprint
+alias fp
+options word
+	fmt.Fprint(${1}, "${0}")
+
+snippet fprintf
+alias fpf
+options word
+	fmt.Fprintf(${1}, "${2}", ${0})
+
 snippet errorf
 alias fe
 	fmt.Errorf("${1}", ${0})
@@ -45,6 +55,18 @@ alias fe
 snippet errorferr
 alias fee
 	fmt.Errorf("${1}: %w", err)
+
+snippet terrorf
+alias tef
+	t.Errorf("${1}", ${0})
+
+snippet tfatal
+alias tf
+	t.Fatal(${0})
+
+snippet tfatalf
+alias tff
+	t.Fatalf("${1}", ${0})
 
 snippet logprintln
 alias lpl
@@ -56,7 +78,7 @@ alias lpf
 
 snippet logfatal
 alias lf
-	log.Fatal("${0}")
+	log.Fatal(${0})
 
 snippet logfatalf
 alias lff
@@ -150,3 +172,34 @@ snippet queryfailederror
 alias qfe
 options word
 	fmt.Errorf("query '%s' (params: ${1}) failed: %w", query, ${2}, err)
+
+snippet queryrowcontext
+alias qrc
+options head
+	if err := r.db.QueryRowContext(ctx, query, ${1}).Scan(${0}); err != nil {
+		if errors.Is(err, sql.ErrNoRows) {
+			return nil, domainerr.ErrEntityNotFound
+		}
+		return nil, fmt.Errorf("query '%s' (params: ${2}) failed: %w", query, ${1}, err)
+	}
+
+snippet querycontext
+alias qc
+options head
+	rows, err := r.db.QueryContext(ctx, query, ${1})
+	if err != nil {
+		return nil, fmt.Errorf("query '%s' (params: ${2}) failed: %w", query, ${3}, err)
+	}
+	defer rows.Close()
+
+	${0}
+
+	for rows.Next() {
+		if err := rows.Scan(); err != nil {
+			return nil, fmt.Errorf("query '%s' (params: $2) scan failed: %w", query, $3, err)
+		}
+	}
+
+	if err = rows.Err(); err != nil {
+		return nil, fmt.Errorf("query '%s' (params: $2) iteration failed: %w", query, $3, err)
+	}

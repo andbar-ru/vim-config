@@ -51,9 +51,16 @@ endif
 " endif
 if isdirectory($PLUGDIR . '/govim')
   let g:govim_disable_mouse_hover = 1
-  let g:govim_gopls_directory_filters = ['-services/rabbitmq-client', '-services/thin-client']
+  let g:govim_gopls_directory_filters = [
+    \ '-services/rabbitmq-client',
+    \ '-services/bas-core-tasks-creator',
+    \ '-services/bas-core-tasks-scheduler',
+    \ '-services/bas-events',
+    \ '-services/net-normalizer',
+    \ '-services/bas-core/tests',
+  \ ]
   " Do not load govim in diff mode.
-  if &diff
+  if &diff || $MERGETOOL_MODE == 1
     let g:govimpluginloaded = 1
   endif
   " let $GOVIM_GOPLS_FLAGS="-debug=localhost:6060 -logfile=/home/i/tmp/gopls.log"

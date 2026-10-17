@@ -15,7 +15,7 @@ setlocal autoread filetype=logtxt
   autocmd BufRead .xbindkeysrc setlocal ft=conf
 
   autocmd FileType python setlocal ts=4 sw=4 cc=100,120 completeopt-=preview
-  autocmd FileType go setlocal ts=4 sw=4 noet
+  autocmd FileType go setlocal ts=4 sw=4 noet formatoptions=cqr
   autocmd FileType java setlocal ts=4 sw=4 et
   autocmd FileType vue setlocal iskeyword+=45 " '-'
   autocmd FileType json setlocal foldminlines=0 foldnestmax=99
@@ -24,6 +24,7 @@ setlocal autoread filetype=logtxt
   autocmd FileType vue,typescript setlocal isfname+=@-@
   autocmd FileType lua setlocal formatoptions-=r
   autocmd FileType markdown setlocal noexpandtab tabstop=2 shiftwidth=2 textwidth=100
+  autocmd FileType sql setlocal ts=4 sw=4
 
   autocmd BufLeave * call AutoSaveWinView()
   autocmd BufEnter * call AutoRestoreWinView()

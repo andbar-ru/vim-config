@@ -93,6 +93,8 @@ inoremap <silent> <c-left> <c-o>B
 " Выделение последнего вставленного текста
 nnoremap <expr> <A-v> '`[' . strpart(getregtype(), 0, 1) . '`]'
 inoremap <expr> <A-v> '<Esc>`[' . strpart(getregtype(), 0, 1) . '`]'
+" Операция над последним вставленным текстом
+nnoremap <a-[> :'[,']
 " Select entire comment (vac is occupied by "select a class")
 nnoremap vam :call SelectComment()<cr>
 " Toggle block comment manually
@@ -147,8 +149,6 @@ noremap \c :echo<cr>
 
 " Copy
 noremap Y y$
-noremap <a-y> "+y
-noremap <s-a-y> :%y+<cr>
 vnoremap y y`]
 vnoremap gy y
 " Duplicate multiple lines.
@@ -159,15 +159,19 @@ nnoremap <silent> _ :<c-u>call CopyLine(v:count, 0, 0)<cr>
 nnoremap <silent> g_ :<c-u>call CopyLine(v:count, 1, 0)<cr>
 nnoremap <silent> \_ :<c-u>call CopyLine(v:count, 1, 1)<cr>
 
-" Copy|paste into|from clipboard
+" Copy|paste into|from system clipboard
 noremap <c-insert> "+y
 noremap <expr> <s-insert> line('.') == 1 ? '"+P' : '"+p'
 inoremap <s-insert> <c-r>+
+noremap <a-y> "+y
+noremap <s-a-y> :%y+<cr>
+nnoremap <a-p> "+p
+inoremap <a-p> <c-r>+
 
 " Toggle 'paste' mode. One could use 'set paste!' but that is not descriptive enough in the
 " statusline.
-nnoremap <expr> <a-p> &paste ? ':set nopaste<cr>' : ':set paste<cr>'
-inoremap <expr> <a-p> &paste ? '<c-o>:set nopaste<cr>' : '<c-o>:set paste<cr>'
+nnoremap <expr> <c-s-p> &paste ? ':set nopaste<cr>' : ':set paste<cr>'
+inoremap <expr> <c-s-p> &paste ? '<c-o>:set nopaste<cr>' : '<c-o>:set paste<cr>'
 " Paste and fix the indent.
 inoremap <c-v> <c-r><c-p>"
 inoremap <MiddleMouse> <c-r><c-p>*
