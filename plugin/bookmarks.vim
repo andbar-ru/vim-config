@@ -17,6 +17,7 @@ function! s:SetupBookmarkBuffer() abort
   " mapping <cr> to gf breaks on file names with spaces.
   nnoremap <buffer> <silent> <cr> :call <sid>OpenBookmark('edit')<cr>
   nnoremap <buffer> <silent> <s-cr> :call <sid>OpenBookmark('split')<cr>
+  nnoremap <buffer> <silent> <leader>a :put =fnamemodify(expand('#:p'), ':~')<cr>
 endfunction
 
 augroup bookmarks
@@ -24,4 +25,5 @@ augroup bookmarks
   execute 'autocmd BufRead,BufNewFile' s:bookmarks_file 'call <sid>SetupBookmarkBuffer()'
 augroup end
 
-nnoremap <silent> <leader>ob :call <sid>OpenBookmarkFile()<cr>
+" bo stands for 'bookmarks: open'
+nnoremap <silent> <leader>bo :call <sid>OpenBookmarkFile()<cr>
