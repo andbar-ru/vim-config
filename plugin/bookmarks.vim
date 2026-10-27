@@ -14,7 +14,6 @@ endfunction
 
 function! s:SetupBookmarkBuffer() abort
   setlocal nobuflisted bufhidden=wipe
-  " mapping <cr> to gf breaks on file names with spaces.
   nnoremap <buffer> <silent> <cr> :call <sid>OpenBookmark('edit')<cr>
   nnoremap <buffer> <silent> <s-cr> :call <sid>OpenBookmark('split')<cr>
   nnoremap <buffer> <silent> <leader>a :put =fnamemodify(expand('#:p'), ':~')<cr>
