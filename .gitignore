@@ -8,3 +8,4 @@ test_configs/*
 !swapfiles/.gitkeep
 view/
 tags
+/bookmarks
