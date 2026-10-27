@@ -8,7 +8,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-abolish'
 if executable('git')
-  silent! system('git rev-parse --is-inside-work-tree')
+  call system('git rev-parse --is-inside-work-tree')
   if !v:shell_error
     Plug 'tpope/vim-fugitive'
   endif
